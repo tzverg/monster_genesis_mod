@@ -572,6 +572,7 @@ country_event = {
 }
 
 # Show notification about Matriarch Update [monster_genesis.23]
+# Called by monster_genesis.19
 country_event = {
 	id = monster_genesis.23
 	title = monster_genesis.23.name
@@ -594,6 +595,7 @@ country_event = {
 }
 
 # Show notification about Bull Guardian Borned [monster_genesis.24]
+# Called by monster_genesis.20
 country_event = {
 	id = monster_genesis.24
 	title = monster_genesis.24.name
@@ -822,6 +824,7 @@ country_event = {
 }
 
 # Event of Death Guardian Tiyanki Matriarch [monster_genesis.29]
+# Called by monster_genesis.28
 country_event = {
 	id = monster_genesis.29
 	title = monster_genesis.29.name
@@ -940,7 +943,7 @@ country_event = {
 	}
 }
 
-# Notify about tiyanky Calf Evelution to Cow [monster_genesis.31] (HIDDEN)
+# Notify about tiyanky Calf Evelution to Cow [monster_genesis.31]
 country_event = {
 	id = monster_genesis.31
 	title = monster_genesis.31.name
@@ -963,7 +966,7 @@ country_event = {
 	}
 }
 
-# Notify about tiyanky Calf Evelution to Bull [monster_genesis.32] (HIDDEN)
+# Notify about tiyanky Calf Evelution to Bull [monster_genesis.32]
 country_event = {
 	id = monster_genesis.32
 	title = monster_genesis.32.name

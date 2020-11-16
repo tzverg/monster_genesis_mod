@@ -21,7 +21,9 @@ monster_genesis_tiyanki = {
 		space_creatures = yes
 	}
 	modules = {
-		exclusive_diplomacy_module = {} # Nothing is allowed, but we need this for relationships.
+		# Nothing is allowed, but we need this for relationships.
+		exclusive_diplomacy_module = {} 
+		# end comentary block
 		basic_technology_module = {}
 	}
 }
