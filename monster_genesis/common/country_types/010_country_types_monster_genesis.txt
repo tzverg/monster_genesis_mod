@@ -1,0 +1,27 @@
+##########################################################################
+# Country Type for Monster Genesis
+#
+# Written by TzverG
+##########################################################################
+
+monster_genesis_tiyanki = {
+	attack_unarmed_orbital_stations = yes
+	scaled_difficulty_bonuses = 0.5
+	is_space_critter = yes
+	government = no
+	enforces_borders = no
+	ai = {
+		enabled = no
+	}
+	faction = {
+		hostile = no
+		needs_border_access = no
+		generate_borders = no
+		needs_colony = no
+		space_creatures = yes
+	}
+	modules = {
+		exclusive_diplomacy_module = {} # Nothing is allowed, but we need this for relationships.
+		basic_technology_module = {}
+	}
+}

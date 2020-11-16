@@ -1,0 +1,1522 @@
+##########################################################################
+# Scripted Effects for Monster Genesis
+#
+# Written by TzverG
+##########################################################################
+
+#################################################
+#	Variables									#
+#################################################
+
+@tiyanki_calf_age = 18250				# 50 years
+@tiyanki_calf_age_random = 3650			# 10 years
+
+@tiyanki_cow_age = 25550				# 70 years		
+@tiyanki_cow_age_random = 7300‬			# 20 years
+
+@tiyanki_matriarch_age = 10950			# 30 years
+@tiyanki_matriarch_age_random = 7300‬	# 20 years
+
+# @tiyanki_calf_age = 50
+# @tiyanki_calf_age_random = 10
+
+# @tiyanki_cow_age = 70
+# @tiyanki_cow_age_random = 20
+
+# @tiyanki_matriarch_age = 30
+# @tiyanki_matriarch_age_random = 20
+
+@static_orbit_time_calf = 20
+@dynamic_orbit_time_calf = 15
+
+@static_orbit_time_cow = 60
+@dynamic_orbit_time_cow = 20
+
+@static_orbit_time_bull = 15
+@dynamic_orbit_time_bull = 5
+
+@static_orbit_time_matriarch = 50
+@dynamic_orbit_time_matriarch = 50
+
+# Creates the monster countries
+create_monster_genesis_country = {
+	if = {
+		limit = { 
+			NOT = { 
+				exists = event_target:monster_genesis_tiyanki_country
+			}
+		}
+		
+		create_country = {
+			name = "tiyanki_country"
+			type = monster_genesis_tiyanki
+			auto_delete = no
+			flag = {
+				icon = {
+					category = "zoological"
+					file = "flag_zoological_11.dds"
+				}
+				background= {
+					category = "backgrounds"
+					file = "00_solid.dds"
+				}
+				colors={
+					"black"
+					"black"
+					"null"
+					"null"
+				}
+			}
+		}
+		
+		last_created_country = {
+			save_global_event_target_as = monster_genesis_tiyanki_country
+			
+			set_name = monster_genesis.0.name
+			
+			# Make yourselves known to everybody
+			every_country = {
+				limit = { 
+					NOT = { 
+						has_communications = event_target:monster_genesis_tiyanki_country
+					}
+				}
+				
+				establish_communications_no_message = event_target:monster_genesis_tiyanki_country
+				event_target:monster_genesis_tiyanki_country = {
+					establish_communications_no_message = PREV
+				}
+			}
+			
+			# Tiyankis are friendly to creators
+			set_faction_hostility = {
+				target = event_target:monster_genesis_creator
+				set_hostile = no
+				set_neutral = no
+				set_friendly = yes
+			}
+			
+			# Disable attacking enclave stations
+			every_country = {
+				limit = { 
+					is_country_type = enclave 
+				}
+					
+				set_faction_hostility = {
+					target = PREV
+					set_hostile = no
+					set_neutral = no
+					set_friendly = yes
+				}
+			}
+			
+			# Tiyankis are friendly to some other monsters
+			every_country = {
+				limit = { 
+					is_country_type = crystal
+					is_country_type = cloud
+				}
+					
+				set_faction_hostility = {
+					target = PREV
+					set_hostile = no
+					set_neutral = no
+					set_friendly = yes
+				}
+			}
+		}
+	}
+}
+
+# Create a Tiyanki fleet for evolution from CALF
+create_monster_genesis_tiyanki_random_fleet = {		
+	random_list = {
+		50 ={
+			create_monster_genesis_tiyanki_cow = yes
+		}
+		50 ={
+			create_monster_genesis_tiyanki_bull = yes
+		}
+	}
+}
+
+# Create a Tiyanki Calf Fleet
+create_monster_genesis_tiyanki_calf = {
+	if = {
+		limit = {
+			AND = {
+				exists = event_target:monster_genesis_tiyanki_country
+				exists = event_target:monster_genesis_creator
+			}
+		}
+		
+		event_target:monster_genesis_creator.capital_scope = {
+			save_event_target_as = spawn_location
+		}
+		
+		event_target:monster_genesis_tiyanki_country = {
+			create_fleet = {
+				name = "NAME_Calf"
+				effect = {
+					set_owner = event_target:monster_genesis_tiyanki_country
+					create_monster_genesis_tiyanki_calf_ship = yes
+					
+					event_target:monster_genesis_creator = {
+						country_event = { id = monster_genesis.6 }
+					}
+					
+					set_fleet_flag = tiyanky_calf
+					set_timed_fleet_flag = { 
+						flag = tiyanky_calf_age
+						days = @tiyanki_calf_age
+					}
+					event_target:monster_genesis_creator = {
+						country_event = { 
+							id = monster_genesis.10
+							days = @tiyanki_calf_age
+							random = @tiyanki_calf_age_random
+						}
+					}
+					
+					# Fleet Settings
+					set_location = {
+						target = event_target:spawn_location
+						distance = 5
+						angle = random
+					}
+					
+					settings = {
+						can_upgrade = no
+						can_disband = no
+						can_change_composition = no
+						can_change_leader = no
+						uses_naval_capacity = no
+					}
+					
+					set_fleet_stance = passive
+					set_aggro_range_measure_from = self
+					set_aggro_range = 50
+					
+					# Fleet Orders (commented code generate error with unique trigger and effect id's)
+					#create_monster_genesis_tiyanki_calf_actions = yes
+					
+					queue_actions = {
+						repeat = {
+							find_random_system = {
+								trigger = {
+									id = monster_genesis_tiyanki_calf.trigger.1
+									is_inside_border = event_target:monster_genesis_creator
+									
+									any_system_planet = {
+										is_planet_class = pc_gas_giant
+									}
+								}
+								found_system = {
+									move_to = this
+									
+									find_random_planet = {
+										trigger = {
+											id = monster_genesis_tiyanki_calf.trigger.2
+											is_planet_class = pc_gas_giant
+										}
+										found_planet = {
+											move_to = this
+											orbit_planet = this
+											
+											effect = {
+												id = monster_genesis_tiyanki_calf.effect.1
+												
+												update_gas_giant_deposit = yes
+											}
+											
+											wait = {
+												duration = @static_orbit_time_calf
+												random = @dynamic_orbit_time_calf
+											}
+										}
+									}
+								}
+							}
+							find_random_system = {
+								trigger = {
+									id = monster_genesis_tiyanki_calf.trigger.3
+									is_inside_border = event_target:monster_genesis_creator
+									
+									any_system_planet = {
+										is_colony = yes
+									}
+								}
+								found_system = {
+									move_to = this
+									
+									find_random_planet = {
+										trigger = {
+											id = monster_genesis_tiyanki_calf.trigger.4
+											is_colony = yes
+										}
+										found_planet = {
+											move_to = this
+											orbit_planet = this
+											
+											effect = {
+												id = monster_genesis_tiyanki_calf.effect.2
+												if = {
+													limit = {
+														NOT = {
+															has_modifier = sky_visiter
+														}
+													}
+													add_modifier = { 
+														modifier = sky_visiter 
+														years = 1
+													}
+												}
+											}
+											
+											wait = {
+												duration = @static_orbit_time_calf
+												random = @dynamic_orbit_time_calf
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Create a Tiyanki Cow Fleet
+create_monster_genesis_tiyanki_cow = {
+	if = {
+		limit = {
+			AND = {
+				exists = event_target:monster_genesis_tiyanki_country
+				exists = event_target:monster_genesis_creator
+			}
+		}
+		
+		event_target:monster_genesis_tiyanki_country = {
+			every_owned_fleet = {
+				limit = {
+					AND = {
+						has_fleet_flag = tiyanky_calf
+						NOT = {
+							has_fleet_flag = tiyanky_calf_age
+						}
+					}
+				}
+				
+				save_event_target_as = fleet_location
+				
+				delete_fleet = {
+					target = this
+					destroy_template = yes
+				}
+				
+				create_fleet = {
+					name = "NAME_Cow"
+					effect = {
+						set_owner = event_target:monster_genesis_tiyanki_country
+						
+						create_monster_genesis_tiyanki_cow_ship = yes
+						
+						event_target:monster_genesis_creator = {
+							country_event = { id = monster_genesis.8 }
+						}
+						
+						set_fleet_flag = tiyanky_cow
+						set_timed_fleet_flag = { 
+							flag = tiyanky_cow_age
+							days = @tiyanki_cow_age
+						}
+						
+						event_target:monster_genesis_creator = {
+							country_event = {
+								id = monster_genesis.11
+								days = @tiyanki_cow_age
+								random = @tiyanki_cow_age_random
+							}
+						}
+						
+						set_location = {
+							target = event_target:fleet_location
+						}
+						
+						event_target:monster_genesis_creator = {
+							country_event = {
+								id = monster_genesis.31
+							}
+						}
+						
+						settings = {
+							can_upgrade = no
+							can_disband = no
+							can_change_composition = no
+							can_change_leader = no
+							uses_naval_capacity = no
+						}
+						
+						set_fleet_stance = passive
+						set_aggro_range_measure_from = self
+						set_aggro_range = 70
+						
+						# Fleet Orders (commented code generate error with unique trigger and effect id's)
+						#create_monster_genesis_tiyanki_cow_actions = yes
+						
+						queue_actions = {
+							repeat = {
+								find_random_system = {
+									trigger = {
+										id = monster_genesis_tiyanki_cow.trigger.1
+										is_inside_border = event_target:monster_genesis_creator
+										
+										any_system_planet = {
+											is_planet_class = pc_gas_giant
+										}
+									}
+									found_system = {
+										move_to = this
+										
+										find_random_planet = {
+											trigger = {
+												id = monster_genesis_tiyanki_cow.trigger.2
+												is_planet_class = pc_gas_giant
+											}
+											found_planet = {
+												move_to = this
+												orbit_planet = this
+												
+												wait = {
+													duration = @static_orbit_time_cow
+													random = @dynamic_orbit_time_cow
+												}
+											}
+										}
+									}
+								}
+								find_random_system = {
+									trigger = {
+										id = monster_genesis_tiyanki_cow.trigger.3
+										is_inside_border = event_target:monster_genesis_creator
+									}
+									found_system = {
+										move_to = this
+										
+										find_random_planet = {
+											found_planet = {
+												move_to = this
+												orbit_planet = this												
+												
+												wait = {
+													duration = @static_orbit_time_cow
+													random = @dynamic_orbit_time_cow
+												}
+											}
+										}
+										find_random_planet = {
+											found_planet = {
+												move_to = this
+												orbit_planet = this												
+												
+												wait = {
+													duration = @static_orbit_time_cow
+													random = @dynamic_orbit_time_cow
+												}
+											}
+										}
+										find_random_planet = {
+											found_planet = {
+												move_to = this
+												orbit_planet = this												
+												
+												wait = {
+													duration = @static_orbit_time_cow
+													random = @dynamic_orbit_time_cow
+												}
+											}
+										}
+									}
+								}
+								# find_random_system = {
+									# trigger = {
+										# id = monster_genesis_tiyanki_cow.trigger.4
+										# is_inside_border = event_target:monster_genesis_creator
+										
+										# every_fleet_in_system = {
+											# limit = {
+												# OR = {
+													# has_fleet_flag = tiyanky_calf
+													# has_fleet_flag = tiyanky_cow
+													# has_fleet_flag = tiyanky_bull
+												# }
+											# }
+										# }
+									# }
+									# found_system = {
+										# move_to = this
+										
+										# wait = {
+											# duration = @static_orbit_time_cow
+											# random = @dynamic_orbit_time_cow
+										# }
+									# }
+								# }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Create a Tiyanki Bull Fleet
+create_monster_genesis_tiyanki_bull = {
+	if = {
+		limit = {
+			AND = {
+				exists = event_target:monster_genesis_tiyanki_country
+				exists = event_target:monster_genesis_creator
+			}
+		}
+		
+		event_target:monster_genesis_tiyanki_country = {
+			every_owned_fleet = {
+				limit = {
+					AND = {
+						has_fleet_flag = tiyanky_calf
+						NOT = {
+							has_fleet_flag = tiyanky_calf_age
+						}
+					}
+				}
+				
+				save_event_target_as = fleet_location
+				
+				delete_fleet = {
+					target = this
+					destroy_template = yes
+				}
+				
+				create_fleet = {
+					name = "NAME_Bull"
+					effect = {
+						set_owner = event_target:monster_genesis_tiyanki_country
+						
+						create_monster_genesis_tiyanki_bull_ship = yes
+						
+						event_target:monster_genesis_creator = {
+							country_event = { id = monster_genesis.7 }
+						}
+						
+						set_fleet_flag = tiyanky_bull
+						
+						set_location = {
+							target = event_target:fleet_location
+						}
+						
+						event_target:monster_genesis_creator = {
+							country_event = {
+								id = monster_genesis.32
+							}
+						}
+						
+						settings = {
+							can_upgrade = no
+							can_disband = no
+							can_change_composition = no
+							can_change_leader = no
+							uses_naval_capacity = no
+						}
+						
+						set_fleet_stance = aggressive
+						set_aggro_range_measure_from = self
+						set_aggro_range = 200
+						
+						# Fleet Orders (commented code generate error with unique trigger and effect id's)
+						#create_monster_genesis_tiyanki_bull_actions = yes
+						
+						queue_actions = {
+							repeat = {
+								find_random_system = {
+									trigger = {
+										id = monster_genesis_tiyanki_bull.trigger.1
+										is_inside_border = event_target:monster_genesis_creator
+									}
+									found_system = {
+										move_to = this
+										
+										find_random_planet = {
+											found_planet = {
+												move_to = this
+												orbit_planet = this												
+												
+												wait = {
+													duration = @static_orbit_time_bull
+													random = @dynamic_orbit_time_bull
+												}
+											}
+										}
+										find_random_planet = {
+											found_planet = {
+												move_to = this
+												orbit_planet = this												
+												
+												wait = {
+													duration = @static_orbit_time_bull
+													random = @dynamic_orbit_time_bull
+												}
+											}
+										}
+									}
+								}
+								# find_random_system = {
+									# trigger = {
+										# id = monster_genesis_tiyanki_bull.trigger.2
+										# is_inside_border = event_target:monster_genesis_creator
+										
+										# every_fleet_in_system = {
+											# limit = {
+												# OR = {
+													# has_fleet_flag = tiyanky_cow
+													# has_fleet_flag = tiyanky_matriarch
+												# }
+											# }
+										# }
+									# }
+									# found_system = {
+										# move_to = this
+										
+										# wait = {
+											# duration = @static_orbit_time_bull
+											# random = @dynamic_orbit_time_bull
+										# }
+									# }
+								# }
+								find_random_system = {
+									trigger = {
+										id = monster_genesis_tiyanki_bull.trigger.3
+										is_inside_border = event_target:monster_genesis_creator
+										
+										any_system_planet = {
+											is_planet_class = pc_gas_giant
+										}
+									}
+									found_system = {
+										move_to = this
+										
+										find_random_planet = {
+											trigger = {
+												id = monster_genesis_tiyanki_bull.trigger.4
+												is_planet_class = pc_gas_giant
+											}
+											found_planet = {
+												move_to = this
+												orbit_planet = this
+												
+												wait = {
+													duration = @static_orbit_time_bull
+													random = @dynamic_orbit_time_bull
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Create a Tiyanki Matriarch Fleet
+create_monster_genesis_tiyanki_matriarch = {
+	if = {
+		limit = {
+			AND = {
+				exists = event_target:monster_genesis_tiyanki_country
+				exists = event_target:monster_genesis_creator
+				NOT = {
+					is_any_monster_boss_active = yes
+				}
+			}
+		}
+		
+		event_target:monster_genesis_creator = {
+			country_event = { id = monster_genesis.9 }
+		}
+		
+		event_target:monster_genesis_tiyanki_country = {
+			every_owned_fleet = {
+				limit = {
+					has_fleet_flag = tiyanky_cow
+					NOT = {
+						has_fleet_flag = tiyanky_cow_age
+					}
+					NOT = {
+						has_fleet_flag = stop_tiyanky_cow_evolution
+					}
+				}
+				
+				save_event_target_as = fleet_location
+				
+				delete_fleet = {
+					target = this
+					destroy_template = yes
+				}
+				
+				create_fleet = {
+					name = "NAME_MG_Progenitor"
+					effect = {
+						set_owner = event_target:monster_genesis_tiyanki_country
+						
+						create_monster_genesis_tiyanki_matriarch_ship = yes
+						
+						set_fleet_flag = tiyanky_matriarch
+						set_timed_fleet_flag = { 
+							flag = tiyanky_matriarch_age
+							days = @tiyanki_matriarch_age
+						}
+						
+						set_location = {
+							target = event_target:fleet_location
+						}
+						
+						event_target:monster_genesis_creator = {
+							country_event = {
+								id = monster_genesis.12
+							}
+							country_event = { 
+								id = monster_genesis.21
+								days = @tiyanki_matriarch_age
+								random = @tiyanki_matriarch_age_random
+							}
+						}
+						
+						settings = {
+							can_upgrade = no
+							can_disband = no
+							can_change_composition = no
+							can_change_leader = no
+							uses_naval_capacity = no
+						}
+						
+						set_fleet_stance = passive
+						set_aggro_range_measure_from = self
+						set_aggro_range = 100
+						
+						set_formation_scale = 2.0
+						
+						# Fleet Orders (commented code generate error with unique trigger and effect id's)
+						#create_monster_genesis_tiyanki_matriarch_actions = yes
+						
+						queue_actions = {
+							repeat = {
+								find_random_system = {
+									trigger = {
+										id = monster_genesis_tiyanki_matriarch.trigger.1
+										is_inside_border = event_target:monster_genesis_creator
+										
+										any_system_planet = {
+											is_colony = yes
+										}
+									}
+									found_system = {
+										move_to = this
+										
+										find_random_planet = {
+											trigger = {
+												id = monster_genesis_tiyanki_matriarch.trigger.2
+												is_colony = yes
+											}
+											found_planet = {
+												move_to = this
+												orbit_planet = this
+												
+												wait = {
+													duration = @static_orbit_time_matriarch
+													random = @dynamic_orbit_time_matriarch
+												}
+											}
+										}
+									}
+								}
+								find_random_system = {
+									trigger = {
+										id = monster_genesis_tiyanki_matriarch.trigger.3
+										is_inside_border = event_target:monster_genesis_creator
+									}
+									found_system = {
+										move_to = this
+										
+										find_random_planet = {
+											found_planet = {
+												move_to = this
+												orbit_planet = this												
+												
+												wait = {
+													duration = @static_orbit_time_matriarch
+													random = @dynamic_orbit_time_matriarch
+												}
+											}
+										}
+										find_random_planet = {
+											found_planet = {
+												move_to = this
+												orbit_planet = this												
+												
+												wait = {
+													duration = @static_orbit_time_matriarch
+													random = @dynamic_orbit_time_matriarch
+												}
+											}
+										}
+										find_random_planet = {
+											found_planet = {
+												move_to = this
+												orbit_planet = this												
+												
+												wait = {
+													duration = @static_orbit_time_matriarch
+													random = @dynamic_orbit_time_matriarch
+												}
+											}
+										}
+									}
+								}
+								# find_random_system = {
+									# trigger = {
+										# id = monster_genesis_tiyanki_matriarch.trigger.4
+										# is_inside_border = event_target:monster_genesis_creator
+										
+										# every_fleet_in_system = {
+											# limit = {
+												# OR = {
+													# has_fleet_flag = tiyanky_calf
+													# has_fleet_flag = tiyanky_cow
+													# has_fleet_flag = tiyanky_bull
+												# }
+											# }
+										# }
+									# }
+									# found_system = {
+										# move_to = this
+										
+										# find_random_planet = {
+											# found_planet = {
+												# move_to = this
+												# orbit_planet = this	
+												
+												# wait = {
+													# duration = @static_orbit_time_matriarch
+													# random = @dynamic_orbit_time_matriarch
+												# }
+											# }
+										# }
+									# }
+								# }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# add evolution flags (deprecate evolution) to every tiyanky cow
+add_monster_genesis_tiyanki_cow_evolution_flags = {
+	if = {
+		limit = {
+			exists = event_target:monster_genesis_tiyanki_country
+		}
+		event_target:monster_genesis_tiyanki_country = {
+			every_owned_fleet = {
+				limit = {
+					has_fleet_flag = tiyanky_cow
+				}
+				set_fleet_flag = stop_tiyanky_cow_evolution
+			}
+		}
+	}
+}
+
+# Remove all evolution flags from every tiyanky cow
+remove_monster_genesis_tiyanki_cow_evolution_flags = {
+	if = {
+		limit = {
+			exists = event_target:monster_genesis_tiyanki_country
+		}
+		event_target:monster_genesis_tiyanki_country = {
+			every_owned_fleet = {
+				limit = {
+					AND = {
+						has_fleet_flag = tiyanky_cow
+						has_fleet_flag = stop_tiyanky_cow_evolution
+					}
+				}
+				remove_fleet_flag = stop_tiyanky_cow_evolution
+			}
+		}
+	}
+}
+
+# Set New Evolution Flag to Tiyanki Matriarch
+set_monster_genesis_matriarch_flag = {
+	if = {
+		limit = {
+			exists = event_target:monster_genesis_tiyanki_country
+		}
+		event_target:monster_genesis_tiyanki_country = {
+			random_owned_fleet = {
+				limit = {
+					has_fleet_flag = tiyanky_matriarch
+				}
+				
+				set_timed_fleet_flag = { 
+					flag = tiyanky_matriarch_age
+					days = @tiyanki_matriarch_age
+				}
+						
+				event_target:monster_genesis_creator = {
+					country_event = { 
+						id = monster_genesis.21
+						days = 360
+						random = 360
+					}
+				}
+			}
+		}
+	}
+}
+
+# Create a Tiyanki Calf Fleet Actions (needed fleet_scope)
+create_monster_genesis_tiyanki_calf_actions = {
+	queue_actions = {
+		repeat = {
+			find_random_system = {
+				trigger = {
+					id = mongen_tiyanki_calf_actions.trigger.1
+					is_inside_border = event_target:monster_genesis_creator
+					
+					any_system_planet = {
+						is_planet_class = pc_gas_giant
+					}
+				}
+				found_system = {
+					move_to = this
+					
+					find_random_planet = {
+						trigger = {
+							id = mongen_tiyanki_calf_actions.trigger.2
+							is_planet_class = pc_gas_giant
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+							
+							effect = {
+								id = mongen_tiyanki_calf_actions.effect.1
+								
+								update_gas_giant_deposit = yes
+							}
+							
+							wait = {
+								duration = @static_orbit_time_calf
+								random = @dynamic_orbit_time_calf
+							}
+						}
+					}
+				}
+			}
+			find_random_system = {
+				trigger = {
+					id = mongen_tiyanki_calf_actions.trigger.3
+					is_inside_border = event_target:monster_genesis_creator
+					
+					any_system_planet = {
+						is_colony = yes
+					}
+				}
+				found_system = {
+					move_to = this
+					
+					find_random_planet = {
+						trigger = {
+							id = mongen_tiyanki_calf_actions.trigger.4
+							is_colony = yes
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+							
+							effect = {
+								id = mongen_tiyanki_calf_actions.effect.2
+								if = {
+									limit = {
+										NOT = {
+											has_modifier = sky_visiter
+										}
+									}
+									add_modifier = { 
+										modifier = sky_visiter 
+										years = 1
+									}
+								}
+							}
+							
+							wait = {
+								duration = @static_orbit_time_calf
+								random = @dynamic_orbit_time_calf
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Create a Tiyanki Cow Fleet Actions (needed fleet_scope)
+create_monster_genesis_tiyanki_cow_actions = {
+	queue_actions = {
+		repeat = {
+			find_random_system = {
+				trigger = {
+					id = mongen_tiyanki_cow_actions.trigger.1
+					is_inside_border = event_target:monster_genesis_creator
+					
+					any_system_planet = {
+						is_planet_class = pc_gas_giant
+					}
+				}
+				found_system = {
+					move_to = this
+					
+					find_random_planet = {
+						trigger = {
+							id = mongen_tiyanki_cow_actions.trigger.2
+							is_planet_class = pc_gas_giant
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+							
+							wait = {
+								duration = @static_orbit_time_cow
+								random = @dynamic_orbit_time_cow
+							}
+						}
+					}
+				}
+			}
+			find_random_system = {
+				trigger = {
+					id = mongen_tiyanki_cow_actions.trigger.3
+					is_inside_border = event_target:monster_genesis_creator
+				}
+				found_system = {
+					move_to = this
+					
+					find_random_planet = {
+						found_planet = {
+							move_to = this
+							orbit_planet = this												
+							
+							wait = {
+								duration = @static_orbit_time_cow
+								random = @dynamic_orbit_time_cow
+							}
+						}
+					}
+					find_random_planet = {
+						found_planet = {
+							move_to = this
+							orbit_planet = this												
+							
+							wait = {
+								duration = @static_orbit_time_cow
+								random = @dynamic_orbit_time_cow
+							}
+						}
+					}
+					find_random_planet = {
+						found_planet = {
+							move_to = this
+							orbit_planet = this												
+							
+							wait = {
+								duration = @static_orbit_time_cow
+								random = @dynamic_orbit_time_cow
+							}
+						}
+					}
+				}
+			}
+			# find_random_system = {
+				# trigger = {
+					# id = mongen_tiyanki_cow_actions.trigger.4
+					# is_inside_border = event_target:monster_genesis_creator
+					
+					# every_fleet_in_system = {
+						# limit = {
+							# OR = {
+								# has_fleet_flag = tiyanky_calf
+								# has_fleet_flag = tiyanky_cow
+								# has_fleet_flag = tiyanky_bull
+							# }
+						# }
+					# }
+				# }
+				# found_system = {
+					# move_to = this
+					
+					# wait = {
+						# duration = @static_orbit_time_cow
+						# random = @dynamic_orbit_time_cow
+					# }
+				# }
+			# }
+		}
+	}
+}
+
+# Create a Tiyanki Bull Fleet Actions (needed fleet_scope)
+create_monster_genesis_tiyanki_bull_actions = {
+	queue_actions = {
+		repeat = {
+			find_random_system = {
+				trigger = {
+					id = mongen_tiyanki_bull_actions.trigger.1
+					is_inside_border = event_target:monster_genesis_creator
+				}
+				found_system = {
+					move_to = this
+					
+					find_random_planet = {
+						found_planet = {
+							move_to = this
+							orbit_planet = this												
+							
+							wait = {
+								duration = @static_orbit_time_bull
+								random = @dynamic_orbit_time_bull
+							}
+						}
+					}
+					find_random_planet = {
+						found_planet = {
+							move_to = this
+							orbit_planet = this												
+							
+							wait = {
+								duration = @static_orbit_time_bull
+								random = @dynamic_orbit_time_bull
+							}
+						}
+					}
+				}
+			}
+			# find_random_system = {
+				# trigger = {
+					# id = mongen_tiyanki_bull_actions.trigger.2
+					# is_inside_border = event_target:monster_genesis_creator
+					
+					# every_fleet_in_system = {
+						# limit = {
+							# OR = {
+								# has_fleet_flag = tiyanky_cow
+								# has_fleet_flag = tiyanky_matriarch
+							# }
+						# }
+					# }
+				# }
+				# found_system = {
+					# move_to = this
+					
+					# wait = {
+						# duration = @static_orbit_time_bull
+						# random = @dynamic_orbit_time_bull
+					# }
+				# }
+			# }
+			find_random_system = {
+				trigger = {
+					id = mongen_tiyanki_bull_actions.trigger.3
+					is_inside_border = event_target:monster_genesis_creator
+					
+					any_system_planet = {
+						is_planet_class = pc_gas_giant
+					}
+				}
+				found_system = {
+					move_to = this
+					
+					find_random_planet = {
+						trigger = {
+							id = mongen_tiyanki_bull_actions.trigger.4
+							is_planet_class = pc_gas_giant
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+							
+							wait = {
+								duration = @static_orbit_time_bull
+								random = @dynamic_orbit_time_bull
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Create a Tiyanki Matriarch Fleet Actions (needed fleet_scope)
+create_monster_genesis_tiyanki_matriarch_actions = {
+	queue_actions = {
+		repeat = {
+			find_random_system = {
+				trigger = {
+					id = mongen_tiyanki_matriarch_actions.trigger.1
+					is_inside_border = event_target:monster_genesis_creator
+					
+					any_system_planet = {
+						is_colony = yes
+					}
+				}
+				found_system = {
+					move_to = this
+					
+					find_random_planet = {
+						trigger = {
+							id = mongen_tiyanki_matriarch_actions.trigger.2
+							is_colony = yes
+						}
+						found_planet = {
+							move_to = this
+							orbit_planet = this
+							
+							wait = {
+								duration = @static_orbit_time_matriarch
+								random = @dynamic_orbit_time_matriarch
+							}
+						}
+					}
+				}
+			}
+			find_random_system = {
+				trigger = {
+					id = mongen_tiyanki_matriarch_actions.trigger.3
+					is_inside_border = event_target:monster_genesis_creator
+				}
+				found_system = {
+					move_to = this
+					
+					find_random_planet = {
+						found_planet = {
+							move_to = this
+							orbit_planet = this												
+							
+							wait = {
+								duration = @static_orbit_time_matriarch
+								random = @dynamic_orbit_time_matriarch
+							}
+						}
+					}
+					find_random_planet = {
+						found_planet = {
+							move_to = this
+							orbit_planet = this												
+							
+							wait = {
+								duration = @static_orbit_time_matriarch
+								random = @dynamic_orbit_time_matriarch
+							}
+						}
+					}
+					find_random_planet = {
+						found_planet = {
+							move_to = this
+							orbit_planet = this												
+							
+							wait = {
+								duration = @static_orbit_time_matriarch
+								random = @dynamic_orbit_time_matriarch
+							}
+						}
+					}
+				}
+			}
+			# find_random_system = {
+				# trigger = {
+					# id = mongen_tiyanki_matriarch_actions.trigger.4
+					# is_inside_border = event_target:monster_genesis_creator
+					
+					# every_fleet_in_system = {
+						# limit = {
+							# OR = {
+								# has_fleet_flag = tiyanky_calf
+								# has_fleet_flag = tiyanky_cow
+								# has_fleet_flag = tiyanky_bull
+							# }
+						# }
+					# }
+				# }
+				# found_system = {
+					# move_to = this
+					
+					# find_random_planet = {
+						# found_planet = {
+							# move_to = this
+							# orbit_planet = this	
+							
+							# wait = {
+								# duration = @static_orbit_time_matriarch
+								# random = @dynamic_orbit_time_matriarch
+							# }
+						# }
+					# }
+				# }
+			# }
+		}
+	}
+}
+
+# Create order CALL for Tiyanki Fleet (need fleet_scope)
+create_order_tiyanki_call_monster_genesis = {
+	if = {
+		limit = {
+			exists = event_target:monster_genesis_creator
+		}
+		
+		set_fleet_stance = aggressive
+		
+		clear_fleet_actions = this
+				
+		queue_actions = {
+			find_random_system = {
+				trigger = {
+					id = order_tiyanki_call_monster_genesis.trigger.1
+					
+					is_inside_border = event_target:monster_genesis_creator
+					any_system_planet = {
+						is_capital = yes
+					}
+				}
+				found_system = {
+					move_to = this
+					
+					find_random_planet = {
+						trigger = {
+							id = order_tiyanki_call_monster_genesis.trigger.2
+							
+							is_star = yes
+						}
+						found_planet = {
+							orbit_planet = this
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Create order FOLLOW for Tiyanki Fleet (need fleet_scope)
+create_order_tiyanki_follow_monster_genesis = {
+	if = {
+		limit = {
+			exists = event_target:monster_genesis_creator
+		}
+		
+		event_target:monster_genesis_creator = {			
+			random_owned_fleet = {
+				limit = {
+					any_owned_ship = {
+						is_ship_class = shipclass_military
+					}
+				}
+				save_event_target_as = fleet_for_follow
+			}
+		}
+		
+		if = {
+			limit = {
+				exists = event_target:fleet_for_follow
+			}
+			
+			set_fleet_stance = aggressive
+			
+			clear_fleet_actions = this
+			
+			auto_follow_fleet = {
+				target = event_target:fleet_for_follow
+				attack_fleet = no
+			}
+		}
+	}
+}
+
+# Create order FREE for Tiyanki Fleet (need fleet_scope)
+create_order_tiyanki_free_monster_genesis = {	
+	switch = {
+		trigger = has_fleet_flag
+		
+		tiyanky_calf = { 
+			create_monster_genesis_tiyanki_calf_actions = yes
+			set_fleet_stance = passive
+		}
+		
+		tiyanky_cow = { 
+			create_monster_genesis_tiyanki_cow_actions = yes
+			set_fleet_stance = passive
+		} 
+		
+		tiyanky_bull = { 
+			create_monster_genesis_tiyanki_bull_actions = yes
+			set_fleet_stance = aggressive
+		} 
+		
+		tiyanky_matriarch = { 
+			create_monster_genesis_tiyanki_matriarch_actions = yes
+			set_fleet_stance = passive
+		} 
+		
+		default = { 
+			log = "exception"
+		} 
+	}
+}
+
+# Create a Tiyanki Calf ship
+create_monster_genesis_tiyanki_calf_ship = {
+	create_ship = {
+		name = "NAME_Calf"
+		design = "NAME_MG_Tiyanki_Calf"
+		prefix = no
+		upgradable = no
+	}
+}
+
+# Create a Tiyanki Cow ship
+create_monster_genesis_tiyanki_cow_ship = {
+	create_ship = {
+		name = "NAME_Cow"
+		design = "NAME_MG_Tiyanki_Cow"
+		prefix = no
+		upgradable = no
+	}
+}
+
+# Create a Tiyanki Bull ship
+create_monster_genesis_tiyanki_bull_ship = {
+	create_ship = {
+		name = "NAME_Bull"
+		design = "NAME_MG_Tiyanki_Bull"
+		prefix = no
+		upgradable = no
+	}
+}
+
+# Create a Tiyanki Matriarch ship
+create_monster_genesis_tiyanki_matriarch_ship = {
+	create_ship = {
+		name = ""
+		design = "NAME_MG_Progenitor"
+		prefix = no
+		upgradable = no
+	}
+	
+	add_monster_genesis_tiyanki_cow_evolution_flags = yes
+}
+
+# Increase Power of a Tiyanki Matriarch by time (ship_scope)
+increase_monster_genesis_tiyanki_matriarch_ship_power = {
+	add_modifier = { modifier = "tiyanki_hull_boost"				days = -1 }
+	add_modifier = { modifier = "tiyanki_armor_boost"				days = -1 }
+	add_modifier = { modifier = "tiyanki_weapon_range_boost" 		days = -1 }
+	add_modifier = { modifier = "tiyanki_speed_boost"				days = -1 }
+	add_modifier = { modifier = "matriarch_enemy_disengage_boost" 	days = -1 }
+}
+
+# Increase Power of Random Tiyanki Bull Guardian by time (ship_scope)
+increase_monster_genesis_tiyanki_bull_guardian_ship_power = {
+	add_modifier = { modifier = "tiyanki_hull_boost"	days = -1 }
+	add_modifier = { modifier = "tiyanki_armor_boost"	days = -1 }
+	add_modifier = { modifier = "tiyanki_speed_boost"	days = -1 }
+}
+
+# Tiyanki Matriarch Born new Bull Guardian (more stronger that you can create, and stay stronger with time)
+create_bull_by_matriarch_monster_genesis = {
+	create_ship = {
+		name = "NAME_MG_Tiyanki_Bull_Guardian"
+		design = "NAME_MG_Tiyanki_Bull_Guardian"
+		prefix = no
+		upgradable = no
+	}
+	
+	event_target:monster_genesis_creator = {
+		country_event = { id = monster_genesis.22 }
+	}
+}
+
+update_gas_giant_deposit = {	
+	if = {
+		limit = {
+			AND = {
+				has_modifier = tiyanki_negative_effect
+				NOT = {
+					has_modifier = tiyanki_positive_effect
+				}
+			}
+		}
+		
+		remove_modifier = tiyanki_negative_effect
+		
+		add_modifier = { 
+			modifier = tiyanki_positive_effect 
+			days = -1
+		}
+	}
+	else_if = {
+		limit = {
+			AND = {
+				has_modifier = tiyanki_positive_effect
+				NOT = {
+					has_modifier = tiyanki_negative_effect
+				}
+			}
+		}
+		
+		remove_modifier = tiyanki_positive_effect
+		
+		add_modifier = { 
+			modifier = tiyanki_negative_effect 
+			days = -1
+		}
+	}
+	else = {
+		random_list = {
+			50 = {
+				add_modifier = { 
+					modifier = tiyanki_positive_effect 
+					days = -1
+				}
+			}
+			50 = {
+				add_modifier = { 
+					modifier = tiyanki_negative_effect 
+					days = -1
+				}
+			}
+		}
+	}
+}

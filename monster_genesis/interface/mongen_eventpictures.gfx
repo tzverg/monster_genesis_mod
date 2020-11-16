@@ -1,0 +1,15 @@
+spriteTypes = {	
+
+	spriteType = {
+		name = "GFX_evt_monster_genesis"
+		texturefile = "gfx/event_pictures/genetic_image.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes		
+	}
+	spriteType = {
+		name = "GFX_evt_monster_genesis_tiyanky"
+		texturefile = "gfx/event_pictures/tiyanky_image.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes		
+	}
+}

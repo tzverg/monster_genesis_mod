@@ -1,0 +1,87 @@
+##########################################################################
+# Empire edicts for Monster Genesis
+#
+# Written by TzverG
+##########################################################################
+
+@EdictCost = 50
+
+@EdictDuration = 3600
+
+#################
+#Government stuff
+#################
+broadcast_tiyanki_grazing = {
+	resources = {
+		category = edicts
+		cost = {
+			influence = @EdictCost
+		}
+	}
+
+	length = @EdictDuration
+	
+	show_tech_unlock_if = {
+		OR = {
+			is_pacifist = yes
+			is_xenophile = yes
+		}
+	}
+	
+	modifier = {
+		pop_ethic_xenophile_attraction_mult = 0.1
+		pop_ethic_pacifist_attraction_mult = 0.1
+	}
+	
+	prerequisites = { 
+		"tech_ark_of_genesis"
+	}
+	
+	potential = {
+		OR = {
+			is_pacifist = yes
+			is_xenophile = yes
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+broadcast_tiyanki_dancing = {
+	resources = {
+		category = edicts
+		cost = {
+			influence = @EdictCost
+		}
+	}
+
+	length = @EdictDuration
+	
+	show_tech_unlock_if = {
+		OR = {
+			is_pacifist = yes
+			is_xenophile = yes
+		}
+	}
+	
+	modifier = {
+		pop_happiness = 0.25
+	}
+	
+	prerequisites = {
+		"tech_tiyanki_comm"
+	}
+	
+	potential = {
+		OR = {
+			is_pacifist = yes
+			is_xenophile = yes
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

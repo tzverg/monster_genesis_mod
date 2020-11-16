@@ -1,0 +1,987 @@
+##########################################################################
+# Events for Monster Genesis
+#
+# Written by TzverG
+##########################################################################
+
+namespace = monster_genesis
+
+# Create Monster Genesis Special Project [monster_genesis.0] (HIDDEN)
+# Called by monster_genesis.1 and MONGEN_TIYANKI_ARC_PROJECT
+country_event = {
+	id = monster_genesis.0
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		event_target:monster_genesis_creator = {
+			if = {
+				limit = {
+					has_special_project = MONGEN_TIYANKI_ARC_PROJECT
+				}
+			
+				abort_special_project = {
+					type = "MONGEN_TIYANKI_ARC_PROJECT"
+				}
+			}
+			capital_scope = {
+				enable_special_project = {
+					name = "MONGEN_TIYANKI_ARC_PROJECT"
+					location = this
+					owner = event_target:monster_genesis_creator
+				}
+			}
+		}
+	}
+}
+
+# Create Monster Genesis Event Chain [monster_genesis.1] (HIDDEN)
+# Called by monster_genesis.2
+country_event = {
+	id = monster_genesis.1
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		root.owner = {
+			save_global_event_target_as = monster_genesis_creator
+			
+			capital_scope = {
+				begin_event_chain = {
+					event_chain = "monster_genesis_event_chain"
+					target = event_target:monster_genesis_creator
+				}
+			}
+		}
+		country_event = { id = monster_genesis.0 }
+	}
+}
+
+# Monster Genesis Project Offer [monster_genesis.2]
+# Called by event (ENTRY POINT)
+country_event = {
+	id = monster_genesis.2
+	title = monster_genesis.2.name
+	desc = monster_genesis.2.desc
+	picture = GFX_evt_monster_genesis
+	show_sound = event_space_amoeba
+	location = fromfromfrom
+	trackable = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		is_ai = no
+		last_increased_tech = tech_ark_of_genesis
+	}
+
+	option = {
+		name = monster_genesis.2.answer.1
+		trigger = {
+			OR = {
+				is_xenophile = yes
+				is_pacifist = yes
+			}
+		}
+		
+		country_event = { 
+			id = monster_genesis.1
+		}
+	}
+	
+	option = {
+		name = monster_genesis.2.answer.2
+		
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = @tier3researchreward
+			min = @tier3researchmin
+			max = @tier3researchmax
+		}
+	}
+}
+
+# Finish Project MONGEN_TIYANKI_ARC_PROJECT [monster_genesis.3]
+# Called by MONGEN_TIYANKI_ARC_PROJECT
+country_event = {
+	id = monster_genesis.3
+	title = monster_genesis.3.name
+	desc = monster_genesis.3.desc
+	picture = GFX_evt_monster_genesis_tiyanky
+	show_sound = event_space_amoeba
+	location = fromfromfrom
+	trackable = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = monster_genesis.3.answer.1
+		
+		country_event = { 
+			id = monster_genesis.4
+		}
+		
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = @tier2researchreward
+			min = @tier2researchmin
+			max = @tier2researchmax
+		}
+	}
+	
+	option = {
+		name = monster_genesis.3.answer.2
+		
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = @tier1researchreward
+			min = @tier1researchmin
+			max = @tier1researchmax
+		}
+		add_monthly_resource_mult = {
+			resource = food
+			value = @tier5materialreward
+			min = @tier5materialmin
+			max = @tier5materialmax
+		}
+	}
+}
+
+# Create New Tiyankis Country [monster_genesis.4] (HIDDEN)
+# Called by monster_genesis.3
+country_event = {
+	id = monster_genesis.4
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		# Create Fleet Country
+		create_monster_genesis_country = yes
+		
+		country_event = { 
+			id = monster_genesis.5
+		}
+	}
+}
+
+# Create New Tiyanki Calf Fleet [monster_genesis.5] (HIDDEN)
+# Called by monster_genesis.4
+country_event = {
+	id = monster_genesis.5
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {		
+		create_monster_genesis_tiyanki_calf = yes
+	}
+}
+
+# Increase Tiyanki Calf Count [monster_genesis.6] (HIDDEN)
+country_event = {
+	id = monster_genesis.6
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				has_event_chain = monster_genesis_event_chain
+			}
+			
+			add_event_chain_counter = {
+				event_chain = "monster_genesis_event_chain" 
+				counter = "tiyanki_calf_number" 
+				amount = 1 
+			}
+		}
+	}
+}
+
+# Increase Tiyanki Bull Count (AND Decrease Tiyanki Calf Count) [monster_genesis.7] (HIDDEN)
+country_event = {
+	id = monster_genesis.7
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				has_event_chain = monster_genesis_event_chain
+			}
+			
+			add_event_chain_counter = {
+				event_chain = "monster_genesis_event_chain" 
+				counter = "tiyanki_calf_number" 
+				amount = -1 
+			}
+			add_event_chain_counter = {
+				event_chain = "monster_genesis_event_chain" 
+				counter = "tiyanki_bull_number" 
+				amount = 1 
+			}
+		}
+	}
+}
+
+# Increase Tiyanki Cow Count (AND Decrease Tiyanki Calf Count) [monster_genesis.8] (HIDDEN)
+country_event = {
+	id = monster_genesis.8
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				has_event_chain = monster_genesis_event_chain
+			}
+			
+			add_event_chain_counter = {
+				event_chain = "monster_genesis_event_chain" 
+				counter = "tiyanki_calf_number" 
+				amount = -1 
+			}			
+			add_event_chain_counter = {
+				event_chain = "monster_genesis_event_chain" 
+				counter = "tiyanki_cow_number" 
+				amount = 1 
+			}
+		}
+	}
+}
+
+# Degrease Cow Count Value [monster_genesis.9] (HIDDEN)
+country_event = {
+	id = monster_genesis.9
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				has_event_chain = monster_genesis_event_chain
+			}
+			
+			add_event_chain_counter = {
+				event_chain = "monster_genesis_event_chain" 
+				counter = "tiyanki_cow_number" 
+				amount = -1 
+			}
+		}
+	}
+}
+
+# Evolution Tiyanky Calf [monster_genesis.10]
+country_event = {
+	id = monster_genesis.10
+	
+	hide_window = yes	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_any_calf_ready_to_update = yes
+	}
+	
+	immediate = {
+		create_monster_genesis_tiyanki_random_fleet = yes
+	}
+}
+
+# Evolution Tiyanky Cow [monster_genesis.11] (HIDDEN)
+country_event = {
+	id = monster_genesis.11
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_any_cow_ready_to_update = yes
+	}
+	
+	immediate = {
+		create_monster_genesis_tiyanki_matriarch = yes
+	}
+}
+
+# Evolution Tiyanky Cow [monster_genesis.12]
+country_event = {
+	id = monster_genesis.12
+	title = monster_genesis.12.name
+	desc = monster_genesis.12.desc
+	picture = GFX_evt_ancient_tiyanki
+	show_sound = event_space_whale
+	location = last_created_fleet
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = monster_genesis.12.answer.1
+		
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = @tier5researchreward
+			min = @tier5researchmin
+			max = @tier5researchmax
+		}
+	}
+}
+
+# Update Monster Genesis Special Project [monster_genesis.13] (HIDDEN)
+# Called by MONGEN_TIYANKI_CALL_PROJECT
+country_event = {
+	id = monster_genesis.13
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		event_target:monster_genesis_creator = {
+			if = {
+				limit = {
+					has_special_project = MONGEN_TIYANKI_CALL_PROJECT
+				}
+			
+				abort_special_project = {
+					type = "MONGEN_TIYANKI_CALL_PROJECT"
+				}
+			}
+			capital_scope = {
+				enable_special_project = {
+					name = "MONGEN_TIYANKI_CALL_PROJECT"
+					location = this
+					owner = event_target:monster_genesis_creator
+				}
+			}
+		}
+	}
+}
+
+# Update Monster Genesis Special Project [monster_genesis.14] (HIDDEN)
+# Called by MONGEN_TIYANKI_FOLLOW_PROJECT
+country_event = {
+	id = monster_genesis.14
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		event_target:monster_genesis_creator = {
+			if = {
+				limit = {
+					has_special_project = MONGEN_TIYANKI_FOLLOW_PROJECT
+				}
+			
+				abort_special_project = {
+					type = "MONGEN_TIYANKI_FOLLOW_PROJECT"
+				}
+			}
+			capital_scope = {
+				enable_special_project = {
+					name = "MONGEN_TIYANKI_FOLLOW_PROJECT"
+					location = this
+					owner = event_target:monster_genesis_creator
+				}
+			}
+		}
+	}
+}
+
+# Update Monster Genesis Special Project [monster_genesis.15] (HIDDEN)
+# Called by MONGEN_TIYANKI_FREE_PROJECT
+country_event = {
+	id = monster_genesis.15
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		event_target:monster_genesis_creator = {
+			if = {
+				limit = {
+					has_special_project = MONGEN_TIYANKI_FREE_PROJECT
+				}
+			
+				abort_special_project = {
+					type = "MONGEN_TIYANKI_FREE_PROJECT"
+				}
+			}
+			capital_scope = {
+				enable_special_project = {
+					name = "MONGEN_TIYANKI_FREE_PROJECT"
+					location = this
+					owner = event_target:monster_genesis_creator
+				}
+			}
+		}
+	}
+}
+
+# Tiyanki Call [monster_genesis.16] (HIDDEN)
+# Called by MONGEN_TIYANKI_CALL_PROJECT
+country_event = {
+	id = monster_genesis.16
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		event_target:monster_genesis_tiyanki_country = {
+			every_owned_fleet = {
+				create_order_tiyanki_call_monster_genesis = yes
+			}
+		}
+	}
+}
+
+# Tiyanki Follow [monster_genesis.17] (HIDDEN)
+# Called by MONGEN_TIYANKI_FOLLOW_PROJECT
+country_event = {
+	id = monster_genesis.17
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		event_target:monster_genesis_tiyanki_country = {
+			every_owned_fleet = {
+				create_order_tiyanki_follow_monster_genesis = yes
+			}
+		}
+	}
+}
+
+# Tiyanki Free [monster_genesis.18] (HIDDEN)
+# Called by MONGEN_TIYANKI_FREE_PROJECT
+country_event = {
+	id = monster_genesis.18
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		event_target:monster_genesis_tiyanki_country = {
+			every_owned_fleet = {
+				create_order_tiyanki_free_monster_genesis = yes
+			}
+		}
+	}
+}
+
+# Increase Tiyanki Matriarch Power [monster_genesis.19] (HIDDEN)
+country_event = {
+	id = monster_genesis.19
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_any_monster_boss_active = yes
+	}
+	
+	immediate = {
+		event_target:monster_genesis_tiyanki_country = {
+			random_owned_ship = {
+				limit = {
+					fleet = {
+						has_fleet_flag = tiyanky_matriarch
+					}
+					is_ship_size = leviathan_01_elder_tiyanki
+				}
+				increase_monster_genesis_tiyanki_matriarch_ship_power = yes
+			}
+			random_owned_ship = {
+				limit = {
+					fleet = {
+						has_fleet_flag = tiyanky_matriarch
+					}
+					is_ship_size = space_whale_2
+				}
+				increase_monster_genesis_tiyanki_bull_guardian_ship_power = yes
+			}
+		}
+		
+		country_event = { id = monster_genesis.23 }
+	}
+}
+
+# Tiyanki Matriarch Born Bull [monster_genesis.20] (HIDDEN)
+country_event = {
+	id = monster_genesis.20
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_any_monster_boss_active = yes
+	}
+	
+	immediate = {
+		event_target:monster_genesis_tiyanki_country = {
+			random_owned_fleet = {
+				limit = {
+					has_fleet_flag = tiyanky_matriarch
+				}
+				create_bull_by_matriarch_monster_genesis = yes
+			}
+		}
+		
+		country_event = { id = monster_genesis.24 }
+	}
+}
+
+# Tiyanki Random Matriarch Boost [monster_genesis.21] (HIDDEN)
+event = {
+	id = monster_genesis.21
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		AND = {
+			exists = event_target:monster_genesis_creator
+			is_any_monster_boss_active = yes
+			is_any_monster_boss_ready_to_update = yes
+		}
+	}
+	
+	immediate = {
+		random_list = {
+			50 = {
+				event_target:monster_genesis_creator = {
+					country_event = { id = monster_genesis.19 }
+				}
+			}
+			50 = {
+				event_target:monster_genesis_creator = {
+					country_event = { id = monster_genesis.20 }
+				}
+			}
+		}
+		set_monster_genesis_matriarch_flag = yes
+	}
+}
+
+# Increase Bull Guardian Count Value [monster_genesis.22] (HIDDEN)
+country_event = {
+	id = monster_genesis.22
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				has_event_chain = monster_genesis_event_chain
+			}
+			
+			add_event_chain_counter = {
+				event_chain = "monster_genesis_event_chain" 
+				counter = "tiyanki_bull_guardians_number" 
+				amount = 1 
+			}
+		}
+	}
+}
+
+# Show notification about Matriarch Update [monster_genesis.23]
+country_event = {
+	id = monster_genesis.23
+	title = monster_genesis.23.name
+	desc = monster_genesis.23.desc
+	picture = GFX_evt_ancient_tiyanki
+	show_sound = event_space_whale
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = monster_genesis.23.answer.1
+		
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = @tier2researchreward
+			min = @tier2researchmin
+			max = @tier2researchmax
+		}
+	}
+}
+
+# Show notification about Bull Guardian Borned [monster_genesis.24]
+country_event = {
+	id = monster_genesis.24
+	title = monster_genesis.24.name
+	desc = monster_genesis.24.desc
+	picture = GFX_evt_ancient_tiyanki
+	show_sound = event_space_whale
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = monster_genesis.24.answer.1
+		
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = @tier3researchreward
+			min = @tier3researchmin
+			max = @tier3researchmax
+		}
+	}
+}
+
+# Show notification about add new Special Project [monster_genesis.25]
+country_event = {
+	id = monster_genesis.25
+	title = monster_genesis.25.name
+	desc = monster_genesis.25.desc
+	picture = GFX_evt_monster_genesis
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		AND = {
+			is_ai = no
+			last_increased_tech = tech_tiyanki_comm
+			exists = event_target:monster_genesis_creator
+		}
+	}
+	
+	option = {
+		name = monster_genesis.25.answer.1
+		
+		event_target:monster_genesis_creator = {
+			capital_scope = {
+				enable_special_project = {
+					name = "MONGEN_TIYANKI_FREE_PROJECT"
+					location = this
+					owner = event_target:monster_genesis_creator
+				}
+				enable_special_project = {
+					name = "MONGEN_TIYANKI_CALL_PROJECT"
+					location = this
+					owner = event_target:monster_genesis_creator
+				}
+				enable_special_project = {
+					name = "MONGEN_TIYANKI_FOLLOW_PROJECT"
+					location = this
+					owner = event_target:monster_genesis_creator
+				}
+			}
+		}
+	}
+}
+
+# Destroy Random Tiyanky Ship FOR TEST [monster_genesis.26] (HIDDEN)
+country_event = {
+	id = monster_genesis.26
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = event_target:monster_genesis_tiyanki_country
+	}
+	
+	immediate = {
+		event_target:monster_genesis_tiyanki_country = {
+			random_owned_ship = {
+				log = "ME26 destroy ship with name: [THIS.GetName]"
+				destroy_ship = this
+			}
+		}
+	}
+}
+
+# Destroy ALL Tiyanky Ships FOR TEST [monster_genesis.27] (HIDDEN)
+country_event = {
+	id = monster_genesis.27
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = event_target:monster_genesis_tiyanki_country
+	}
+	
+	immediate = {
+		event_target:monster_genesis_tiyanki_country = {
+			every_owned_ship = {
+				log = "ME27 destroy ship with name: [THIS.GetName]"
+				destroy_ship = this
+			}
+		}
+	}
+}
+
+# Update Tiyanki Ship Counters [monster_genesis.28] (HIDDEN)
+country_event = {
+	id = monster_genesis.28
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = event_target:monster_genesis_tiyanki_country
+		exists = event_target:monster_genesis_creator
+	}
+	
+	immediate = {
+		FROMFROM = {
+			fleet = {
+				if = {
+					limit = {
+						owner = {
+							is_same_value = event_target:monster_genesis_tiyanki_country
+						}
+					}
+					switch = {
+						trigger = has_fleet_flag
+						tiyanky_calf = {
+							event_target:monster_genesis_creator = {
+								if = {
+									limit = {
+										has_event_chain = monster_genesis_event_chain
+									}
+									
+									add_event_chain_counter = {
+										event_chain = "monster_genesis_event_chain" 
+										counter = "tiyanki_calf_number" 
+										amount = -1 
+									}
+								}
+							}
+						}
+						tiyanky_cow = {
+							event_target:monster_genesis_creator = {
+								if = {
+									limit = {
+										has_event_chain = monster_genesis_event_chain
+									}
+									
+									add_event_chain_counter = {
+										event_chain = "monster_genesis_event_chain" 
+										counter = "tiyanki_cow_number" 
+										amount = -1 
+									}
+								}
+							}
+						}
+						tiyanky_bull = {
+							event_target:monster_genesis_creator = {
+								if = {
+									limit = {
+										has_event_chain = monster_genesis_event_chain
+									}
+									
+									add_event_chain_counter = {
+										event_chain = "monster_genesis_event_chain" 
+										counter = "tiyanki_bull_number" 
+										amount = -1 
+									}
+								}
+							}
+						}
+						tiyanky_matriarch = { 
+							PREV = {
+								if = {
+									limit = {
+										is_ship_size = space_whale_2
+									}
+									event_target:monster_genesis_creator = {
+										if = {
+											limit = {
+												has_event_chain = monster_genesis_event_chain
+											}
+											
+											add_event_chain_counter = {
+												event_chain = "monster_genesis_event_chain" 
+												counter = "tiyanki_bull_guardians_number" 
+												amount = -1 
+											}
+										}
+									}
+								}
+								else_if = {
+									limit = {
+										is_ship_size = leviathan_01_elder_tiyanki
+									}
+									
+									create_ambient_object = {
+										type = "elderly_tiyanki_dead_object"
+									}
+									last_created_ambient_object = {
+										set_location = {
+											target = THIS
+											distance = 0
+											angle = random
+										}
+										save_event_target_as = dead_matriarch
+									}
+									event_target:monster_genesis_creator = {
+										country_event = { 
+											id = monster_genesis.29
+										}
+									}
+								}
+							}
+						}
+						default = {
+							log = "unhandled exception"
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Event of Death Guardian Tiyanki Matriarch [monster_genesis.29]
+country_event = {
+	id = monster_genesis.29
+	title = monster_genesis.29.name
+	desc = monster_genesis.29.desc
+	picture = GFX_evt_ancient_tiyanki
+	show_sound = event_space_whale
+	location = event_target:dead_matriarch
+
+	is_triggered_only = yes
+	
+	immediate = {
+		remove_monster_genesis_tiyanki_cow_evolution_flags = yes
+		
+		if = {
+			limit = {
+				NOT = {
+					has_modifier = matriarch_death
+				}
+			}
+			add_modifier = { 
+				modifier = matriarch_death 
+				years = 10
+			}
+		}
+	}
+	
+	option = {
+		name = monster_genesis.29.answer.1
+	}
+}
+
+# Drop Tiyanki Ship Counters FOR TEST [monster_genesis.30] (HIDDEN)
+country_event = {
+	id = monster_genesis.30
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		exists = event_target:monster_genesis_tiyanki_country
+		exists = event_target:monster_genesis_creator
+	}
+	
+	immediate = {
+		event_target:monster_genesis_creator = {
+			end_event_chain = "monster_genesis_event_chain"
+			
+			capital_scope = {
+				begin_event_chain = {
+					event_chain = "monster_genesis_event_chain"
+					target = event_target:monster_genesis_creator
+				}
+				
+				enable_special_project = {
+					name = "MONGEN_TIYANKI_ARC_PROJECT"
+					location = this
+					owner = event_target:monster_genesis_creator
+				}
+				enable_special_project = {
+					name = "MONGEN_TIYANKI_CALL_PROJECT"
+					location = this
+					owner = event_target:monster_genesis_creator
+				}
+				enable_special_project = {
+					name = "MONGEN_TIYANKI_FOLLOW_PROJECT"
+					location = this
+					owner = event_target:monster_genesis_creator
+				}
+				enable_special_project = {
+					name = "MONGEN_TIYANKI_FREE_PROJECT"
+					location = this
+					owner = event_target:monster_genesis_creator
+				}
+			}
+		}
+		
+		event_target:monster_genesis_tiyanki_country = {
+			every_owned_ship = {
+				fleet = {
+					switch = {
+						trigger = has_fleet_flag
+						tiyanky_calf = {
+							event_target:monster_genesis_creator = {
+								country_event = { id = monster_genesis.6 }
+							}
+						}
+						tiyanky_bull = { 
+							event_target:monster_genesis_creator = {
+								country_event = { id = monster_genesis.7 }
+							}
+						}
+						tiyanky_cow = { 
+							event_target:monster_genesis_creator = {
+								country_event = { id = monster_genesis.8 }
+							}
+						}
+						tiyanky_matriarch = {
+							PREV = {
+								if = {
+									limit = {
+										is_ship_size = space_whale_2
+									}
+									event_target:monster_genesis_creator = {
+										country_event = { id = monster_genesis.22 }
+									}
+								}
+							}
+						}
+						default = {
+							log = "unhandled exception"
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Notify about tiyanky Calf Evelution to Cow [monster_genesis.31] (HIDDEN)
+country_event = {
+	id = monster_genesis.31
+	title = monster_genesis.31.name
+	desc = monster_genesis.31.desc
+	picture = GFX_evt_monster_genesis_tiyanky
+	show_sound = event_space_whale
+	location = last_created_fleet
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = monster_genesis.31.answer.1
+		
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = @tier3researchreward
+			min = @tier3researchmin
+			max = @tier3researchmax
+		}
+	}
+}
+
+# Notify about tiyanky Calf Evelution to Bull [monster_genesis.32] (HIDDEN)
+country_event = {
+	id = monster_genesis.32
+	title = monster_genesis.32.name
+	desc = monster_genesis.32.desc
+	picture = GFX_evt_monster_genesis_tiyanky
+	show_sound = event_space_whale
+	location = last_created_fleet
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = monster_genesis.32.answer.1
+		
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = @tier3researchreward
+			min = @tier3researchmin
+			max = @tier3researchmax
+		}
+	}
+}

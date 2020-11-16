@@ -1,0 +1,16 @@
+on_tech_increased = {
+	events = {
+		monster_genesis.2
+		monster_genesis.25
+	}
+}
+
+# This = owner of ship 1 (destroyed)
+# From = owner of ship 2 (combatant)
+# FromFrom = ship 1
+# FromFromFrom = ship 2
+on_ship_destroyed_victim = {
+	events = {
+		monster_genesis.28
+	}
+}

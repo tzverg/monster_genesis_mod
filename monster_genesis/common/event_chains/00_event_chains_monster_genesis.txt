@@ -1,0 +1,16 @@
+##########################################################################
+# Event Chains for Monster Genesis
+#
+# Written by TzverG
+##########################################################################
+
+monster_genesis_event_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_dna.dds"
+	picture = GFX_evt_monster_genesis
+	counter = {	
+		tiyanki_calf_number = { }
+		tiyanki_cow_number = { }
+		tiyanki_bull_number = { }
+		tiyanki_bull_guardians_number = { }
+	}
+}

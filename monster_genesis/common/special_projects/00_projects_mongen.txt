@@ -1,0 +1,128 @@
+##########################################################################
+# Special Projects for Monster Genesis
+#
+# Written by TzverG
+##########################################################################
+
+@tiyanki_arc_days = 10
+@tiyanki_call_days = 10
+@tiyanki_follow_days = 10
+@tiyanki_free_days = 10
+
+@tiyanki_arc_res_point = 5000
+@tiyanki_call_res_point = 500
+@tiyanki_follow_res_point = 1000
+@tiyanki_free_res_point = 100
+
+# @tiyanki_arc_res_point = 10
+# @tiyanki_call_res_point = 10
+# @tiyanki_follow_res_point = 10
+# @tiyanki_free_res_point = 10
+
+special_project = {
+	key = "MONGEN_TIYANKI_ARC_PROJECT"
+	cost = @tiyanki_arc_res_point
+	#days_to_research = @tiyanki_arc_days
+	tech_department = society_technology
+	picture = GFX_evt_monster_genesis_tiyanky
+	icon = "gfx/interface/icons/situation_log/situation_log_squid.dds"
+	timelimit = -1
+	
+	event_scope = planet_event
+	event_chain = "monster_genesis_event_chain"
+	
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+		skill > 1
+	}
+	
+	# Delay before start need to fix problem with infinity recall special project
+	on_success = {	
+		owner = {
+			country_event = { id = monster_genesis.0 days = 1}
+			country_event = { id = monster_genesis.3 days = 2}
+		}
+	}
+}
+
+special_project = {
+	key = "MONGEN_TIYANKI_CALL_PROJECT"
+	cost = @tiyanki_call_res_point
+	#days_to_research = @tiyanki_call_days
+	tech_department = society_technology
+	picture = GFX_evt_monster_genesis_tiyanky
+	icon = "gfx/interface/icons/situation_log/situation_log_signal.dds"
+	timelimit = -1
+	
+	event_scope = planet_event
+	event_chain = "monster_genesis_event_chain"
+	
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+		skill > 1
+	}
+	
+	# Delay before start need to fix problem with infinity recall special project
+	on_success = {
+		owner = {
+			country_event = { id = monster_genesis.13 days = 1}
+			country_event = { id = monster_genesis.16 days = 2}
+		}
+	}
+}
+
+special_project = {
+	key = "MONGEN_TIYANKI_FOLLOW_PROJECT"
+	cost = @tiyanki_follow_res_point
+	#days_to_research = @tiyanki_follow_days
+	tech_department = society_technology
+	picture = GFX_evt_monster_genesis_tiyanky
+	icon = "gfx/interface/icons/situation_log/situation_log_signal.dds"
+	timelimit = -1
+	
+	event_scope = planet_event
+	event_chain = "monster_genesis_event_chain"
+	
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+		skill > 1
+	}
+	
+	# Delay before start need to fix problem with infinity recall special project
+	on_success = {
+		owner = {
+			country_event = { id = monster_genesis.14 days = 1}
+			country_event = { id = monster_genesis.17 days = 2}
+		}
+	}
+}
+
+special_project = {
+	key = "MONGEN_TIYANKI_FREE_PROJECT"
+	cost = @tiyanki_free_res_point
+	#days_to_research = @tiyanki_free_days
+	tech_department = society_technology
+	picture = GFX_evt_monster_genesis_tiyanky
+	icon = "gfx/interface/icons/situation_log/situation_log_signal.dds"
+	timelimit = -1
+	
+	event_scope = planet_event
+	event_chain = "monster_genesis_event_chain"
+	
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+		skill > 1
+	}
+	
+	# Delay before start need to fix problem with infinity recall special project
+	on_success = {
+		owner = {
+			country_event = { id = monster_genesis.15 days = 1}
+			country_event = { id = monster_genesis.18 days = 2}
+		}
+	}
+}
