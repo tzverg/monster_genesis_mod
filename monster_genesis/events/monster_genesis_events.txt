@@ -171,7 +171,7 @@ country_event = {
 	hide_window = yes
 	is_triggered_only = yes
 	
-	immediate = {		
+	immediate = {
 		create_monster_genesis_tiyanki_calf = yes
 	}
 }
@@ -277,12 +277,14 @@ country_event = {
 	hide_window = yes	
 	is_triggered_only = yes
 	
-	trigger = {
-		is_any_calf_ready_to_update = yes
-	}
-	
 	immediate = {
-		create_monster_genesis_tiyanki_random_fleet = yes
+		if = {
+			limit = {
+				is_any_calf_ready_to_update = yes
+			}
+			
+			create_monster_genesis_tiyanki_random_fleet = yes
+		}
 	}
 }
 

@@ -44,15 +44,13 @@ tiyanki_negative_effect = {
 ##########################################################################
 
 tiyanki_hull_boost = {
-	#ship_hull_add = 2000
-	ship_hull_mult = 0.2
+	ship_hull_mult = 0.1
 	ship_hull_regen_add_perc = 1
 }
 
 tiyanki_armor_boost = {
-	#ship_armor_add = 1000
-	ship_armor_mult = 0.1
-	ship_armor_regen_add_perc = 0.5
+	ship_armor_mult = 0.15
+	ship_armor_regen_add_perc = 1
 }
 
 tiyanki_speed_boost = {
@@ -64,6 +62,5 @@ tiyanki_weapon_range_boost = {
 }
 
 matriarch_enemy_disengage_boost = {
-	ship_disengage_chance_mult = 0.1
 	ship_disengage_chance_reduction = 0.1
 }
