@@ -1,4 +1,4 @@
-﻿l_russian:
+﻿l_spanish:
 
 ####################################
 # Event Chains Localisation
@@ -75,7 +75,7 @@ tech_tiyanki_comm_desc:0 "The revolutionary technology of communication with Tiy
 ####################################
 
 edict_broadcast_tiyanki_grazing:0 "Broadcast Tiyanki Grazing"
-edict_broadcast_tiyanki_grazing_desc:0 "With this edict, we are launching daily broadcast of the Tiyanki life, grown due to the project §H$tech_ark_of_genesis$§!, on dedicated entertainment channel."
+edict_broadcast_tiyanki_grazing_desc:0 "With this edict, we are launching daily broadcast of the Tiyanki life, grown due to the project §HArk Of Genesis§!, on dedicated entertainment channel."
 
 edict_broadcast_tiyanki_dancing:0 "Broadcast Tiyanki Dancing"
 edict_broadcast_tiyanki_dancing_desc:0 "Using short X-ray waves are definitely long, our biologists start broadcasting some  radiation background of peace and happiness on all Tiyanky of the Herd, consequently - they perform some ritual dance, which is broadcast on a specialized entertainment channel, that increases the happiness of the entire population of the empire."
