@@ -4,15 +4,14 @@
 # Written by TzverG
 ##########################################################################
 
-l_default:
+l_russian:
 
 ####################################
 # Ship Design Localisation
 ####################################
 
 NAME_MG_Progenitor:0 "Левиафан"
-NAME_MG_Tiyanki_Bull_Guardian:0 "Касатка"
+NAME_MG_Tiyanki_Bull_Guardian:0 "Косатка"
 NAME_MG_Tiyanki_Bull:0 "Бык"
 NAME_MG_Tiyanki_Cow:0 "Корова"
 NAME_MG_Tiyanki_Calf:0 "Телёнок"
- 

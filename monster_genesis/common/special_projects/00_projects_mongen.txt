@@ -4,20 +4,20 @@
 # Written by TzverG
 ##########################################################################
 
-@tiyanki_arc_days = 10
-@tiyanki_call_days = 10
-@tiyanki_follow_days = 10
-@tiyanki_free_days = 10
+#@tiyanki_arc_days = 10
+#@tiyanki_call_days = 10
+#@tiyanki_follow_days = 10
+#@tiyanki_free_days = 10
 
-#@tiyanki_arc_res_point = 5000
-#@tiyanki_call_res_point = 500
-#@tiyanki_follow_res_point = 1000
-#@tiyanki_free_res_point = 100
+@tiyanki_arc_res_point = 5000
+@tiyanki_call_res_point = 500
+@tiyanki_follow_res_point = 1000
+@tiyanki_free_res_point = 100
 
-@tiyanki_arc_res_point = 10
-@tiyanki_call_res_point = 10
-@tiyanki_follow_res_point = 10
-@tiyanki_free_res_point = 10
+#@tiyanki_arc_res_point = 10
+#@tiyanki_call_res_point = 10
+#@tiyanki_follow_res_point = 10
+#@tiyanki_free_res_point = 10
 
 special_project = {
 	key = "MONGEN_TIYANKI_ARC_PROJECT"

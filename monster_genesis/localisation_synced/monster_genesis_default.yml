@@ -1,0 +1,18 @@
+﻿##########################################################################
+# Synced Localisation for Monster Genesis
+#
+# Written by TzverG
+##########################################################################
+
+l_default:
+
+####################################
+# Ship Design Localisation
+####################################
+
+NAME_MG_Progenitor:0 "Leviathan"
+NAME_MG_Tiyanki_Bull_Guardian:0 "Orca"
+NAME_MG_Tiyanki_Bull:0 "Bull"
+NAME_MG_Tiyanki_Cow:0 "Cow"
+NAME_MG_Tiyanki_Calf:0 "Calf"
+ 
