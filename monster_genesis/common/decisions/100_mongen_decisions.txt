@@ -1,5 +1,9 @@
 @MEGrazingInfluenceCost = 50
 @MELastFrontierInfluenceCost = 50
+@MEGrazingEnergyCost = 500
+@MELastFrontierEnergyCost = 1000
+@MERemoveRadiationMark = 300
+
 
 @MELastFrontierPrepareToEmitInDays = 15
 
@@ -13,6 +17,7 @@ uncolonized_decision_mongen_set_flag = {
 	resources = {
 		category = decisions
 		cost = {
+			energy = @MEGrazingEnergyCost
 			influence = @MEGrazingInfluenceCost
 		}
 	}
@@ -49,6 +54,7 @@ uncolonized_decision_mongen_remove_flag = {
 	resources = {
 		category = decisions
 		cost = {
+			energy = @MERemoveRadiationMark
 			influence = @MEGrazingInfluenceCost
 		}
 	}
@@ -82,6 +88,7 @@ mongen_last_frontier_set_flag = {
 	resources = {
 		category = decisions
 		cost = {
+			energy = @MELastFrontierEnergyCost
 			influence = @MELastFrontierInfluenceCost
 		}
 	}
@@ -117,6 +124,7 @@ mongen_last_frontier_remove_flag = {
 	resources = {
 		category = decisions
 		cost = {
+			energy = @MERemoveRadiationMark
 			influence = @MELastFrontierInfluenceCost
 		}
 	}
