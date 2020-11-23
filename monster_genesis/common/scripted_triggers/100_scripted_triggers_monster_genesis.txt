@@ -4,6 +4,20 @@
 # Written by TzverG
 ##########################################################################
 
+# Check if any pop posible go to work
+mongen_specialist_job_check_trigger = {
+	specialist_job_check_trigger = yes
+	custom_tooltip = SPECIALIST_MONGEN_JOB_TRIGGER
+	hidden_trigger = {
+		OR = {
+			pop_has_ethic = ethic_fanatic_xenophile
+			pop_has_ethic = ethic_fanatic_pacifist
+			pop_has_ethic = ethic_xenophile
+			pop_has_ethic = ethic_pacifist
+		}
+	}
+}
+
 # Check if any matriarch is active
 is_any_monster_boss_active = {
 	any_country = {

@@ -1,0 +1,204 @@
+##########################################################################
+# Decisions for Monster Genesis
+#
+# Written by TzverG
+##########################################################################
+
+@MEMongenXenophileJobs = 3
+@MEMongenFanaticXenophileJobs = 5
+@MEMongenPacifistJobs = 2
+@MEMongenFanaticPacifistJobs = 5
+@MEMongenUniversityBuildTime = 100
+
+building_mongen_university = {
+	base_buildtime = @MEMongenUniversityBuildTime
+	
+	icon = building_mongen_university
+	
+	capital = no
+	can_build = yes
+	can_demolish = yes
+	can_be_disabled = yes
+	can_be_ruined = yes
+	add_to_first_building_slot = no
+	planetary_ftl_inhibitor = no
+	branch_office_building = no
+	category = research
+	is_capped_by_modifier = yes
+	base_cap_amount = 1
+	
+	resources = {
+		category = planet_buildings
+		upkeep = {
+			energy = 5
+		}
+		cost = {
+			minerals = 10
+			#minerals = 500
+			#alloys = 100
+			#energy = 1000
+		}
+	}
+	
+	prerequisites = { "tech_ark_of_genesis" }
+	
+	show_tech_unlock_if = {
+		OR = {
+			has_ethic = ethic_xenophile
+			has_ethic = ethic_fanatic_xenophile
+			has_ethic = ethic_pacifist
+			has_ethic = ethic_fanatic_pacifist
+		}
+	}
+	
+	potential = {
+		exists = owner
+		owner = { is_regular_empire = yes }
+	}
+	
+	allow = {
+		any_pop = {
+			OR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+			}
+		}
+	}
+	
+	ruined_trigger = {
+		# set building to ruined if this trigger returns true
+		AND = {
+			count_owned_pops = {
+				limit = {
+					has_ethic = ethic_xenophile
+				}
+				count = 0
+			}
+			count_owned_pops = {
+				limit = {
+					has_ethic = ethic_fanatic_xenophile
+				}
+				count = 0
+			}
+			count_owned_pops = {
+				limit = {
+					has_ethic = ethic_pacifist
+				}
+				count = 0
+			}
+			count_owned_pops = {
+				limit = {
+					has_ethic = ethic_fanatic_pacifist
+				}
+				count = 0
+			}
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			count_owned_pops = {
+				limit = {
+					has_ethic = ethic_xenophile
+				}
+				count >= @MEMongenXenophileJobs
+			}
+		}
+		planet_housing_add = @MEMongenXenophileJobs
+		job_mongen_student_add = @MEMongenXenophileJobs
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			count_owned_pops = {
+				limit = {
+					has_ethic = ethic_fanatic_xenophile
+				}
+				count >= @MEMongenFanaticXenophileJobs
+			}
+		}
+		planet_housing_add = @MEMongenFanaticXenophileJobs
+		job_mongen_student_add = @MEMongenFanaticXenophileJobs
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			count_owned_pops = {
+				limit = {
+					has_ethic = ethic_pacifist
+				}
+				count >= @MEMongenPacifistJobs
+			}
+		}
+		planet_housing_add = @MEMongenPacifistJobs
+		job_mongen_student_add = @MEMongenPacifistJobs
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			count_owned_pops = {
+				limit = {
+					has_ethic = ethic_fanatic_pacifist
+				}
+				count >= @MEMongenFanaticPacifistJobs
+			}
+		}
+		planet_housing_add = @MEMongenFanaticPacifistJobs
+		job_mongen_student_add = @MEMongenFanaticPacifistJobs
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+	
+	#destroy_trigger = {
+		# building will be destroyed if this trigger returns true
+	#}
+
+	# abort_trigger = {
+		# ongoing construction will be canceled if this trigger returns true
+	# }
+
+	# ruined_trigger = {
+		# set building to ruined if this trigger returns true
+	# }
+	
+	# convert_to = {
+		# lists candidates this can be converted to
+		# if destroy_trigger returns true (e.g. post-conquest)
+	# }
+
+	# country_modifier = {
+		# country_resource_max_add = 2000
+	# }
+		
+	# upgrades = {
+		# building(s) this can be upgraded to
+	# }
+	
+	#triggered_desc = { # text to display if trigger returns true
+	#	trigger = { 
+	#		exists = owner
+	#		owner = { is_mechanical_empire = yes }		
+	#	}
+	#	text = job_roboticist_effect_desc
+	#}
+	
+	#on_queued = {
+	#	owner = { remove_country_flag = artist_building_patron } #an action when queued
+	#}
+    #
+	#on_unqueued = {
+	#	owner = { set_country_flag = artist_building_patron } #an action when unqueued
+	#}
+    #
+	#on_built = {
+	#	owner = { set_country_flag = built_one_ministry } #an action when built
+	#}
+    #
+	#on_destroy = {
+	#	owner = { remove_country_flag = built_one_ministry } #an action when destroyed
+	#}
+}

@@ -1,3 +1,9 @@
+##########################################################################
+# Technologies for Monster Genesis
+#
+# Written by TzverG
+##########################################################################
+
 tech_ark_of_genesis = {
 	cost = @tier1cost1
 	area = society

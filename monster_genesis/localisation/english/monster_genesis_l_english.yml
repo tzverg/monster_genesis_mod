@@ -1,6 +1,20 @@
 ﻿l_english:
 
 ####################################
+# Pop Jobs Description Localisation
+####################################
+
+SPECIALIST_MONGEN_JOB_TRIGGER:0 "This job can only be worked by Free Pops that are not being purged and supporting ethics of pacifists or xenophiles."
+
+job_mongen_student:0 "Macrobiologist"
+job_mongen_student_plural:0 "Macrobiologists"
+job_mongen_student_desc:0 "Professors of macrobiology university can teach inexperienced students the basics of creating a macro-life."
+job_mongen_student_effect_desc:0 "£job_mongen_student£ $job_mongen_student_plural$ turn £consumer_goods£ §Y$consumer_goods$§! into £society£ §YResearch Points§! for new technologies"
+mod_job_mongen_student_add:0 "$job_mongen_student$ Jobs"
+mod_job_mongen_student_per_pop:0 "§G+1§! $job_mongen_student$ Job per $VALUE$ Pops"
+mod_job_mongen_student_per_pop_short:0 "\n§G+1§! £mod_job_mongen_student_add£ per $VALUE$ £pop£"
+
+####################################
 # Event Chains Localisation
 ####################################
 
@@ -33,6 +47,13 @@ MONGEN_TIYANKI_FOLLOW_PROJECT_DESC:0 "Leading biologists and genetics of §H[Roo
 ####################################
 
 monster_genesis.0.name:0 "Matriarchy Of The Tiyanki"
+
+####################################
+# Building Localisation
+####################################
+
+building_mongen_university: "University of Macrobiology"
+building_mongen_university_desc: "University of Microbiology allows young students to study and promote a national project called §HArk Of Genesis§!."
 
 ####################################
 # Modifiers Localisation

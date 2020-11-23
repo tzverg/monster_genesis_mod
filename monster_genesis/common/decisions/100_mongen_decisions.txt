@@ -1,3 +1,9 @@
+##########################################################################
+# Decisions for Monster Genesis
+#
+# Written by TzverG
+##########################################################################
+
 @MEGrazingInfluenceCost = 50
 @MELastFrontierInfluenceCost = 50
 @MEGrazingEnergyCost = 500
@@ -103,6 +109,9 @@ mongen_last_frontier_set_flag = {
 	
 	potential = {
 		is_colony = yes
+		any_pop = {
+			has_job = mongen_student
+		}
 		NOT = { has_modifier = the_last_frontier }
 	}
 	
