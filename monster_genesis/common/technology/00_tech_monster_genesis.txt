@@ -45,12 +45,106 @@ tech_ark_of_genesis = {
 	}
 }
 
+tech_tiyanki_media = {
+	cost = @tier1cost1
+	area = society
+	tier = 0
+	category = { biology }
+	prerequisites = { "tech_ark_of_genesis" }
+	weight = @tier1weight1
+	
+	modifier = {
+		country_society_tech_research_speed = 0.05
+	}
+	
+	weight_modifier = {
+		factor = 0.5   # Sets the base chance of the tech appearing
+		
+		modifier = {
+			factor = 0   # Sets chance to 0 if the empire does not have any of the following ethics.
+			NOR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+			}
+		}
+		
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 0   # Sets the base chance of the tech appearing
+	}
+}
+
 tech_tiyanki_comm = {
 	cost = @tier1cost1
 	area = society
 	tier = 0
 	category = { biology }
 	prerequisites = { "tech_ark_of_genesis" }
+	weight = @tier1weight1
+	
+	modifier = {
+		country_society_tech_research_speed = 0.05
+	}
+	
+	weight_modifier = {
+		factor = 0.5   # Sets the base chance of the tech appearing
+		
+		modifier = {
+			factor = 0   # Sets chance to 0 if the empire does not have any of the following ethics.
+			NOR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+			}
+		}
+		
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 0   # Sets the base chance of the tech appearing
+	}
+}
+
+tech_tiyanki_order = {
+	cost = @tier1cost1
+	area = society
+	tier = 0
+	category = { biology }
+	prerequisites = { "tech_tiyanki_comm" }
 	weight = @tier1weight1
 	
 	modifier = {

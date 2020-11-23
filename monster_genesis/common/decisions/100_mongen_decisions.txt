@@ -1,0 +1,140 @@
+@MEGrazingInfluenceCost = 50
+@MELastFrontierInfluenceCost = 50
+
+@MELastFrontierPrepareToEmitInDays = 15
+
+# this decision turns a gas giant planet into candidate of grazing field
+uncolonized_decision_mongen_set_flag = {
+	owned_planets_only = no
+	enactment_time = 0
+	
+	icon = grazing_field_mongen
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = @MEGrazingInfluenceCost
+		}
+	}
+	
+	prerequisites = {
+		"tech_tiyanki_comm"
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+
+	potential = {
+		# you would better make this strict enough or this can literally appear on every planet
+		is_planet_class = pc_gas_giant
+		NOT = { has_modifier = grazing_candidate }
+	}
+
+	effect = {
+		add_modifier = {
+			modifier = grazing_candidate
+			days = -1 
+		} 
+	}
+}
+
+# this decision turns off a grazing field planet
+uncolonized_decision_mongen_remove_flag = {
+	owned_planets_only = no
+	enactment_time = 0
+	
+	icon = grazing_field_mongen
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = @MEGrazingInfluenceCost
+		}
+	}
+	
+	prerequisites = {
+		"tech_tiyanki_comm"
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+
+	potential = {
+		# you would better make this strict enough or this can literally appear on every planet
+		is_planet_class = pc_gas_giant
+		has_modifier = grazing_candidate
+	}
+	
+	effect = {
+		remove_modifier = grazing_candidate
+	}
+}
+
+mongen_last_frontier_set_flag = {
+
+	owned_planets_only = yes
+	enactment_time = @MELastFrontierPrepareToEmitInDays
+	
+	icon = last_frontier_mongen
+	
+	resources = {
+		category = decisions
+		cost = {
+			influence = @MELastFrontierInfluenceCost
+		}
+	}
+	
+	prerequisites = {
+		"tech_tiyanki_order"
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+	
+	potential = {
+		is_colony = yes
+		NOT = { has_modifier = the_last_frontier }
+	}
+	
+	effect = {
+		add_modifier = {
+			modifier = the_last_frontier
+			days = -1 
+		} 
+	}
+}
+
+mongen_last_frontier_remove_flag = {
+
+	owned_planets_only = yes
+	enactment_time = @MELastFrontierPrepareToEmitInDays
+	
+	icon = last_frontier_mongen
+	
+	resources = {
+		category = decisions
+		cost = {
+			influence = @MELastFrontierInfluenceCost
+		}
+	}
+	
+	prerequisites = {
+		"tech_tiyanki_order"
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+	
+	potential = {
+		is_colony = yes
+		has_modifier = the_last_frontier
+	}
+	
+	effect = {
+		remove_modifier = the_last_frontier
+	}
+}

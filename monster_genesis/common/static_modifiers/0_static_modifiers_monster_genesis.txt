@@ -11,7 +11,7 @@
 matriarch_death = {
 	pop_happiness = -0.20
 	planet_jobs_unity_produces_mult = 0.20
-	icon = "gfx/interface/icons/modifiers/mod_matriarch_death_icon.dds"
+	icon = "gfx/interface/icons/modifiers/matriarch_death_mongen.dds"
 	icon_frame = 2
 }
 
@@ -20,23 +20,33 @@ matriarch_death = {
 ##########################################################################
 
 sky_visiter = {
-	pop_happiness = 0.10
-	planet_jobs_unity_produces_mult = 0.20
-	planet_jobs_society_research_produces_mult = 0.10
-	icon = "gfx/interface/icons/planet_modifiers/pm_dead_god_mongen.dds"
+	pop_happiness = 0.25
+	planet_jobs_unity_produces_mult = 0.25
+	planet_jobs_society_research_produces_mult = 0.25
+	icon = "gfx/interface/icons/planet_modifiers/sky_visitor_mongen.dds"
 	icon_frame = 1
 }
 
 tiyanki_positive_effect = {
 	station_gatherers_energy_produces_mult = 0.5
-	icon = "gfx/interface/icons/planet_modifiers/pm_dead_god_mongen.dds"
+	icon = "gfx/interface/icons/planet_modifiers/sky_visitor_mongen.dds"
 	icon_frame = 1
 }
 
 tiyanki_negative_effect = {
 	station_gatherers_energy_produces_mult = -0.5
-	icon = "gfx/interface/icons/planet_modifiers/pm_dead_god_mongen.dds"
+	icon = "gfx/interface/icons/planet_modifiers/sky_visitor_mongen.dds"
 	icon_frame = 3
+}
+
+grazing_candidate = {
+	icon = "gfx/interface/icons/planet_modifiers/grazing_field_mongen.dds"
+	icon_frame = 1
+}
+
+the_last_frontier = {
+	icon = "gfx/interface/icons/planet_modifiers/last_frontier_mongen.dds"
+	icon_frame = 1
 }
 
 ##########################################################################

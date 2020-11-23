@@ -33,7 +33,7 @@ broadcast_tiyanki_grazing = {
 	}
 	
 	prerequisites = { 
-		"tech_ark_of_genesis"
+		"tech_tiyanki_media"
 	}
 	
 	allow = {
@@ -70,7 +70,7 @@ broadcast_tiyanki_dancing = {
 	}
 	
 	prerequisites = {
-		"tech_tiyanki_comm"
+		"tech_tiyanki_media"
 	}
 	
 	allow = {

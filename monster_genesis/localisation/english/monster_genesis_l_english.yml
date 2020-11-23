@@ -50,6 +50,28 @@ tiyanki_negative_effect_desc:0 "A space whale has recently flown into the orbit 
 matriarch_death:0 "Remember and Mourn"
 matriarch_death_desc:0 "The Great Matriarch Of Tiyanki is §Rdied§!, The people mourn the loss of the keeper."
 
+grazing_candidate:0 "Grazing Field"
+grazing_candidate_desc:0 "This gas giant is marked with a special radiation label as §YGrazing Field§!, which informs all the whales from the §HArk Of Genesis§! project about the quality of nutrients present in the upper layers of its atmosphere, thereby increasing the likelihood of visiting it."
+
+the_last_frontier:0 "The Last Frontier"
+the_last_frontier_desc:0 "This planet is marked with a special radiation label as §YThe Last Frontier§!, which informs all the whales from the §HArk Of Genesis§! project about the need for its defense even at the cost of its own life."
+
+####################################
+# Decisions Localisation
+####################################
+
+uncolonized_decision_mongen_set_flag:0 "Set Pasture Flag"
+uncolonized_decision_mongen_set_flag_desc:0 "By this decision we create a special emitter is placed on the orbiting satellite, which continuously irradiates the planet. Tiyanki mark their most beloved planets with such radiation. These planets have the most attractive breeding ground for them."
+
+uncolonized_decision_mongen_remove_flag:0 "Remove Pasture Flag"
+uncolonized_decision_mongen_remove_flag_desc:0 "On this gas giant residual x-ray detected, which is interpreted by tiyanky herds as a pasture marker. According to this decree, the planet must be cleared of this marker."
+
+mongen_last_frontier_set_flag:0 "Set Frontier Flag"
+mongen_last_frontier_set_flag_desc:0 "This colony is marked with a special X-ray emitter. That informs Tiyanki from the project §HArk Of Genesis§! about the need for its defense even at the cost of its own life."
+
+mongen_last_frontier_remove_flag:0 "Remove Frontier Flag"
+mongen_last_frontier_remove_flag_desc:0 "This colony is marked with a special X-ray emitter as the last frontier. With this order, we stop the irradiation, thereby letting whales go about his business."
+
 ####################################
 # Technology Localisation
 ####################################
@@ -60,8 +82,14 @@ tech_ark_of_genesis_desc:0 "Revolutionary technology for creating a new life, th
 #feature_ark_of_genesis_flag:0 "Special Project: §YArk Of Genesis§!"
 #feature_ark_of_genesis_flag_desc:0 "Open new special project, named: §YArk Of Genesis§!, which operates due to £society£ social researching point."
 
+tech_tiyanki_media:0 "Entertainment Channel"
+tech_tiyanki_media_desc:0 "Implementation of a specialized entertainment program designed to popularize the §HArk of Genesis§! project making it public and allowing every citizen to vote and make their own proposals and amendments to the project management."
+
 tech_tiyanki_comm:0 "Communication With Tiyanki"
 tech_tiyanki_comm_desc:0 "The revolutionary technology of communication with Tiyanki. Leading biologists and genetics expanded rudimentary communication abilities of Tiyanki when programming a genetic template for a special project named: §HArk Of Genesis§!. From now we can send few order to all space whales, created by project. This x-ray commands tiyanki can recieve at colossal distances from the object of them interest."
+
+tech_tiyanki_order:0 "Tiyanki Guidance"
+tech_tiyanki_order_desc:0 "The next technology in stack of §HArk Of Genesis§! project. Since the tiyanka's communication abilities have been significantly expanded - the admiralty association made a proposal to foster a sense of ownership in space whales and to increase the desire to control and defend not only outer space and gas giants - but also planets. This should give our Empire some strategic advantage over a potential enemy."
 
 #feature_tiyanki_comm_call:0 "Special Project: $MONGEN_TIYANKI_CALL_PROJECT$"
 #feature_tiyanki_comm_call_desc:0 "Open new special project, named: $MONGEN_TIYANKI_CALL_PROJECT$, which operates due to £society£ social researching point."
