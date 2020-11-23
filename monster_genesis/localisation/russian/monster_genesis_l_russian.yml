@@ -10,7 +10,7 @@ job_mongen_student:0 "Макробиолог"
 job_mongen_student_plural:0 "Макробиологи"
 job_mongen_student_desc:0 "Профессора университета макробиологии обучают неопытных студентов основам создания макрожизни."
 job_mongen_student_effect_desc:0 "£job_mongen_student£ $job_mongen_student_plural$ превращают £consumer_goods£ §Y$consumer_goods$§! в £society£ §Yочки социальных исследований§! для новых технологий."
-mod_job_mongen_student_add:0 "Деятельность: $job_mongen_student$"
+mod_job_mongen_student_add:0 "Должность: $job_mongen_student$"
 mod_job_mongen_student_per_pop:0 "§G+1§! $job_mongen_student$ как вид деятельности для $VALUE$ поселений"
 mod_job_mongen_student_per_pop_short:0 "\n§G+1§! £mod_job_mongen_student_add£ для $VALUE$ £pop£"
 
