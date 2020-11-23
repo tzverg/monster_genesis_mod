@@ -1,5 +1,5 @@
 ##########################################################################
-# Cloud Ship Designs for Monster Genesis
+# Ship Designs for Monster Genesis
 #
 # Written by TzverG
 ##########################################################################
