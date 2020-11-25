@@ -138,6 +138,7 @@ create_monster_genesis_tiyanki_random_fleet = {
 			create_monster_genesis_tiyanki_bull = yes
 		}
 	}
+	update_sky_visiter_modifiers = yes
 }
 
 # Create a Tiyanki Calf Fleet
@@ -1411,6 +1412,41 @@ create_bull_by_matriarch_monster_genesis = {
 	event_target:monster_genesis_creator = {
 		country_event = { id = monster_genesis.22 }
 	}
+}
+
+update_sky_visiter_modifiers = {
+	if ={ 
+       limit = {
+		   exists = event_target:monster_genesis_creator
+       }
+	   event_target:monster_genesis_creator = {
+			every_owned_planet = {
+				limit = {
+					has_modifier = sky_visiter
+				}
+				remove_modifier = sky_visiter
+			}
+	   }
+	   event_target:monster_genesis_creator = {
+			every_owned_planet = {
+				limit = {
+					AND = {
+						NOT = { has_modifier = sky_visiter }
+						any_fleet_in_orbit = {
+							OR = {
+								has_fleet_flag = tiyanky_calf
+								has_fleet_flag = tiyanky_matriarch
+							}
+						}
+					}
+				}
+				add_modifier = { 
+					modifier = sky_visiter 
+					days = -1
+				}
+			}
+	   }
+   }
 }
 
 update_gas_giant_deposit = {

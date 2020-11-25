@@ -303,7 +303,7 @@ country_event = {
 	}
 }
 
-# Evolution Tiyanky Cow [monster_genesis.12]
+# Show notification about Evolution Tiyanky Cow [monster_genesis.12]
 country_event = {
 	id = monster_genesis.12
 	title = monster_genesis.12.name
@@ -874,6 +874,8 @@ country_event = {
 				modifier = matriarch_death 
 				years = 10
 			}
+			
+			update_sky_visiter_modifiers = yes
 		}
 	}
 	
