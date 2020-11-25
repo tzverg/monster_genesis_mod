@@ -163,9 +163,9 @@ create_monster_genesis_tiyanki_calf = {
 					set_owner = event_target:monster_genesis_tiyanki_country
 					create_monster_genesis_tiyanki_calf_ship = yes
 					
-					event_target:monster_genesis_creator.capital_scope = {
-						save_event_target_as = spawn_location
-					}
+					#event_target:monster_genesis_creator.capital_scope = {
+					#	save_event_target_as = spawn_location
+					#}
 					
 					event_target:monster_genesis_creator = {
 						country_event = { id = monster_genesis.6 }
@@ -186,7 +186,7 @@ create_monster_genesis_tiyanki_calf = {
 					}
 					
 					set_location = {
-						target = event_target:spawn_location
+						target = event_target:new_spawn_location
 						distance = 5
 						angle = random
 					}

@@ -10,8 +10,8 @@
 @MELastFrontierEnergyCost = 1000
 @MERemoveRadiationMark = 300
 
-
 @MELastFrontierPrepareToEmitInDays = 15
+@METiyankyGenesisTimerInDays = 10
 
 # this decision turns a gas giant planet into candidate of grazing field
 uncolonized_decision_mongen_set_flag = {
@@ -109,10 +109,14 @@ mongen_last_frontier_set_flag = {
 	
 	potential = {
 		is_colony = yes
-		any_pop = {
-			has_job = mongen_student
-		}
 		NOT = { has_modifier = the_last_frontier }
+	}
+	
+	allow = {
+		count_pops = {
+			limit = { has_job = mongen_student }
+			count >= 1
+		}
 	}
 	
 	effect = {
@@ -151,7 +155,60 @@ mongen_last_frontier_remove_flag = {
 		has_modifier = the_last_frontier
 	}
 	
+	allow = {
+		count_pops = {
+			limit = { has_job = mongen_student }
+			count >= 1
+		}
+	}
+	
 	effect = {
 		remove_modifier = the_last_frontier
+	}
+}
+
+mongen_tiyanky_genesis = {
+
+	owned_planets_only = yes
+	enactment_time = @METiyankyGenesisTimerInDays
+	
+	icon = tiyanki_genesis_mongen
+	
+	resources = {
+		category = decisions
+		cost = {
+			influence = 10
+		}
+	}
+	
+	prerequisites = {
+		"tech_ark_of_genesis"
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+	
+	potential = {
+		is_colony = yes
+	}
+	
+	allow = {
+		count_pops = {
+			limit = { has_job = mongen_student }
+			count >= 1
+		}
+	}
+	
+	effect = {
+		save_event_target_as = new_spawn_location
+		if = {
+			limit = {
+				exists = owner
+			}
+			owner = {
+				country_event = { id = monster_genesis.3 }
+			}
+		}
 	}
 }

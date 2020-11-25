@@ -112,6 +112,9 @@ mongen_last_frontier_set_flag_desc:0 "This colony is marked with a special X-ray
 mongen_last_frontier_remove_flag:0 "Remove Frontier Flag"
 mongen_last_frontier_remove_flag_desc:0 "This colony is marked with a special X-ray emitter as the last frontier. With this order, we stop the irradiation, thereby letting whales go about his business."
 
+mongen_tiyanky_genesis:0 "Tiyanki Genesis"
+mongen_tiyanky_genesis_desc:0 "With this decree, the planetary government sponsors a colossal macrobiological project of the creation space life. Thousands of scientist professors and hundreds of thousands students design a small tiyanki speciment, correct its genome, accelerate and stimulate cell growth, implement behavioral algorithms and form matrix of personality. Result of the genesis project will be a completely independent individual capable of self-awareness and the study of the world around her. The chances of forming a healthy individual are not great due to the huge number of people involved in the project, but the reward for its successful completion is impressive."
+
 ####################################
 # Technology Localisation
 ####################################
