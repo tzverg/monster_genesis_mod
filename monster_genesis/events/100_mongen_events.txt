@@ -445,9 +445,17 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		event_target:monster_genesis_tiyanki_country = {
-			every_owned_fleet = {
-				create_order_tiyanki_follow_monster_genesis = yes
+		if = {
+			limit = {
+				AND = {
+					exists = event_target:monster_genesis_creator
+					exists = event_target:monster_genesis_tiyanki_country
+				}
+			}
+			event_target:monster_genesis_tiyanki_country = {
+				every_owned_fleet = {
+					create_order_tiyanki_follow_monster_genesis = yes
+				}
 			}
 		}
 	}
@@ -461,9 +469,17 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		event_target:monster_genesis_tiyanki_country = {
-			every_owned_fleet = {
-				create_order_tiyanki_free_monster_genesis = yes
+		if = {
+			limit = {
+				AND = {
+					exists = event_target:monster_genesis_creator
+					exists = event_target:monster_genesis_tiyanki_country
+				}
+			}
+			event_target:monster_genesis_tiyanki_country = {
+				every_owned_fleet = {
+					create_order_tiyanki_free_monster_genesis = yes
+				}
 			}
 		}
 	}

@@ -1,7 +1,7 @@
 ﻿l_russian:
 
 ####################################
-# Pop Jobs Description Localisation
+# Pop Jobs Localisation
 ####################################
 
 SPECIALIST_MONGEN_JOB_TRIGGER:0 "Эту деятельность могут осуществлять только свободные поселения, не подвергаемые геноциду, поддерживающие этики пацифистов или ксенофилов."
@@ -13,6 +13,25 @@ job_mongen_student_effect_desc:0 "£job_mongen_student£ $job_mongen_student_plu
 mod_job_mongen_student_add:0 "Должность: $job_mongen_student$"
 mod_job_mongen_student_per_pop:0 "§G+1§! $job_mongen_student$ как вид деятельности для $VALUE$ поселений"
 mod_job_mongen_student_per_pop_short:0 "\n§G+1§! £mod_job_mongen_student_add£ для $VALUE$ £pop£"
+
+####################################
+# Policies Localisation
+####################################
+
+policy_project_genesis:0 "Ковчег генезиса"
+policy_project_genesis_desc:0 "Мы можем влиять на поведение нашего космического стада путём изменения данной политики."
+
+mongen_policy_free:0 "Выпас"
+mongen_policy_free_name:0 "Распустить Стадо"
+mongen_policy_free_desc:0 "Распускает стадо космических китов отправляя их на свободный выпас в системах подконтрольных вашей империи."
+
+mongen_policy_call:0 "Призыв"
+mongen_policy_call_name:0 "Призвать Стадо"
+mongen_policy_call_desc:0 "Созывает стадо на оборону последних рубежей. Все киты направятся к ближайшим планетам с маркером §HПоследний Рубеж§! и постараются оставаться внутри систем."
+
+mongen_policy_follow:0 "Миграция"
+mongen_policy_follow_name:0 "Миграция Стада"
+mongen_policy_follow_desc:0 "Созывает стадо для миграции и цепляет его к ближайшему научному кораблю."
 
 ####################################
 # Event Chains Localisation

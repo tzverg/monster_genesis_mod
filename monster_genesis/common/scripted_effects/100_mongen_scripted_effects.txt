@@ -1282,36 +1282,30 @@ create_order_tiyanki_call_monster_genesis = {
 }
 
 # Create order FOLLOW for Tiyanki Fleet (need fleet_scope)
-create_order_tiyanki_follow_monster_genesis = {
+create_order_tiyanki_follow_monster_genesis = {		
+	event_target:monster_genesis_creator = {			
+		random_owned_fleet = {
+			limit = {
+				any_owned_ship = {
+					is_ship_class = shipclass_science_ship
+				}
+			}
+			save_event_target_as = fleet_for_follow
+		}
+	}
+	
 	if = {
 		limit = {
-			exists = event_target:monster_genesis_creator
+			exists = event_target:fleet_for_follow
 		}
 		
-		event_target:monster_genesis_creator = {			
-			random_owned_fleet = {
-				limit = {
-					any_owned_ship = {
-						is_ship_class = shipclass_military
-					}
-				}
-				save_event_target_as = fleet_for_follow
-			}
-		}
+		set_fleet_stance = aggressive
 		
-		if = {
-			limit = {
-				exists = event_target:fleet_for_follow
-			}
-			
-			set_fleet_stance = aggressive
-			
-			clear_fleet_actions = this
-			
-			auto_follow_fleet = {
-				target = event_target:fleet_for_follow
-				attack_fleet = no
-			}
+		clear_fleet_actions = this
+		
+		auto_follow_fleet = {
+			target = event_target:fleet_for_follow
+			attack_fleet = no
 		}
 	}
 }

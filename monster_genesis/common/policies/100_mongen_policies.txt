@@ -1,0 +1,72 @@
+##########################################################################
+# Policies for Monster Genesis
+#
+# Written by TzverG
+##########################################################################
+
+project_genesis = {
+
+	potential = {
+		has_technology = tech_ark_of_genesis
+	}
+	
+	allow = {
+		any_planet_within_border = { 
+			is_colony = yes
+			any_pop = {
+				OR = {
+					has_ethic = ethic_xenophile
+					has_ethic = ethic_fanatic_xenophile
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "mongen_policy_free"
+		
+		policy_flags = {
+			mongen_policy_free
+		}
+
+		AI_weight = {
+			weight = 0
+		}
+		
+		on_enabled = {
+			country_event = { id = monster_genesis.18 }
+		}
+	}
+	option = {
+		name = "mongen_policy_call"
+		
+		policy_flags = {
+			mongen_policy_call
+		}
+
+		AI_weight = {
+			weight = 0
+		}
+		
+		on_enabled = {
+			country_event = { id = monster_genesis.16 }
+		}
+	}
+	option = {
+		name = "mongen_policy_follow"
+		
+		policy_flags = {
+			mongen_policy_follow
+		}
+
+		AI_weight = {
+			weight = 0
+		}
+		
+		on_enabled = {
+			country_event = { id = monster_genesis.17 }
+		}
+	}
+}

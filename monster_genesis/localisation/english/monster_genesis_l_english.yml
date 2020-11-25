@@ -1,7 +1,7 @@
 ﻿l_english:
 
 ####################################
-# Pop Jobs Description Localisation
+# Pop Jobs Localisation
 ####################################
 
 SPECIALIST_MONGEN_JOB_TRIGGER:0 "This job can only be worked by Free Pops that are not being purged and supporting ethics of pacifists or xenophiles."
@@ -13,6 +13,25 @@ job_mongen_student_effect_desc:0 "£job_mongen_student£ $job_mongen_student_plu
 mod_job_mongen_student_add:0 "$job_mongen_student$ Jobs"
 mod_job_mongen_student_per_pop:0 "§G+1§! $job_mongen_student$ Job per $VALUE$ Pops"
 mod_job_mongen_student_per_pop_short:0 "\n§G+1§! £mod_job_mongen_student_add£ per $VALUE$ £pop£"
+
+####################################
+# Policies Localisation
+####################################
+
+policy_project_genesis:0 "Ark Of Genesis"
+policy_project_genesis_desc:0 "We can influence the behavior of the space herd through our policies."
+
+mongen_policy_free:0 "Grazing"
+mongen_policy_free_name:0 "Disband the Herd"
+mongen_policy_free_desc:0 "Disbands a herd of space whales, sending them to free grazing in systems controlled by your empire."
+
+mongen_policy_call:0 "Call"
+mongen_policy_call_name:0 "Call the Herd"
+mongen_policy_call_desc:0 "Summons a herd to defend the last frontier. All whales will head to nearby planets marked with the §HThe Last Frontier§! and try to stay within the systems."
+
+mongen_policy_follow:0 "Migration"
+mongen_policy_follow_name:0 "Herd Migration"
+mongen_policy_follow_desc:0 "Summons a herd for migration and hooks it to the nearest research ship."
 
 ####################################
 # Event Chains Localisation
