@@ -198,3 +198,7 @@ monster_genesis.29.name:0 "Death Of The Great Tiyanki Matriarch"
 monster_genesis.29.desc:0 "We regret to inform you about §Rdemise§! of the Great Tiyanki Matriarch, guardian of the empire §H[Root.Owner.GetName]§!. We all remember that day, when the first special project, named §H$tech_ark_of_genesis$§!, began to work. Remember how the first calf of Tiyanki came to life and instilled hope in our hearts. We will never forget how he danced for us in the orbit of our planets. This Ancient Creature lived a long, full of danger, life to bring peace on the galaxy, controlled by our empire. Let us pay tribute to this great creature and spend it on the last flight."
 monster_genesis.29.answer.1:0 "$mg29.answer_1$"
 mg29.answer_1:0 "This is a huge loss for everyone §H[Root.GetAdjective]§!."
+
+monster_genesis.33.name:0 "Project Failure"
+monster_genesis.33.desc:0 "To the great regret of all the scientists involved in the project §HArk Of Genesis§! someone made a significant oversight. Сardinal disruptions began at a certain stage of fetal formation. Disproportionate motor limbs and exceptionally sluggish behavior ensure that it is not viable. The Humanity Council of the project put forward and supported a resolution on the §Reuthanasia§! of the fetus."
+monster_genesis.33.answer.1:0 "At least he won't suffer."

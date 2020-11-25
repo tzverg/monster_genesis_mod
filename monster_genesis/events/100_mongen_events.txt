@@ -172,7 +172,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		create_monster_genesis_tiyanki_calf = yes
+		trying_create_tiyanki_calf = yes
 	}
 }
 
@@ -1013,6 +1013,29 @@ country_event = {
 			value = @tier3researchreward
 			min = @tier3researchmin
 			max = @tier3researchmax
+		}
+	}
+}
+
+# Notify about failed tiyanki genesis process
+country_event = {
+	id = monster_genesis.33
+	title = monster_genesis.33.name
+	desc = monster_genesis.33.desc
+	picture = GFX_evt_monster_genesis_tiyanky
+	show_sound = event_space_whale
+	location = from
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = monster_genesis.33.answer.1
+		
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = @tier2researchreward
+			min = @tier1researchmin
+			max = @tier2researchmax
 		}
 	}
 }
