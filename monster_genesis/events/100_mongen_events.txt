@@ -53,7 +53,7 @@ country_event = {
 				}
 			}
 		}
-		country_event = { id = monster_genesis.0 }
+		#country_event = { id = monster_genesis.0 }
 	}
 }
 

@@ -7,7 +7,7 @@
 on_tech_increased = {
 	events = {
 		monster_genesis.2
-		monster_genesis.25
+		#monster_genesis.25
 	}
 }
 
