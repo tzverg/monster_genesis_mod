@@ -8,23 +8,23 @@
 #	Variables									#
 #################################################
 
-#@tiyanki_calf_age = 18250				# 50 years
-#@tiyanki_calf_age_random = 7300	 	# 20 years
+@tiyanki_calf_age = 18250				# 50 years
+@tiyanki_calf_age_random = 7300	 		# 20 years
 
-#@tiyanki_cow_age = 36500				# 100 years
-#@tiyanki_cow_age_random = 10950		# 30 years
+@tiyanki_cow_age = 36500				# 100 years
+@tiyanki_cow_age_random = 10950			# 30 years
 
-#@tiyanki_matriarch_age = 18250			# 50 years
-#@tiyanki_matriarch_age_random = 7300‬	# 20 years
+@tiyanki_matriarch_age = 18250			# 50 years
+@tiyanki_matriarch_age_random = 7300‬	# 20 years
 
-@tiyanki_calf_age = 300
-@tiyanki_calf_age_random = 0
+#@tiyanki_calf_age = 300
+#@tiyanki_calf_age_random = 0
 
-@tiyanki_cow_age = 300
-@tiyanki_cow_age_random = 0
+#@tiyanki_cow_age = 300
+#@tiyanki_cow_age_random = 0
 
-@tiyanki_matriarch_age = 200
-@tiyanki_matriarch_age_random = 0
+#@tiyanki_matriarch_age = 200
+#@tiyanki_matriarch_age_random = 0
 
 @static_orbit_time_calf = 15
 @dynamic_orbit_time_calf = 30

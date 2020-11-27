@@ -34,9 +34,9 @@ matriarch_death = {
 ##########################################################################
 
 sky_visiter = {
-	pop_happiness = 0.25
-	planet_jobs_unity_produces_mult = 0.25
-	planet_jobs_society_research_produces_mult = 0.25
+	pop_happiness = 0.15
+	planet_jobs_unity_produces_mult = 0.1
+	planet_jobs_society_research_produces_mult = 0.1
 	icon = "gfx/interface/icons/planet_modifiers/sky_visitor_mongen.dds"
 	icon_frame = 1
 }

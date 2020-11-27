@@ -13,13 +13,11 @@ project_genesis = {
 	allow = {
 		any_planet_within_border = { 
 			is_colony = yes
-			any_pop = {
-				OR = {
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
-					has_ethic = ethic_pacifist
-					has_ethic = ethic_fanatic_pacifist
+			count_owned_pops = {
+				limit = {
+					has_job = mongen_student
 				}
+				count >= 1
 			}
 		}
 	}

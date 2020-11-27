@@ -37,9 +37,14 @@ broadcast_tiyanki_grazing = {
 	}
 	
 	allow = {
-		OR = {
-			is_pacifist = yes
-			is_xenophile = yes
+		count_owned_pops = {
+			limit = {
+				exists = pop_faction
+				pop_faction = {
+					is_pop_faction_type = mgfaction
+				}
+			}
+			count >= 10
 		}
 	}
 	
@@ -74,9 +79,11 @@ broadcast_tiyanki_dancing = {
 	}
 	
 	allow = {
-		OR = {
-			is_pacifist = yes
-			is_xenophile = yes
+		count_owned_pops = {
+			limit = {
+				has_job = mongen_student
+			}
+			count >= 5
 		}
 	}
 	

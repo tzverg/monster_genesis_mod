@@ -31,10 +31,9 @@ building_mongen_university = {
 			energy = 5
 		}
 		cost = {
-			minerals = 10
-			#minerals = 500
-			#alloys = 100
-			#energy = 1000
+			minerals = 500
+			alloys = 100
+			energy = 1000
 		}
 	}
 	

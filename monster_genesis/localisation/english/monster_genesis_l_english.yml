@@ -7,10 +7,10 @@
 pft_mgfaction:0 "Animatists"
 pft_mgfaction_desc:1 "The $pft_mgfaction$ faction wants a national project called the §H$policy_project_genesis$§! continued to act and achieve results. An influential group of sponsors and cultural populists is ready to support the ruling party in exchange for supporting the project.\n\n The basic principle - §LAnimatism§!. Partially inherited needs from ethics:  §LPacifists§! и §LXenophiles§!"
 
-FACTION_BANNER_DAYS:0 "Age of Joy"
+FACTION_BANNER_DAYS:0 "Path of Joy"
 FACTION_BANNER_DAYS_DESC:0 "[Root.GetName] faction representatives will be very happy about the successful opening of the next ark of life for a while."
 
-FACTION_BLACK_DAYS:0 "Age of Sorrow"
+FACTION_BLACK_DAYS:0 "Path of Sorrow"
 FACTION_BLACK_DAYS_DESC:0 "[Root.GetName] faction representatives stay in shock. The death of the great void creature that was projected by the $policy_project_genesis$ was a real tragedy for our empire. Millions of fellow citizens mourn and grieve for him."
 
 promoted_mgfaction:0 "Promotion of the $pft_mgfaction$ faction"
