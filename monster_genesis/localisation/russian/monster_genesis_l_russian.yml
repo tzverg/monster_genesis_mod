@@ -1,10 +1,30 @@
 ﻿l_russian:
 
 ####################################
+# Factions Localisation
+####################################
+
+pft_mgfaction:0 "Аниматисты"
+pft_mgfaction_adjective:0 "Аниматистов"
+pft_mgfaction_desc:1 "Фракция аниматистов желает чтобы национальный проект под названием §H$policy_project_genesis$§! продолжал действовать и приносить свои плоды. Влиятельная группа спонсоров и культурных популистов готова поддерживать правящую партию в обмен на поддержку проекта.\n\n Основной принцип - §HАниматизм§!. В частично наследуемый потребности §LПацифистов§! и §LКсенофилов§!"
+
+FACTION_BANNER_DAYS:0 "Век Радости"
+FACTION_BANNER_DAYS_DESC:0 "Представители фракции [Root.GetName] некоторое время будут очень радоваться успешному вскрытию очередного ковчега жизни."
+
+FACTION_BLACK_DAYS:0 "Век Скорби"
+FACTION_BLACK_DAYS_DESC:0 "Представители фракции [Root.GetName] находятся в потрясении. Смерть великого космического создания, которое было спроектировано в ковчеге, стала настоящей трагедией нашей империи. Миллионы сограждан оплакивают его и скорбят."
+
+promoted_mgfaction:0 "Продвижение Фракции $pft_mgfaction_adjective$"
+suppressed_mgfaction:0 "Подавление Фракции $pft_mgfaction_adjective$"
+
+monster_genesis.34.desc.mgfaction:0 "Представители данной фракции поддерживают и упорно продвигают национальный проект под названием §HКовчег генезиса§!.\n\n"
+monster_genesis.35.desc.mgfaction:0 "В результате привлечения этой фракции в наше правительство оно теперь более явно исповедует принцип §HАниматизм§!.\n\n"
+
+####################################
 # Pop Jobs Localisation
 ####################################
 
-SPECIALIST_MONGEN_JOB_TRIGGER:0 "Эту деятельность могут осуществлять только свободные поселения, не подвергаемые геноциду, поддерживающие этики пацифистов или ксенофилов."
+SPECIALIST_MONGEN_JOB_TRIGGER:0 "Эту деятельность могут осуществлять только свободные поселения, не подвергаемые геноциду, состоящие во фракции §H$pft_mgfaction_adjective$§!."
 
 job_mongen_student:0 "Макробиолог"
 job_mongen_student_plural:0 "Макробиологи"
@@ -14,11 +34,14 @@ mod_job_mongen_student_add:0 "Должность: $job_mongen_student$"
 mod_job_mongen_student_per_pop:0 "§G+1§! $job_mongen_student$ как вид деятельности для $VALUE$ поселений"
 mod_job_mongen_student_per_pop_short:0 "\n§G+1§! £mod_job_mongen_student_add£ для $VALUE$ £pop£"
 
+mongen_job_effect_desc:0 "£job_mongen_student£ §H$job_mongen_student_plural$§! работают над национальным проектом под названием §H$policy_project_genesis$§!. Они потребляют немного £consumer_goods£, а взамен приносят империи £society£ и £amenities£."
+mongen_job_ruined_effect_desc:0 "Это здание не может быть построено (или востановлено) поскольку в империи нет фракции §H$pft_mgfaction_adjective$§!, или же нет работников способных работать на должностях £job_mongen_student£ §H$job_mongen_student_plural$§!."
+
 ####################################
 # Policies Localisation
 ####################################
 
-policy_project_genesis:0 "Ковчег генезиса"
+policy_project_genesis:0 "Ковчег Генезиса"
 policy_project_genesis_desc:0 "Мы можем влиять на поведение нашего космического стада путём изменения данной политики."
 
 mongen_policy_free:0 "Выпас"

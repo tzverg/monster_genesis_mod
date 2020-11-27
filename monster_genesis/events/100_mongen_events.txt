@@ -1017,7 +1017,7 @@ country_event = {
 	}
 }
 
-# Notify about failed tiyanki genesis process
+# Notify about failed tiyanki genesis process [monster_genesis.33]
 country_event = {
 	id = monster_genesis.33
 	title = monster_genesis.33.name
@@ -1037,5 +1037,79 @@ country_event = {
 			min = @tier1researchmin
 			max = @tier2researchmax
 		}
+	}
+}
+
+# Mongen faction is formed [monster_genesis.34]
+pop_faction_event = {
+	id = monster_genesis.34
+	title = factions.1.title
+	desc = {
+		trigger = {
+			text = factions.1.desc.start
+			text = newline
+			success_text = {
+				text = monster_genesis.34.desc.mgfaction
+				is_pop_faction_type = mgfaction
+			}
+			success_text = {
+				hidden:owner = { NOT = { has_country_flag = first_faction } }
+				text = factions.1.desc.firstfinisher
+			}
+		}
+	}
+
+	picture = GFX_evt_galactic_senate
+	show_sound = event_factions
+
+	is_triggered_only = yes
+	
+	trigger = {
+		#NOT = {
+		#	owner = { has_country_flag = first_faction }
+		#}
+	}
+	
+	after = {
+		hidden_effect = { owner = { set_country_flag = first_faction } }
+	}
+
+	option = {
+		name = OK
+		hidden_effect = {
+			owner = {
+				every_owned_planet = {
+					every_owned_pop = {
+						force_faction_evaluation = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+# Notification event - other empire shifts ethics [monster_genesis.35]
+country_event = {
+	id = monster_genesis.35
+	title = factions.2000.title
+	location = event_target:TargetFaction.Owner.capital_scope
+	desc = {
+		trigger = {
+			text = factions.2000.desc.start
+			text = newline
+			success_text = {
+				text = monster_genesis.35.desc.mgfaction
+				event_target:TargetFaction = { is_pop_faction_type = mgfaction }
+			}
+		}
+	}
+
+	picture = GFX_evt_alien_propaganda
+	show_sound = event_factions
+
+	is_triggered_only = yes
+
+	option = {
+		name = OK
 	}
 }

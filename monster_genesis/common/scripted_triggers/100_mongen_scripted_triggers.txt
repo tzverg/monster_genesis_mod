@@ -8,13 +8,9 @@
 mongen_specialist_job_check_trigger = {
 	specialist_job_check_trigger = yes
 	custom_tooltip = SPECIALIST_MONGEN_JOB_TRIGGER
-	hidden_trigger = {
-		OR = {
-			pop_has_ethic = ethic_fanatic_xenophile
-			pop_has_ethic = ethic_fanatic_pacifist
-			pop_has_ethic = ethic_xenophile
-			pop_has_ethic = ethic_pacifist
-		}
+	exists = pop_faction
+	pop_faction = {
+		is_pop_faction_type = mgfaction
 	}
 }
 

@@ -38,6 +38,8 @@
 @static_orbit_time_matriarch = 30
 @dynamic_orbit_time_matriarch = 30
 
+@faction_years_of_joy = 1
+
 # Creates the monster countries
 create_monster_genesis_country = {
 	if = {
@@ -182,6 +184,11 @@ create_monster_genesis_tiyanki_calf = {
 					
 					event_target:monster_genesis_creator = {
 						country_event = { id = monster_genesis.6 }
+						set_timed_country_flag = {
+							flag = mongen_calf_created
+							#days = <int> 
+							years = @faction_years_of_joy
+						}
 					}
 					
 					set_fleet_flag = tiyanky_calf
@@ -859,9 +866,41 @@ set_monster_genesis_matriarch_flag = {
 				event_target:monster_genesis_creator = {
 					country_event = { 
 						id = monster_genesis.21
-						days = 360
-						random = 360
+						#days = 360
+						#random = 360
+						days = @tiyanki_matriarch_age
+						random = @tiyanki_matriarch_age_random
 					}
+				}
+			}
+		}
+	}
+}
+
+# Set Fleet actions after tiyanki ship replacement
+set_fleet_action_after_whale_evolution = {
+	if = {
+		limit = {
+			exists = event_target:monster_genesis_creator
+		}
+		event_target:monster_genesis_creator = {
+			switch = {
+				trigger = has_policy_flag
+				
+				mongen_policy_free = {
+					create_order_tiyanki_free_monster_genesis = yes
+				}
+				
+				mongen_policy_call = {
+					create_order_tiyanki_call_monster_genesis = yes
+				}
+				
+				mongen_policy_follow = {
+					create_order_tiyanki_follow_monster_genesis = yes
+				}
+				
+				default = { 
+					log = "exception"
 				}
 			}
 		}

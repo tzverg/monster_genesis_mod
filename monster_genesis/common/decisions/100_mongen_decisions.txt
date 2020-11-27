@@ -8,6 +8,7 @@
 @MELastFrontierInfluenceCost = 50
 @MEGrazingEnergyCost = 500
 @MELastFrontierEnergyCost = 1000
+@METiyankyGenesisInfluenceCost = 500
 @MERemoveRadiationMark = 300
 
 @MELastFrontierPrepareToEmitInDays = 15
@@ -177,7 +178,7 @@ mongen_tiyanky_genesis = {
 	resources = {
 		category = decisions
 		cost = {
-			influence = 10
+			influence = @METiyankyGenesisInfluenceCost
 		}
 	}
 	

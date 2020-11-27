@@ -4,10 +4,8 @@
 # Written by TzverG
 ##########################################################################
 
-@MEMongenXenophileJobs = 3
-@MEMongenFanaticXenophileJobs = 5
-@MEMongenPacifistJobs = 2
-@MEMongenFanaticPacifistJobs = 5
+@MEMongenJobsPerPop = 0.1
+@MEMongenUniversityHousing = 5
 @MEMongenUniversityBuildTime = 100
 
 building_mongen_university = {
@@ -57,96 +55,37 @@ building_mongen_university = {
 	}
 	
 	allow = {
-		any_pop = {
-			OR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-				has_ethic = ethic_pacifist
-				has_ethic = ethic_fanatic_pacifist
-			}
-		}
+		owner = { has_faction = mgfaction }
+	}
+	
+	abort_trigger = {
+		# ongoing construction will be canceled if this trigger returns true
+		owner = { NOT = { has_faction = mgfaction } }
 	}
 	
 	ruined_trigger = {
 		# set building to ruined if this trigger returns true
-		AND = {
-			count_owned_pops = {
-				limit = {
-					has_ethic = ethic_xenophile
-				}
-				count = 0
-			}
-			count_owned_pops = {
-				limit = {
-					has_ethic = ethic_fanatic_xenophile
-				}
-				count = 0
-			}
-			count_owned_pops = {
-				limit = {
-					has_ethic = ethic_pacifist
-				}
-				count = 0
-			}
-			count_owned_pops = {
-				limit = {
-					has_ethic = ethic_fanatic_pacifist
-				}
-				count = 0
-			}
+		owner = { NOT = { has_faction = mgfaction } }
+	}
+	
+	triggered_desc = {
+		text = mongen_job_effect_desc
+	}
+	
+	# text to display if trigger returns true
+	triggered_desc = {
+		trigger = {
+			owner = { NOT = { has_faction = mgfaction } }
 		}
+		text = mongen_job_ruined_effect_desc
 	}
 	
 	triggered_planet_modifier = {
 		potential = {
-			count_owned_pops = {
-				limit = {
-					has_ethic = ethic_xenophile
-				}
-				count >= @MEMongenXenophileJobs
-			}
+			owner = { has_faction = mgfaction }
 		}
-		planet_housing_add = @MEMongenXenophileJobs
-		job_mongen_student_add = @MEMongenXenophileJobs
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			count_owned_pops = {
-				limit = {
-					has_ethic = ethic_fanatic_xenophile
-				}
-				count >= @MEMongenFanaticXenophileJobs
-			}
-		}
-		planet_housing_add = @MEMongenFanaticXenophileJobs
-		job_mongen_student_add = @MEMongenFanaticXenophileJobs
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			count_owned_pops = {
-				limit = {
-					has_ethic = ethic_pacifist
-				}
-				count >= @MEMongenPacifistJobs
-			}
-		}
-		planet_housing_add = @MEMongenPacifistJobs
-		job_mongen_student_add = @MEMongenPacifistJobs
-	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			count_owned_pops = {
-				limit = {
-					has_ethic = ethic_fanatic_pacifist
-				}
-				count >= @MEMongenFanaticPacifistJobs
-			}
-		}
-		planet_housing_add = @MEMongenFanaticPacifistJobs
-		job_mongen_student_add = @MEMongenFanaticPacifistJobs
+		planet_housing_add = @MEMongenUniversityHousing
+		job_mongen_student_per_pop = @MEMongenJobsPerPop
 	}
 	
 	ai_weight = {
@@ -156,14 +95,6 @@ building_mongen_university = {
 	#destroy_trigger = {
 		# building will be destroyed if this trigger returns true
 	#}
-
-	# abort_trigger = {
-		# ongoing construction will be canceled if this trigger returns true
-	# }
-
-	# ruined_trigger = {
-		# set building to ruined if this trigger returns true
-	# }
 	
 	# convert_to = {
 		# lists candidates this can be converted to
@@ -177,14 +108,6 @@ building_mongen_university = {
 	# upgrades = {
 		# building(s) this can be upgraded to
 	# }
-	
-	#triggered_desc = { # text to display if trigger returns true
-	#	trigger = { 
-	#		exists = owner
-	#		owner = { is_mechanical_empire = yes }		
-	#	}
-	#	text = job_roboticist_effect_desc
-	#}
 	
 	#on_queued = {
 	#	owner = { remove_country_flag = artist_building_patron } #an action when queued

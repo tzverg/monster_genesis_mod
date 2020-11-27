@@ -1,0 +1,522 @@
+##########################################################################
+# Factions for Monster Genesis
+#
+# Written by TzverG
+##########################################################################
+
+mgfaction = {
+	election_header = "GFX_faction_header_yellow"
+	guiding_ethic = ethic_xenophile
+	
+	unique = yes
+	support_multiplier = 1
+	
+	resources = {
+		category = pop_factions
+		produces = {
+			unity = 100
+		}
+	}
+	
+	is_potential = {
+		#years_passed > 10
+		#has_encountered_other_species = yes
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+		count_owned_pops = {
+			limit = {
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_xenophile
+					has_ethic = ethic_fanatic_pacifist
+					has_ethic = ethic_fanatic_xenophile
+				}
+			}
+			count > 0
+		}
+	}
+	
+	parameters = {
+		empire = {
+			type = country
+			valid_objects = {
+				is_same_value = root
+			}
+		}
+	}
+	
+	can_join_pre_triggers = {
+		is_enslaved = no
+		is_being_purged = no
+		is_sapient = yes
+	}
+	
+	can_join_faction = {
+		is_shackled_robot = no
+		NOT = { has_trait = trait_nerve_stapled }
+		OR = {
+			has_ethic = ethic_pacifist
+			has_ethic = ethic_xenophile
+			has_ethic = ethic_fanatic_pacifist
+			has_ethic = ethic_fanatic_xenophile
+		}
+	}
+	
+	attraction = {
+		base = 150
+
+		modifier = {
+			factor = 1.25
+			exists = from
+			from = {
+				exists = leader
+				leader = { leader_class = ruler }
+			}
+		}
+
+		modifier = {
+			factor = 0.75
+			exists = from
+			from = {
+				NOT = { exists = leader }
+			}
+		}
+
+		modifier = {
+			factor = 2.0
+			NOT = { is_same_species = owner_species }
+		}
+	}
+	
+	leader = {
+		base = 100
+
+		modifier = {
+			factor = 0.5
+			leader_class = scientist
+		}
+
+		modifier = {
+			factor = 2.0
+			NOT = { is_same_species = owner_species }
+		}
+
+		modifier = {
+			factor = 1.0
+			is_event_leader = yes
+		}
+	}
+	
+	demand = {
+		title = "FACTION_OUTRAGED_GC"
+		unfulfilled_title = "FACTION_OUTRAGED_GC_DESC"
+		desc = "FACTION_OUTRAGED_GC_DESC"
+
+		fulfilled_effect = -20
+		unfulfilled_effect = -0.001
+
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					has_country_flag = faction_pacifist_outraged_gc
+					has_country_flag = faction_xenophile_outraged_gc
+				}
+			}
+		}
+
+		trigger = {
+			owner = {
+				OR = {
+					has_country_flag = faction_pacifist_outraged_gc
+					has_country_flag = faction_xenophile_outraged_gc
+				}
+			}
+		}
+	}
+	
+	demand = {
+		title = "FACTION_BANNER_DAYS"
+		unfulfilled_title = "FACTION_BANNER_DAYS_DESC"
+		desc = "FACTION_BANNER_DAYS_DESC"
+
+		fulfilled_effect = +20
+		unfulfilled_effect = +0.001
+
+		potential = {
+			exists = owner
+			owner = {
+				has_country_flag = mongen_calf_created
+			}
+		}
+
+		trigger = {
+			owner = {
+				has_country_flag = mongen_calf_created
+			}
+		}
+	}
+	
+	demand = {
+		title = "FACTION_BLACK_DAYS"
+		unfulfilled_title = "FACTION_BLACK_DAYS_DESC"
+		desc = "FACTION_BLACK_DAYS_DESC"
+
+		fulfilled_effect = -30
+		unfulfilled_effect = +0.001
+
+		potential = {
+			exists = owner
+			owner = {
+				has_modifier = matriarch_death
+			}
+		}
+
+		trigger = {
+			owner = {
+				has_modifier = matriarch_death
+			}
+		}
+	}
+	
+	#FROM XENOIST FACTION
+	demand = {
+		title = "XENOIST_NO_SLAVES"
+		unfulfilled_title = "XENOIST_SLAVES"
+		desc = "XENOIST_NO_SLAVES_DESC"
+
+		unfulfilled_effect = -15
+		fulfilled_effect = 0.001
+
+		potential = {
+			exists = owner
+			owner = {
+				any_owned_pop = {
+					NOR = {
+						is_same_species = root.owner
+						is_robot_pop = yes
+						is_sapient = no
+					}
+				}
+			}
+		}
+
+		trigger = {
+			owner = {
+				NOT = {
+					#has_policy_flag = slavery_allowed
+					any_owned_pop = {
+						has_citizenship_type = { country = prev type = citizenship_slavery }
+					}
+				}
+			}
+		}
+	}
+	#FROM XENOIST FACTION
+	demand = {
+		title = "XENOIST_PRE_SAPIENT_SURVIVAL"
+		unfulfilled_title = "XENOIST_NO_PRE_SAPIENT_SURVIVAL"
+		desc = "XENOIST_PRE_SAPIENT_SURVIVAL_DESC"
+
+		unfulfilled_effect = -10
+		fulfilled_effect = 0.001
+
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					has_policy_flag = pre_sapients_allow
+					has_policy_flag = pre_sapients_purge
+				}
+				OR = {
+					has_country_flag = found_presapients
+					any_planet_within_border = {
+						any_pop = {
+							is_sapient = no
+						}
+					}
+				}
+			}
+		}
+
+		trigger = {
+			owner = {
+				has_policy_flag = pre_sapients_allow
+			}
+		}
+	}
+	#FROM XENOIST FACTION
+	demand = {
+		title = "XENOIST_PROCLAIM_SUPREMACY"
+		unfulfilled_title = "XENOIST_NO_PROCLAIM_SUPREMACY"
+		desc = "XENOIST_PROCLAIM_SUPREMACY_DESC"
+
+		unfulfilled_effect = -5
+		fulfilled_effect = 0.001
+
+		potential = {
+			exists = owner
+			owner = {
+				has_modifier = proclaim_superiority
+			}
+		}
+
+		trigger = {
+			owner = {
+				NOT= { has_modifier = proclaim_superiority }
+			}
+		}
+	}
+	#FROM PROSPERITY FACTION
+	demand = {
+		title = "MERCANTILE_DIPLO_STANCE"
+		unfulfilled_title = "MERCANTILE_DIPLO_STANCE"
+		desc = "MERCANTILE_DIPLO_STANCE_DESC"
+
+		fulfilled_effect = 5
+		unfulfilled_effect = -0.001
+
+		potential = {
+			exists = owner
+			owner = {
+				is_homicidal = no
+				is_country_type = default
+				has_policy_flag = diplo_stance_mercantile
+			}
+		}
+
+		trigger = {
+			owner = {
+				has_policy_flag = diplo_stance_mercantile
+			}
+		}
+	}
+	#FROM PROSPERITY FACTION
+	demand = {
+		title = "PROSPERITY_PEACEFUL_APPLICATIONS"
+		unfulfilled_title = "PROSPERITY_NO_PEACEFUL_APPLICATIONS_APPLICATIONS"
+		desc = "PROSPERITY_PEACEFUL_APPLICATIONS_DESC"
+
+		fulfilled_effect = 10
+		unfulfilled_effect = -0.001
+
+		potential = {
+			exists = owner
+			owner = {
+				host_has_dlc = "Ancient Relics Story Pack"
+				has_technology = tech_arcane_deciphering
+				OR = {
+					has_modifier = artifact_find_peaceful_application_happy_bios
+					has_modifier = artifact_find_peaceful_application_consumer_goods
+					has_modifier = artifact_find_peaceful_application_amenities
+					has_modifier = artifact_find_peaceful_application_leader_improvement
+				}
+			}
+		}
+
+		trigger = {
+			owner = {
+				OR = {
+					has_modifier = artifact_find_peaceful_application_happy_bios
+					has_modifier = artifact_find_peaceful_application_consumer_goods
+					has_modifier = artifact_find_peaceful_application_amenities
+					has_modifier = artifact_find_peaceful_application_leader_improvement
+				}
+			}
+		}
+	}
+	#FROM PROSPERITY FACTION
+	demand = {
+		title = "PROSPERITY_PEACE"
+		unfulfilled_title = "PROSPERITY_NO_PEACE"
+		desc = "PROSPERITY_PEACE_DESC"
+
+		fulfilled_effect = 5
+		unfulfilled_effect = -10
+
+		potential = {
+			exists = owner
+		}
+
+		trigger = {
+			owner = {
+				is_at_war = no
+			}
+		}
+	}
+	
+	on_create = {
+		pop_faction_event = { id = monster_genesis.34 }
+	}
+	
+	on_destroy = {
+		if = {
+			limit = {
+				has_modifier = promoted_mgfaction
+			}
+			remove_modifier = promoted_mgfaction
+		}
+		if = {
+			limit = {
+				has_modifier = suppressed_mgfaction
+			}
+			remove_modifier = suppressed_mgfaction
+		}
+	}
+	
+	actions = {
+		embrace_faction = {
+			title = "EMBRACE_FACTION"
+			description = "EMBRACE_FACTION_DESC"
+
+			cost = {
+				influence = 500
+			}
+
+			potential = {
+				exists = owner
+				owner = {
+					OR = {
+						is_subject = no
+						NOT = { is_subject_type = dominion }
+					}
+				}
+			}
+
+			valid = {
+				custom_tooltip = {
+					fail_text = EMBRACE_FACTION_COOLDOWN
+					parameter:empire = {
+						NOT = { has_modifier = embraced_faction_timer }
+					}
+				}
+				support > 0.20
+				parameter:empire = {
+					NOT = { has_ethic = "ethic_fanatic_xenophile" }
+				}
+			}
+
+			effect = {
+				add_modifier = { modifier = embraced_faction days = 3600 }
+				parameter:empire = {
+					shift_ethic = ethic_xenophile
+					hidden_effect = {
+						add_modifier = { modifier = embraced_faction_timer days = 3600 }
+						every_pop_faction = {
+							limit = { NOT = { is_same_value = root } }
+							add_modifier = { modifier = embraced_another_faction days = 3600 }
+						}
+					}
+				}
+				hidden_effect = {
+					save_event_target_as = TargetFaction
+					parameter:empire = {
+						every_relation = {
+							limit = {
+								is_ai = no
+								is_country_type = default
+								has_communications = prev
+							}
+							country_event = { id = monster_genesis.35 }
+						}
+					}
+				}
+			}
+
+			ai_weight = {
+				base = 0
+			}
+		}
+		promote_faction = {
+			title = "PROMOTE_FACTION"
+			description = "PROMOTE_FACTION_DESC"
+
+			potential = {
+				exists = owner
+				parameter:empire = {
+					NOR = {
+						has_modifier = suppressed_mgfaction
+						has_modifier = promoted_mgfaction
+					}
+				}
+			}
+
+			effect = {
+				parameter:empire = {
+					add_modifier = { modifier = promoted_mgfaction days = -1 }
+				}
+			}
+
+			ai_weight = {
+				base = 0
+			}
+		}
+		cancel_promote_faction = {
+			title = "CANCEL_PROMOTE_FACTION"
+			description = "CANCEL_PROMOTE_FACTION_DESC"
+
+			potential = {
+				exists = owner
+				parameter:empire = {
+					has_modifier = promoted_mgfaction
+				}
+			}
+
+			effect = {
+				parameter:empire = {
+					remove_modifier = promoted_mgfaction
+				}
+			}
+
+			ai_weight = {
+				base = 0
+			}
+		}
+		suppress_faction = {
+			title = "SUPPRESS_FACTION"
+			description = "SUPPRESS_FACTION_DESC"
+
+			potential = {
+				exists = owner
+				parameter:empire = {
+					NOR = {
+						has_modifier = suppressed_mgfaction
+						has_modifier = promoted_mgfaction
+					}
+				}
+			}
+
+			effect = {
+				add_modifier = { modifier = suppressed_faction days = -1 }
+				parameter:empire = {
+					add_modifier = { modifier = suppressed_mgfaction days = -1 }
+				}
+			}
+
+			ai_weight = {
+				base = 0
+			}
+		}
+		cancel_suppress_faction = {
+			title = "CANCEL_SUPPRESS_FACTION"
+			description = "CANCEL_SUPPRESS_FACTION_DESC"
+
+			potential = {
+				exists = owner
+				parameter:empire = {
+					has_modifier = suppressed_mgfaction
+				}
+			}
+
+			effect = {
+				remove_modifier = suppressed_faction
+				parameter:empire = {
+					remove_modifier = suppressed_mgfaction
+				}
+			}
+
+			ai_weight = {
+				base = 0
+			}
+		}
+	}
+}
