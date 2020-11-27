@@ -4,17 +4,20 @@
 # Factions Localisation
 ####################################
 
-pft_mgfaction:0 "Аниматисты"
-pft_mgfaction_desc:1 "Фракция аниматистов желает чтобы национальный проект под названием §HКовчег генезиса§! продолжал действовать и приносить свои плоды. Влиятельная группа спонсоров и культурных популистов готова поддерживать правящую партию в обмен на поддержку проекта.\n\n Основной принцип - §LАниматизм§!. В частично наследуемый потребности §LПацифистов§! и §LКсенофилов§!"
+pft_mgfaction:0 "Animatists"
+pft_mgfaction_desc:1 "The $pft_mgfaction$ faction wants a national project called the §H$policy_project_genesis$§! continued to act and achieve results. An influential group of sponsors and cultural populists is ready to support the ruling party in exchange for supporting the project.\n\n The basic principle - §LAnimatism§!. Partially inherited needs from ethics:  §LPacifists§! и §LXenophiles§!"
 
-FACTION_BANNER_DAYS:0 ""
-FACTION_BANNER_DAYS_DESC:0 ""
+FACTION_BANNER_DAYS:0 "Age of Joy"
+FACTION_BANNER_DAYS_DESC:0 "[Root.GetName] faction representatives will be very happy about the successful opening of the next ark of life for a while."
 
-FACTION_BLACK_DAYS:0 ""
-FACTION_BLACK_DAYS_DESC:0 ""
+FACTION_BLACK_DAYS:0 "Age of Sorrow"
+FACTION_BLACK_DAYS_DESC:0 "[Root.GetName] faction representatives stay in shock. The death of the great void creature that was projected by the $policy_project_genesis$ was a real tragedy for our empire. Millions of fellow citizens mourn and grieve for him."
 
-monster_genesis.34.desc.mgfaction:0 "Представители данной фракции поддерживают и упорно продвигают национальный проект под названием §HКовчег генезиса§!.\n\n"
-monster_genesis.35.desc.mgfaction:0 "В результате привлечения этой фракции в наше правительство оно теперь более явно исповедует принцип §HАниматизм§!.\n\n"
+promoted_mgfaction:0 "Promotion of the $pft_mgfaction$ faction"
+suppressed_mgfaction:0 "Suppression of the $pft_mgfaction$ faction"
+
+monster_genesis.34.desc.mgfaction:0 "Representatives of this faction support and persistently promote a national project called §H$policy_project_genesis$§!.\n\n"
+monster_genesis.35.desc.mgfaction:0 "As a result of the involvement of this faction in our government, it now more clearly adheres to the principle §HAnimatism§!.\n\n"
 
 ####################################
 # Pop Jobs Localisation
@@ -29,6 +32,9 @@ job_mongen_student_effect_desc:0 "£job_mongen_student£ $job_mongen_student_plu
 mod_job_mongen_student_add:0 "$job_mongen_student$ Jobs"
 mod_job_mongen_student_per_pop:0 "§G+1§! $job_mongen_student$ Job per $VALUE$ Pops"
 mod_job_mongen_student_per_pop_short:0 "\n§G+1§! £mod_job_mongen_student_add£ per $VALUE$ £pop£"
+
+mongen_job_effect_desc:0 "£job_mongen_student£ §H$job_mongen_student_plural$§! are working on a national project called §H$policy_project_genesis$§!. They consume a little £consumer_goods£, but bring empires £society£ and £amenities£."
+mongen_job_ruined_effect_desc:0 "This building cannot be built (or restored) since there is no §H$pft_mgfaction$§! faction in the empire, or there are no employees able to work on £job_mongen_student£ §H$job_mongen_student_plural$§! positions."
 
 ####################################
 # Policies Localisation
@@ -214,6 +220,16 @@ monster_genesis.29.name:0 "Death Of The Great Tiyanki Matriarch"
 monster_genesis.29.desc:0 "We regret to inform you about §Rdemise§! of the Great Tiyanki Matriarch, guardian of the empire §H[Root.Owner.GetName]§!. We all remember that day, when the first special project, named §H$tech_ark_of_genesis$§!, began to work. Remember how the first calf of Tiyanki came to life and instilled hope in our hearts. We will never forget how he danced for us in the orbit of our planets. This Ancient Creature lived a long, full of danger, life to bring peace on the galaxy, controlled by our empire. Let us pay tribute to this great creature and spend it on the last flight."
 monster_genesis.29.answer.1:0 "$mg29.answer_1$"
 mg29.answer_1:0 "This is a huge loss for everyone §H[Root.GetAdjective]§!."
+
+monster_genesis.31.name:0 "Tiyanki Calf Is Grows Up"
+monster_genesis.31.desc:0 "One of the calves of §H$policy_project_genesis$§! project reached puberty and evolved into §HTiyanki Cow§!. This subspecies is distinguished by its peacefulness, they are less likely to show aggression towards the enemy if they are not provoked, but unlike §HCalves§! - already pose a certain danger to a ship §HDestroyer§! class. From now on, he will reject the games and begin his journey among the stars, full of dangers and incredible discoveries path."
+monster_genesis.31.answer.1:0 "$mg31.answer_1$"
+mg31.answer_1:0 "We have a Space Cow!"
+
+monster_genesis.32.name:0 "Tiyanki Calf Is Grows Up"
+monster_genesis.32.desc:0 "One of the calves of §H$policy_project_genesis$§! project reached puberty and evolved into §HTiyanki Bull§!. This subspecies is characterized by aggressive behavior. Their eyesight is better than that of cows, and their instincts tell them to protect the grazing area from threats, therefore §HTiyanki Bulls§! dangerous to uninvited guests and can be spotted at impressive distances. From now on, he will reject the games and begin his journey among the stars, full of dangers and incredible discoveries path."
+monster_genesis.32.answer.1:0 "$mg32.answer_1$"
+mg32.answer_1:0 "From now on we breed Space Bulls."
 
 monster_genesis.33.name:0 "Project Failure"
 monster_genesis.33.desc:0 "To the great regret of all the scientists involved in the project §HArk Of Genesis§! someone made a significant oversight. Сardinal disruptions began at a certain stage of fetal formation. Disproportionate motor limbs and exceptionally sluggish behavior ensure that it is not viable. The Humanity Council of the project put forward and supported a resolution on the §Reuthanasia§! of the fetus."
