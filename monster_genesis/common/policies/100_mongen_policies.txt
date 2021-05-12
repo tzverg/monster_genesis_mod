@@ -13,7 +13,7 @@ project_genesis = {
 	allow = {
 		any_planet_within_border = { 
 			is_colony = yes
-			count_owned_pops = {
+			count_owned_pop = {
 				limit = {
 					has_job = mongen_student
 				}

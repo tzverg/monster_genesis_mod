@@ -291,15 +291,18 @@ country_event = {
 # Evolution Tiyanky Cow [monster_genesis.11] (HIDDEN)
 country_event = {
 	id = monster_genesis.11
+	
 	hide_window = yes
 	is_triggered_only = yes
 	
-	trigger = {
-		is_any_cow_ready_to_update = yes
-	}
-	
 	immediate = {
-		create_monster_genesis_tiyanki_matriarch = yes
+		if = {
+			limit = {
+				is_any_cow_ready_to_update = yes
+			}
+			
+			create_monster_genesis_tiyanki_matriarch = yes
+		}
 	}
 }
 
@@ -546,7 +549,7 @@ country_event = {
 }
 
 # Tiyanki Random Matriarch Boost [monster_genesis.21] (HIDDEN)
-event = {
+country_event = {
 	id = monster_genesis.21
 	hide_window = yes
 	is_triggered_only = yes

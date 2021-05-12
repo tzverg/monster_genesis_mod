@@ -18,7 +18,6 @@ building_mongen_university = {
 	can_demolish = yes
 	can_be_disabled = yes
 	can_be_ruined = yes
-	add_to_first_building_slot = no
 	planetary_ftl_inhibitor = no
 	branch_office_building = no
 	category = research

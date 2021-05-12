@@ -32,7 +32,11 @@ tech_ark_of_genesis = {
 		# Sets chance to 0 if the empire does not have country flag.
 		modifier = {
 			factor = 0
-			NOT = { has_country_flag = established_comms_with_tiyanki }
+			# v.3.0.x
+			exists = event_target:tiyanki_country
+			NOT = { has_communications = event_target:tiyanki_country }
+			# v.2.8.x
+			#NOT = { has_country_flag = established_comms_with_tiyanki } 	
 		}
 		
 		modifier = {

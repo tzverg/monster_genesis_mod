@@ -19,12 +19,10 @@ is_any_monster_boss_active = {
 	any_country = {
 		is_country_type = monster_genesis_tiyanki
 		
-		any_owned_fleet = {
-			AND = {
+		any_owned_ship = {
+			is_ship_size = leviathan_01_elder_tiyanki
+			fleet = {
 				has_fleet_flag = tiyanky_matriarch
-				any_ship = { 
-					is_ship_size = leviathan_01_elder_tiyanki
-				}
 			}
 		}
 	}
@@ -35,14 +33,14 @@ is_any_monster_boss_ready_to_update = {
 	any_country = {
 		is_country_type = monster_genesis_tiyanki
 		
-		any_owned_fleet = {
-			AND = {
-				has_fleet_flag = tiyanky_matriarch
-				any_ship = { 
-					is_ship_size = leviathan_01_elder_tiyanki
-				}
-				NOT = {
-					has_fleet_flag = tiyanki_matriarch_age
+		any_owned_ship = {
+			is_ship_size = leviathan_01_elder_tiyanki
+			fleet = {
+				AND = {
+					has_fleet_flag = tiyanky_matriarch
+					NOT = {
+						has_fleet_flag = tiyanki_matriarch_age
+					}
 				}
 			}
 		}
@@ -54,14 +52,14 @@ is_any_calf_ready_to_update = {
 	any_country = {
 		is_country_type = monster_genesis_tiyanki
 		
-		any_owned_fleet = {
-			AND = {
-				has_fleet_flag = tiyanky_calf
-				any_ship = { 
-					is_ship_size = space_whale_3
-				}
-				NOT = {
-					has_fleet_flag = tiyanky_calf_age
+		any_owned_ship = {
+			is_ship_size = space_whale_3
+			fleet = {
+				AND = {
+					has_fleet_flag = tiyanky_calf
+					NOT = {
+						has_fleet_flag = tiyanky_calf_age
+					}
 				}
 			}
 		}
@@ -73,14 +71,14 @@ is_any_cow_ready_to_update = {
 	any_country = {
 		is_country_type = monster_genesis_tiyanki
 		
-		any_owned_fleet = {
-			AND = {
-				has_fleet_flag = tiyanky_cow
-				any_ship = { 
-					is_ship_size = space_whale_1
-				}
-				NOT = {
-					has_fleet_flag = tiyanky_cow_age
+		any_owned_ship = {
+			is_ship_size = space_whale_1
+			fleet = {
+				AND = {
+					has_fleet_flag = tiyanky_cow
+					NOT = {
+						has_fleet_flag = tiyanky_cow_age
+					}
 				}
 			}
 		}

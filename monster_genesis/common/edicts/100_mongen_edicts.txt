@@ -37,7 +37,7 @@ broadcast_tiyanki_grazing = {
 	}
 	
 	allow = {
-		count_owned_pops = {
+		count_owned_pop = {
 			limit = {
 				exists = pop_faction
 				pop_faction = {
@@ -79,7 +79,7 @@ broadcast_tiyanki_dancing = {
 	}
 	
 	allow = {
-		count_owned_pops = {
+		count_owned_pop = {
 			limit = {
 				has_job = mongen_student
 			}

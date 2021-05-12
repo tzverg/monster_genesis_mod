@@ -8,13 +8,18 @@
 @MELastFrontierInfluenceCost = 200
 @MEGrazingEnergyCost = 500
 @MELastFrontierEnergyCost = 2000
-@METiyankyGenesisInfluenceCost = 500
-@METiyankyGenesisEnergyCost = 1000
-@METiyankyGenesisFoodCost = 1000
+#@METiyankyGenesisInfluenceCost = 500
+#@METiyankyGenesisEnergyCost = 1000
+#@METiyankyGenesisFoodCost = 1000
 @MERemoveRadiationMark = 90
 
 @MELastFrontierPrepareToEmitInDays = 90
-@METiyankyGenesisTimerInDays = 1000
+#@METiyankyGenesisTimerInDays = 1000
+
+@METiyankyGenesisInfluenceCost = 50
+@METiyankyGenesisEnergyCost = 100
+@METiyankyGenesisFoodCost = 100
+@METiyankyGenesisTimerInDays = 30
 
 # this decision turns a gas giant planet into candidate of grazing field
 uncolonized_decision_mongen_set_flag = {
@@ -116,7 +121,7 @@ mongen_last_frontier_set_flag = {
 	}
 	
 	allow = {
-		count_pops = {
+		count_owned_pop = {
 			limit = { has_job = mongen_student }
 			count >= 1
 		}
@@ -159,7 +164,7 @@ mongen_last_frontier_remove_flag = {
 	}
 	
 	allow = {
-		count_pops = {
+		count_owned_pop = {
 			limit = { has_job = mongen_student }
 			count >= 1
 		}
@@ -199,7 +204,7 @@ mongen_tiyanky_genesis = {
 	}
 	
 	allow = {
-		count_pops = {
+		count_owned_pop = {
 			limit = { has_job = mongen_student }
 			count >= 1
 		}

@@ -19,10 +19,17 @@ mgfaction = {
 	}
 	
 	is_potential = {
-		years_passed > 10
+		#years_passed > 10
 		has_encountered_other_species = yes
+		
+		# v.3.0.x
+		exists = event_target:tiyanki_country
+		has_communications = event_target:tiyanki_country
+		# v.2.8.x
+		#has_country_flag = established_comms_with_tiyanki 
+		
 		NOT = { has_ethic = ethic_gestalt_consciousness }
-		count_owned_pops = {
+		count_owned_pop = {
 			limit = {
 				OR = {
 					has_ethic = ethic_pacifist
@@ -230,7 +237,7 @@ mgfaction = {
 				OR = {
 					has_country_flag = found_presapients
 					any_planet_within_border = {
-						any_pop = {
+						any_owned_pop = {
 							is_sapient = no
 						}
 					}
