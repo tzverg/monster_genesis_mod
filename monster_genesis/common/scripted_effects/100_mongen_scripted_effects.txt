@@ -1446,7 +1446,7 @@ create_order_tiyanki_call_monster_genesis = {
 				id = order_tiyanki_call_monster_genesis.trigger.1
 				is_inside_border = event_target:monster_genesis_creator
 				any_system_planet = {
-					is_colony = yes
+					has_modifier = the_last_frontier
 				}
 			}
 			found_system = {
@@ -1460,10 +1460,10 @@ create_order_tiyanki_call_monster_genesis = {
 				find_random_planet = {
 					trigger = {
 						id = order_tiyanki_call_monster_genesis.trigger.2
-						is_colony = yes
 						has_modifier = the_last_frontier
 					}
 					found_planet = {
+						move_to = this
 						orbit_planet = this
 						
 						wait = {

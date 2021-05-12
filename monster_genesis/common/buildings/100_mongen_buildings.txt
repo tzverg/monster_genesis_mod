@@ -4,6 +4,7 @@
 # Written by TzverG
 ##########################################################################
 
+@MEMongenJobs = 2
 @MEMongenJobsPerPop = 0.1
 @MEMongenUniversityHousing = 5
 @MEMongenUniversityBuildTime = 100
@@ -83,6 +84,7 @@ building_mongen_university = {
 			owner = { has_faction = mgfaction }
 		}
 		planet_housing_add = @MEMongenUniversityHousing
+		job_mongen_student_add = @MEMongenJobs
 		job_mongen_student_per_pop = @MEMongenJobsPerPop
 	}
 	
