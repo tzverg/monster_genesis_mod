@@ -22,12 +22,12 @@ mgfaction = {
 	}
 	
 	is_potential = {
-		#years_passed > 10
-		#has_encountered_other_species = yes
+		years_passed > 10
+		has_encountered_other_species = yes
 		
 		# v.3.0.x
-		#exists = event_target:tiyanki_country
-		#has_communications = event_target:tiyanki_country
+		exists = event_target:tiyanki_country
+		has_communications = event_target:tiyanki_country
 		# v.2.8.x
 		#has_country_flag = established_comms_with_tiyanki 
 		
