@@ -4,6 +4,9 @@
 # Written by TzverG
 ##########################################################################
 
+@faction_help_cost = 100
+@faction_help_pause = 360
+
 mgfaction = {
 	election_header = "GFX_faction_header_yellow"
 	guiding_ethic = ethic_xenophile
@@ -14,17 +17,17 @@ mgfaction = {
 	resources = {
 		category = pop_factions
 		produces = {
-			unity = 100
+			influence = 2
 		}
 	}
 	
 	is_potential = {
 		#years_passed > 10
-		has_encountered_other_species = yes
+		#has_encountered_other_species = yes
 		
 		# v.3.0.x
-		exists = event_target:tiyanki_country
-		has_communications = event_target:tiyanki_country
+		#exists = event_target:tiyanki_country
+		#has_communications = event_target:tiyanki_country
 		# v.2.8.x
 		#has_country_flag = established_comms_with_tiyanki 
 		
@@ -371,61 +374,33 @@ mgfaction = {
 	}
 	
 	actions = {
-		embrace_faction = {
-			title = "EMBRACE_FACTION"
-			description = "EMBRACE_FACTION_DESC"
-
+		request_faction = {
+			title = "REQUEST_FACTION_HELP"
+			description = "REQUEST_FACTION_HELP_DESC"
+			
 			cost = {
-				influence = 500
+				influence = @faction_help_cost
 			}
 
 			potential = {
 				exists = owner
-				owner = {
-					OR = {
-						is_subject = no
-						NOT = { is_subject_type = dominion }
+				parameter:empire = {
+					NOR = {
+						has_modifier = suppressed_mgfaction
 					}
 				}
 			}
-
+			
 			valid = {
-				custom_tooltip = {
-					fail_text = EMBRACE_FACTION_COOLDOWN
-					parameter:empire = {
-						NOT = { has_modifier = embraced_faction_timer }
-					}
-				}
-				support > 0.20
+				support > 0.30
 				parameter:empire = {
-					NOT = { has_ethic = "ethic_fanatic_xenophile" }
+					NOT = { has_modifier = requested_faction_help }
 				}
 			}
 
 			effect = {
-				add_modifier = { modifier = embraced_faction days = 3600 }
 				parameter:empire = {
-					shift_ethic = ethic_xenophile
-					hidden_effect = {
-						add_modifier = { modifier = embraced_faction_timer days = 3600 }
-						every_pop_faction = {
-							limit = { NOT = { is_same_value = root } }
-							add_modifier = { modifier = embraced_another_faction days = 3600 }
-						}
-					}
-				}
-				hidden_effect = {
-					save_event_target_as = TargetFaction
-					parameter:empire = {
-						every_relation = {
-							limit = {
-								is_ai = no
-								is_country_type = default
-								has_communications = prev
-							}
-							country_event = { id = monster_genesis.35 }
-						}
-					}
+					add_modifier = { modifier = requested_faction_help days = @faction_help_pause }
 				}
 			}
 
