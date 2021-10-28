@@ -1,0 +1,61 @@
+﻿[h1]Supported Stellaris version: v3.1.x[/h1]
+[h1]Tiyanki Genesis[/h1]
+Do you like to play as a pacifist/xenophile? Can't resist enemy aggression with your own means? In any case, I would like to present you a modification with the ability to breed your own herd of Tiyanki whales. Did you ever heard of them?
+
+The entry point of modification is researching the necessary technologies to open a project, don't worry there are not many of them and they will appear in the early stages of the game in the social research branch. (Do not forget to find and explore space whale entities). After this steps you will need build special university and hire some pops (members of a special faction) for working there. As soon as you finish all the preparations - you can start genesis (planetary edict). The chance of successful completion of the project is only 70%, and the cost of the project is not too small, but finally bonuses, seems to me, more than pays for itself. Tijanki create a faction friendly to you and have not a little autonomy. They moving within the borders of your empire and do not want to orbit around your star, but you can try call them. After a while, the whiles may take on a more powerful form, if they live to see it. In the moments when you need their help, you can summon a herd to orbit a certain space object (planetary edicts helps you with it) And don't forget to let the whales go free, when the fight is over, you won't regret it, I promise you.
+
+[h1]List Of Changes[/h1]
+v.3.1.2
+[list]
+[*] Updated mod icon with new version, partially tested performance
+[*] Fixed bugs in localization keys
+[/list]
+v.3.0.0
+[*] Mechanics of special projects seemed not very convenient for me and in this version I replaced it to planetary solutions
+[*] The algorithm of movement of whales is again rewritten (it starts to enter the habit). Fixed some issues with whales when player fast change herd solutions
+[*] The herd management is moved to the policy of the empire
+[*] Added limited control of free whale grazing through the planetary edicts on gas giants and inhabited colonies of your empire
+[*] Add new functionality for the herd bull, from now, they can find gas giants and tell other herd about grazing whale
+[*] A new pops faction participating in the project of the genesis, something will depend on the strength of its support
+[*] Add new building and new profession needed for macrogenesis project
+[*] A little fixes of surprise functionality, was addes accumulative effect and fixes permanent bonuses
+v.2.8.0
+[list]
+[*] Fix problem with tiyanki ship class name
+[*] Recover default special project cost
+[*] Fix localisation
+[*] Fix problem with tiyanky pathfind
+[*] Balance some modifiers
+[*] Add fleets name
+[*] Add english promt-localisation for any languages except russain.
+[*] Fix some problem with tiyanki static modifier.
+[*] Fix some small bugs with tiyanky death, fix counts and add decrease count of tiyanki when ship is die, event for matriarch death, matriarch death empire modifier and few debug events.
+[*] Fix some error with evolution of dead tiyanki.
+[*] Reset time params for mod, and remove some useless rows.
+[*] Small changes with technologies of mod.
+[*] Fix some issues with wrong random exception.
+[*] Fix problem with matriarch and bull guardians update.
+[*] Fix some issues and tiyanki guardian localisation.
+[*] Fix unique ID errors in trigger and effects.
+[*] Add FREE order for tiyanki fleet and add some refactoring script.
+[*] Add CALL and FOLLOW orders for  tiyanki fleets.
+[*] Fix problem with tiyanki free motion, fix counters in special project panel and some small changes.
+[*] Add matriarch evolution.
+[*] Fix some issues, add event chains.
+[*] Add tiyank picture.
+[*] Add modifiers and some changes.
+[*] Fix problem with finding capital of the creator tiyanki.
+[*] Fix tiyankys country name.
+[*] Fix organic generation.
+[*] Add randomizer for event fire.
+[*] New mod engaged.
+[/list]
+
+[h1]Notes from tzverg[/h1]
+[list]
+[*] English version is not supported from now on for the reason that I work alone and not burning desire to mess with the localization file. Since the new version added a game faction name constructor - for the English version would have to write their own file random_names. If anyone suddenly wants to correct the localization - can be later change.
+[*] Tested for bugs and compatibility on the entire collection of my mods, and they are not a few, should not conflict with anyone.
+[*] There is a google translation to the enemy (English), the accuracy of the translation almost did not check, so that you correct for yourself, I'm not going to improve, say thank you that there is at least such x].
+[*] It is a modification for yourself and released as is, use if interested, if you show patience - you will be a surprise, in about 150 years after the birth of the first calf chance of falling out 50%.
+[*] It is self-developed modification, in his spare time from boredom, do not judge severely.
+[/list]

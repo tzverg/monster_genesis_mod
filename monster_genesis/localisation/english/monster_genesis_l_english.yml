@@ -118,6 +118,12 @@ grazing_candidate_desc:0 "This gas giant is marked with a special radiation labe
 the_last_frontier:0 "The Last Frontier"
 the_last_frontier_desc:0 "This planet is marked with a special radiation label as §YThe Last Frontier§!, which informs all the whales from the §HArk Of Genesis§! project about the need for its defense even at the cost of its own life."
 
+tiyanki_hull_boost:0 "Tiyanki Metabolism"
+tiyanki_armor_boost:0 "Tiyanki Armor Wart"
+tiyanki_speed_boost:0 "Tiyanki Evolutionary Slowness"
+tiyanki_weapon_range_boost:0 "Matriarch Vision"
+matriarch_enemy_disengage_boost:0 "Matriarch Psionics"
+
 ####################################
 # Decisions Localisation
 ####################################

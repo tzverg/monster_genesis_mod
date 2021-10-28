@@ -147,10 +147,10 @@ create_monster_genesis_tiyanki_random_fleet = {
 # Trying create tiyanky calf and run event with description when failed
 trying_create_tiyanki_calf = {
 	random_list = {
-		50 ={
+		30 ={
 			country_event = { id = monster_genesis.33 }
 		}
-		50 ={
+		70 ={
 			create_monster_genesis_tiyanki_calf = yes
 		}
 	}
