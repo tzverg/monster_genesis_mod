@@ -11,6 +11,7 @@ v.3.1.2
 [*] Fixed bugs in localization keys
 [/list]
 v.3.0.0
+[list]
 [*] Mechanics of special projects seemed not very convenient for me and in this version I replaced it to planetary solutions
 [*] The algorithm of movement of whales is again rewritten (it starts to enter the habit). Fixed some issues with whales when player fast change herd solutions
 [*] The herd management is moved to the policy of the empire
@@ -19,6 +20,7 @@ v.3.0.0
 [*] A new pops faction participating in the project of the genesis, something will depend on the strength of its support
 [*] Add new building and new profession needed for macrogenesis project
 [*] A little fixes of surprise functionality, was addes accumulative effect and fixes permanent bonuses
+[/list]
 v.2.8.0
 [list]
 [*] Fix problem with tiyanki ship class name
