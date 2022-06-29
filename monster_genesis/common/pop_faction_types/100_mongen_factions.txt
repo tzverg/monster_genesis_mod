@@ -11,17 +11,22 @@ mgfaction = {
 	election_header = "GFX_faction_header_yellow"
 	guiding_ethic = ethic_xenophile
 	
+	#this means that the faction will let pops that aren't xenophile in too
+	use_guiding_ethic_as_pop_filter = no 
+	
 	unique = yes
 	support_multiplier = 1
 	
 	resources = {
 		category = pop_factions
 		produces = {
-			influence = 2
+			unity = 2
 		}
 	}
 	
 	is_potential = {
+		is_ai = no
+		is_at_war = no
 		years_passed > 10
 		has_encountered_other_species = yes
 		
@@ -32,17 +37,6 @@ mgfaction = {
 		#has_country_flag = established_comms_with_tiyanki 
 		
 		NOT = { has_ethic = ethic_gestalt_consciousness }
-		count_owned_pop = {
-			limit = {
-				OR = {
-					has_ethic = ethic_pacifist
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_pacifist
-					has_ethic = ethic_fanatic_xenophile
-				}
-			}
-			count > 0
-		}
 	}
 	
 	parameters = {

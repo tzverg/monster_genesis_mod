@@ -4,6 +4,27 @@
 # Factions Localisation
 ####################################
 
+animatists_names_prefix_1:0 "Soviet"
+animatists_names_prefix_2:0 "Committee"
+animatists_names_prefix_3:0 "Foundation"
+animatists_names_prefix_4:0 "Society"
+animatists_names_prefix_5:0 "Alliance"
+animatists_names_prefix_6:0 "Bureau"
+animatists_names_prefix_7:0 "Institute"
+animatists_names_prefix_8:0 "Academy"
+animatists_names_prefix_9:0 "League"
+animatists_names_prefix_10:0 "Party"
+
+animatists_names_main_1:0 "Rebirth"
+animatists_names_main_2:0 "Creation"
+animatists_names_main_3:0 "Salvation"
+animatists_names_main_4:0 "Ascension"
+animatists_names_main_5:0 "Learning"
+
+animatists_names_postfix_1:0 "Tiyanki"
+
+format.faction.name.1:0 "<animatists_names_prefix> <animatists_names_main> <animatists_names_postfix>"
+
 pft_mgfaction:0 "Animatists"
 pft_mgfaction_desc:1 "The $pft_mgfaction$ faction wants a national project called the §H$policy_project_genesis$§! continued to act and achieve results. An influential group of sponsors and cultural populists is ready to support the ruling party in exchange for supporting the project.\n\n The basic principle - §LAnimatism§!. Partially inherited needs from ethics:  §LPacifists§! и §LXenophiles§!"
 
@@ -15,6 +36,10 @@ FACTION_BLACK_DAYS_DESC:0 "[Root.GetName] faction representatives stay in shock.
 
 promoted_mgfaction:0 "Promotion of the $pft_mgfaction$ faction"
 suppressed_mgfaction:0 "Suppression of the $pft_mgfaction$ faction"
+requested_faction_help:0 "Inspiration Brigades"
+
+REQUEST_FACTION_HELP:0 "Request Fractional Assistance"
+REQUEST_FACTION_HELP_DESC:0 "Send a request for the establishment for §LInspiration Brigades§! of $pft_mgfaction_adjective$"
 
 monster_genesis.34.desc.mgfaction:0 "Representatives of this faction support and persistently promote a national project called §H$policy_project_genesis$§!.\n\n"
 monster_genesis.35.desc.mgfaction:0 "As a result of the involvement of this faction in our government, it now more clearly adheres to the principle §HAnimatism§!.\n\n"

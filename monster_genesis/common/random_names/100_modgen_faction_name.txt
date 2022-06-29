@@ -1,34 +1,36 @@
 ## Animatists
+
 pop_faction_name_parts_list = {
-	key = "animatists_names_postfix"
+	key = "animatists_names_prefix"
 	parts = {
-		"Тиянки" = 1
-		"Макрофауны" = 1
+		animatists_names_prefix_1 = 1
+		animatists_names_prefix_2 = 1
+		animatists_names_prefix_3 = 1
+		animatists_names_prefix_4 = 1
+		animatists_names_prefix_5 = 1
+		animatists_names_prefix_6 = 1
+		animatists_names_prefix_7 = 1
+		animatists_names_prefix_8 = 1
+		animatists_names_prefix_9 = 1
+		animatists_names_prefix_10 = 1
 	}
 }
 
 pop_faction_name_parts_list = {
 	key = "animatists_names_main"
 	parts = {
-		"Возрождения" = 1
-		"Созидания" = 1
-		"Спасения" = 1
+		animatists_names_main_1 = 1
+		animatists_names_main_2 = 1
+		animatists_names_main_3 = 1
+		animatists_names_main_4 = 1
+		animatists_names_main_5 = 1
 	}
 }
 
 pop_faction_name_parts_list = {
-	key = "animatists_names_prefix"
+	key = "animatists_names_postfix"
 	parts = {
-		"Совет" = 1
-		"Комитет" = 1
-		"Фонд" = 1
-		"Общество" = 1
-		"Альянс" = 1
-		"Бюро" = 1
-		"Институт" = 1
-		"Академия" = 1
-		"Лига" = 1
-		"Партия" = 1
+		animatists_names_postfix_1 = 1
 	}
 }
 
@@ -36,9 +38,10 @@ pop_faction_name_format = {
 	random_weight = {
 		factor = 0
 		modifier = {
-			add = 100
+			add = 999
 			is_pop_faction_type = "mgfaction"
 		}
 	}
-	format = "<animatists_names_prefix> <animatists_names_main> <animatists_names_postfix>"
+	lookups = "<animatists_names_prefix> <animatists_names_main> <animatists_names_postfix>"
+	format = format.faction.name.1 # <animatists_names_prefix> <animatists_names_main> <animatists_names_postfix>
 }

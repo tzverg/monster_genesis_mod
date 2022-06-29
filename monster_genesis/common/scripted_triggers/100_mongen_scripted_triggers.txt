@@ -6,7 +6,7 @@
 
 # Check if any pop posible go to work
 mongen_specialist_job_check_trigger = {
-	specialist_job_check_trigger = yes
+	#specialist_job_check_trigger = yes
 	custom_tooltip = SPECIALIST_MONGEN_JOB_TRIGGER
 	exists = pop_faction
 	pop_faction = {

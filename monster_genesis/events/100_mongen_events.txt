@@ -84,6 +84,13 @@ country_event = {
 			}
 		}
 		
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = @tier1researchreward
+			min = @tier1researchmin
+			max = @tier1researchmax
+		}
+		
 		country_event = { 
 			id = monster_genesis.1
 		}

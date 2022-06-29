@@ -4,9 +4,30 @@
 # Factions Localisation
 ####################################
 
+animatists_names_prefix_1:0 "Совет"
+animatists_names_prefix_2:0 "Комитет"
+animatists_names_prefix_3:0 "Фонд"
+animatists_names_prefix_4:0 "Общество"
+animatists_names_prefix_5:0 "Альянс"
+animatists_names_prefix_6:0 "Бюро"
+animatists_names_prefix_7:0 "Институт"
+animatists_names_prefix_8:0 "Академия"
+animatists_names_prefix_9:0 "Лига"
+animatists_names_prefix_10:0 "Партия"
+
+animatists_names_main_1:0 "Возрождения"
+animatists_names_main_2:0 "Созидания"
+animatists_names_main_3:0 "Спасения"
+animatists_names_main_4:0 "Вознесения"
+animatists_names_main_5:0 "Изучения"
+
+animatists_names_postfix_1:0 "Тиянки"
+
+format.faction.name.1:0 "<animatists_names_prefix> <animatists_names_main> <animatists_names_postfix>"
+
 pft_mgfaction:0 "Аниматисты"
 pft_mgfaction_adjective:0 "Аниматистов"
-pft_mgfaction_desc:1 "Фракция аниматистов желает чтобы национальный проект под названием §H$policy_project_genesis$§! продолжал действовать и приносить свои плоды. Влиятельная группа спонсоров и культурных популистов готова поддерживать правящую партию в обмен на поддержку проекта.\n\n Основной принцип - §HАниматизм§!, частично наследующий потребности §LПацифистов§! и §LКсенофилов§!"
+pft_mgfaction_desc:1 "Фракция $pft_mgfaction_adjective$ желает чтобы национальный проект под названием §H$policy_project_genesis$§! продолжал действовать и приносить свои плоды. Влиятельная группа спонсоров и культурных популистов готова поддерживать правящую партию в обмен на поддержку проекта.\n\n Основной принцип - §HАниматизм§!, частично наследующий потребности §LПацифистов§! и §LКсенофилов§!"
 
 FACTION_BANNER_DAYS:0 "Путь Радости"
 FACTION_BANNER_DAYS_DESC:0 "Представители фракции [Root.GetName] некоторое время будут очень радоваться успешному вскрытию очередного ковчега жизни."

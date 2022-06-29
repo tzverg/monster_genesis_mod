@@ -1,10 +1,15 @@
-﻿[h1]Supported Stellaris version: v3.1.x[/h1]
+﻿[h1]Supported Stellaris version: v3.3.x[/h1]
 [h1]Tiyanki Genesis[/h1]
 Do you like to play as a pacifist/xenophile? Can't resist enemy aggression with your own means? In any case, I would like to present you a modification with the ability to breed your own herd of Tiyanki whales. Did you ever heard of them?
 
 The entry point of modification is researching the necessary technologies to open a project, don't worry there are not many of them and they will appear in the early stages of the game in the social research branch. (Do not forget to find and explore space whale entities). After this steps you will need build special university and hire some pops (members of a special faction) for working there. As soon as you finish all the preparations - you can start genesis (planetary edict). The chance of successful completion of the project is only 70%, and the cost of the project is not too small, but finally bonuses, seems to me, more than pays for itself. Tijanki create a faction friendly to you and have not a little autonomy. They moving within the borders of your empire and do not want to orbit around your star, but you can try call them. After a while, the whiles may take on a more powerful form, if they live to see it. In the moments when you need their help, you can summon a herd to orbit a certain space object (planetary edicts helps you with it) And don't forget to let the whales go free, when the fight is over, you won't regret it, I promise you.
 
 [h1]List Of Changes[/h1]
+v.3.3.4
+[list]
+[*] Updated mod icon with new version, partially tested performance
+[*] Fixed logic issue with creation custom pop faction
+[/list]
 v.3.1.2
 [list]
 [*] Updated mod icon with new version, partially tested performance

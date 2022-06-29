@@ -1,4 +1,4 @@
-version="3.1.0"
+version="1.0.0"
 tags={
 	"Gameplay"
 	"Events"
@@ -7,5 +7,5 @@ tags={
 }
 name="Monster Genesis"
 picture="thumbnail.png"
-supported_version="3.1.*"
+supported_version="3.4.*"
 remote_file_id="1828560922"
