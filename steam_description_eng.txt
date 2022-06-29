@@ -1,4 +1,4 @@
-﻿[h1]Supported Stellaris version: v3.3.x[/h1]
+﻿[h1]Supported Stellaris version: v3.4.x[/h1]
 [h1]Tiyanki Genesis[/h1]
 Do you like to play as a pacifist/xenophile? Can't resist enemy aggression with your own means? In any case, I would like to present you a modification with the ability to breed your own herd of Tiyanki whales. Did you ever heard of them?
 
