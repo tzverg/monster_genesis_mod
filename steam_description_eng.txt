@@ -84,7 +84,7 @@ v.2.8.0
 
 [h1]Notes from tzverg[/h1]
 [list]
-[*] English version is not supported from now on for the reason that I work alone and not burning desire to mess with the localization file. Since the new version added a game faction name constructor - for the English version would have to write their own file random_names. If anyone suddenly wants to correct the localization - can be later change.
+[*] English version is not supported from now on for the reason that I work alone and not burning desire to mess with the localization file. [strike] Since the new version added a game faction name constructor - for the English version would have to write their own file random_names [/strike] (fixed in version 3.4). If anyone suddenly wants to correct the localization - can be later change.
 [*] Tested for bugs and compatibility on the entire collection of my mods, and they are not a few, should not conflict with anyone.
 [*] There is a google translation to the enemy (English), the accuracy of the translation almost did not check, so that you correct for yourself, I'm not going to improve, say thank you that there is at least such x].
 [*] It is a modification for yourself and released as is, use if interested, if you show patience - you will be a surprise, in about 150 years after the birth of the first calf chance of falling out 50%.
