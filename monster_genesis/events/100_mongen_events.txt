@@ -62,7 +62,13 @@ country_event = {
 country_event = {
 	id = monster_genesis.2
 	title = monster_genesis.2.name
-	desc = monster_genesis.2.desc
+	
+	desc = monster_genesis.2.desc.0
+	desc = monster_genesis.2.desc.1
+	desc = monster_genesis.2.desc.2
+	desc = monster_genesis.2.desc.3
+	desc = monster_genesis.2.desc.4
+	
 	picture = GFX_evt_monster_genesis
 	show_sound = event_space_amoeba
 	location = fromfromfrom
@@ -76,7 +82,17 @@ country_event = {
 	}
 
 	option = {
-		name = monster_genesis.2.answer.1
+		name = monster_genesis.2.answer_true.0
+		name = monster_genesis.2.answer_true.1
+		name = monster_genesis.2.answer_true.2
+		name = monster_genesis.2.answer_true.3
+		name = monster_genesis.2.answer_true.4
+		name = monster_genesis.2.answer_true.5
+		name = monster_genesis.2.answer_true.6
+		name = monster_genesis.2.answer_true.7
+		name = monster_genesis.2.answer_true.8
+		name = monster_genesis.2.answer_true.9
+		
 		trigger = {
 			OR = {
 				is_xenophile = yes
@@ -97,7 +113,16 @@ country_event = {
 	}
 	
 	option = {
-		name = monster_genesis.2.answer.2
+		name = monster_genesis.2.answer_false.0
+		name = monster_genesis.2.answer_false.1
+		name = monster_genesis.2.answer_false.2
+		name = monster_genesis.2.answer_false.3
+		name = monster_genesis.2.answer_false.4
+		name = monster_genesis.2.answer_false.5
+		name = monster_genesis.2.answer_false.6
+		name = monster_genesis.2.answer_false.7
+		name = monster_genesis.2.answer_false.8
+		name = monster_genesis.2.answer_false.9
 		
 		add_monthly_resource_mult = {
 			resource = society_research
