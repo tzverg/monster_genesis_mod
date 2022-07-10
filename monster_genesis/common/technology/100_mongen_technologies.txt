@@ -18,6 +18,14 @@ tech_ark_of_genesis = {
 	weight_modifier = {
 		factor = 0.5   # Sets the base chance of the tech appearing
 		
+		modifier = {
+			factor = 3
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+		
 		# Sets chance to 0 if the empire does not have any of the following ethics.
 		modifier = {
 			factor = 0
@@ -37,22 +45,6 @@ tech_ark_of_genesis = {
 			NOT = { has_communications = event_target:tiyanki_country }
 			# v.2.8.x
 			#NOT = { has_country_flag = established_comms_with_tiyanki } 	
-		}
-		
-		modifier = {
-			factor = 1.25
-			has_ethic = ethic_pacifist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_pacifist
-		}
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_biology"
-			}
 		}
 	}
 	

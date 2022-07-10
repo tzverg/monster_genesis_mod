@@ -218,6 +218,7 @@ mongen_tiyanky_genesis = {
 			}
 			owner = {
 				country_event = { id = monster_genesis.3 }
+				#start_random_arc_of_genesis_event = yes
 			}
 		}
 	}

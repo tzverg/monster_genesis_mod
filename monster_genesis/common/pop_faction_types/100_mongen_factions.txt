@@ -20,7 +20,8 @@ mgfaction = {
 	resources = {
 		category = pop_factions
 		produces = {
-			unity = 2
+			unity = 0.1
+			influence = 0.1
 		}
 	}
 	
@@ -84,10 +85,55 @@ mgfaction = {
 				NOT = { exists = leader }
 			}
 		}
+		
+		modifier = {
+			factor = 25
+			exists = owner
+			owner = {
+				has_edict = broadcast_tiyanki_grazing
+			}
+		}
+		
+		modifier = {
+			factor = 50
+			exists = owner
+			owner = {
+				has_edict = broadcast_tiyanki_dancing
+			}
+		}
 
 		modifier = {
 			factor = 2.0
 			NOT = { is_same_species = owner_species }
+		}
+		
+		modifier = {
+			factor = 150
+			exists = owner
+			owner = {
+				has_country_flag = mongen_calf_created
+			}
+		}
+		modifier = {
+			factor = 160
+			exists = owner
+			owner = {
+				has_country_flag = mongen_bull_created
+			}
+		}
+		modifier = {
+			factor = 170
+			exists = owner
+			owner = {
+				has_country_flag = mongen_cow_created
+			}
+		}
+		modifier = {
+			factor = 200
+			exists = owner
+			owner = {
+				has_country_flag = mongen_matriarch_created
+			}
 		}
 	}
 	
@@ -95,7 +141,7 @@ mgfaction = {
 		base = 100
 
 		modifier = {
-			factor = 0.5
+			factor = 2.0
 			leader_class = scientist
 		}
 
@@ -105,15 +151,59 @@ mgfaction = {
 		}
 
 		modifier = {
-			factor = 1.0
+			factor = 1.5
 			is_event_leader = yes
 		}
 	}
 	
 	demand = {
-		title = "FACTION_OUTRAGED_GC"
-		unfulfilled_title = "FACTION_OUTRAGED_GC_DESC"
-		desc = "FACTION_OUTRAGED_GC_DESC"
+		title = "FACTION_DEMAND_DISCOVERY"
+		unfulfilled_title = "FACTION_DEMAND_DISCOVERY_UNFD"
+		desc = "FACTION_DEMAND_DISCOVERY_DESC"
+
+		fulfilled_effect = 5
+		unfulfilled_effect = -5
+
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = tech_tiyanki_media
+			}
+		}
+
+		trigger = {
+			owner = {
+				has_edict = broadcast_tiyanki_grazing
+			}
+		}
+	}
+	
+	demand = {
+		title = "FACTION_DEMAND_CALL_OF_WAR"
+		unfulfilled_title = "FACTION_DEMAND_CALL_OF_WAR_UNFD"
+		desc = "FACTION_DEMAND_CALL_OF_WAR_DESC"
+
+		fulfilled_effect = 10
+		unfulfilled_effect = -0.001
+
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = tech_tiyanki_media
+			}
+		}
+
+		trigger = {
+			owner = {
+				has_edict = broadcast_tiyanki_dancing
+			}
+		}
+	}
+	
+	demand = {
+		title = "FACTION_DEMAND_OUTRAGED_GC"
+		unfulfilled_title = "FACTION_DEMAND_OUTRAGED_GC_DESC"
+		desc = "FACTION_DEMAND_OUTRAGED_GC_DESC"
 
 		fulfilled_effect = -20
 		unfulfilled_effect = -0.001
@@ -139,9 +229,9 @@ mgfaction = {
 	}
 	
 	demand = {
-		title = "FACTION_BANNER_DAYS"
-		unfulfilled_title = "FACTION_BANNER_DAYS_DESC"
-		desc = "FACTION_BANNER_DAYS_DESC"
+		title = "FACTION_DEMAND_BORN"
+		unfulfilled_title = "FACTION_DEMAND_BORN_UNFD"
+		desc = "FACTION_DEMAND_BORN_DESC"
 
 		fulfilled_effect = +20
 		unfulfilled_effect = +0.001
@@ -149,7 +239,7 @@ mgfaction = {
 		potential = {
 			exists = owner
 			owner = {
-				has_country_flag = mongen_calf_created
+				has_technology = tech_ark_of_genesis
 			}
 		}
 
@@ -161,9 +251,8 @@ mgfaction = {
 	}
 	
 	demand = {
-		title = "FACTION_BLACK_DAYS"
-		unfulfilled_title = "FACTION_BLACK_DAYS_DESC"
-		desc = "FACTION_BLACK_DAYS_DESC"
+		title = "FACTION_DEMAND_M_DEATH"
+		desc = "FACTION_DEMAND_M_DEATH_DESC"
 
 		fulfilled_effect = -30
 		unfulfilled_effect = +0.001

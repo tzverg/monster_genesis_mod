@@ -7,7 +7,7 @@
 @MEMongenJobs = 2
 @MEMongenJobsPerPop = 0.1
 @MEMongenUniversityHousing = 5
-@MEMongenUniversityBuildTime = 100
+@MEMongenUniversityBuildTime = 730
 
 building_mongen_university = {
 	base_buildtime = @MEMongenUniversityBuildTime
@@ -29,10 +29,12 @@ building_mongen_university = {
 		category = planet_buildings
 		upkeep = {
 			energy = 5
+			unity = 5
+			influence = 1
 		}
 		cost = {
 			minerals = 500
-			alloys = 100
+			alloys = 300
 			energy = 1000
 		}
 	}

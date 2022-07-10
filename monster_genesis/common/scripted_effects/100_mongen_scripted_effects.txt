@@ -15,7 +15,7 @@
 @tiyanki_cow_age_random = 10950			# 30 years
 
 @tiyanki_matriarch_age = 18250			# 50 years
-@tiyanki_matriarch_age_random = 7300‬	# 20 years
+@tiyanki_matriarch_age_random = 7300	# 20 years
 
 #@tiyanki_calf_age = 300
 #@tiyanki_calf_age_random = 0
@@ -26,20 +26,26 @@
 #@tiyanki_matriarch_age = 200
 #@tiyanki_matriarch_age_random = 0
 
-@static_orbit_time_calf = 15
-@dynamic_orbit_time_calf = 30
+@orbiting_delay_calf = 30
+@orbiting_delay_calf_random = 150
 
-@static_orbit_time_cow = 20
-@dynamic_orbit_time_cow = 40
+@orbiting_delay_cow = 30
+@orbiting_delay_cow_random = 60
 
-@static_orbit_time_bull = 15
-@dynamic_orbit_time_bull = 10
+@orbiting_delay_bull = 15
+@orbiting_delay_bull_random = 10
 
-@static_orbit_time_matriarch = 30
-@dynamic_orbit_time_matriarch = 30
+@orbiting_delay_matriarch = 30
+@orbiting_delay_matriarch_random = 30
 
-@faction_years_of_joy = 5
-@sky_visiter_duration = 90
+@faction_random_years_of_joy_a = 1
+@faction_random_years_of_joy_b = 5
+@faction_random_years_of_joy_c = 10
+
+@job_popularity_years = 2
+
+@sky_visiter_duration_days = 90
+@tiyanki_effect_duration_years = 10
 
 # Creates the monster countries
 create_monster_genesis_country = {
@@ -185,10 +191,26 @@ create_monster_genesis_tiyanki_calf = {
 					
 					event_target:monster_genesis_creator = {
 						country_event = { id = monster_genesis.6 }
-						set_timed_country_flag = {
-							flag = mongen_calf_created
-							#days = <int> 
-							years = @faction_years_of_joy
+						
+						random_list = {
+							34 = { 
+								set_timed_country_flag = {
+									flag = mongen_calf_created
+									years = @faction_random_years_of_joy_a
+								}
+							}
+							34 = { 
+								set_timed_country_flag = {
+									flag = mongen_calf_created
+									years = @faction_random_years_of_joy_b
+								}
+							}
+							34 = { 
+								set_timed_country_flag = {
+									flag = mongen_calf_created
+									years = @faction_random_years_of_joy_c
+								}
+							}
 						}
 					}
 					
@@ -212,99 +234,217 @@ create_monster_genesis_tiyanki_calf = {
 						angle = random
 					}
 					
-					set_fleet_stance = passive
 					set_aggro_range_measure_from = self
 					set_aggro_range = 150
 					
 					set_formation_scale = 3
 					
 					# Fleet Orders (duplicate code required for fix problem with reading trigger.h)
-					#create_monster_genesis_tiyanki_calf_actions = yes
+					# create_monster_genesis_tiyanki_calf_actions = yes
 					
-					queue_actions = {
-						repeat = {
-							find_random_system = {
-								trigger = {
-									id = mongen_calf_actions.trigger.1
-									is_inside_border = event_target:monster_genesis_creator
-								}
-								found_system = {
-									
-									move_to = this
-					
-									wait = {
-										duration = @static_orbit_time_calf
-										random = @dynamic_orbit_time_calf
+					if = {
+						limit = {
+							exists = event_target:monster_genesis_creator
+							event_target:monster_genesis_creator = {
+								has_policy_flag = mongen_policy_free
+							}
+						}
+						
+						set_fleet_stance = passive
+						
+						queue_actions = {
+							repeat = {
+								find_random_system = {
+									trigger = {
+										id = mongen_calf_actions.trigger.1
+										is_inside_border = event_target:monster_genesis_creator
 									}
-					
-									find_random_planet = {
-										trigger = {
-											id = mongen_calf_actions.trigger.2
-											is_planet_class = pc_gas_giant
-											has_modifier = grazing_candidate
+									found_system = {
+										
+										move_to = this
+						
+										wait = {
+											duration = @orbiting_delay_calf
+											random = @orbiting_delay_calf_random
 										}
-										found_planet = {
-											move_to = this
-											orbit_planet = this
-											
-											wait = {
-												duration = @static_orbit_time_calf
-												random = @dynamic_orbit_time_calf
+						
+										find_random_planet = {
+											trigger = {
+												id = mongen_calf_actions.trigger.2
+												is_planet_class = pc_gas_giant
+												has_modifier = grazing_candidate
 											}
-											
-											effect = {
-												id = mongen_calf_actions.effect.1
-												update_gas_giant_deposit = yes
+											found_planet = {
+												move_to = this
+												orbit_planet = this
+												
+												wait = {
+													duration = @orbiting_delay_calf
+													random = @orbiting_delay_calf_random
+												}
+												
+												effect = {
+													id = mongen_calf_actions.effect.1
+													update_gas_giant_deposit = yes
+												}
 											}
 										}
-									}
-									find_closest_planet = {
-										trigger = {
-											id = mongen_calf_actions.trigger.3
-											is_colony = yes
-										}
-										found_planet = {
-											move_to = this
-											orbit_planet = this
-											
-											effect = {
-												id = mongen_calf_actions.effect.2
-												if = {
-													limit = {
-														has_modifier = sky_visiter
+										find_closest_planet = {
+											trigger = {
+												id = mongen_calf_actions.trigger.3
+												is_colony = yes
+											}
+											found_planet = {
+												move_to = this
+												orbit_planet = this
+												
+												effect = {
+													id = mongen_calf_actions.effect.2
+													if = {
+														limit = {
+															has_modifier = sky_visiter
+														}
+														remove_modifier = sky_visiter
 													}
-													remove_modifier = sky_visiter
+													add_modifier = { 
+														modifier = sky_visiter 
+														#days = -1
+														days = @sky_visiter_duration_days
+													}
 												}
-												add_modifier = { 
-													modifier = sky_visiter 
-													#days = -1
-													days = @sky_visiter_duration
+												
+												wait = {
+													duration = @orbiting_delay_calf
+													random = @orbiting_delay_calf_random
 												}
 											}
-											
-											wait = {
-												duration = @static_orbit_time_calf
-												random = @dynamic_orbit_time_calf
+										}
+										find_random_planet = {
+											trigger = {
+												id = mongen_calf_actions.trigger.4
+												is_star = no
 											}
-										}
-									}
-									find_random_planet = {
-										trigger = {
-											id = mongen_calf_actions.trigger.4
-											is_star = no
-										}
-										found_planet = {
-											move_to = this
-											orbit_planet = this
-											
-											wait = {
-												duration = @static_orbit_time_calf
-												random = @dynamic_orbit_time_calf
+											found_planet = {
+												move_to = this
+												orbit_planet = this
+												
+												wait = {
+													duration = @orbiting_delay_calf
+													random = @orbiting_delay_calf_random
+												}
 											}
 										}
 									}
 								}
 							}
+						}
+					} else_if = {
+						limit = {
+							exists = event_target:monster_genesis_creator
+							event_target:monster_genesis_creator = {
+								has_policy_flag = mongen_policy_call
+							}
+						}
+						
+						set_fleet_stance = aggressive
+						
+						queue_actions = {
+							find_closest_system = {
+								trigger = {
+									id = mongen_calf_actions.trigger.5
+									is_inside_border = event_target:monster_genesis_creator
+									any_system_planet = {
+										has_modifier = the_last_frontier
+									}
+								}
+								found_system = {
+									move_to = this
+									
+									wait = {
+										duration = @orbiting_delay_matriarch
+										random = @orbiting_delay_matriarch_random
+									}
+									
+									find_random_planet = {
+										trigger = {
+											id = mongen_calf_actions.trigger.6
+											has_modifier = the_last_frontier
+										}
+										found_planet = {
+											move_to = this
+											orbit_planet = this
+											
+											wait = {
+												duration = @orbiting_delay_matriarch
+												random = @orbiting_delay_matriarch_random
+											}
+										}
+									}
+									find_random_planet = {
+										trigger = {
+											id = mongen_calf_actions.trigger.7
+											is_planet_class = pc_gas_giant
+										}
+										found_planet = {
+											move_to = this
+											orbit_planet = this
+									
+											wait = {
+												duration = @orbiting_delay_matriarch
+												random = @orbiting_delay_matriarch_random
+											}
+										}
+									}
+									find_random_planet = {
+										trigger = {
+											id = mongen_calf_actions.trigger.8
+											is_star = no
+										}
+										found_planet = {
+											move_to = this
+											orbit_planet = this
+									
+											wait = {
+												duration = @orbiting_delay_matriarch
+												random = @orbiting_delay_matriarch_random
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			last_created_fleet = {
+				if = {
+					limit = {
+						exists = event_target:monster_genesis_creator
+						event_target:monster_genesis_creator = {
+							has_policy_flag = mongen_policy_follow
+						}
+					}
+					event_target:monster_genesis_creator = {
+						random_owned_fleet = {
+							limit = {
+								any_owned_ship = {
+									is_ship_class = shipclass_science_ship
+								}
+							}
+							save_event_target_as = fleet_for_follow
+						}
+					}
+					
+					if = {
+						limit = {
+							exists = event_target:fleet_for_follow
+						}
+						
+						set_fleet_stance = passive
+						
+						auto_follow_fleet = {
+							target = event_target:fleet_for_follow
+							attack_fleet = no
 						}
 					}
 				}
@@ -357,6 +497,10 @@ create_monster_genesis_tiyanki_cow = {
 						
 						event_target:monster_genesis_creator = {
 							country_event = { id = monster_genesis.8 }
+							set_timed_country_flag = {
+								flag = mongen_cow_created
+								years = @job_popularity_years
+							}
 						}
 						
 						set_fleet_flag = tiyanky_cow
@@ -383,7 +527,6 @@ create_monster_genesis_tiyanki_cow = {
 							}
 						}
 						
-						set_fleet_stance = passive
 						set_aggro_range_measure_from = self
 						set_aggro_range = 170
 						
@@ -392,75 +535,194 @@ create_monster_genesis_tiyanki_cow = {
 						# Fleet Orders (duplicate code required for fix problem with reading trigger.h)
 						#create_monster_genesis_tiyanki_cow_actions = yes
 						
-						queue_actions = {
-							repeat = {
-								find_random_system = {
-									trigger = {
-										id = mongen_cow_actions.trigger.1
-										is_inside_border = event_target:monster_genesis_creator
-									}
-									found_system = {
-									
-										move_to = this
-					
-										wait = {
-											duration = @static_orbit_time_cow
-											random = @dynamic_orbit_time_cow
+						if = {
+							limit = {
+								exists = event_target:monster_genesis_creator
+								event_target:monster_genesis_creator = {
+									has_policy_flag = mongen_policy_free
+								}
+							}
+							
+							set_fleet_stance = passive
+							
+							queue_actions = {
+								repeat = {
+									find_random_system = {
+										trigger = {
+											id = mongen_cow_actions.trigger.1
+											is_inside_border = event_target:monster_genesis_creator
 										}
-					
-										find_random_planet = {
-											trigger = {
-												id = mongen_cow_actions.trigger.2
-												is_planet_class = pc_gas_giant
-												has_modifier = grazing_candidate
+										found_system = {
+										
+											move_to = this
+						
+											wait = {
+												duration = @orbiting_delay_cow
+												random = @orbiting_delay_cow_random
 											}
-											found_planet = {
-												move_to = this
-												orbit_planet = this
-												
-												wait = {
-													duration = @static_orbit_time_cow
-													random = @dynamic_orbit_time_cow
+						
+											find_random_planet = {
+												trigger = {
+													id = mongen_cow_actions.trigger.2
+													is_planet_class = pc_gas_giant
+													has_modifier = grazing_candidate
 												}
-												
-												effect = {
-													id = mongen_cow_actions.effect.1
-													update_gas_giant_deposit = yes
-												}
-											}
-										}
-										find_closest_planet = {
-											trigger = {
-												id = mongen_cow_actions.trigger.3
-												is_star = no
-											}
-											found_planet = {
-												move_to = this
-												orbit_planet = this
-												
-												wait = {
-													duration = @static_orbit_time_cow
-													random = @dynamic_orbit_time_cow
+												found_planet = {
+													move_to = this
+													orbit_planet = this
+													
+													wait = {
+														duration = @orbiting_delay_cow
+														random = @orbiting_delay_cow_random
+													}
+													
+													effect = {
+														id = mongen_cow_actions.effect.1
+														update_gas_giant_deposit = yes
+													}
 												}
 											}
-										}
-										find_random_planet = {
-											trigger = {
-												id = mongen_cow_actions.trigger.4
-												is_planet_class = pc_gas_giant
+											find_closest_planet = {
+												trigger = {
+													id = mongen_cow_actions.trigger.3
+													is_star = no
+												}
+												found_planet = {
+													move_to = this
+													orbit_planet = this
+													
+													wait = {
+														duration = @orbiting_delay_cow
+														random = @orbiting_delay_cow_random
+													}
+												}
 											}
-											found_planet = {
-												move_to = this
-												orbit_planet = this
-												
-												wait = {
-													duration = @static_orbit_time_cow
-													random = @dynamic_orbit_time_cow
+											find_random_planet = {
+												trigger = {
+													id = mongen_cow_actions.trigger.4
+													is_planet_class = pc_gas_giant
+												}
+												found_planet = {
+													move_to = this
+													orbit_planet = this
+													
+													wait = {
+														duration = @orbiting_delay_cow
+														random = @orbiting_delay_cow_random
+													}
 												}
 											}
 										}
 									}
 								}
+							}							
+						} else_if = {
+							limit = {
+								exists = event_target:monster_genesis_creator
+								event_target:monster_genesis_creator = {
+									has_policy_flag = mongen_policy_call
+								}
+							}
+							
+							set_fleet_stance = aggressive
+							
+							queue_actions = {
+								find_closest_system = {
+									trigger = {
+										id = mongen_cow_actions.trigger.5
+										is_inside_border = event_target:monster_genesis_creator
+										any_system_planet = {
+											has_modifier = the_last_frontier
+										}
+									}
+									found_system = {
+										move_to = this
+										
+										wait = {
+											duration = @orbiting_delay_matriarch
+											random = @orbiting_delay_matriarch_random
+										}
+										
+										find_random_planet = {
+											trigger = {
+												id = mongen_cow_actions.trigger.6
+												has_modifier = the_last_frontier
+											}
+											found_planet = {
+												move_to = this
+												orbit_planet = this
+												
+												wait = {
+													duration = @orbiting_delay_matriarch
+													random = @orbiting_delay_matriarch_random
+												}
+											}
+										}
+										find_random_planet = {
+											trigger = {
+												id = mongen_cow_actions.trigger.7
+												is_planet_class = pc_gas_giant
+											}
+											found_planet = {
+												move_to = this
+												orbit_planet = this
+										
+												wait = {
+													duration = @orbiting_delay_matriarch
+													random = @orbiting_delay_matriarch_random
+												}
+											}
+										}
+										find_random_planet = {
+											trigger = {
+												id = mongen_cow_actions.trigger.8
+												is_star = no
+											}
+											found_planet = {
+												move_to = this
+												orbit_planet = this
+										
+												wait = {
+													duration = @orbiting_delay_matriarch
+													random = @orbiting_delay_matriarch_random
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				last_created_fleet = {
+					if = {
+						limit = {
+							exists = event_target:monster_genesis_creator
+							event_target:monster_genesis_creator = {
+								has_policy_flag = mongen_policy_follow
+							}
+						}
+						event_target:monster_genesis_creator = {
+							random_owned_fleet = {
+								limit = {
+									any_owned_ship = {
+										is_ship_class = shipclass_science_ship
+									}
+								}
+								save_event_target_as = fleet_for_follow
+							}
+						}
+						
+						if = {
+							limit = {
+								exists = event_target:fleet_for_follow
+							}
+							
+							set_fleet_stance = passive
+							
+							auto_follow_fleet = {
+								target = event_target:fleet_for_follow
+								attack_fleet = no
 							}
 						}
 					}
@@ -514,6 +776,10 @@ create_monster_genesis_tiyanki_bull = {
 						
 						event_target:monster_genesis_creator = {
 							country_event = { id = monster_genesis.7 }
+							set_timed_country_flag = {
+								flag = mongen_bull_created
+								years = @job_popularity_years
+							}
 						}
 						
 						set_fleet_flag = tiyanky_bull
@@ -528,96 +794,214 @@ create_monster_genesis_tiyanki_bull = {
 							}
 						}
 						
-						set_fleet_stance = aggressive
 						set_aggro_range_measure_from = self
 						set_aggro_range = 250
 						
 						# Fleet Orders (commented code generate error with unique trigger and effect id's)
 						#create_monster_genesis_tiyanki_bull_actions = yes
 						
-						queue_actions = {
-							repeat = {
-								find_random_system = {
-									trigger = {
-										id = mongen_bull_actions.trigger.1
-										is_inside_border = event_target:monster_genesis_creator
-									}
-									found_system = {
-										move_to = this
-										
-										wait = {
-											duration = @static_orbit_time_bull
-											random = @dynamic_orbit_time_bull
+						if = {
+							limit = {
+								exists = event_target:monster_genesis_creator
+								event_target:monster_genesis_creator = {
+									has_policy_flag = mongen_policy_free
+								}
+							}
+							
+							set_fleet_stance = aggressive
+							
+							queue_actions = {
+								repeat = {
+									find_random_system = {
+										trigger = {
+											id = mongen_bull_actions.trigger.1
+											is_inside_border = event_target:monster_genesis_creator
 										}
-										
-										find_random_planet = {
-											trigger = {
-												id = mongen_bull_actions.trigger.2
-												is_planet_class = pc_gas_giant
-												has_modifier = grazing_candidate
+										found_system = {
+											move_to = this
+											
+											wait = {
+												duration = @orbiting_delay_bull
+												random = @orbiting_delay_bull_random
 											}
-											found_planet = {
-												move_to = this
-												orbit_planet = this
-												
-												wait = {
-													duration = @static_orbit_time_bull
-													random = @dynamic_orbit_time_bull
+											
+											find_random_planet = {
+												trigger = {
+													id = mongen_bull_actions.trigger.2
+													is_planet_class = pc_gas_giant
+													has_modifier = grazing_candidate
 												}
-												
-												effect = {
-													id = mongen_bull_actions.effect.1
-													update_gas_giant_deposit = yes
+												found_planet = {
+													move_to = this
+													orbit_planet = this
+													
+													wait = {
+														duration = @orbiting_delay_bull
+														random = @orbiting_delay_bull_random
+													}
+													
+													effect = {
+														id = mongen_bull_actions.effect.1
+														update_gas_giant_deposit = yes
+													}
 												}
 											}
-										}
-										find_closest_planet = {
-											trigger = {
-												id = mongen_bull_actions.trigger.3
-												is_planet_class = pc_gas_giant
-												NOT = { has_modifier = grazing_candidate }
-											}
-											found_planet = {
-												move_to = this
-												orbit_planet = this
-												
-												wait = {
-													duration = @static_orbit_time_bull
-													random = @dynamic_orbit_time_bull
+											find_closest_planet = {
+												trigger = {
+													id = mongen_bull_actions.trigger.3
+													is_planet_class = pc_gas_giant
+													NOT = { has_modifier = grazing_candidate }
 												}
-												
-												effect = {
-													id = mongen_bull_actions.effect.2
-													if = {
-														limit = {
-															has_modifier = grazing_candidate
+												found_planet = {
+													move_to = this
+													orbit_planet = this
+													
+													wait = {
+														duration = @orbiting_delay_bull
+														random = @orbiting_delay_bull_random
+													}
+													
+													effect = {
+														id = mongen_bull_actions.effect.2
+														if = {
+															limit = {
+																has_modifier = grazing_candidate
+															}
+															remove_modifier = grazing_candidate
 														}
-														remove_modifier = grazing_candidate
-													}
-													add_modifier = {
-														modifier = grazing_candidate
-														days = -1
+														add_modifier = {
+															modifier = grazing_candidate
+															days = -1
+														}
 													}
 												}
 											}
-										}
-										find_random_planet = {
-											trigger = {
-												id = mongen_bull_actions.trigger.4
-												is_star = no
-											}
-											found_planet = {
-												move_to = this
-												orbit_planet = this
-												
-												wait = {
-													duration = @static_orbit_time_bull
-													random = @dynamic_orbit_time_bull
+											find_random_planet = {
+												trigger = {
+													id = mongen_bull_actions.trigger.4
+													is_star = no
+												}
+												found_planet = {
+													move_to = this
+													orbit_planet = this
+													
+													wait = {
+														duration = @orbiting_delay_bull
+														random = @orbiting_delay_bull_random
+													}
 												}
 											}
 										}
 									}
 								}
+							}
+						} else_if = {
+							limit = {
+								exists = event_target:monster_genesis_creator
+								event_target:monster_genesis_creator = {
+									has_policy_flag = mongen_policy_call
+								}
+							}
+							
+							set_fleet_stance = aggressive
+							
+							queue_actions = {
+								find_closest_system = {
+									trigger = {
+										id = mongen_bull_actions.trigger.5
+										is_inside_border = event_target:monster_genesis_creator
+										any_system_planet = {
+											has_modifier = the_last_frontier
+										}
+									}
+									found_system = {
+										move_to = this
+										
+										wait = {
+											duration = @orbiting_delay_matriarch
+											random = @orbiting_delay_matriarch_random
+										}
+										
+										find_random_planet = {
+											trigger = {
+												id = mongen_bull_actions.trigger.6
+												has_modifier = the_last_frontier
+											}
+											found_planet = {
+												move_to = this
+												orbit_planet = this
+												
+												wait = {
+													duration = @orbiting_delay_matriarch
+													random = @orbiting_delay_matriarch_random
+												}
+											}
+										}
+										find_random_planet = {
+											trigger = {
+												id = mongen_bull_actions.trigger.7
+												is_planet_class = pc_gas_giant
+											}
+											found_planet = {
+												move_to = this
+												orbit_planet = this
+										
+												wait = {
+													duration = @orbiting_delay_matriarch
+													random = @orbiting_delay_matriarch_random
+												}
+											}
+										}
+										find_random_planet = {
+											trigger = {
+												id = mongen_bull_actions.trigger.8
+												is_star = no
+											}
+											found_planet = {
+												move_to = this
+												orbit_planet = this
+										
+												wait = {
+													duration = @orbiting_delay_matriarch
+													random = @orbiting_delay_matriarch_random
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				last_created_fleet = {
+					if = {
+						limit = {
+							exists = event_target:monster_genesis_creator
+							event_target:monster_genesis_creator = {
+								has_policy_flag = mongen_policy_follow
+							}
+						}
+						event_target:monster_genesis_creator = {
+							random_owned_fleet = {
+								limit = {
+									any_owned_ship = {
+										is_ship_class = shipclass_science_ship
+									}
+								}
+								save_event_target_as = fleet_for_follow
+							}
+						}
+						
+						if = {
+							limit = {
+								exists = event_target:fleet_for_follow
+							}
+							
+							set_fleet_stance = passive
+							
+							auto_follow_fleet = {
+								target = event_target:fleet_for_follow
+								attack_fleet = no
 							}
 						}
 					}
@@ -698,9 +1082,12 @@ create_monster_genesis_tiyanki_matriarch = {
 								days = @tiyanki_matriarch_age
 								random = @tiyanki_matriarch_age_random
 							}
+							set_timed_country_flag = {
+								flag = mongen_matriarch_created
+								years = @job_popularity_years
+							}
 						}
 						
-						set_fleet_stance = passive
 						set_aggro_range_measure_from = self
 						set_aggro_range = 200
 						
@@ -709,129 +1096,256 @@ create_monster_genesis_tiyanki_matriarch = {
 						# Fleet Orders (commented code generate error with unique trigger and effect id's)
 						#create_monster_genesis_tiyanki_matriarch_actions = yes
 						
-						queue_actions = {
-							repeat = {
-								find_random_system = {
-									trigger = {
-										id = mongen_matriarch_actions.trigger.1
-										is_inside_border = event_target:monster_genesis_creator
-										
-										any_system_planet = {
-											is_colony = yes
-										}
-									}
-									found_system = {
-										move_to = this
-										
-										wait = {
-											duration = @static_orbit_time_matriarch
-											random = @dynamic_orbit_time_matriarch
-										}
-										
-										find_random_planet = {
-											trigger = {
-												id = mongen_matriarch_actions.trigger.2
+						if = {
+							limit = {
+								exists = event_target:monster_genesis_creator
+								event_target:monster_genesis_creator = {
+									has_policy_flag = mongen_policy_free
+								}
+							}
+							
+							set_fleet_stance = aggressive
+							
+							queue_actions = {
+								repeat = {
+									find_random_system = {
+										trigger = {
+											id = mongen_matriarch_actions.trigger.1
+											is_inside_border = event_target:monster_genesis_creator
+											
+											any_system_planet = {
 												is_colony = yes
 											}
-											found_planet = {
-												move_to = this
-												orbit_planet = this
-												
-												effect = {
-													id = mongen_matriarch_actions.effect.1
-													if = {
-														limit = {
-															has_modifier = sky_visiter
+										}
+										found_system = {
+											move_to = this
+											
+											wait = {
+												duration = @orbiting_delay_matriarch
+												random = @orbiting_delay_matriarch_random
+											}
+											
+											find_random_planet = {
+												trigger = {
+													id = mongen_matriarch_actions.trigger.2
+													is_colony = yes
+												}
+												found_planet = {
+													move_to = this
+													orbit_planet = this
+													
+													effect = {
+														id = mongen_matriarch_actions.effect.1
+														if = {
+															limit = {
+																has_modifier = sky_visiter
+															}
+															remove_modifier = sky_visiter
 														}
-														remove_modifier = sky_visiter
+														add_modifier = { 
+															modifier = sky_visiter 
+															#days = -1
+															days = @sky_visiter_duration_days
+														}
 													}
-													add_modifier = { 
-														modifier = sky_visiter 
-														#days = -1
-														days = @sky_visiter_duration
+											
+													wait = {
+														duration = @orbiting_delay_matriarch
+														random = @orbiting_delay_matriarch_random
 													}
 												}
-										
-												wait = {
-													duration = @static_orbit_time_matriarch
-													random = @dynamic_orbit_time_matriarch
+											}
+											find_random_planet = {
+												trigger = {
+													id = mongen_matriarch_actions.trigger.3
+													has_anomaly = yes
+												}
+												found_planet = {
+													move_to = this
+													orbit_planet = this
+											
+													wait = {
+														duration = @orbiting_delay_matriarch
+														random = @orbiting_delay_matriarch_random
+													}
+												}
+											}
+											find_random_planet = {
+												trigger = {
+													id = mongen_matriarch_actions.trigger.4
+													is_planet_class = pc_gas_giant
+													has_modifier = grazing_candidate
+												}
+												found_planet = {
+													move_to = this
+													orbit_planet = this
+											
+													wait = {
+														duration = @orbiting_delay_matriarch
+														random = @orbiting_delay_matriarch_random
+													}
+													
+													effect = {
+														id = mongen_matriarch_actions.effect.2
+														update_gas_giant_deposit = yes
+													}
+												}
+											}
+											find_random_planet = {
+												trigger = {
+													id = mongen_matriarch_actions.trigger.5
+													is_planet_class = pc_gas_giant
+												}
+												found_planet = {
+													move_to = this
+													orbit_planet = this
+													
+													wait = {
+														duration = @orbiting_delay_matriarch
+														random = @orbiting_delay_matriarch_random
+													}
+													
+													effect = {
+														id = mongen_matriarch_actions.effect.3
+														enhancement_gas_giant_deposit = yes
+													}
 												}
 											}
 										}
-										find_random_planet = {
-											trigger = {
-												id = mongen_matriarch_actions.trigger.3
-												has_anomaly = yes
-											}
-											found_planet = {
-												move_to = this
-												orbit_planet = this
-										
-												wait = {
-													duration = @static_orbit_time_matriarch
-													random = @dynamic_orbit_time_matriarch
-												}
-											}
+									}
+									find_random_system = {
+										trigger = {
+											id = mongen_matriarch_actions.trigger.6
+											is_inside_border = event_target:monster_genesis_creator
 										}
-										find_random_planet = {
-											trigger = {
-												id = mongen_matriarch_actions.trigger.4
-												is_planet_class = pc_gas_giant
-												has_modifier = grazing_candidate
+										found_system = {
+											move_to = this
+											
+											wait = {
+												duration = @orbiting_delay_matriarch
+												random = @orbiting_delay_matriarch_random
 											}
-											found_planet = {
-												move_to = this
-												orbit_planet = this
-										
-												wait = {
-													duration = @static_orbit_time_matriarch
-													random = @dynamic_orbit_time_matriarch
+											
+											find_random_planet = {
+												trigger = {
+													id = mongen_matriarch_actions.trigger.7
+													is_star = no
 												}
-												
-												effect = {
-													id = mongen_matriarch_actions.effect.2
-													update_gas_giant_deposit = yes
+												found_planet = {
+													move_to = this
+													orbit_planet = this
+											
+													wait = {
+														duration = @orbiting_delay_matriarch
+														random = @orbiting_delay_matriarch_random
+													}
 												}
 											}
-										}
-										find_random_planet = {
-											trigger = {
-												id = mongen_matriarch_actions.trigger.5
-												is_planet_class = pc_gas_giant
-											}
-											found_planet = {
-												move_to = this
-												orbit_planet = this
-												
-												wait = {
-													duration = @static_orbit_time_matriarch
-													random = @dynamic_orbit_time_matriarch
+											find_random_planet = {
+												trigger = {
+													id = mongen_matriarch_actions.trigger.8
+													is_planet_class = pc_gas_giant
+													has_modifier = grazing_candidate
 												}
-												
-												effect = {
-													id = mongen_matriarch_actions.effect.3
-													enhancement_gas_giant_deposit = yes
+												found_planet = {
+													move_to = this
+													orbit_planet = this
+											
+													wait = {
+														duration = @orbiting_delay_matriarch
+														random = @orbiting_delay_matriarch_random
+													}
+													
+													effect = {
+														id = mongen_matriarch_actions.effect.4
+														update_gas_giant_deposit = yes
+													}
+												}
+											}
+											find_random_planet = {
+												trigger = {
+													id = mongen_matriarch_actions.trigger.9
+													is_planet_class = pc_gas_giant
+												}
+												found_planet = {
+													move_to = this
+													orbit_planet = this
+													
+													wait = {
+														duration = @orbiting_delay_matriarch
+														random = @orbiting_delay_matriarch_random
+													}
+													
+													effect = {
+														id = mongen_matriarch_actions.effect.5
+														enhancement_gas_giant_deposit = yes
+													}
 												}
 											}
 										}
 									}
 								}
-								find_random_system = {
+							}
+						} else_if = {
+							limit = {
+								exists = event_target:monster_genesis_creator
+								event_target:monster_genesis_creator = {
+									has_policy_flag = mongen_policy_call
+								}
+							}
+							
+							set_fleet_stance = aggressive
+							
+							queue_actions = {
+								find_closest_system = {
 									trigger = {
-										id = mongen_matriarch_actions.trigger.6
+										id = mongen_matriarch_actions.trigger.10
 										is_inside_border = event_target:monster_genesis_creator
+										any_system_planet = {
+											has_modifier = the_last_frontier
+										}
 									}
 									found_system = {
 										move_to = this
 										
 										wait = {
-											duration = @static_orbit_time_matriarch
-											random = @dynamic_orbit_time_matriarch
+											duration = @orbiting_delay_matriarch
+											random = @orbiting_delay_matriarch_random
 										}
 										
 										find_random_planet = {
 											trigger = {
-												id = mongen_matriarch_actions.trigger.7
+												id = mongen_matriarch_actions.trigger.11
+												has_modifier = the_last_frontier
+											}
+											found_planet = {
+												move_to = this
+												orbit_planet = this
+												
+												wait = {
+													duration = @orbiting_delay_matriarch
+													random = @orbiting_delay_matriarch_random
+												}
+											}
+										}
+										find_random_planet = {
+											trigger = {
+												id = mongen_matriarch_actions.trigger.12
+												is_planet_class = pc_gas_giant
+											}
+											found_planet = {
+												move_to = this
+												orbit_planet = this
+										
+												wait = {
+													duration = @orbiting_delay_matriarch
+													random = @orbiting_delay_matriarch_random
+												}
+											}
+										}
+										find_random_planet = {
+											trigger = {
+												id = mongen_matriarch_actions.trigger.13
 												is_star = no
 											}
 											found_planet = {
@@ -839,54 +1353,46 @@ create_monster_genesis_tiyanki_matriarch = {
 												orbit_planet = this
 										
 												wait = {
-													duration = @static_orbit_time_matriarch
-													random = @dynamic_orbit_time_matriarch
-												}
-											}
-										}
-										find_random_planet = {
-											trigger = {
-												id = mongen_matriarch_actions.trigger.8
-												is_planet_class = pc_gas_giant
-												has_modifier = grazing_candidate
-											}
-											found_planet = {
-												move_to = this
-												orbit_planet = this
-										
-												wait = {
-													duration = @static_orbit_time_matriarch
-													random = @dynamic_orbit_time_matriarch
-												}
-												
-												effect = {
-													id = mongen_matriarch_actions.effect.4
-													update_gas_giant_deposit = yes
-												}
-											}
-										}
-										find_random_planet = {
-											trigger = {
-												id = mongen_matriarch_actions.trigger.9
-												is_planet_class = pc_gas_giant
-											}
-											found_planet = {
-												move_to = this
-												orbit_planet = this
-												
-												wait = {
-													duration = @static_orbit_time_matriarch
-													random = @dynamic_orbit_time_matriarch
-												}
-												
-												effect = {
-													id = mongen_matriarch_actions.effect.5
-													enhancement_gas_giant_deposit = yes
+													duration = @orbiting_delay_matriarch
+													random = @orbiting_delay_matriarch_random
 												}
 											}
 										}
 									}
 								}
+							}
+						}
+					}
+				}
+				last_created_fleet = {
+					if = {
+						limit = {
+							exists = event_target:monster_genesis_creator
+							event_target:monster_genesis_creator = {
+								has_policy_flag = mongen_policy_follow
+							}
+						}
+						event_target:monster_genesis_creator = {
+							random_owned_fleet = {
+								limit = {
+									any_owned_ship = {
+										is_ship_class = shipclass_science_ship
+									}
+								}
+								save_event_target_as = fleet_for_follow
+							}
+						}
+						
+						if = {
+							limit = {
+								exists = event_target:fleet_for_follow
+							}
+							
+							set_fleet_stance = passive
+							
+							auto_follow_fleet = {
+								target = event_target:fleet_for_follow
+								attack_fleet = no
 							}
 						}
 					}
@@ -1011,8 +1517,8 @@ create_monster_genesis_tiyanki_calf_actions = {
 					move_to = this
 					
 					wait = {
-						duration = @static_orbit_time_calf
-						random = @dynamic_orbit_time_calf
+						duration = @orbiting_delay_calf
+						random = @orbiting_delay_calf_random
 					}
 					
 					find_random_planet = {
@@ -1026,8 +1532,8 @@ create_monster_genesis_tiyanki_calf_actions = {
 							orbit_planet = this
 							
 							wait = {
-								duration = @static_orbit_time_calf
-								random = @dynamic_orbit_time_calf
+								duration = @orbiting_delay_calf
+								random = @orbiting_delay_calf_random
 							}
 							
 							effect = {
@@ -1056,13 +1562,13 @@ create_monster_genesis_tiyanki_calf_actions = {
 								add_modifier = { 
 									modifier = sky_visiter 
 									#days = -1
-									days = @sky_visiter_duration
+									days = @sky_visiter_duration_days
 								}
 							}
 							
 							wait = {
-								duration = @static_orbit_time_calf
-								random = @dynamic_orbit_time_calf
+								duration = @orbiting_delay_calf
+								random = @orbiting_delay_calf_random
 							}
 						}
 					}
@@ -1076,8 +1582,8 @@ create_monster_genesis_tiyanki_calf_actions = {
 							orbit_planet = this
 							
 							wait = {
-								duration = @static_orbit_time_calf
-								random = @dynamic_orbit_time_calf
+								duration = @orbiting_delay_calf
+								random = @orbiting_delay_calf_random
 							}
 						}
 					}
@@ -1101,8 +1607,8 @@ create_monster_genesis_tiyanki_cow_actions = {
 					move_to = this
 					
 					wait = {
-						duration = @static_orbit_time_cow
-						random = @dynamic_orbit_time_cow
+						duration = @orbiting_delay_cow
+						random = @orbiting_delay_cow_random
 					}
 					
 					find_random_planet = {
@@ -1115,8 +1621,8 @@ create_monster_genesis_tiyanki_cow_actions = {
 							orbit_planet = this
 							
 							wait = {
-								duration = @static_orbit_time_cow
-								random = @dynamic_orbit_time_cow
+								duration = @orbiting_delay_cow
+								random = @orbiting_delay_cow_random
 							}
 							
 							effect = {
@@ -1135,8 +1641,8 @@ create_monster_genesis_tiyanki_cow_actions = {
 							orbit_planet = this
 							
 							wait = {
-								duration = @static_orbit_time_cow
-								random = @dynamic_orbit_time_cow
+								duration = @orbiting_delay_cow
+								random = @orbiting_delay_cow_random
 							}
 						}
 					}
@@ -1150,8 +1656,8 @@ create_monster_genesis_tiyanki_cow_actions = {
 							orbit_planet = this
 							
 							wait = {
-								duration = @static_orbit_time_cow
-								random = @dynamic_orbit_time_cow
+								duration = @orbiting_delay_cow
+								random = @orbiting_delay_cow_random
 							}
 						}
 					}
@@ -1174,8 +1680,8 @@ create_monster_genesis_tiyanki_bull_actions = {
 					move_to = this
 					
 					wait = {
-						duration = @static_orbit_time_bull
-						random = @dynamic_orbit_time_bull
+						duration = @orbiting_delay_bull
+						random = @orbiting_delay_bull_random
 					}
 					
 					find_random_planet = {
@@ -1189,8 +1695,8 @@ create_monster_genesis_tiyanki_bull_actions = {
 							orbit_planet = this
 							
 							wait = {
-								duration = @static_orbit_time_bull
-								random = @dynamic_orbit_time_bull
+								duration = @orbiting_delay_bull
+								random = @orbiting_delay_bull_random
 							}
 							
 							effect = {
@@ -1210,8 +1716,8 @@ create_monster_genesis_tiyanki_bull_actions = {
 							orbit_planet = this
 							
 							wait = {
-								duration = @static_orbit_time_bull
-								random = @dynamic_orbit_time_bull
+								duration = @orbiting_delay_bull
+								random = @orbiting_delay_bull_random
 							}
 							
 							effect = {
@@ -1239,8 +1745,8 @@ create_monster_genesis_tiyanki_bull_actions = {
 							orbit_planet = this
 							
 							wait = {
-								duration = @static_orbit_time_bull
-								random = @dynamic_orbit_time_bull
+								duration = @orbiting_delay_bull
+								random = @orbiting_delay_bull_random
 							}
 						}
 					}
@@ -1267,8 +1773,8 @@ create_monster_genesis_tiyanki_matriarch_actions = {
 					move_to = this
 					
 					wait = {
-						duration = @static_orbit_time_matriarch
-						random = @dynamic_orbit_time_matriarch
+						duration = @orbiting_delay_matriarch
+						random = @orbiting_delay_matriarch_random
 					}
 					
 					find_random_planet = {
@@ -1290,13 +1796,13 @@ create_monster_genesis_tiyanki_matriarch_actions = {
 								}
 								add_modifier = { 
 									modifier = sky_visiter 
-									days = @sky_visiter_duration
+									days = @sky_visiter_duration_days
 								}
 							}
 					
 							wait = {
-								duration = @static_orbit_time_matriarch
-								random = @dynamic_orbit_time_matriarch
+								duration = @orbiting_delay_matriarch
+								random = @orbiting_delay_matriarch_random
 							}
 						}
 					}
@@ -1310,8 +1816,8 @@ create_monster_genesis_tiyanki_matriarch_actions = {
 							orbit_planet = this
 					
 							wait = {
-								duration = @static_orbit_time_matriarch
-								random = @dynamic_orbit_time_matriarch
+								duration = @orbiting_delay_matriarch
+								random = @orbiting_delay_matriarch_random
 							}
 						}
 					}
@@ -1326,8 +1832,8 @@ create_monster_genesis_tiyanki_matriarch_actions = {
 							orbit_planet = this
 					
 							wait = {
-								duration = @static_orbit_time_matriarch
-								random = @dynamic_orbit_time_matriarch
+								duration = @orbiting_delay_matriarch
+								random = @orbiting_delay_matriarch_random
 							}
 							
 							effect = {
@@ -1346,8 +1852,8 @@ create_monster_genesis_tiyanki_matriarch_actions = {
 							orbit_planet = this
 							
 							wait = {
-								duration = @static_orbit_time_matriarch
-								random = @dynamic_orbit_time_matriarch
+								duration = @orbiting_delay_matriarch
+								random = @orbiting_delay_matriarch_random
 							}
 							
 							effect = {
@@ -1367,8 +1873,8 @@ create_monster_genesis_tiyanki_matriarch_actions = {
 					move_to = this
 					
 					wait = {
-						duration = @static_orbit_time_matriarch
-						random = @dynamic_orbit_time_matriarch
+						duration = @orbiting_delay_matriarch
+						random = @orbiting_delay_matriarch_random
 					}
 					
 					find_random_planet = {
@@ -1381,8 +1887,8 @@ create_monster_genesis_tiyanki_matriarch_actions = {
 							orbit_planet = this
 					
 							wait = {
-								duration = @static_orbit_time_matriarch
-								random = @dynamic_orbit_time_matriarch
+								duration = @orbiting_delay_matriarch
+								random = @orbiting_delay_matriarch_random
 							}
 						}
 					}
@@ -1397,8 +1903,8 @@ create_monster_genesis_tiyanki_matriarch_actions = {
 							orbit_planet = this
 					
 							wait = {
-								duration = @static_orbit_time_matriarch
-								random = @dynamic_orbit_time_matriarch
+								duration = @orbiting_delay_matriarch
+								random = @orbiting_delay_matriarch_random
 							}
 							
 							effect = {
@@ -1417,8 +1923,8 @@ create_monster_genesis_tiyanki_matriarch_actions = {
 							orbit_planet = this
 							
 							wait = {
-								duration = @static_orbit_time_matriarch
-								random = @dynamic_orbit_time_matriarch
+								duration = @orbiting_delay_matriarch
+								random = @orbiting_delay_matriarch_random
 							}
 							
 							effect = {
@@ -1453,8 +1959,8 @@ create_order_tiyanki_call_monster_genesis = {
 				move_to = this
 				
 				wait = {
-					duration = @static_orbit_time_matriarch
-					random = @dynamic_orbit_time_matriarch
+					duration = @orbiting_delay_matriarch
+					random = @orbiting_delay_matriarch_random
 				}
 				
 				find_random_planet = {
@@ -1467,8 +1973,8 @@ create_order_tiyanki_call_monster_genesis = {
 						orbit_planet = this
 						
 						wait = {
-							duration = @static_orbit_time_matriarch
-							random = @dynamic_orbit_time_matriarch
+							duration = @orbiting_delay_matriarch
+							random = @orbiting_delay_matriarch_random
 						}
 					}
 				}
@@ -1482,8 +1988,8 @@ create_order_tiyanki_call_monster_genesis = {
 						orbit_planet = this
 				
 						wait = {
-							duration = @static_orbit_time_matriarch
-							random = @dynamic_orbit_time_matriarch
+							duration = @orbiting_delay_matriarch
+							random = @orbiting_delay_matriarch_random
 						}
 					}
 				}
@@ -1497,8 +2003,8 @@ create_order_tiyanki_call_monster_genesis = {
 						orbit_planet = this
 				
 						wait = {
-							duration = @static_orbit_time_matriarch
-							random = @dynamic_orbit_time_matriarch
+							duration = @orbiting_delay_matriarch
+							random = @orbiting_delay_matriarch_random
 						}
 					}
 				}
@@ -1508,8 +2014,8 @@ create_order_tiyanki_call_monster_genesis = {
 }
 
 # Create order FOLLOW for Tiyanki Fleet (need fleet_scope)
-create_order_tiyanki_follow_monster_genesis = {		
-	event_target:monster_genesis_creator = {			
+create_order_tiyanki_follow_monster_genesis = {
+	event_target:monster_genesis_creator = {
 		random_owned_fleet = {
 			limit = {
 				any_owned_ship = {
@@ -1525,7 +2031,7 @@ create_order_tiyanki_follow_monster_genesis = {
 			exists = event_target:fleet_for_follow
 		}
 		
-		set_fleet_stance = aggressive
+		set_fleet_stance = passive
 		
 		clear_fleet_actions = this
 		
@@ -1670,7 +2176,8 @@ update_sky_visiter_modifiers = {
 				}
 				add_modifier = { 
 					modifier = sky_visiter 
-					days = -1
+					#days = -1
+					days = @sky_visiter_duration_days
 				}
 			}
 	   }
@@ -1706,7 +2213,8 @@ update_gas_giant_deposit = {
 		
 		add_modifier = { 
 			modifier = tiyanki_positive_effect 
-			days = -1
+			years = @tiyanki_effect_duration_years
+			#days = -1
 		}
 	}
 	else_if = {
@@ -1722,8 +2230,9 @@ update_gas_giant_deposit = {
 		remove_modifier = tiyanki_positive_effect
 		
 		add_modifier = { 
-			modifier = tiyanki_negative_effect 
-			days = -1
+			modifier = tiyanki_negative_effect
+			years = @tiyanki_effect_duration_years			
+			#days = -1
 		}
 	}
 	else = {
@@ -1731,13 +2240,15 @@ update_gas_giant_deposit = {
 			50 = {
 				add_modifier = { 
 					modifier = tiyanki_positive_effect 
-					days = -1
+					years = @tiyanki_effect_duration_years
+					#days = -1
 				}
 			}
 			50 = {
 				add_modifier = { 
 					modifier = tiyanki_negative_effect 
-					days = -1
+					years = @tiyanki_effect_duration_years
+					#days = -1
 				}
 			}
 		}

@@ -110,11 +110,108 @@ country_event = {
 
 # Finish Project MONGEN_TIYANKI_ARC_PROJECT [monster_genesis.3]
 # Called by MONGEN_TIYANKI_ARC_PROJECT
+# Called by decision [mongen_tiyanky_genesis]
 country_event = {
 	id = monster_genesis.3
 	title = monster_genesis.3.name
-	desc = monster_genesis.3.desc
-	picture = GFX_evt_monster_genesis_tiyanky
+	
+	desc = monster_genesis.3.desc.0
+	desc = monster_genesis.3.desc.1
+	desc = monster_genesis.3.desc.2
+	desc = monster_genesis.3.desc.3
+	desc = monster_genesis.3.desc.4
+	desc = monster_genesis.3.desc.5
+	desc = monster_genesis.3.desc.6
+	desc = monster_genesis.3.desc.7
+	desc = monster_genesis.3.desc.8
+	desc = monster_genesis.3.desc.9
+	
+	picture = GFX_evt_monster_genesis_tiyanky_5
+	picture = {
+		picture = GFX_evt_monster_genesis_tiyanky_0
+		trigger = {
+			exists = solar_system
+			solar_system = {
+				OR = {
+					is_star_class = sc_a
+					is_star_class = sc_f
+					is_star_class = sc_binary_1
+					is_star_class = sc_binary_4
+					is_star_class = sc_binary_9
+					is_star_class = sc_binary_10
+					is_star_class = sc_trinary_2
+					is_star_class = sc_trinary_3
+				}
+			}
+		}
+	}
+	picture = {
+		picture = GFX_evt_monster_genesis_tiyanky_1
+		trigger = {
+			exists = solar_system
+			solar_system = {
+				OR = {					
+					is_star_class = sc_g
+					is_star_class = sc_k
+					is_star_class = sc_binary_6
+					is_star_class = sc_binary_7
+					is_star_class = sc_binary_8
+					is_star_class = sc_trinary_1
+					is_star_class = sc_trinary_3
+					is_star_class = sc_trinary_4
+				}
+			}
+		}
+	}
+	picture = {
+		picture = GFX_evt_monster_genesis_tiyanky_2
+		trigger = {
+			exists = solar_system
+			solar_system = {
+				OR = {					
+					is_star_class = sc_black_hole
+					is_star_class = sc_neutron_star
+					is_star_class = sc_pulsar
+					is_star_class = sc_binary_1
+					is_star_class = sc_binary_2
+				}
+			}
+		}
+	}
+	picture = {
+		picture = GFX_evt_monster_genesis_tiyanky_3
+		trigger = {
+			exists = solar_system
+			solar_system = {
+				OR = {					
+					is_star_class = sc_m
+					is_star_class = sc_m_giant
+					is_star_class = sc_binary_3
+					is_star_class = sc_binary_4
+					is_star_class = sc_binary_6
+					is_star_class = sc_trinary_1
+				}
+			}
+		}
+	}
+	picture = {
+		picture = GFX_evt_monster_genesis_tiyanky_4
+		trigger = {
+			exists = solar_system
+			solar_system = {
+				OR = {					
+					is_star_class = sc_b
+					is_star_class = sc_t
+					is_star_class = sc_binary_3
+					is_star_class = sc_binary_5
+					is_star_class = sc_binary_10
+					is_star_class = sc_trinary_2
+					is_star_class = sc_trinary_4
+				}
+			}
+		}
+	}
+	
 	show_sound = event_space_amoeba
 	location = fromfromfrom
 	trackable = yes
@@ -122,7 +219,16 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = monster_genesis.3.answer.1
+		name = monster_genesis.3.answer_true.0
+		name = monster_genesis.3.answer_true.1
+		name = monster_genesis.3.answer_true.2
+		name = monster_genesis.3.answer_true.3
+		name = monster_genesis.3.answer_true.4
+		name = monster_genesis.3.answer_true.5
+		name = monster_genesis.3.answer_true.6
+		name = monster_genesis.3.answer_true.7
+		name = monster_genesis.3.answer_true.8
+		name = monster_genesis.3.answer_true.9
 		
 		country_event = { 
 			id = monster_genesis.4
@@ -137,7 +243,16 @@ country_event = {
 	}
 	
 	option = {
-		name = monster_genesis.3.answer.2
+		name = monster_genesis.3.answer_false.0
+		name = monster_genesis.3.answer_false.1
+		name = monster_genesis.3.answer_false.2
+		name = monster_genesis.3.answer_false.3
+		name = monster_genesis.3.answer_false.4
+		name = monster_genesis.3.answer_false.5
+		name = monster_genesis.3.answer_false.6
+		name = monster_genesis.3.answer_false.7
+		name = monster_genesis.3.answer_false.8
+		name = monster_genesis.3.answer_false.9
 		
 		add_monthly_resource_mult = {
 			resource = society_research
@@ -737,7 +852,12 @@ country_event = {
 	}
 }
 
-# Update Tiyanki Ship Counters [monster_genesis.28] (HIDDEN)
+# 'Check who was destroyed and update Tiyanki Ship Counters'
+# 	This = owner of ship 1 (destroyed)
+# 	From = owner of ship 2 (combatant)
+# 	FromFrom = ship 1
+# 	FromFromFrom = ship 2
+# [monster_genesis.28] (HIDDEN)
 country_event = {
 	id = monster_genesis.28
 	
@@ -772,6 +892,12 @@ country_event = {
 										counter = "tiyanki_calf_number" 
 										amount = -1 
 									}
+									
+									event_target:monster_genesis_creator = {
+										country_event = { 
+											id = monster_genesis.36
+										}
+									}
 								}
 							}
 						}
@@ -787,6 +913,12 @@ country_event = {
 										counter = "tiyanki_cow_number" 
 										amount = -1 
 									}
+									
+									event_target:monster_genesis_creator = {
+										country_event = { 
+											id = monster_genesis.36
+										}
+									}
 								}
 							}
 						}
@@ -801,6 +933,12 @@ country_event = {
 										event_chain = "monster_genesis_event_chain" 
 										counter = "tiyanki_bull_number" 
 										amount = -1 
+									}
+									
+									event_target:monster_genesis_creator = {
+										country_event = { 
+											id = monster_genesis.36
+										}
 									}
 								}
 							}
@@ -986,7 +1124,7 @@ country_event = {
 	id = monster_genesis.31
 	title = monster_genesis.31.name
 	desc = monster_genesis.31.desc
-	picture = GFX_evt_monster_genesis_tiyanky
+	picture = GFX_evt_monster_genesis_tiyanky_1
 	show_sound = event_space_whale
 	location = last_created_fleet
 	
@@ -1009,7 +1147,7 @@ country_event = {
 	id = monster_genesis.32
 	title = monster_genesis.32.name
 	desc = monster_genesis.32.desc
-	picture = GFX_evt_monster_genesis_tiyanky
+	picture = GFX_evt_monster_genesis_tiyanky_2
 	show_sound = event_space_whale
 	location = last_created_fleet
 	
@@ -1032,7 +1170,7 @@ country_event = {
 	id = monster_genesis.33
 	title = monster_genesis.33.name
 	desc = monster_genesis.33.desc
-	picture = GFX_evt_monster_genesis_tiyanky
+	picture = GFX_evt_monster_genesis_sp
 	show_sound = event_space_whale
 	location = from
 	
@@ -1121,5 +1259,32 @@ country_event = {
 
 	option = {
 		name = OK
+	}
+}
+
+# Display info about tiyanki death
+# Called by event [monster_genesis.28]
+country_event = {
+	id = monster_genesis.36
+	title = monster_genesis.36.name
+	desc = monster_genesis.36.desc
+	picture = GFX_evt_monster_genesis_sp
+	show_sound = event_space_amoeba
+	location = fromfromfrom
+	trackable = yes
+	
+	# This event will not fire itself. It must be called by another event or an on_action.
+	# Most events will use this.
+	is_triggered_only = yes
+	
+	option = {
+		name = monster_genesis.36.answer
+		
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = @tier2researchreward
+			min = @tier2researchmin
+			max = @tier2researchmax
+		}
 	}
 }

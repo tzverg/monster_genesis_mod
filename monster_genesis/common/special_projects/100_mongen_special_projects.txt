@@ -24,7 +24,7 @@ special_project = {
 	cost = @tiyanki_arc_res_point
 	#days_to_research = @tiyanki_arc_days
 	tech_department = society_technology
-	picture = GFX_evt_monster_genesis_tiyanky
+	picture = GFX_evt_monster_genesis_sp
 	icon = "gfx/interface/icons/situation_log/situation_log_squid.dds"
 	timelimit = -1
 	

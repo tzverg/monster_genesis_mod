@@ -4,10 +4,14 @@
 # Written by TzverG
 ##########################################################################
 
-@MEEdictInfluenceCost = 150
-@MEEdictEnergyCost = 1500
-@MEEdictDuration = 330
+@MEEdictInfluenceCost = 100
+@MEEdictUnityCost = 450
+@MEEdictEnergyCost = 500
+@MEEdictDuration = 360
 @MEEdictPerpetual = -1
+@MEdictPerMonthUnityCost = 10
+@MEdictPerMonthEnergyCost = 5
+@MEdictPerMonthInfluenceCost = 0.1
 
 #################
 #Government stuff
@@ -22,14 +26,18 @@ broadcast_tiyanki_grazing = {
 	resources = {
 		category = edicts
 		cost = {
-			influence = @MEEdictInfluenceCost
+			energy = @MEEdictEnergyCost
+			multiplier = value:edict_size_effect
+		}
+		upkeep = {
+			energy = @MEdictPerMonthEnergyCost
+			influence = @MEdictPerMonthInfluenceCost
+			multiplier = value:edict_size_effect
 		}
 	}
 	
 	modifier = {
-		planet_jobs_society_research_produces_mult = 0.1
-		pop_government_ethic_attraction = 0.1
-		planet_stability_add = 5
+		country_society_tech_research_speed = 0.1
 	}
 	
 	prerequisites = { 
@@ -39,12 +47,9 @@ broadcast_tiyanki_grazing = {
 	allow = {
 		count_owned_pop = {
 			limit = {
-				exists = pop_faction
-				pop_faction = {
-					is_pop_faction_type = mgfaction
-				}
+				has_job = mongen_student
 			}
-			count >= 10
+			count >= 1
 		}
 	}
 	
@@ -64,14 +69,14 @@ broadcast_tiyanki_dancing = {
 		category = edicts
 		cost = {
 			influence = @MEEdictInfluenceCost
-			energy = @MEEdictEnergyCost
+			multiplier = 2
 		}
 	}
 	
 	modifier = {
-		pop_citizen_happiness = 0.15
-		pop_government_ethic_attraction = 0.4
-		planet_stability_add = 5
+		country_society_tech_research_speed = 0.1
+		pop_citizen_happiness = 0.05
+		army_morale = 0.5
 	}
 	
 	prerequisites = {
@@ -79,11 +84,14 @@ broadcast_tiyanki_dancing = {
 	}
 	
 	allow = {
-		count_owned_pop = {
-			limit = {
-				has_job = mongen_student
+		AND = {
+			has_edict = broadcast_tiyanki_grazing
+			count_owned_pop = {
+				limit = {
+					has_job = mongen_student
+				}
+				count >= 1
 			}
-			count >= 5
 		}
 	}
 	

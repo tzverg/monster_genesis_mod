@@ -7,8 +7,44 @@ spriteTypes = {
 		alwaystransparent = yes		
 	}
 	spriteType = {
-		name = "GFX_evt_monster_genesis_tiyanky"
-		texturefile = "gfx/event_pictures/tiyanky_image.dds"
+		name = "GFX_evt_monster_genesis_sp"
+		texturefile = "gfx/event_pictures/tiyanky_genesis_image.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes		
+	}
+	spriteType = {
+		name = "GFX_evt_monster_genesis_tiyanky_0"
+		texturefile = "gfx/event_pictures/tiyanky_image_0.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes		
+	}
+	spriteType = {
+		name = "GFX_evt_monster_genesis_tiyanky_1"
+		texturefile = "gfx/event_pictures/tiyanky_image_1.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes		
+	}
+	spriteType = {
+		name = "GFX_evt_monster_genesis_tiyanky_2"
+		texturefile = "gfx/event_pictures/tiyanky_image_2.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes		
+	}
+	spriteType = {
+		name = "GFX_evt_monster_genesis_tiyanky_3"
+		texturefile = "gfx/event_pictures/tiyanky_image_3.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes		
+	}
+	spriteType = {
+		name = "GFX_evt_monster_genesis_tiyanky_4"
+		texturefile = "gfx/event_pictures/tiyanky_image_4.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes		
+	}
+	spriteType = {
+		name = "GFX_evt_monster_genesis_tiyanky_5"
+		texturefile = "gfx/event_pictures/tiyanky_image_5.dds"
 		masking_texture = "gfx/interface/situation_log/event_mask.dds"
 		alwaystransparent = yes		
 	}
