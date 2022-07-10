@@ -1287,7 +1287,7 @@ country_event = {
 	}
 }
 
-# Display info about tiyanki death
+# Display info about tiyanki death [monster_genesis.36]
 # Called by event [monster_genesis.28]
 country_event = {
 	id = monster_genesis.36

@@ -4,7 +4,7 @@
 # Written by TzverG
 ##########################################################################
 
-project_genesis = {
+mongen_herd_behavior = {
 
 	potential = {
 		has_technology = tech_ark_of_genesis
@@ -65,6 +65,166 @@ project_genesis = {
 		
 		on_enabled = {
 			country_event = { id = monster_genesis.17 }
+		}
+	}
+}
+
+mongen_crystall_relations = {
+
+	potential = {
+		AND = {
+			has_modifier = pacified_crystals
+			has_technology = tech_tiyanki_order
+		}
+	}
+	
+	allow = {
+		any_planet_within_border = { 
+			is_colony = yes
+			count_owned_pop = {
+				limit = {
+					has_job = mongen_student
+				}
+				count >= 1
+			}
+		}
+	}
+
+	option = {
+		name = "mongen_policy_crystall_reconciliation"		
+		
+		policy_flags = {
+			mongen_policy_crystall_reconciliation
+		}
+
+		AI_weight = {
+			weight = 0
+		}		
+		
+		on_enabled = {
+			custom_tooltip  =  "mongen_policy_crystall_reconciliation_tooltip"
+			hidden_effect  = {
+				#country_event = { id = monster_genesis.37 }
+				reconcile_mongen_empire_with_crystall = yes
+			}
+		}
+	}
+	option = {
+		name = "mongen_policy_crystall_neutralisation"
+		
+		policy_flags = {
+			mongen_policy_crystall_neutralisation
+		}
+
+		AI_weight = {
+			weight = 0
+		}
+		
+		on_enabled = {
+			custom_tooltip  =  "mongen_policy_crystall_neutralisation_tooltip"
+			hidden_effect  = {
+				# country_event = { id = monster_genesis.38 }
+				neutralize_mongen_empire_with_crystall = yes
+			}
+		}
+	}
+	option = {
+		name = "mongen_policy_crystall_quarrel"
+		
+		policy_flags = {
+			mongen_policy_crystall_quarrel
+		}
+
+		AI_weight = {
+			weight = 0
+		}
+		
+		on_enabled = {
+			custom_tooltip  =  "mongen_policy_crystall_quarrel_tooltip"
+			hidden_effect  = {
+				# country_event = { id = monster_genesis.39 }
+				quarrel_mongen_empire_with_crystall = yes
+			}
+		}
+	}
+}
+
+mongen_amoeba_relations = {
+
+	potential = {
+		AND = {
+			has_modifier = pacified_amoebas
+			has_technology = tech_tiyanki_order
+		}
+	}
+	
+	allow = {
+		any_planet_within_border = { 
+			is_colony = yes
+			count_owned_pop = {
+				limit = {
+					has_job = mongen_student
+				}
+				count >= 1
+			}
+		}
+	}
+
+	option = {
+		name = "mongen_policy_amoeba_reconciliation"
+		
+		policy_flags = {
+			mongen_policy_amoeba_reconciliation
+		}
+
+		AI_weight = {
+			weight = 0
+		}
+		
+		on_enabled = {
+			custom_tooltip  =  "mongen_policy_amoeba_reconciliation_tooltip"
+			hidden_effect  = {
+				# country_event = { id = monster_genesis.40 }
+				reconcile_mongen_empire_with_amoeba = yes
+			}
+		}
+	}
+	option = {
+		name = "mongen_policy_amoeba_neutralisation"
+		
+		policy_flags = {
+			mongen_policy_amoeba_neutralisation
+		}
+
+		AI_weight = {
+			weight = 0
+		}
+		
+		on_enabled = {
+			custom_tooltip  =  "mongen_policy_amoeba_neutralisation_tooltip"
+			hidden_effect  = {
+				# country_event = { id = monster_genesis.41 }
+				neutralize_mongen_empire_with_amoeba = yes
+			}
+		}
+	}
+	option = {
+		name = "mongen_policy_amoeba_quarrel"
+		
+		policy_flags = {
+			mongen_policy_amoeba_quarrel
+		}
+
+		AI_weight = {
+			weight = 0
+		}
+		
+		on_enabled = {
+			custom_tooltip  =  "mongen_policy_amoeba_quarrel_tooltip"
+			hidden_effect  = {
+				# country_event = { id = monster_genesis.42 }
+				quarrel_mongen_empire_with_amoeba = yes
+			}
 		}
 	}
 }

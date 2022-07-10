@@ -121,8 +121,7 @@ create_monster_genesis_country = {
 			
 			# Tiyankis are friendly to some other monsters
 			every_country = {
-				limit = { 
-					is_country_type = crystal
+				limit = {
 					is_country_type = cloud
 				}
 					
@@ -133,6 +132,108 @@ create_monster_genesis_country = {
 					set_friendly = yes
 				}
 			}
+		}
+	}
+}
+
+# Reconcile the empires ot Giyanki and Crystall
+reconcile_mongen_empire_with_crystall = {
+	every_country = {
+		limit = {
+			exists = event_target:monster_genesis_tiyanki_country
+			is_crystal_country_type = yes
+		}
+			
+		set_faction_hostility = {
+			target = event_target:monster_genesis_tiyanki_country
+			set_hostile = no
+			set_neutral = no
+			set_friendly = yes
+		}
+	}
+}
+
+# Neutralize relations ot Giyanki and Crystall empires
+neutralize_mongen_empire_with_crystall = {
+	every_country = {
+		limit = { 
+			exists = event_target:monster_genesis_tiyanki_country
+			is_crystal_country_type = yes
+		}
+			
+		set_faction_hostility = {
+			target = event_target:monster_genesis_tiyanki_country
+			set_hostile = no
+			set_neutral = yes
+			set_friendly = no
+		}
+	}
+}
+
+# Quarrel the empires ot Giyanki and Crystall
+quarrel_mongen_empire_with_crystall = {
+	every_country = {
+		limit = { 
+			exists = event_target:monster_genesis_tiyanki_country
+			is_crystal_country_type = yes
+		}
+			
+		set_faction_hostility = {
+			target = event_target:monster_genesis_tiyanki_country
+			set_hostile = yes
+			set_neutral = no
+			set_friendly = no
+		}
+	}
+}
+
+# Reconcile the empires ot Giyanki and Amoeba
+reconcile_mongen_empire_with_amoeba = {
+	every_country = {
+		limit = {
+			exists = event_target:monster_genesis_tiyanki_country
+			is_amoeba_country_type = yes
+		}
+			
+		set_faction_hostility = {
+			target = event_target:monster_genesis_tiyanki_country
+			set_hostile = no
+			set_neutral = no
+			set_friendly = yes
+		}
+	}
+}
+
+# Neutralize relations ot Giyanki and Amoeba empires
+neutralize_mongen_empire_with_amoeba = {
+	every_country = {
+		limit = { 
+			exists = event_target:monster_genesis_tiyanki_country
+			is_amoeba_country_type = yes
+		}
+			
+		set_faction_hostility = {
+			target = event_target:monster_genesis_tiyanki_country
+			set_hostile = no
+			set_neutral = yes
+			set_friendly = no
+		}
+	}
+}
+
+# Quarrel the empires ot Giyanki and Amoeba
+quarrel_mongen_empire_with_amoeba = {
+	every_country = {
+		limit = { 
+			exists = event_target:monster_genesis_tiyanki_country
+			is_amoeba_country_type = yes
+		}
+			
+		set_faction_hostility = {
+			target = event_target:monster_genesis_tiyanki_country
+			set_hostile = yes
+			set_neutral = no
+			set_friendly = no
 		}
 	}
 }
