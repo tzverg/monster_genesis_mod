@@ -4,7 +4,11 @@
 # Written by TzverG
 ##########################################################################
 
+@faction_creation_delay_years = 10
+
+@faction_talk_cost = 50
 @faction_help_cost = 100
+
 @faction_help_pause = 360
 
 mgfaction = {
@@ -28,12 +32,14 @@ mgfaction = {
 	is_potential = {
 		is_ai = no
 		is_at_war = no
-		years_passed > 10
-		has_encountered_other_species = yes
+		years_passed > @faction_creation_delay_years
+		# TODO
+		# has_encountered_other_species = yes
 		
 		# v.3.0.x
-		exists = event_target:tiyanki_country
-		has_communications = event_target:tiyanki_country
+		# TODO
+		# exists = event_target:tiyanki_country
+		# has_communications = event_target:tiyanki_country
 		# v.2.8.x
 		#has_country_flag = established_comms_with_tiyanki 
 		
@@ -454,9 +460,44 @@ mgfaction = {
 			}
 			remove_modifier = suppressed_mgfaction
 		}
+		if = {
+			limit = {
+				has_modifier = requested_faction_help
+			}
+			remove_modifier = requested_faction_help
+		}
 	}
 	
 	actions = {
+		dialog_with_faction = {
+			title = "DIALOG_WITH_FACTION"
+			description = "DIALOG_WITH_FACTION_DESC"
+			
+			cost = {
+				influence = @faction_talk_cost
+			}
+			
+			potential = {
+				exists = owner
+				parameter:empire = {
+					NOT = {
+						has_modifier = suppressed_mgfaction
+					}
+				}
+			}
+			
+			valid = {
+				support > 0.1
+			}
+			
+			effect = {
+				
+			}
+
+			ai_weight = {
+				base = 0
+			}
+		}
 		request_faction = {
 			title = "REQUEST_FACTION_HELP"
 			description = "REQUEST_FACTION_HELP_DESC"
@@ -468,7 +509,7 @@ mgfaction = {
 			potential = {
 				exists = owner
 				parameter:empire = {
-					NOR = {
+					NOT = {
 						has_modifier = suppressed_mgfaction
 					}
 				}

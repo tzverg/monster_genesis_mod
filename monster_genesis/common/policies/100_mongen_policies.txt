@@ -34,7 +34,9 @@ mongen_herd_behavior = {
 		}
 		
 		on_enabled = {
-			country_event = { id = monster_genesis.18 }
+			hidden_effect  = {
+				country_event = { id = monster_genesis.18 }
+			}
 		}
 	}
 	option = {
@@ -49,7 +51,9 @@ mongen_herd_behavior = {
 		}
 		
 		on_enabled = {
-			country_event = { id = monster_genesis.16 }
+			hidden_effect  = {
+				country_event = { id = monster_genesis.16 }
+			}
 		}
 	}
 	option = {
@@ -64,7 +68,9 @@ mongen_herd_behavior = {
 		}
 		
 		on_enabled = {
-			country_event = { id = monster_genesis.17 }
+			hidden_effect  = {
+				country_event = { id = monster_genesis.17 }
+			}
 		}
 	}
 }
@@ -104,7 +110,6 @@ mongen_crystall_relations = {
 		on_enabled = {
 			custom_tooltip  =  "mongen_policy_crystall_reconciliation_tooltip"
 			hidden_effect  = {
-				#country_event = { id = monster_genesis.37 }
 				reconcile_mongen_empire_with_crystall = yes
 			}
 		}
@@ -123,7 +128,6 @@ mongen_crystall_relations = {
 		on_enabled = {
 			custom_tooltip  =  "mongen_policy_crystall_neutralisation_tooltip"
 			hidden_effect  = {
-				# country_event = { id = monster_genesis.38 }
 				neutralize_mongen_empire_with_crystall = yes
 			}
 		}
@@ -142,7 +146,6 @@ mongen_crystall_relations = {
 		on_enabled = {
 			custom_tooltip  =  "mongen_policy_crystall_quarrel_tooltip"
 			hidden_effect  = {
-				# country_event = { id = monster_genesis.39 }
 				quarrel_mongen_empire_with_crystall = yes
 			}
 		}
@@ -184,7 +187,6 @@ mongen_amoeba_relations = {
 		on_enabled = {
 			custom_tooltip  =  "mongen_policy_amoeba_reconciliation_tooltip"
 			hidden_effect  = {
-				# country_event = { id = monster_genesis.40 }
 				reconcile_mongen_empire_with_amoeba = yes
 			}
 		}
@@ -203,7 +205,6 @@ mongen_amoeba_relations = {
 		on_enabled = {
 			custom_tooltip  =  "mongen_policy_amoeba_neutralisation_tooltip"
 			hidden_effect  = {
-				# country_event = { id = monster_genesis.41 }
 				neutralize_mongen_empire_with_amoeba = yes
 			}
 		}
@@ -222,7 +223,6 @@ mongen_amoeba_relations = {
 		on_enabled = {
 			custom_tooltip  =  "mongen_policy_amoeba_quarrel_tooltip"
 			hidden_effect  = {
-				# country_event = { id = monster_genesis.42 }
 				quarrel_mongen_empire_with_amoeba = yes
 			}
 		}

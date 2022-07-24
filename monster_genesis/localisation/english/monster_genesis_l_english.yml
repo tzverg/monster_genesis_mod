@@ -1,267 +1,387 @@
 ﻿l_english:
 
 ####################################
+# 			   Custom              #
+####################################
+
+mg_separator:"\n----------\n"
+
+####################################
+# 			Ship Designs           #
+####################################
+
+NAME_MG_Progenitor:"Matriarch"
+NAME_MG_Tiyanki_Bull_Guardian:"Orca"
+NAME_MG_Tiyanki_Bull_Guardian_plural:"Orcas"
+NAME_MG_Tiyanki_Bull:"Bull"
+NAME_MG_Tiyanki_Bull_plural:"Bulls"
+NAME_MG_Tiyanki_Cow:"Cow"
+NAME_MG_Tiyanki_Cow_plural:"Cows"
+NAME_MG_Tiyanki_Calf:"Calf"
+NAME_MG_Tiyanki_Calf_plural:"Calves"
+
+NAME_MG_Giyanki:"Giyanki"
+
+####################################
 # Factions Localisation
 ####################################
 
-animatists_names_prefix_1:0 "Soviet"
-animatists_names_prefix_2:0 "Committee"
-animatists_names_prefix_3:0 "Foundation"
-animatists_names_prefix_4:0 "Society"
-animatists_names_prefix_5:0 "Alliance"
-animatists_names_prefix_6:0 "Bureau"
-animatists_names_prefix_7:0 "Institute"
-animatists_names_prefix_8:0 "Academy"
-animatists_names_prefix_9:0 "League"
-animatists_names_prefix_10:0 "Party"
+animatists_names_prefix_1:"Soviet"
+animatists_names_prefix_2:"Committee"
+animatists_names_prefix_3:"Foundation"
+animatists_names_prefix_4:"Society"
+animatists_names_prefix_5:"Alliance"
+animatists_names_prefix_6:"Bureau"
+animatists_names_prefix_7:"Institute"
+animatists_names_prefix_8:"Academy"
+animatists_names_prefix_9:"League"
+animatists_names_prefix_10:"Party"
 
-animatists_names_main_1:0 "Rebirth"
-animatists_names_main_2:0 "Creation"
-animatists_names_main_3:0 "Salvation"
-animatists_names_main_4:0 "Ascension"
-animatists_names_main_5:0 "Learning"
+animatists_names_main_1:"Rebirth"
+animatists_names_main_2:"Creation"
+animatists_names_main_3:"Salvation"
+animatists_names_main_4:"Ascension"
+animatists_names_main_5:"Learning"
 
-animatists_names_postfix_1:0 "Tiyanki"
+animatists_names_postfix_1:"$NAME_MG_Giyanki$"
 
-format.faction.name.1:0 "<animatists_names_prefix> <animatists_names_main> <animatists_names_postfix>"
+format.faction.name.1:"<animatists_names_prefix> of <animatists_names_main> <animatists_names_postfix>"
 
-pft_mgfaction:0 "Animatists"
-pft_mgfaction_desc:1 "The $pft_mgfaction$ faction wants a national project called the §H$policy_project_genesis$§! continued to act and achieve results. An influential group of sponsors and cultural populists is ready to support the ruling party in exchange for supporting the project.\n\n The basic principle - §LAnimatism§!. Partially inherited needs from ethics:  §LPacifists§! и §LXenophiles§!"
+pft_mgfaction:"Animatists"
+pft_mgfaction_adjective:"Animatists"
+pft_mgfaction_desc:"The $pft_mgfaction$ faction wants a national project called the §H$policy_project_genesis$§! continued to act and achieve results. An influential group of sponsors and cultural populists is ready to support the ruling party in exchange for supporting the project.\n\n The basic principle - §LAnimatism§!. Partially inherited needs from ethics:  §LPacifists§! и §LXenophiles§!"
 
-FACTION_BANNER_DAYS:0 "Path of Joy"
-FACTION_BANNER_DAYS_DESC:0 "[Root.GetName] faction representatives will be very happy about the successful opening of the next ark of life for a while."
+FACTION_DEMAND_BORN:"Path of Joy"
+FACTION_DEMAND_BORN_DESC:"[Root.GetName] faction representatives will be very happy about the successful opening of the next ark of life for a while."
+FACTION_DEMAND_BORN_UNFD:"§PWe want results!§!"
 
-FACTION_BLACK_DAYS:0 "Path of Sorrow"
-FACTION_BLACK_DAYS_DESC:0 "[Root.GetName] faction representatives stay in shock. The death of the great void creature that was projected by the $policy_project_genesis$ was a real tragedy for our empire. Millions of fellow citizens mourn and grieve for him."
+FACTION_DEMAND_M_DEATH:"Path of Sorrow"
+FACTION_DEMAND_M_DEATH_DESC:"[Root.GetName] faction representatives stay in shock. The death of the great void creature that was projected by the $policy_project_genesis$ was a real tragedy for our empire. Millions of fellow citizens mourn and grieve for him."
 
-promoted_mgfaction:0 "Promotion of the $pft_mgfaction$ faction"
-suppressed_mgfaction:0 "Suppression of the $pft_mgfaction$ faction"
-requested_faction_help:0 "Inspiration Brigades"
+FACTION_DEMAND_DISCOVERY:"§EAnimal World§!"
+FACTION_DEMAND_DISCOVERY_DESC:"Members of a faction called:\n§L[Root.GetName]§! will be happy to observe life path of §L$tech_ark_of_genesis$§! national project creations, but they won't be happy if there are no broadcasts."
+FACTION_DEMAND_DISCOVERY_UNFD:"§PWe want more news§!"
 
-REQUEST_FACTION_HELP:0 "Request Fractional Assistance"
-REQUEST_FACTION_HELP_DESC:0 "Send a request for the establishment for §LInspiration Brigades§! of $pft_mgfaction_adjective$"
+FACTION_DEMAND_CALL_OF_WAR:"§ECall Of War§!"
+FACTION_DEMAND_CALL_OF_WAR_DESC:"The dance of war, performed by $NAME_MG_Giyanki$ space whales, inspires our soldiers to do great things, and confidence in our armed forces reassures the members of the faction called:\n§L[Root.GetName]§!."
+FACTION_DEMAND_CALL_OF_WAR_UNFD:"§PCall Of War§!"
 
-monster_genesis.34.desc.mgfaction:0 "Representatives of this faction support and persistently promote a national project called §H$policy_project_genesis$§!.\n\n"
-monster_genesis.35.desc.mgfaction:0 "As a result of the involvement of this faction in our government, it now more clearly adheres to the principle §HAnimatism§!.\n\n"
+FACTION_DEMAND_OUTRAGED_GC:"Suppression $pft_mgfaction_adjective$ faction"
+FACTION_DEMAND_OUTRAGED_GC_DESC:"Members of a faction called:\n§L[Root.GetName]§! outraged at the oppression of the important ethics of the new ideology, namely §Epacifism§! or §Exenophilia§!"
+
+promoted_mgfaction:"Promotion of the $pft_mgfaction$ faction"
+suppressed_mgfaction:"Suppression of the $pft_mgfaction$ faction"
+requested_faction_help:"Inspiration Brigades"
+
+REQUEST_FACTION_HELP:"Request Factional Assistance"
+REQUEST_FACTION_HELP_DESC:"Send a request for the establishment for §LInspiration Brigades§! of $pft_mgfaction_adjective$"
+
+DIALOG_WITH_FACTION:"Request Negotiations"
+DIALOG_WITH_FACTION_DESC:"Send a request to the faction named: \n$pft_mgfaction_adjective$ about negotiations \nwith faction leader."
+
+monster_genesis.34.desc.mgfaction:"Representatives of this faction support and persistently promote a national project called §H$policy_project_genesis$§!.\n\n"
+monster_genesis.35.desc.mgfaction:"As a result of the involvement of this faction in our government, it now more clearly adheres to the principle §HAnimatism§!.\n\n"
 
 ####################################
 # Pop Jobs Localisation
 ####################################
 
-SPECIALIST_MONGEN_JOB_TRIGGER:0 "This job can only be worked by Free Pops that are not being purged and supporting ethics of pacifists or xenophiles."
+SPECIALIST_MONGEN_JOB_TRIGGER:"This job can only be worked by Free Pops that are not being purged and supporting ethics of pacifists or xenophiles."
 
-job_mongen_student:0 "Macrobiologist"
-job_mongen_student_plural:0 "Macrobiologists"
-job_mongen_student_desc:0 "Professors of macrobiology university can teach inexperienced students the basics of creating a macro-life."
-job_mongen_student_effect_desc:0 "£job_mongen_student£ $job_mongen_student_plural$ turn £consumer_goods£ §Y$consumer_goods$§! into £society£ §YResearch Points§! for new technologies"
-mod_job_mongen_student_add:0 "$job_mongen_student$ Jobs"
-mod_job_mongen_student_per_pop:0 "§G+1§! $job_mongen_student$ Job per $VALUE$ Pops"
-mod_job_mongen_student_per_pop_short:0 "\n§G+1§! £mod_job_mongen_student_add£ per $VALUE$ £pop£"
+job_mongen_student:"Macrobiologist"
+job_mongen_student_plural:"Macrobiologists"
+job_mongen_student_department:"Macrobiology"
+job_mongen_student_desc:"Professors of macrobiology university can teach inexperienced students the basics of creating a macro-life."
+job_mongen_student_effect_desc:"£job_mongen_student£ $job_mongen_student_plural$ turn £consumer_goods£ §Y$consumer_goods$§! into £society£ §YResearch Points§! for new technologies"
+mod_job_mongen_student_add:"$job_mongen_student$ Jobs"
+mod_job_mongen_student_per_pop:"§G+1§! $job_mongen_student$ Job per $VALUE$ Pops"
+mod_job_mongen_student_per_pop_short:"\n§G+1§! £mod_job_mongen_student_add£ per $VALUE$ £pop£"
 
-mongen_job_effect_desc:0 "£job_mongen_student£ §H$job_mongen_student_plural$§! are working on a national project called §H$policy_project_genesis$§!. They consume a little £consumer_goods£, but bring empires £society£ and £amenities£."
-mongen_job_ruined_effect_desc:0 "This building cannot be built (or restored) since there is no §H$pft_mgfaction$§! faction in the empire, or there are no employees able to work on £job_mongen_student£ §H$job_mongen_student_plural$§! positions."
+mongen_job_effect_desc:"£job_mongen_student£ §H$job_mongen_student_plural$§! are working on a national project called §H$policy_project_genesis$§!. They consume a little £consumer_goods£, but bring empires £society£ and £amenities£."
+mongen_job_ruined_effect_desc:"This building cannot be built (or restored) since there is no §H$pft_mgfaction$§! faction in the empire, or there are no employees able to work on £job_mongen_student£ §H$job_mongen_student_plural$§! positions of §H$job_mongen_student_department$§! departments."
 
 ####################################
 # Policies Localisation
 ####################################
 
-policy_project_genesis:0 "Ark Of Genesis"
-policy_project_genesis_desc:0 "We can influence the behavior of the space herd through our policies."
+policy_mongen_herd_behavior:"Herd behavior"
+policy_mongen_herd_behavior_desc:"£job_mongen_student£ We can influence the behavior of our space herd by changing this policy.\n"
 
-mongen_policy_free:0 "Grazing"
-mongen_policy_free_name:0 "Disband the Herd"
-mongen_policy_free_desc:0 "Disbands a herd of space whales, sending them to free grazing in systems controlled by your empire."
+mongen_policy_free:"Grazing"
+mongen_policy_free_name:"Disband the Herd"
+mongen_policy_free_desc:"Disbands a herd of space whales, sending them to free grazing in systems controlled by your empire."
 
-mongen_policy_call:0 "Call"
-mongen_policy_call_name:0 "Call the Herd"
-mongen_policy_call_desc:0 "Summons a herd to defend the last frontier. All whales will head to nearby planets marked with the §HThe Last Frontier§! and try to stay within the systems."
+mongen_policy_call:"Call"
+mongen_policy_call_name:"Call the Herd"
+mongen_policy_call_desc:"Summons a herd to defend the last frontier. All whales will head to nearby planets marked with the §HThe Last Frontier§! and try to stay within the systems."
 
-mongen_policy_follow:0 "Migration"
-mongen_policy_follow_name:0 "Herd Migration"
-mongen_policy_follow_desc:0 "Summons a herd for migration and hooks it to the nearest research ship."
+mongen_policy_follow:"Migration"
+mongen_policy_follow_name:"Herd Migration"
+mongen_policy_follow_desc:"Summons a herd for migration and hooks it to the nearest research ship."
+
+policy_mongen_crystall_relations:"Attitude with Space Crystalls"
+policy_mongen_crystall_relations_desc:"£job_mongen_student£ We can influence the relationship between §G$monster_genesis.0.name$§! and the §PCrystal Prism§! factions by changing this policy.\n"
+
+mongen_policy_crystall_reconciliation:"Reconciliation"
+mongen_policy_crystall_reconciliation_name:"Reconciliation of §PCrystal Prism§! factions and §G$monster_genesis.0.name$§!"
+mongen_policy_crystall_reconciliation_desc:"Considering the peculiarities of §PCrystal Prism§! factions allows you to accustom §G$NAME_MG_Giyanki$§! of §G$monster_genesis.0.name$§! faction to coexist with their members and support them in battles inside borders of your empire.\n"
+mongen_policy_crystall_reconciliation_tooltip:"$mg_separator$Consequences : §BHarmonious coexistence§! between §LCrystal Prism§! factions and §L$NAME_MG_Progenitor$y Of The $NAME_MG_Giyanki$§!."
+
+mongen_policy_crystall_neutralisation:"§HPacification§!"
+mongen_policy_crystall_neutralisation_name:"To calm the aggression behavior between §PCrystal Prism§! factions and §G$monster_genesis.0.name$§!"
+mongen_policy_crystall_neutralisation_desc:"Pacification §PCrystal Prism§! factions allows you to accustom §G$NAME_MG_Giyanki$§! of §G$monster_genesis.0.name$§! faction to ignore their members and get along without victims, who are not wanted, are.\n"
+mongen_policy_crystall_neutralisation_tooltip:"$mg_separator$Consequences : §LReconciliation§! between §LCrystal Prism§! factions and §L$NAME_MG_Progenitor$y Of The $NAME_MG_Giyanki$§!."
+
+mongen_policy_crystall_quarrel:"§PQuarrel§!"
+mongen_policy_crystall_quarrel_name:"Disassociate §PCrystal Prism§! factions and §G$monster_genesis.0.name$§!"
+mongen_policy_crystall_quarrel_desc:"Considering the peculiarities of §PCrystal Prism§! factions it won't be a problem, if needed, sow discord between them and §G$monster_genesis.0.name$§! faction. It's just a question of expediency.\n"
+mongen_policy_crystall_quarrel_tooltip:"$mg_separator$Consequences : §RAggression Cultivating§! between §LCrystal Prism§! factions and §L$NAME_MG_Progenitor$y Of The $NAME_MG_Giyanki$§!."
+
+policy_mongen_amoeba_relations:"Attitude with Space Amoeba"
+policy_mongen_amoeba_relations_desc:"£job_mongen_student£ We can influence the relationship between §L$NAME_MG_Progenitor$y Of The $NAME_MG_Giyanki$§! and §PSpace Amoeba§! factions by changing this policy.\n"
+
+mongen_policy_amoeba_reconciliation:"Reconciliation"
+mongen_policy_amoeba_reconciliation_name:"Reconciliation of §PSpace Amoeba§! factions and §G$monster_genesis.0.name$§!"
+mongen_policy_amoeba_reconciliation_desc:"Considering the peculiarities of §PSpace Amoeba§! factions allows you to accustom §G$NAME_MG_Giyanki$§! of §G$monster_genesis.0.name$§! faction to coexist with their members and support them in battles inside borders of your empire.\n"
+mongen_policy_amoeba_reconciliation_tooltip:"$mg_separator$Consequences : §Barmonious coexistence§! between §LSpace Amoeba§! factions and §L$NAME_MG_Progenitor$y Of The $NAME_MG_Giyanki$§!."
+
+mongen_policy_amoeba_neutralisation:"§HPacification§!"
+mongen_policy_amoeba_neutralisation_name:"To calm the aggression behavior between §PSpace Amoeba§! factions and §G$monster_genesis.0.name$§!"
+mongen_policy_amoeba_neutralisation_desc:"Pacification §PSpace Amoeba§! factions allows you to accustom §G$NAME_MG_Giyanki$§! of §G$monster_genesis.0.name$§! faction to ignore their members and get along without victims, who are not wanted, are.\n"
+mongen_policy_amoeba_neutralisation_tooltip:"$mg_separator$Consequences : §LReconciliation§! between §LSpace Amoeba§! factions and §L$NAME_MG_Progenitor$y Of The $NAME_MG_Giyanki$§!."
+
+mongen_policy_amoeba_quarrel:"§PQuarrel§!"
+mongen_policy_amoeba_quarrel_name:"Disassociate §PSpace Amoeba§! factions and §G$monster_genesis.0.name$§!"
+mongen_policy_amoeba_quarrel_desc:"Considering the peculiarities of §PSpace Amoeba§! factions it won't be a problem, if needed, sow discord between them and §G$monster_genesis.0.name$§! faction. It's just a question of expediency.\n"
+mongen_policy_amoeba_quarrel_tooltip:"$mg_separator$Consequences : §RAggression Cultivating§! between §LSpace Amoeba§! factions and §L$NAME_MG_Progenitor$y Of The $NAME_MG_Giyanki$§!."
 
 ####################################
 # Event Chains Localisation
 ####################################
 
-monster_genesis_event_chain_title:0 "Ark Of Genesis"
-monster_genesis_event_chain_desc:0 "§HArk Of Genesis§! - a unique project of macro life creation. It is invaluable to science, as our advisers claim. The entire scientific community is very interested in the upcoming scientific breakthrough, and also, to be honest, some sponsor companies have already signed a cooperation contract in the hope of writing their name in the annals of history."
+monster_genesis_event_chain_title:"Ark Of Genesis"
+monster_genesis_event_chain_desc:"§HArk Of Genesis§! - a unique project of macro life creation. It is invaluable to science, as our advisers claim. The entire scientific community is very interested in the upcoming scientific breakthrough, and also, to be honest, some sponsor companies have already signed a cooperation contract in the hope of writing their name in the annals of history."
 
-tiyanki_calf_number:0 "§BCalfs§!"
-tiyanki_cow_number:0 "§YCows§!"
-tiyanki_bull_number:0 "§SBulls§!"
-tiyanki_bull_guardians_number:0 "§RBull Guardians§!"
+tiyanki_calf_number:"§B$NAME_MG_Tiyanki_Calf_plural$§!"
+tiyanki_cow_number:"§Y$NAME_MG_Tiyanki_Cow_plural$§!"
+tiyanki_bull_number:"§S$NAME_MG_Tiyanki_Bull_plural$§!"
+tiyanki_bull_guardians_number:"§R$NAME_MG_Tiyanki_Bull_Guardian_plural$§!"
 
 ####################################
 # Special Projects Localisation
 ####################################
 
-MONGEN_TIYANKI_ARC_PROJECT:0 "§HTiyanki Genesis§!"
-MONGEN_TIYANKI_ARC_PROJECT_DESC:0 "Leading biologists and genetics of §H[Root.GetAdjective]§! race learned how to reproduce space whales, also known as §HTiyanki§!. These creatures were one of the first, who we met among the stars. Who knows how they will help our empire achieve mightiness."
+MONGEN_TIYANKI_ARC_PROJECT:0 "§H$NAME_MG_Giyanki$ Genesis§!"
+MONGEN_TIYANKI_ARC_PROJECT_DESC:0 "Leading biologists and genetics of §H[Root.GetAdjective]§! race learned how to reproduce space whales, also known as §H$NAME_MG_Giyanki$§!. These creatures were one of the first, who we met among the stars. Who knows how they will help our empire achieve mightiness."
 
 MONGEN_TIYANKI_CALL_PROJECT:0 "§EHerd Call§!"
-MONGEN_TIYANKI_CALL_PROJECT_DESC:0 "Leading biologists and genetics of §H[Root.GetAdjective]§! race, using advanced x-ray communication technology with remote Tiyanki whales, broadcast an alarm signal, what gives the order §Hcall the herd to the orbit of our capital system§! for protection of grazing areas."
+MONGEN_TIYANKI_CALL_PROJECT_DESC:0 "Leading biologists and genetics of §H[Root.GetAdjective]§! race, using advanced x-ray communication technology with remote §H$NAME_MG_Giyanki$§! whales, broadcast an alarm signal, what gives the order §Hcall the herd to the orbit of our capital system§! for protection of grazing areas."
 
 MONGEN_TIYANKI_FREE_PROJECT:0 "§EHerding Whales§!"
-MONGEN_TIYANKI_FREE_PROJECT_DESC:0 "Leading biologists and genetics of §H[Root.GetAdjective]§! race, using advanced x-ray communication technology with remote Tiyanki whales, stop broadcasting of alarm signal, what gives the order §Hlet the herd go§!, at since the danger has passed."
+MONGEN_TIYANKI_FREE_PROJECT_DESC:0 "Leading biologists and genetics of §H[Root.GetAdjective]§! race, using advanced x-ray communication technology with remote §H$NAME_MG_Giyanki$§! whales, stop broadcasting of alarm signal, what gives the order §Hlet the herd go§!, at since the danger has passed."
 
 MONGEN_TIYANKI_FOLLOW_PROJECT:0 "§EMigration Of The Herd§!"
-MONGEN_TIYANKI_FOLLOW_PROJECT_DESC:0 "Leading biologists and genetics of §H[Root.GetAdjective]§! race, using advanced x-ray communication technology with remote Tiyanki whales, send a series of short pulses towards military ships of your empire, what gives the order to the herd of §Hfollowing warships§!, as if they are part of a herd."
+MONGEN_TIYANKI_FOLLOW_PROJECT_DESC:0 "Leading biologists and genetics of §H[Root.GetAdjective]§! race, using advanced x-ray communication technology with remote §H$NAME_MG_Giyanki$§! whales, send a series of short pulses towards military ships of your empire, what gives the order to the herd of §Hfollowing warships§!, as if they are part of a herd."
 
 ####################################
 # Country Localisation
 ####################################
 
-monster_genesis.0.name:0 "Matriarchy Of The Tiyanki"
+monster_genesis.0.name:0 "$NAME_MG_Progenitor$y Of The $NAME_MG_Giyanki$"
 
 ####################################
 # Building Localisation
 ####################################
 
 building_mongen_university: "University of Macrobiology"
-building_mongen_university_desc: "University of Microbiology allows young students to study and promote a national project called §HArk Of Genesis§!."
+building_mongen_university_desc: "$building_mongen_university$ allows young students to study and promote a national project called §H$tech_ark_of_genesis$§!."
 
 ####################################
 # Modifiers Localisation
 ####################################
 
 sky_visiter:0 "Sky Visitor"
-sky_visiter_desc:0 "A space whale flew into the orbit of this planet. This is probably one of those, who was born through §HArk Of Genesis§!. Many species consider that this is a good sign, Tiyanki fly on orbit, and it seems that, dancing for the settlers."
+sky_visiter_desc:0 "A space whale flew into the orbit of this planet. This is probably one of those, who was born through §H$tech_ark_of_genesis$§!. Many species consider that this is a good sign, §H$NAME_MG_Giyanki$§! fly on orbit, and it seems that, dancing for the settlers."
 
 tiyanki_positive_effect:0 "Atmospheric Cyclones"
-tiyanki_positive_effect_desc:0 "A space whale has recently flown into the orbit of this gas giant. This is probably one of those, who was born through §HArk Of Genesis§!. Tiyanki is saturated with gases from the upper layers of giant, what provoked some semblance of a cascade of atmospheric cyclones, the consequences of his intervention are difficult to predict, but it seems outrage could §Gincrease§! electricity production intensity."
+tiyanki_positive_effect_desc:0 "A space whale has recently flown into the orbit of this gas giant. This is probably one of those, who was born through §H$tech_ark_of_genesis$§!. §T$NAME_MG_Giyanki$§! is saturated with gases from the upper layers of giant, what provoked some semblance of a cascade of atmospheric cyclones, the consequences of his intervention are difficult to predict, but it seems outrage could §Gincrease§! electricity production intensity."
 
 tiyanki_negative_effect:0 "Atmospheric Cyclones"
-tiyanki_negative_effect_desc:0 "A space whale has recently flown into the orbit of this gas giant. This is probably one of those, who was born through §HArk Of Genesis§!. Tiyanki is saturated with gases from the upper layers of giant, what provoked some semblance of a cascade of atmospheric cyclones, the consequences of his intervention are difficult to predict, but it seems outrage could §Rdecrease§! electricity production intensity."
+tiyanki_negative_effect_desc:0 "A space whale has recently flown into the orbit of this gas giant. This is probably one of those, who was born through §H$tech_ark_of_genesis$§!. §T$NAME_MG_Giyanki$§! is saturated with gases from the upper layers of giant, what provoked some semblance of a cascade of atmospheric cyclones, the consequences of his intervention are difficult to predict, but it seems outrage could §Rdecrease§! electricity production intensity."
 
 matriarch_death:0 "Remember and Mourn"
-matriarch_death_desc:0 "The Great Matriarch Of Tiyanki is §Rdied§!, The people mourn the loss of the keeper."
+matriarch_death_desc:0 "The Great $NAME_MG_Progenitor$ Of $NAME_MG_Giyanki$ is §Rdied§!, The people mourn the loss of the keeper."
 
 grazing_candidate:0 "Grazing Field"
-grazing_candidate_desc:0 "This gas giant is marked with a special radiation label as §YGrazing Field§!, which informs all the whales from the §HArk Of Genesis§! project about the quality of nutrients present in the upper layers of its atmosphere, thereby increasing the likelihood of visiting it."
+grazing_candidate_desc:0 "This gas giant is marked with a special radiation label as §YGrazing Field§!, which informs all the whales from the §H$tech_ark_of_genesis$§! project about the quality of nutrients present in the upper layers of its atmosphere, thereby increasing the likelihood of visiting it."
 
 the_last_frontier:0 "The Last Frontier"
-the_last_frontier_desc:0 "This planet is marked with a special radiation label as §YThe Last Frontier§!, which informs all the whales from the §HArk Of Genesis§! project about the need for its defense even at the cost of its own life."
+the_last_frontier_desc:0 "This planet is marked with a special radiation label as §YThe Last Frontier§!, which informs all the whales from the §H$tech_ark_of_genesis$§! project about the need for its defense even at the cost of its own life."
 
-tiyanki_hull_boost:0 "Tiyanki Metabolism"
-tiyanki_armor_boost:0 "Tiyanki Armor Wart"
-tiyanki_speed_boost:0 "Tiyanki Evolutionary Slowness"
-tiyanki_weapon_range_boost:0 "Matriarch Vision"
-matriarch_enemy_disengage_boost:0 "Matriarch Psionics"
+tiyanki_hull_boost:0 "$NAME_MG_Giyanki$ Metabolism"
+tiyanki_armor_boost:0 "$NAME_MG_Giyanki$ Armor Wart"
+tiyanki_speed_boost:0 "$NAME_MG_Giyanki$ Evolutionary Slowness"
+tiyanki_weapon_range_boost:0 "$NAME_MG_Progenitor$ Vision"
+matriarch_enemy_disengage_boost:0 "$NAME_MG_Progenitor$ Psionics"
 
 ####################################
 # Decisions Localisation
 ####################################
 
 uncolonized_decision_mongen_set_flag:0 "Set Pasture Flag"
-uncolonized_decision_mongen_set_flag_desc:0 "By this decision we create a special emitter is placed on the orbiting satellite, which continuously irradiates the planet. Tiyanki mark their most beloved planets with such radiation. These planets have the most attractive breeding ground for them."
+uncolonized_decision_mongen_set_flag_desc:0 "By this decision we create a special emitter is placed on the orbiting satellite, which continuously irradiates the planet. §T$NAME_MG_Giyanki$§! mark their most beloved planets with such radiation. These planets have the most attractive breeding ground for them."
 
 uncolonized_decision_mongen_remove_flag:0 "Remove Pasture Flag"
-uncolonized_decision_mongen_remove_flag_desc:0 "On this gas giant residual x-ray detected, which is interpreted by tiyanky herds as a pasture marker. According to this decree, the planet must be cleared of this marker."
+uncolonized_decision_mongen_remove_flag_desc:0 "On this gas giant residual x-ray detected, which is interpreted by §T$NAME_MG_Giyanki$§! herds as a pasture marker. According to this decree, the planet must be cleared of this marker."
 
 mongen_last_frontier_set_flag:0 "Set Frontier Flag"
-mongen_last_frontier_set_flag_desc:0 "This colony is marked with a special X-ray emitter. That informs Tiyanki from the project §HArk Of Genesis§! about the need for its defense even at the cost of its own life."
+mongen_last_frontier_set_flag_desc:0 "This colony is marked with a special X-ray emitter. That informs §T$NAME_MG_Giyanki$§! from the project §H$tech_ark_of_genesis$§! about the need for its defense even at the cost of its own life."
 
 mongen_last_frontier_remove_flag:0 "Remove Frontier Flag"
 mongen_last_frontier_remove_flag_desc:0 "This colony is marked with a special X-ray emitter as the last frontier. With this order, we stop the irradiation, thereby letting whales go about his business."
 
-mongen_tiyanky_genesis:0 "Tiyanki Genesis"
-mongen_tiyanky_genesis_desc:0 "With this decree, the planetary government sponsors a colossal macrobiological project of the creation space life. Thousands of scientist professors and hundreds of thousands students design a small tiyanki speciment, correct its genome, accelerate and stimulate cell growth, implement behavioral algorithms and form matrix of personality. Result of the genesis project will be a completely independent individual capable of self-awareness and the study of the world around her. The chances of forming a healthy individual are not great due to the huge number of people involved in the project, but the reward for its successful completion is impressive."
+mongen_tiyanky_genesis:0 "§H$tech_ark_of_genesis$§!"
+mongen_tiyanky_genesis_desc:0 "With this decree, the planetary government sponsors a colossal macrobiological project of the creation space life. Thousands of scientist professors and hundreds of thousands students design a small §T$NAME_MG_Giyanki$§! speciment, correct its genome, accelerate and stimulate cell growth, implement behavioral algorithms and form matrix of personality. Result of the genesis project will be a completely independent individual capable of self-awareness and the study of the world around her. The chances of forming a healthy individual are not great due to the huge number of people involved in the project, but the reward for its successful completion is impressive."
 
 ####################################
 # Technology Localisation
 ####################################
 
+tech_mongen_title: "-----\nContent from mod: §H«Monster Genesis»§!"
+
 tech_ark_of_genesis:0 "Ark Of Genesis"
-tech_ark_of_genesis_desc:0 "Revolutionary technology for creating a new life, that perfectly adapted to space conditions. Opens a new special project in the capital of your empire. The results promise to surprise you."
+tech_ark_of_genesis_desc:0 "Revolutionary technology for creating a new life, that perfectly adapted to space conditions. Opens a new special project in the capital of your empire. The results promise to surprise you.\n$tech_mongen_title$"
 
 #feature_ark_of_genesis_flag:0 "Special Project: §YArk Of Genesis§!"
-#feature_ark_of_genesis_flag_desc:0 "Open new special project, named: §YArk Of Genesis§!, which operates due to £society£ social researching point."
+#feature_ark_of_genesis_flag_desc:0 "Open new special project, named: §YArk Of Genesis§!, which operates due to £society£ social researching point.\n$tech_mongen_title$"
 
 tech_tiyanki_media:0 "Entertainment Channel"
-tech_tiyanki_media_desc:0 "Implementation of a specialized entertainment program designed to popularize the §HArk of Genesis§! project making it public and allowing every citizen to vote and make their own proposals and amendments to the project management."
+tech_tiyanki_media_desc:0 "Implementation of a specialized entertainment program designed to popularize the §H$tech_ark_of_genesis$§! project making it public and allowing every citizen to vote and make their own proposals and amendments to the project management.\n$tech_mongen_title$"
 
-tech_tiyanki_comm:0 "Communication With Tiyanki"
-tech_tiyanki_comm_desc:0 "The revolutionary technology of communication with Tiyanki. Leading biologists and genetics expanded rudimentary communication abilities of Tiyanki when programming a genetic template for a special project named: §HArk Of Genesis§!. From now we can send few order to all space whales, created by project. This x-ray commands tiyanki can recieve at colossal distances from the object of them interest."
+tech_tiyanki_comm:0 "Communication With $NAME_MG_Giyanki$"
+tech_tiyanki_comm_desc:0 "The revolutionary technology of communication with $NAME_MG_Giyanki$. Leading biologists and genetics expanded rudimentary communication abilities of $NAME_MG_Giyanki$ when programming a genetic template for a special project named: §H$tech_ark_of_genesis$§!. From now we can send few order to all space whales, created by project. This x-ray commands can be recieved by $NAME_MG_Giyanki$ whales at colossal distances from the object of them interest.\n$tech_mongen_title$"
 
-tech_tiyanki_order:0 "Tiyanki Guidance"
-tech_tiyanki_order_desc:0 "The next technology in stack of §HArk Of Genesis§! project. Since the tiyanka's communication abilities have been significantly expanded - the admiralty association made a proposal to foster a sense of ownership in space whales and to increase the desire to control and defend not only outer space and gas giants - but also planets. This should give our Empire some strategic advantage over a potential enemy."
+tech_tiyanki_order:0 "$NAME_MG_Giyanki$ Guidance"
+tech_tiyanki_order_desc:0 "The next technology in stack of §H$tech_ark_of_genesis$§! project. Since the $NAME_MG_Giyanki$'s communication abilities have been significantly expanded - the admiralty association made a proposal to foster a sense of ownership in space whales and to increase the desire to control and defend not only outer space and gas giants - but also planets. This should give our Empire some strategic advantage over a potential enemy.\n$tech_mongen_title$"
 
 #feature_tiyanki_comm_call:0 "Special Project: $MONGEN_TIYANKI_CALL_PROJECT$"
-#feature_tiyanki_comm_call_desc:0 "Open new special project, named: $MONGEN_TIYANKI_CALL_PROJECT$, which operates due to £society£ social researching point."
+#feature_tiyanki_comm_call_desc:0 "Open new special project, named: $MONGEN_TIYANKI_CALL_PROJECT$, which operates due to £society£ social researching point.\n$tech_mongen_title$"
 #feature_tiyanki_comm_free:0 "Special Project: $MONGEN_TIYANKI_FREE_PROJECT$"
-#feature_tiyanki_comm_free:0 "Open new special project, named: $MONGEN_TIYANKI_FREE_PROJECT$, which operates due to £society£ social researching point."
+#feature_tiyanki_comm_free:0 "Open new special project, named: $MONGEN_TIYANKI_FREE_PROJECT$, which operates due to £society£ social researching point.\n$tech_mongen_title$"
 #feature_tiyanki_comm_follow:0 "Special Project: $MONGEN_TIYANKI_FOLLOW_PROJECT$"
-#feature_tiyanki_comm_follow_desc:0 "Open new special project, named: $MONGEN_TIYANKI_FOLLOW_PROJECT$, which operates due to £society£ social researching point."
+#feature_tiyanki_comm_follow_desc:0 "Open new special project, named: $MONGEN_TIYANKI_FOLLOW_PROJECT$, which operates due to £society£ social researching point.\n$tech_mongen_title$"
 
 ####################################
 # Edicts Localisation
 ####################################
 
-edict_broadcast_tiyanki_grazing:0 "Broadcast Tiyanki Grazing"
-edict_broadcast_tiyanki_grazing_desc:0 "With this edict, we are launching daily broadcast of the Tiyanki life, grown due to the project §HArk Of Genesis§!, on dedicated entertainment channel."
+edict_broadcast_tiyanki_grazing:0 "Broadcast $NAME_MG_Giyanki$ Grazing"
+edict_broadcast_tiyanki_grazing_desc:0 "With this edict, we are launching daily broadcast of the $NAME_MG_Giyanki$ life, grown due to the project §H$tech_ark_of_genesis$§!, on dedicated entertainment channel. In addition to entertainment purposes, this will give all sociologists the opportunity to study and document the behavior of space organics. \n\n§L£opinion£ increases the attractiveness of the $pft_mgfaction_adjective$§! faction."
 
-edict_broadcast_tiyanki_dancing:0 "Broadcast Tiyanki Dancing"
-edict_broadcast_tiyanki_dancing_desc:0 "Using short X-ray waves are definitely long, our biologists start broadcasting some  radiation background of peace and happiness on all Tiyanky of the Herd, consequently - they perform some ritual dance, which is broadcast on a specialized entertainment channel, that increases the happiness of the entire population of the empire."
+edict_broadcast_tiyanki_dancing:0 "Broadcast $NAME_MG_Giyanki$ Dancing"
+edict_broadcast_tiyanki_dancing_desc:0 "Using short X-ray waves are definitely long, our biologists start broadcasting some  radiation background of peace and happiness on all $NAME_MG_Giyanki$ of the Herd, consequently - they perform some ritual dance, which is broadcast on a specialized entertainment channel, that increases the happiness of the entire population of the empire. In addition to entertainment purposes, this will give all sociologists the opportunity to study and document the behavior of space organics. \n\n§L£opinion£ increases the attractiveness of the $pft_mgfaction_adjective$§! faction."
 
 ####################################
 # Events Localisation
 ####################################
 
-monster_genesis.2.name:0 "Ark Of Genesis"
-monster_genesis.2.desc:0 "Recently published discoveries in the fields of genetics and bioprojection made it possible to look at space from a completely different angle. All the creatures, that we met in outer space, that admired us so long, unfortunately, are dying out. For saving mercilessly destroyed species of our galaxy, leading scientists proposed a special project called: §HArk Of Genesis§!. The project involves cosmoborned organic cells cultivation for creation an artificial life. In other sense, scientists proposed, with considerable effort, design unique large space creature."
-monster_genesis.2.answer.1:0 "$mg2.answer_1$"
-monster_genesis.2.answer.2:0 "$mg2.answer_2$"
-mg2.answer_1:0 "Excellent! This is the end genocide of space creature!"
-mg2.answer_2:0 "Close and Ban special project like this, (disable forever)!"
+monster_genesis.2.name:"$tech_ark_of_genesis$"
 
-monster_genesis.3.name:0 "Tiyanki Borned"
-monster_genesis.3.desc:0 "The colossal project of Tiyanki genesis comes to an end. To improve the initial adaptation of the fetus - the ark was brought into the exosphere of the planet. With your permission, biologists will begin the process of opening the ark, God help us."
-monster_genesis.3.answer.1:0 "$mg3.answer_1$"
-monster_genesis.3.answer.2:0 "$mg3.answer_2$"
-mg3.answer_1:0 "Initiate the process of opening the ark!"
-mg3.answer_2:0 "Destroy the sample immediately, we are not gods!"
+monster_genesis.2.desc.0:"Recently published discoveries in the fields of §Ggenetics§! and §Gbioprojection§! have made it possible to look at the cosmos from a completely different angle. All those creatures we encountered in outer space, which we admired for so long, are unfortunately dying out. For the sake of preserving the mercilessly exterminated species of our galaxy, leading scientists have proposed a project called §H$tech_ark_of_genesis$§! The project involves the cultivation of tissues of space-born organics for the creation of artificial life. In other words, our scientists, at the cost of considerable effort, propose to create a being on a truly cosmic scale."
+monster_genesis.2.desc.1:"Painstaking work in the branches of §Ggenetics§! and §Gbioprojection§! is beginning to yield results. With the permission of the great §H[Root.GetRulerTitle]§! the leading biologist of the planet §H[Root.Capital.GetName]§! conducted research on the genome of space giants, namely the sample §RNLO.14§!, better known under the pseudonym §NTiyanki§! After collecting a colossal amount of data, he offered to fund a project called §H$tech_ark_of_genesis$§! It's about the process of creating artificial space life. In layman's terms, we are offered to learn how to breed space whales."
+monster_genesis.2.desc.2:"The latest research in the fields of §Ggenetics§! and §Gbioprojection§! is paying off. You've probably heard of creatures called §NTiyanki§!. These organic members of the sparse space fauna are quite peaceful, which allows us to study them with care. We've spent many months collecting primary data, and now we're rushing to offer you funding for a project called §H$tech_ark_of_genesis$§! Its main task will be genetic manipulation to form an artificial space whale. Successful practical research will allow us to significantly advance in the biological sciences, as well as give us the opportunity to assemble our own space herd."
+monster_genesis.2.desc.3:"We hasten to give you a report on cutting-edge research in the branches of §Ggenetics§! and §Gbioprojection§! For individual papers by professors of biological sciences... there's a long list of names... it is difficult to imagine what exactly this, by the way not cheap, scientific department was doing, but if we combine these studies into a single set - we get, not to dare to say it, a real scientific breakthrough. Using the genetic tools of the Imperial Research Institute, we were able to isolate sections of the space whale deoxyribonucleic acid molecule responsible for accelerating cell growth. Without going into too much detail, the scientific community of §Ggreen division§! humbly asks you to fund the creation of a university to study and cultivate space organics and launch an imperial national project called §H$tech_ark_of_genesis$§!"
+monster_genesis.2.desc.4:"At first glance, a very ordinary report from an imperial §Gbiological§! research laboratory turns into a very entertaining and even somewhat intriguing read. A number of scientists in the lab experimented with the genetic markers of various creatures, including space-born organisms, and obtained astonishing results. The cell growth rate of creatures called §NTiyanki§! can be manipulated in a very sensitive range. Such research could give life to a new milestone in our history, and in the long term could bring our empire's animal husbandry to a new, cosmic, level. Further study of the influence on the genome will, in theory, even allow for the introduction of behavioral patterns at instinct levels, allowing for limited control over formed creatures. All of the above calls for the establishment of a new national institute to promote such research."
 
-monster_genesis.10.name:0 "Adult calf"
-monster_genesis.10.desc:0 "One of the Tiyanki Calf from special project named: §HArk Of Genesis§! reached adulthood. From now he will reject games and begin his journey among the stars, full of dangers and incredible discoveries."
-monster_genesis.10.answer.1:0 "$mg10.answer_1$"
-mg10.answer_1:0 "Good luck!"
+monster_genesis.2.answer_true.0:"Excellent! This is the end genocide of space creature!"
+monster_genesis.2.answer_true.1:"Great news, new achievements is await for us!"
+monster_genesis.2.answer_true.2:"That's just great, I think §L[Root.GetAdjective]§! will be pleased."
+monster_genesis.2.answer_true.3:"Excellent, we can forget about extinction."
+monster_genesis.2.answer_true.4:"Great, maybe one day we'll put together a, uh, whole zoo..?"
+monster_genesis.2.answer_true.5:"That's mind-blowing news! Take care of the design of the new program."
+monster_genesis.2.answer_true.6:"Wonderful news! This is space-age animal husbandry, after all."
+monster_genesis.2.answer_true.7:"Unthinkable! It's even hard to believe."
+monster_genesis.2.answer_true.8:"We did it!"
+monster_genesis.2.answer_true.9:"Finally, what everyone had been waiting for so long had happened."
 
-monster_genesis.12.name:0 "Incredible event!"
-monster_genesis.12.desc:0 "No one in a project called §HArk Of Genesis§! could not think of such a breakthrough. One of the cows, borned in ark, past void and time and gain enough power to be called §HMatriarch§!. Her belly is full of star energy and growths more defensive than ceramo-metal armor! Other Tiyanki now dance and curl around her. Biologist of race §H[Root.GetAdjective]§! celebrate their triumph. From now, our empire is protected by the real leviathan. §H[Root.Owner.GetName] Empire Glory!§!"
-monster_genesis.12.answer.1:0 "$mg12.answer_1$"
-mg12.answer_1:0 "I hope it was worth it."
+monster_genesis.2.answer_false.0:"Close and Ban this project, §R(disable project forever)!§!"
+monster_genesis.2.answer_false.1:"That's some bullshit. §R(disable project forever)!§"
+monster_genesis.2.answer_false.2:"Another financial hole. §R(disable project forever)!§"
+monster_genesis.2.answer_false.3:"Only one word for this - bullshit. §R(disable project forever)!§!"
+monster_genesis.2.answer_false.4:"I'm not going to pay for this. §R(disable project forever)!§!"
+monster_genesis.2.answer_false.5:"That's all great, of course, NO, thanks. §R(disable project forever)!§!"
+monster_genesis.2.answer_false.6:"I forbid you to even think about project like this. §R(disable project forever)!§!"
+monster_genesis.2.answer_false.7:"Maybe someday... §R(disable project forever)!§!"
+monster_genesis.2.answer_false.8:"Don't you have anything better to do? §R(disable project forever)!§!"
+monster_genesis.2.answer_false.9:"I just wanted a new tail, what other whales? §R(disable project forever)!§!"
 
-monster_genesis.23.name:0 "Matriarch Ages!"
-monster_genesis.23.desc:0 "The Great Tiyanki Matriarch, guardian of the empire §H[Root.Owner.GetName]§!, continues to gain strength. Its capabilities are astounding and horrifying at the same time. Unlike creatures, like her, that painfully exist in their laxed huge shell, Matriarch from §HArk Of Genesis§! feels great in a new environment. Her armored growths grow in the required proportions to a constant increasing of body weight. With his appearance, the Matriarch inspires horror and awe at the same time. Many observer freezed by fear. Unfortunately, due to ever-increasing body mass, Leviathan's movement speed slightly decreases. It remains only to hope, that this great creature will remain friendly to us. Anyway, many peoples will remember the name of the empire that created the leviathan for a long time. §H[Root.GetAdjective]§! will be immortalized in legends!"
-monster_genesis.23.answer.1:0 "$mg23.answer_1$"
-mg23.answer_1:0 "Maybe she will destroy us one day."
+monster_genesis.3.name:"New Beginning"
+
+monster_genesis.3.desc.0:"A colossal genesis project is coming to an end. To improve the initial adaptation of the fetus - the ark has been taken out into the exosphere of the planet. With your permission, biologists will begin the process of dissecting the ark, and may we all be so lucky."
+monster_genesis.3.desc.1:"The design of the living creature has come to its logical conclusion. No matter what anyone says, the next stage involves bringing the creature to life. This might anger the heavens! Come to your senses! Who knows what kind of monster this creature may become in the future?! We have no right to play God!"
+monster_genesis.3.desc.2:"Our vision is slowly coming to fruition. The time has come to reap the fruits of our labor. This truth is so firmly in the minds of the scientists of the §L$job_mongen_student_department$§! department that we must let them see the result of their work!"
+monster_genesis.3.desc.3:"Would you like to see the dreams of all §L$pft_mgfaction_adjective$§! come true? Only your will stands between the dreams of many and reality! Will you contemplate the miracle of macrobiology and are you willing to look beneath the shroud of the ark today?"
+monster_genesis.3.desc.4:"§LGenesis Project§! action plan is fully implemented! Congratulations to all participants! All that remains is to deliver the capsule to the orbit of the planet and awaken the creature. Or do you have better ideas?"
+monster_genesis.3.desc.5:"We are initiating the final stage of a project on which the best specialists of §L$job_mongen_student_plural$§! Permission is required from you to bring the ark into the native environment. Perhaps we will be lucky, no one has made a mistake and we will see a miracle."
+monster_genesis.3.desc.6:"The macrogenesis project has reached the final stage. §L$job_mongen_student_plural$§! involved in the project are confident in the successful completion of the §Lpupation§! by §L70%§! Traditionally - the decision to move to the next stage depends on you, esteemed §H[Root.Leader.GetName]§! Are §H[Root.GetAdjective]§! ready to see the results?"
+monster_genesis.3.desc.7:"§L$job_mongen_student_plural$§! of project called §H$monster_genesis.2.name$§! are finishing work on the formation of the §H$tech_ark_of_genesis$§! Without waiting for completion, many of them are already openly celebrating and planning vacations. A document about the legalization of the §Nfinal§! stage of the project has come to you in advance. There are grammatical errors in the document, which may indicate the illiteracy of the bureaucrat responsible for this writing."
+monster_genesis.3.desc.8:"When you return home after a hard and rather long day at work, you go out to dinner in the company of your own family. Your residence is on a capital planet called §H[Root.Capital.GetName]§! Deciding to have a little talk with your son, you ask him a question about his drawing, which your descendant has been poring over all evening. When you looked at your son's creation you were horrified to find that it was a verification agreement for the opening of the §H$tech_ark_of_genesis$§! Probably your adjutant left it in your office, and after he left, your son found the document and drew a blorg on it."
+monster_genesis.3.desc.9:"The evening was calm and quiet. You were strolling leisurely through the square, reading classic literature. Nothing seemed to suggest trouble. You did not expect to be distracted by reading, but the leading professor did not care. He gibbered like an annoying thunderclap and squealed with delight as he tried to tell you about the most incredible breakthrough. Years of work were finally over. §L$job_mongen_student_department$§! - a fine science, §H100%§! probability of success no one could guarantee you, but we must be able to work with what we have."
+
+monster_genesis.3.answer_true.0:"Initiate the process of §Eopening§! the ark!"
+monster_genesis.3.answer_true.1:"I believe the residents of §L[Root.GetAdjective]§! will be glad to §Eseeing a new creature§!."
+monster_genesis.3.answer_true.2:"Let it be! You have my permission. §ELet's open the ark!§!"
+monster_genesis.3.answer_true.3:"All of us are fighting for a just cause. We can't back down! §ELetting the baby go§!!"
+monster_genesis.3.answer_true.4:"This is no time for verbiage.. §ELet's awake this child§!!"
+monster_genesis.3.answer_true.5:"Time to take a look at this, hmm, §EMiracle§!!"
+monster_genesis.3.answer_true.6:"Oh my goodness, is there really no way to solve this §EWITHOUT ME§!? ok, §Eopen§!."
+monster_genesis.3.answer_true.7:"Really, how long can we wait, so much nerves, of course §Econtinue§!."
+monster_genesis.3.answer_true.8:"Hurraaay...! I've been waiting for this for so long, need to call my family, no, §Esigned§!! at first."
+monster_genesis.3.answer_true.9:"Damn it to hell, tired, §Edo whatever you want.§!."
+
+monster_genesis.3.answer_false.0:"§PDestroy the sample immediately§!, we are not gods!"
+monster_genesis.3.answer_false.1:"No one will be interested in space creatures. §PPerform euthanasia procedure§!."
+monster_genesis.3.answer_false.2:"Not a good idea at all. §PPut THAT to sleep§!."
+monster_genesis.3.answer_false.3:"Dreamers' ideas have no place in our world. §PGet it out of here.§!"
+monster_genesis.3.answer_false.4:"Who gave the go-ahead for this project? §Pto clear up this misunderstanding§! right now!"
+monster_genesis.3.answer_false.5:"Hear for my will! §Pbutch this creature§! and distribute the provisions!"
+monster_genesis.3.answer_false.6:"Orbital Meatpacking Plant reports on its Five-Year Plan?, §Pscore, of course.§!."
+monster_genesis.3.answer_false.7:"I wonder how much better the meat tastes? §Pwe need to check§!"
+monster_genesis.3.answer_false.8:"We need to conduct §Pinvasive procedure§! to study the neurostimulatory effects."
+monster_genesis.3.answer_false.9:"§L$job_mongen_student$ов§! have a timely practical §Pautopsy class§!."
+
+monster_genesis.12.name:"Incredible event!"
+monster_genesis.12.desc:"No one in a project called §H$tech_ark_of_genesis$§! could not think of such a breakthrough. One of the cows, borned in ark, past void and time and gain enough power to be called §H$NAME_MG_Progenitor$§!. Her belly is full of star energy and growths more defensive than ceramo-metal armor! Other §T$NAME_MG_Giyanki$§! now dance and curl around her. Biologist of §H[Root.GetAdjective]§! race celebrate their triumph. From now, our empire is protected by the real leviathan. §H[Root.Owner.GetName] Empire Glory!§!"
+monster_genesis.12.answer.1:"I hope it was worth it."
+
+monster_genesis.23.name:"$NAME_MG_Progenitor$ Aging!"
+monster_genesis.23.desc:"The Great $NAME_MG_Giyanki$ $NAME_MG_Progenitor$, guardian of the empire §H[Root.Owner.GetName]§!, continues to gain strength. Its capabilities are astounding and horrifying at the same time. Unlike creatures, like her, that painfully exist in their laxed huge shell, $NAME_MG_Progenitor$ from §H$tech_ark_of_genesis$§! feels great in a new environment. Her armored growths grow in the required proportions to a constant increasing of body weight. With his appearance, the Matriarch inspires horror and awe at the same time. Many observer freezed by fear. Unfortunately, due to ever-increasing body mass, Leviathan's movement speed slightly decreases. It remains only to hope, that this great creature will remain friendly to us. Anyway, many peoples will remember the name of the empire that created the leviathan for a long time. §H[Root.GetAdjective]§! will be immortalized in legends!"
+monster_genesis.23.answer.1:0 "Maybe she will destroy us one day."
 
 monster_genesis.24.name:0 "New generation!"
-monster_genesis.24.desc:0 "The Great Tiyanki Matriarch, guardian of the empire §H[Root.Owner.GetName]§!, brought offspring. We have never observed such a process. Our geneticists claim that reproductive functions were programmed during the early organization of the fetus inside the ark. Иге one fact is alarming. Descendants of the Matriarch are a whole new species, different from those, what are formed during the evolution of tiyanki, designed as a result of the project §HArk Of Genesis§!. Newer specimens have slightly elongated tentacles and denser fin segments. There are also inactive flagella directly under the fins. Flagellas secrete some pheromone primers. This pheromones attract some §Hinterdimensional beings§!, that settle on flagella and carry out some kind of service of Bull-Guardian. New §HGrampus§!, as they were already called by biologists, in some way are a §Rprotective caste§! of the Tiyanki race, apparently lost during evolution or crowded out by other space predators. A quick analysis of the evolutionary leap revealed, that any Grampus, like the new Matriarch, capable of controlled mutations and love to initiate them with the matriarch together. Why does the Matriarch create a guard for himself - that a question."
-monster_genesis.24.answer.1:0 "$mg24.answer_1$"
-mg24.answer_1:0 "Let's hope the offspring is not infected with anything."
+monster_genesis.24.desc:0 "The Great $NAME_MG_Giyanki$ $NAME_MG_Progenitor$, guardian of the empire §H[Root.Owner.GetName]§!, brought offspring. We have never observed such a process. Our geneticists claim that reproductive functions were programmed during the early organization of the fetus inside the ark. Иге one fact is alarming. Descendants of the $NAME_MG_Progenitor$ are a whole new species, different from those, what are formed during the evolution of $NAME_MG_Giyanki$, designed as a result of the project §H$tech_ark_of_genesis$§!. Newer specimens have slightly elongated tentacles and denser fin segments. There are also inactive flagella directly under the fins. Flagellas secrete some pheromone primers. This pheromones attract some §Hinterdimensional beings§!, that settle on flagella and carry out some kind of service of Bull-Guardian. New §H$NAME_MG_Tiyanki_Bull_Guardian_plural$§!, as they were already called by biologists, in some way are a §Rprotective caste§! of the §T$NAME_MG_Giyanki$§! race, apparently lost during evolution or crowded out by other space predators. A quick analysis of the evolutionary leap revealed, that any §T$NAME_MG_Tiyanki_Bull_Guardian$§!, like the new §T$NAME_MG_Progenitor$§!, capable of controlled mutations and love to initiate them with the §T$NAME_MG_Progenitor$§! together. Why does the §T$NAME_MG_Progenitor$§! create a guard for himself - that a question."
+monster_genesis.24.answer.1:0 "Let's hope the offspring is not infected with anything."
 
 monster_genesis.25.name:0 "$tech_tiyanki_comm$"
 monster_genesis.25.desc:0 "$tech_tiyanki_comm_desc$"
-monster_genesis.25.answer.1:0 "$mg25.answer_1$"
-mg25.answer_1:0 "The potential benefits are obvious."
+monster_genesis.25.answer.1:0 "The potential benefits are obvious."
 
-monster_genesis.29.name:0 "Death Of The Great Tiyanki Matriarch"
-monster_genesis.29.desc:0 "We regret to inform you about §Rdemise§! of the Great Tiyanki Matriarch, guardian of the empire §H[Root.Owner.GetName]§!. We all remember that day, when the first special project, named §H$tech_ark_of_genesis$§!, began to work. Remember how the first calf of Tiyanki came to life and instilled hope in our hearts. We will never forget how he danced for us in the orbit of our planets. This Ancient Creature lived a long, full of danger, life to bring peace on the galaxy, controlled by our empire. Let us pay tribute to this great creature and spend it on the last flight."
-monster_genesis.29.answer.1:0 "$mg29.answer_1$"
-mg29.answer_1:0 "This is a huge loss for everyone §H[Root.GetAdjective]§!."
+monster_genesis.29.name:0 "Death Of The Great $NAME_MG_Giyanki$ $NAME_MG_Progenitor$"
+monster_genesis.29.desc:0 "We regret to inform you about §Rdemise§! of the Great §L$NAME_MG_Giyanki$ $NAME_MG_Progenitor$§!, guardian of the empire §H[Root.Owner.GetName]§!. We all remember that day, when the first special project, named §H$tech_ark_of_genesis$§!, began to work. Remember how the first $NAME_MG_Tiyanki_Calf$ of §L$NAME_MG_Giyanki$§! came to life and instilled hope in our hearts. We will never forget how he danced for us in the orbit of our planets. This Ancient Creature lived a long, full of danger, life to bring peace on the galaxy, controlled by our empire. Let us pay tribute to this great creature and spend it on the last flight."
+monster_genesis.29.answer.1:0 "This is a huge loss for everyone §H[Root.GetAdjective]§!."
 
-monster_genesis.31.name:0 "Tiyanki Calf Is Grows Up"
-monster_genesis.31.desc:0 "One of the calves of §H$policy_project_genesis$§! project reached puberty and evolved into §HTiyanki Cow§!. This subspecies is distinguished by its peacefulness, they are less likely to show aggression towards the enemy if they are not provoked, but unlike §HCalves§! - already pose a certain danger to a ship §HDestroyer§! class. From now on, he will reject the games and begin his journey among the stars, full of dangers and incredible discoveries path."
-monster_genesis.31.answer.1:0 "$mg31.answer_1$"
-mg31.answer_1:0 "We have a Space Cow!"
+monster_genesis.31.name:0 "$NAME_MG_Giyanki$ $NAME_MG_Tiyanki_Calf$ Is Grows Up"
+monster_genesis.31.desc:0 "One of the calves of §H$tech_ark_of_genesis$§! project reached puberty and evolved into §H$NAME_MG_Giyanki$ $NAME_MG_Tiyanki_Cow$§!. This subspecies is distinguished by its peacefulness, they are less likely to show aggression towards the enemy if they are not provoked, but unlike §Hcalves§! - already pose a certain danger to a ship §Hdestroyer§! class. From now on, he will reject the games and begin his journey among the stars, full of dangers and incredible discoveries path."
+monster_genesis.31.answer.1:0 "We have a space cow!"
 
-monster_genesis.32.name:0 "Tiyanki Calf Is Grows Up"
-monster_genesis.32.desc:0 "One of the calves of §H$policy_project_genesis$§! project reached puberty and evolved into §HTiyanki Bull§!. This subspecies is characterized by aggressive behavior. Their eyesight is better than that of cows, and their instincts tell them to protect the grazing area from threats, therefore §HTiyanki Bulls§! dangerous to uninvited guests and can be spotted at impressive distances. From now on, he will reject the games and begin his journey among the stars, full of dangers and incredible discoveries path."
-monster_genesis.32.answer.1:0 "$mg32.answer_1$"
-mg32.answer_1:0 "From now on we breed Space Bulls."
+monster_genesis.32.name:0 "$NAME_MG_Giyanki$ $NAME_MG_Tiyanki_Calf$ Is Grows Up"
+monster_genesis.32.desc:0 "One of the calves of §H$policy_project_genesis$§! project reached puberty and evolved into §H$NAME_MG_Giyanki$ $NAME_MG_Tiyanki_Bull$§!. This subspecies is characterized by aggressive behavior. Their eyesight is better than that of cows, and their instincts tell them to protect the grazing area from threats, therefore §H$NAME_MG_Giyanki$ $NAME_MG_Tiyanki_Bull_plural$§! dangerous to uninvited guests and can be spotted at impressive distances. From now on, he will reject the games and begin his journey among the stars, full of dangers and incredible discoveries path."
+monster_genesis.32.answer.1:0 "From now on we breed space bulls."
 
 monster_genesis.33.name:0 "Project Failure"
-monster_genesis.33.desc:0 "To the great regret of all the scientists involved in the project §HArk Of Genesis§! someone made a significant oversight. Сardinal disruptions began at a certain stage of fetal formation. Disproportionate motor limbs and exceptionally sluggish behavior ensure that it is not viable. The Humanity Council of the project put forward and supported a resolution on the §Reuthanasia§! of the fetus."
+monster_genesis.33.desc:0 "To the great regret of all the scientists involved in the project §H$tech_ark_of_genesis$§! someone made a significant oversight. Сardinal disruptions began at a certain stage of fetal formation. Disproportionate motor limbs and exceptionally sluggish behavior ensure that it is not viable. The Humanity Council of the project put forward and supported a resolution on the §Reuthanasian§! of the fetus."
 monster_genesis.33.answer.1:0 "At least he won't suffer."
+
+monster_genesis.36.name:"$NAME_MG_Giyanki$ Defeated"
+monster_genesis.36.desc:"§L[Root.GetAdjective]§! panicked! The tracking beacon of one of the whales is no longer beeping. Seems to  §L[From.From.From.GetFleetName]§! is missing. The automated security camera lost the beacon, hangs in place and shoots the empty space in a system called: §H[From.From.From.GetStarName]§!."
+monster_genesis.36.answer:"It was my favorite creature, what a shame..."
