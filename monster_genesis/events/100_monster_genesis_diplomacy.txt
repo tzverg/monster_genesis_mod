@@ -13,9 +13,9 @@ country_event = {
 	
 	is_triggered_only = yes
     diplomatic = yes
-    location = OWNER
+    # location = OWNER
 	
-	# FROM	   - FACTION scope [100_mongen_factions.txt, line 501]
+	# FROM - FACTION scope [100_mongen_factions.txt, line 501]
 	
 	picture_event_data = {
         portrait = FROM.leader

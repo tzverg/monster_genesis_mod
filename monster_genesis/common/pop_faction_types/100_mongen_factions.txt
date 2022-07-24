@@ -4,15 +4,14 @@
 # Written by TzverG
 ##########################################################################
 
-@faction_creation_delay_years = 0
+@faction_creation_delay_years = 10
 
 @faction_talk_cost = 10
 @faction_talk_delay_days = 7
 @faction_talk_delay_r_days = 14
 
 @faction_help_cost = 100
-@faction_help_delay_days = 360
-@faction_help_delay_r_days = 30
+@faction_help_delay_years = 1
 
 mgfaction = {
 	election_header = "GFX_faction_header_yellow"
@@ -36,13 +35,11 @@ mgfaction = {
 		is_ai = no
 		is_at_war = no
 		years_passed > @faction_creation_delay_years
-		# TODO
-		# has_encountered_other_species = yes
+		has_encountered_other_species = yes
 		
 		# v.3.0.x
-		# TODO
-		# exists = event_target:tiyanki_country
-		# has_communications = event_target:tiyanki_country
+		exists = event_target:tiyanki_country
+		has_communications = event_target:tiyanki_country
 		# v.2.8.x
 		#has_country_flag = established_comms_with_tiyanki 
 		
@@ -541,8 +538,7 @@ mgfaction = {
 				parameter:empire = {
 					add_modifier = { 
 						modifier = requested_faction_help 
-						days = @faction_help_delay_days
-						random = @faction_help_delay_r_days
+						years = @faction_help_delay_years
 					}
 				}
 			}
