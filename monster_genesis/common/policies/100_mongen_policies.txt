@@ -7,7 +7,10 @@
 mongen_herd_behavior = {
 
 	potential = {
-		has_technology = tech_ark_of_genesis
+		AND = {
+			has_technology = tech_ark_of_genesis
+			has_country_flag = me_policy_enabled
+		}
 	}
 	
 	allow = {
@@ -81,6 +84,7 @@ mongen_crystall_relations = {
 		AND = {
 			has_modifier = pacified_crystals
 			has_technology = tech_tiyanki_order
+			has_country_flag = me_policy_enabled
 		}
 	}
 	
@@ -158,6 +162,7 @@ mongen_amoeba_relations = {
 		AND = {
 			has_modifier = pacified_amoebas
 			has_technology = tech_tiyanki_order
+			has_country_flag = me_policy_enabled
 		}
 	}
 	

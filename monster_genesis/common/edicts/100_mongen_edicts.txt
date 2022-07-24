@@ -44,6 +44,10 @@ broadcast_tiyanki_grazing = {
 		"tech_tiyanki_media"
 	}
 	
+	potential = {
+		has_country_flag = me_edict_enabled
+	}
+	
 	allow = {
 		count_owned_pop = {
 			limit = {
@@ -81,6 +85,10 @@ broadcast_tiyanki_dancing = {
 	
 	prerequisites = {
 		"tech_tiyanki_media"
+	}
+	
+	potential = {
+		has_country_flag = me_edict_enabled
 	}
 	
 	allow = {

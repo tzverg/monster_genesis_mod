@@ -13,13 +13,12 @@ country_event = {
 	
 	is_triggered_only = yes
     diplomatic = yes
-    location = FROMFROM
+    location = OWNER
 	
-	# FROMFROM - FACTION scope [100_mongen_factions.txt, line 499]
-	# FROM	   - COUNTRY scope [100_mongen_factions.txt, line 501]
+	# FROM	   - FACTION scope [100_mongen_factions.txt, line 501]
 	
 	picture_event_data = {
-        portrait = FROMFROM.leader
+        portrait = FROM.leader
         room = mg_discuss_room
     }
 	
@@ -36,10 +35,97 @@ country_event = {
         is_dialog_only = yes
         response_text = monster_genesis_diplomacy.1.help.answer
 		
-		FROMFROM = {
-			set_pop_faction_flag = inspiration_brigades
+		FROM = {
+			set_pop_faction_flag = me_inspiration_brigades
 		}
+		
+		trigger = {
+            FROM = {
+				NOT = {
+					has_pop_faction_flag = me_inspiration_brigades
+				}
+            }
+        }
     }
+	
+	option = {
+		name = monster_genesis_diplomacy.1.edict_enable
+		is_dialog_only = yes
+		response_text = monster_genesis_diplomacy.1.edict_enable.answer
+		
+		OWNER = {
+			set_country_flag = me_edict_enabled
+		}
+		
+		trigger = {
+            OWNER = {
+				AND = {
+					has_technology = "tech_tiyanki_media"
+					NOT = {
+						has_country_flag = me_edict_enabled
+					}
+				}
+            }
+        }
+	}	
+	option = {
+		name = monster_genesis_diplomacy.1.edict_disable
+		is_dialog_only = yes
+		response_text = monster_genesis_diplomacy.1.edict_disable.answer
+		
+		OWNER = {
+			remove_country_flag = me_edict_enabled
+		}
+		
+		trigger = {
+            OWNER = {
+				AND = {
+					has_technology = "tech_tiyanki_media"
+					has_country_flag = me_edict_enabled
+				}
+            }
+        }
+	}
+	
+	option = {
+		name = monster_genesis_diplomacy.1.policy_enable
+		is_dialog_only = yes
+		response_text = monster_genesis_diplomacy.1.policy_enable.answer
+		
+		OWNER = {
+			set_country_flag = me_policy_enabled
+		}
+		
+		trigger = {
+            OWNER = {
+				AND = {
+					has_technology = "tech_tiyanki_media"
+					NOT = {
+						has_country_flag = me_policy_enabled
+					}
+				}
+            }
+        }
+	}
+	
+	option = {
+		name = monster_genesis_diplomacy.1.policy_disable
+		is_dialog_only = yes
+		response_text = monster_genesis_diplomacy.1.policy_disable.answer
+		
+		OWNER = {
+			remove_country_flag = me_policy_enabled
+		}
+		
+		trigger = {
+            OWNER = {
+				AND = {
+					has_technology = "tech_tiyanki_media"
+					has_country_flag = me_policy_enabled
+				}
+            }
+        }
+	}
 	
 	option = {
         name = monster_genesis_diplomacy.1.close
