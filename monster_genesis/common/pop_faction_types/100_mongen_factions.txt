@@ -4,11 +4,13 @@
 # Written by TzverG
 ##########################################################################
 
-@faction_creation_delay_years = 10
+@faction_creation_delay_years = 0
 
-@faction_talk_cost = 50
+@faction_talk_cost = 10
+@faction_talk_delay_days = 7
+@faction_talk_delay_r_days = 14
+
 @faction_help_cost = 100
-
 @faction_help_pause = 360
 
 mgfaction = {
@@ -491,7 +493,18 @@ mgfaction = {
 			}
 			
 			effect = {
-				
+				if = {
+					limit = {
+						exists = owner
+					}
+					owner = {
+						country_event = {
+							id = monster_genesis_diplomacy.1 
+							days = @faction_talk_delay_days
+							random = @faction_talk_delay_r_days
+						}
+					}
+				}
 			}
 
 			ai_weight = {
@@ -513,6 +526,7 @@ mgfaction = {
 						has_modifier = suppressed_mgfaction
 					}
 				}
+				has_pop_faction_flag = inspiration_brigades
 			}
 			
 			valid = {
@@ -532,97 +546,97 @@ mgfaction = {
 				base = 0
 			}
 		}
-		promote_faction = {
-			title = "PROMOTE_FACTION"
-			description = "PROMOTE_FACTION_DESC"
+		# promote_faction = {
+			# title = "PROMOTE_FACTION"
+			# description = "PROMOTE_FACTION_DESC"
 
-			potential = {
-				exists = owner
-				parameter:empire = {
-					NOR = {
-						has_modifier = suppressed_mgfaction
-						has_modifier = promoted_mgfaction
-					}
-				}
-			}
+			# potential = {
+				# exists = owner
+				# parameter:empire = {
+					# NOR = {
+						# has_modifier = suppressed_mgfaction
+						# has_modifier = promoted_mgfaction
+					# }
+				# }
+			# }
 
-			effect = {
-				parameter:empire = {
-					add_modifier = { modifier = promoted_mgfaction days = -1 }
-				}
-			}
+			# effect = {
+				# parameter:empire = {
+					# add_modifier = { modifier = promoted_mgfaction days = -1 }
+				# }
+			# }
 
-			ai_weight = {
-				base = 0
-			}
-		}
-		cancel_promote_faction = {
-			title = "CANCEL_PROMOTE_FACTION"
-			description = "CANCEL_PROMOTE_FACTION_DESC"
+			# ai_weight = {
+				# base = 0
+			# }
+		# }
+		# cancel_promote_faction = {
+			# title = "CANCEL_PROMOTE_FACTION"
+			# description = "CANCEL_PROMOTE_FACTION_DESC"
 
-			potential = {
-				exists = owner
-				parameter:empire = {
-					has_modifier = promoted_mgfaction
-				}
-			}
+			# potential = {
+				# exists = owner
+				# parameter:empire = {
+					# has_modifier = promoted_mgfaction
+				# }
+			# }
 
-			effect = {
-				parameter:empire = {
-					remove_modifier = promoted_mgfaction
-				}
-			}
+			# effect = {
+				# parameter:empire = {
+					# remove_modifier = promoted_mgfaction
+				# }
+			# }
 
-			ai_weight = {
-				base = 0
-			}
-		}
-		suppress_faction = {
-			title = "SUPPRESS_FACTION"
-			description = "SUPPRESS_FACTION_DESC"
+			# ai_weight = {
+				# base = 0
+			# }
+		# }
+		# suppress_faction = {
+			# title = "SUPPRESS_FACTION"
+			# description = "SUPPRESS_FACTION_DESC"
 
-			potential = {
-				exists = owner
-				parameter:empire = {
-					NOR = {
-						has_modifier = suppressed_mgfaction
-						has_modifier = promoted_mgfaction
-					}
-				}
-			}
+			# potential = {
+				# exists = owner
+				# parameter:empire = {
+					# NOR = {
+						# has_modifier = suppressed_mgfaction
+						# has_modifier = promoted_mgfaction
+					# }
+				# }
+			# }
 
-			effect = {
-				add_modifier = { modifier = suppressed_faction days = -1 }
-				parameter:empire = {
-					add_modifier = { modifier = suppressed_mgfaction days = -1 }
-				}
-			}
+			# effect = {
+				# add_modifier = { modifier = suppressed_faction days = -1 }
+				# parameter:empire = {
+					# add_modifier = { modifier = suppressed_mgfaction days = -1 }
+				# }
+			# }
 
-			ai_weight = {
-				base = 0
-			}
-		}
-		cancel_suppress_faction = {
-			title = "CANCEL_SUPPRESS_FACTION"
-			description = "CANCEL_SUPPRESS_FACTION_DESC"
+			# ai_weight = {
+				# base = 0
+			# }
+		# }
+		# cancel_suppress_faction = {
+			# title = "CANCEL_SUPPRESS_FACTION"
+			# description = "CANCEL_SUPPRESS_FACTION_DESC"
 
-			potential = {
-				exists = owner
-				parameter:empire = {
-					has_modifier = suppressed_mgfaction
-				}
-			}
+			# potential = {
+				# exists = owner
+				# parameter:empire = {
+					# has_modifier = suppressed_mgfaction
+				# }
+			# }
 
-			effect = {
-				remove_modifier = suppressed_faction
-				parameter:empire = {
-					remove_modifier = suppressed_mgfaction
-				}
-			}
+			# effect = {
+				# remove_modifier = suppressed_faction
+				# parameter:empire = {
+					# remove_modifier = suppressed_mgfaction
+				# }
+			# }
 
-			ai_weight = {
-				base = 0
-			}
-		}
+			# ai_weight = {
+				# base = 0
+			# }
+		# }
 	}
 }

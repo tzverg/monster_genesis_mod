@@ -1,0 +1,47 @@
+##########################################################################
+# Diplomacy Events for Monster Genesis
+#
+# Written by TzverG
+##########################################################################
+
+namespace = monster_genesis_diplomacy
+
+# Diplomacy with custom factions for cinfigure some modification params
+country_event = {
+	id = monster_genesis_diplomacy.1
+	title = monster_genesis_diplomacy.1.name
+	
+	is_triggered_only = yes
+    diplomatic = yes
+    location = FROMFROM
+	
+	# FROMFROM - FACTION scope [100_mongen_factions.txt, line 499]
+	# FROM	   - COUNTRY scope [100_mongen_factions.txt, line 501]
+	
+	picture_event_data = {
+        portrait = FROMFROM.leader
+        room = mg_discuss_room
+    }
+	
+	desc = monster_genesis_diplomacy.1.desc
+	
+	option = {
+        name = monster_genesis_diplomacy.1.default
+		is_dialog_only = yes
+		response_text = monster_genesis_diplomacy.1.default.answer
+    }
+	
+	option = {
+        name = monster_genesis_diplomacy.1.help
+        is_dialog_only = yes
+        response_text = monster_genesis_diplomacy.1.help.answer
+		
+		FROMFROM = {
+			set_pop_faction_flag = inspiration_brigades
+		}
+    }
+	
+	option = {
+        name = monster_genesis_diplomacy.1.close
+    }
+}
