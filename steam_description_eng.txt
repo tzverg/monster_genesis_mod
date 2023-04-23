@@ -1,4 +1,4 @@
-﻿[h1]Supported Stellaris version: v3.4.x[/h1]
+﻿[h1]Supported Stellaris version: v3.7.x[/h1]
 [h1]Tiyanki Genesis[/h1]
 Do you like to play as a pacifist/xenophile? Can't resist enemy aggression with your own means? In any case, I would like to present you a modification with the ability to breed your own herd of Tiyanki whales. Did you ever heard of them?
 
@@ -20,66 +20,6 @@ The entry point of modification is researching the necessary technologies to ope
 [*] new game event list
 [*] new event chain for information
 [*] random name generator for new faction
-[/list]
-
-[h1]List Of Changes[/h1]
-v.3.4.0
-[list]
-[*] Updated mod icon with new version, partially tested performance
-[*] Fixed NEW logic issue with creation custom pop faction (removed old and useless triggers and some code)
-[*] Fixed bug of user faction name generator for Russian localization and added support for English localization
-[/list]
-v.3.3.4
-[list]
-[*] Updated mod icon with new version, partially tested performance
-[*] Fixed logic issue with creation custom pop faction
-[/list]
-v.3.1.2
-[list]
-[*] Updated mod icon with new version, partially tested performance
-[*] Fixed bugs in localization keys
-[/list]
-v.3.0.0
-[list]
-[*] Mechanics of special projects seemed not very convenient for me and in this version I replaced it to planetary solutions
-[*] The algorithm of movement of whales is again rewritten (it starts to enter the habit). Fixed some issues with whales when player fast change herd solutions
-[*] The herd management is moved to the policy of the empire
-[*] Added limited control of free whale grazing through the planetary edicts on gas giants and inhabited colonies of your empire
-[*] Add new functionality for the herd bull, from now, they can find gas giants and tell other herd about grazing whale
-[*] A new pops faction participating in the project of the genesis, something will depend on the strength of its support
-[*] Add new building and new profession needed for macrogenesis project
-[*] A little fixes of surprise functionality, was addes accumulative effect and fixes permanent bonuses
-[/list]
-v.2.8.0
-[list]
-[*] Fix problem with tiyanki ship class name
-[*] Recover default special project cost
-[*] Fix localisation
-[*] Fix problem with tiyanky pathfind
-[*] Balance some modifiers
-[*] Add fleets name
-[*] Add english promt-localisation for any languages except russain.
-[*] Fix some problem with tiyanki static modifier.
-[*] Fix some small bugs with tiyanky death, fix counts and add decrease count of tiyanki when ship is die, event for matriarch death, matriarch death empire modifier and few debug events.
-[*] Fix some error with evolution of dead tiyanki.
-[*] Reset time params for mod, and remove some useless rows.
-[*] Small changes with technologies of mod.
-[*] Fix some issues with wrong random exception.
-[*] Fix problem with matriarch and bull guardians update.
-[*] Fix some issues and tiyanki guardian localisation.
-[*] Fix unique ID errors in trigger and effects.
-[*] Add FREE order for tiyanki fleet and add some refactoring script.
-[*] Add CALL and FOLLOW orders for  tiyanki fleets.
-[*] Fix problem with tiyanki free motion, fix counters in special project panel and some small changes.
-[*] Add matriarch evolution.
-[*] Fix some issues, add event chains.
-[*] Add tiyank picture.
-[*] Add modifiers and some changes.
-[*] Fix problem with finding capital of the creator tiyanki.
-[*] Fix tiyankys country name.
-[*] Fix organic generation.
-[*] Add randomizer for event fire.
-[*] New mod engaged.
 [/list]
 
 [h1]Notes from tzverg[/h1]
