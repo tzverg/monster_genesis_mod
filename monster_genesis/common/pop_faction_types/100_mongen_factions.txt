@@ -58,11 +58,12 @@ mgfaction = {
 	can_join_pre_triggers = {
 		is_enslaved = no
 		is_being_purged = no
-		is_sapient = yes
+		#is_sapient = yes
 	}
 	
 	can_join_faction = {
 		is_shackled_robot = no
+		can_think = yes
 		NOT = { has_trait = trait_nerve_stapled }
 		OR = {
 			has_ethic = ethic_pacifist
@@ -443,23 +444,43 @@ mgfaction = {
 		}
 	}
 	
+	#OWN New Demand
+	# demand = {
+		# title = "FACTION_DEMAND_"
+		# unfulfilled_title = "FACTION_DEMAND_NO"
+		# desc = "FACTION_DEMAND_DESC"
+
+		# fulfilled_effect = 5
+		# unfulfilled_effect = -5
+
+		# potential = {
+			# exists = owner
+		# }
+
+		# trigger = {
+			# owner = {
+				# is_at_war = no
+			# }
+		# }
+	# }
+	
 	on_create = {
 		pop_faction_event = { id = monster_genesis.34 }
 	}
 	
 	on_destroy = {
-		if = {
-			limit = {
-				has_modifier = promoted_mgfaction
-			}
-			remove_modifier = promoted_mgfaction
-		}
-		if = {
-			limit = {
-				has_modifier = suppressed_mgfaction
-			}
-			remove_modifier = suppressed_mgfaction
-		}
+		# if = {
+			# limit = {
+				# has_modifier = promoted_mgfaction
+			# }
+			# remove_modifier = promoted_mgfaction
+		# }
+		# if = {
+			# limit = {
+				# has_modifier = suppressed_mgfaction
+			# }
+			# remove_modifier = suppressed_mgfaction
+		# }
 		if = {
 			limit = {
 				has_modifier = requested_faction_help

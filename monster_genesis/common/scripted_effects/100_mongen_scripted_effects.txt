@@ -38,9 +38,9 @@
 @orbiting_delay_matriarch = 30
 @orbiting_delay_matriarch_random = 30
 
-@faction_random_years_of_joy_a = 1
+@faction_random_years_of_joy_a = 3
 @faction_random_years_of_joy_b = 5
-@faction_random_years_of_joy_c = 10
+@faction_random_years_of_joy_c = 7
 
 @job_popularity_years = 2
 
@@ -275,7 +275,7 @@ create_monster_genesis_tiyanki_calf = {
 		
 		event_target:monster_genesis_tiyanki_country = {
 			create_fleet = {
-				name = "NAME_Calf"
+				name = "NAME_MG_Tiyanki_Calf"
 				settings = {
 					can_upgrade = no
 					can_change_composition = no
@@ -583,7 +583,7 @@ create_monster_genesis_tiyanki_cow = {
 				}
 				
 				create_fleet = {
-					name = "NAME_Cow"
+					name = "NAME_MG_Tiyanki_Cow"
 					settings = {
 						can_upgrade = no
 						can_disband = no
@@ -862,7 +862,7 @@ create_monster_genesis_tiyanki_bull = {
 				}
 				
 				create_fleet = {
-					name = "NAME_Bull"
+					name = "NAME_MG_Tiyanki_Bull"
 					settings = {
 						can_upgrade = no
 						can_disband = no
@@ -2180,7 +2180,7 @@ create_order_tiyanki_free_monster_genesis = {
 # Create a Tiyanki Calf ship
 create_monster_genesis_tiyanki_calf_ship = {
 	create_ship = {
-		name = "NAME_Calf"
+		name = "NAME_MG_Giyanki"
 		design = "NAME_MG_Tiyanki_Calf"
 		prefix = no
 		upgradable = no
@@ -2190,7 +2190,7 @@ create_monster_genesis_tiyanki_calf_ship = {
 # Create a Tiyanki Cow ship
 create_monster_genesis_tiyanki_cow_ship = {
 	create_ship = {
-		name = "NAME_Cow"
+		name = "NAME_MG_Giyanki"
 		design = "NAME_MG_Tiyanki_Cow"
 		prefix = no
 		upgradable = no
@@ -2200,7 +2200,7 @@ create_monster_genesis_tiyanki_cow_ship = {
 # Create a Tiyanki Bull ship
 create_monster_genesis_tiyanki_bull_ship = {
 	create_ship = {
-		name = "NAME_Bull"
+		name = "NAME_MG_Giyanki"
 		design = "NAME_MG_Tiyanki_Bull"
 		prefix = no
 		upgradable = no
@@ -2210,7 +2210,7 @@ create_monster_genesis_tiyanki_bull_ship = {
 # Create a Tiyanki Matriarch ship
 create_monster_genesis_tiyanki_matriarch_ship = {
 	create_ship = {
-		name = ""
+		name = "NAME_MG_Giyanki"
 		design = "NAME_MG_Progenitor"
 		prefix = no
 		upgradable = no
@@ -2238,7 +2238,7 @@ increase_monster_genesis_tiyanki_bull_guardian_ship_power = {
 # Tiyanki Matriarch Born new Bull Guardian (more stronger that you can create, and stay stronger with time)
 create_bull_by_matriarch_monster_genesis = {
 	create_ship = {
-		name = "NAME_MG_Tiyanki_Bull_Guardian"
+		name = "NAME_MG_Giyanki"
 		design = "NAME_MG_Tiyanki_Bull_Guardian"
 		prefix = no
 		upgradable = no
