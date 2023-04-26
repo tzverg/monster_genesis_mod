@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-04-25T06:36:45.869Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:112.0) Gecko/20100101 Firefox/112.0" etag="Jns_r1ZWsvTYH-g24SDk" version="21.2.1" type="github">
+<mxfile host="app.diagrams.net" modified="2023-04-26T02:49:44.441Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:112.0) Gecko/20100101 Firefox/112.0" etag="JbqsLeeySknObbp4tDIY" version="21.2.1" type="github">
   <diagram name="Page-1" id="_ViOMv9YvLKTItKcE3aO">
-    <mxGraphModel dx="1838" dy="597" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2012" dy="702" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -255,6 +255,14 @@
         <mxCell id="SBqQF3lLg_DirTqzvueh-120" value="&lt;div&gt;monster_genesis.35&lt;/div&gt;" style="whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#666666;fontColor=#333333;rounded=0;glass=0;shadow=0;gradientColor=none;strokeWidth=3;" parent="1" vertex="1">
           <mxGeometry x="680" y="570" width="120" height="60" as="geometry" />
         </mxCell>
+        <mxCell id="JDoxlN7U1lCP0kAiubZi-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="SBqQF3lLg_DirTqzvueh-122" target="JDoxlN7U1lCP0kAiubZi-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="420" y="1690" />
+              <mxPoint x="900" y="1690" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
         <mxCell id="SBqQF3lLg_DirTqzvueh-122" value="&lt;div&gt;monster_genesis.37&lt;/div&gt;" style="whiteSpace=wrap;html=1;fillColor=#1A1A1A;strokeColor=#666666;fontColor=#666666;rounded=0;glass=0;shadow=0;gradientColor=none;strokeWidth=3;" parent="1" vertex="1">
           <mxGeometry x="360" y="1610" width="120" height="60" as="geometry" />
         </mxCell>
@@ -267,8 +275,14 @@
         <mxCell id="SBqQF3lLg_DirTqzvueh-127" value="всплывающие сообщения" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="130" y="1625" width="170" height="30" as="geometry" />
         </mxCell>
+        <mxCell id="JDoxlN7U1lCP0kAiubZi-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="JDoxlN7U1lCP0kAiubZi-1" target="JDoxlN7U1lCP0kAiubZi-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="JDoxlN7U1lCP0kAiubZi-1" value="&lt;div&gt;monster_genesis.39&lt;/div&gt;" style="whiteSpace=wrap;html=1;fillColor=#1A1A1A;strokeColor=#666666;fontColor=#666666;rounded=0;glass=0;shadow=0;gradientColor=none;strokeWidth=3;" vertex="1" parent="1">
           <mxGeometry x="680" y="1610" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JDoxlN7U1lCP0kAiubZi-3" value="&lt;div&gt;monster_genesis.40&lt;/div&gt;" style="whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#666666;fontColor=#333333;rounded=0;glass=0;shadow=0;gradientColor=none;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="840" y="1610" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
