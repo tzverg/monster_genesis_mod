@@ -42,6 +42,10 @@
 @faction_random_years_of_joy_b = 5
 @faction_random_years_of_joy_c = 7
 
+@faction_random_days_of_joy_a = 1080	# 3 year
+@faction_random_days_of_joy_b = 1800	# 5 year
+@faction_random_days_of_joy_c = 2520	# 7 year
+
 @job_popularity_years = 2
 
 @sky_visiter_duration_days = 90
@@ -299,17 +303,32 @@ create_monster_genesis_tiyanki_calf = {
 									flag = mongen_calf_created
 									years = @faction_random_years_of_joy_a
 								}
+								country_event = { 
+									id = monster_genesis.38
+									# years = @faction_random_years_of_joy_a
+									days = @faction_random_days_of_joy_a
+								}
 							}
 							34 = { 
 								set_timed_country_flag = {
 									flag = mongen_calf_created
 									years = @faction_random_years_of_joy_b
 								}
+								country_event = { 
+									id = monster_genesis.38
+									# years = @faction_random_years_of_joy_b
+									days = @faction_random_days_of_joy_b
+								}
 							}
 							34 = { 
 								set_timed_country_flag = {
 									flag = mongen_calf_created
 									years = @faction_random_years_of_joy_c
+								}
+								country_event = { 
+									id = monster_genesis.38
+									# years = @faction_random_years_of_joy_c
+									days = @faction_random_days_of_joy_c
 								}
 							}
 						}
@@ -333,6 +352,28 @@ create_monster_genesis_tiyanki_calf = {
 						target = event_target:new_spawn_location
 						distance = 5
 						angle = random
+					}
+					
+					event_target:monster_genesis_creator = {
+						# Removing arc special project
+						
+						if = {
+							limit = {
+								has_special_project = MONGEN_TIYANKI_ARC_PROJECT
+							}
+						
+							abort_special_project = {
+								type = "MONGEN_TIYANKI_ARC_PROJECT"
+							}
+						}
+						
+						# Enable herd policy
+						if = {
+							limit = {
+								NOT = { has_country_flag = me_policy_enabled }
+							}
+							set_country_flag = me_policy_enabled
+						}
 					}
 					
 					set_aggro_range_measure_from = self

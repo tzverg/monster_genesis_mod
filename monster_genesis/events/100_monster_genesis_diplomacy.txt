@@ -49,6 +49,40 @@ country_event = {
     }
 	
 	option = {
+        name = monster_genesis_diplomacy.1.inform_enable
+        is_dialog_only = yes
+        response_text = monster_genesis_diplomacy.1.inform_enable.answer
+		
+		OWNER = {
+			set_country_flag = mongen_inform_enabled
+		}
+		
+		trigger = {
+            OWNER = {
+				NOT = {
+					has_country_flag = mongen_inform_enabled
+				}
+            }
+        }
+    }
+	
+	option = {
+        name = monster_genesis_diplomacy.1.inform_disable
+        is_dialog_only = yes
+        response_text = monster_genesis_diplomacy.1.inform_disable.answer
+		
+		OWNER = {
+			remove_country_flag = mongen_inform_enabled
+		}
+		
+		trigger = {
+            OWNER = {
+				has_country_flag = mongen_inform_enabled
+            }
+        }
+    }
+	
+	option = {
 		name = monster_genesis_diplomacy.1.edict_enable
 		is_dialog_only = yes
 		response_text = monster_genesis_diplomacy.1.edict_enable.answer
@@ -99,7 +133,7 @@ country_event = {
 		trigger = {
             OWNER = {
 				AND = {
-					has_technology = "tech_tiyanki_media"
+					# has_technology = "tech_tiyanki_media"
 					NOT = {
 						has_country_flag = me_policy_enabled
 					}
@@ -120,7 +154,7 @@ country_event = {
 		trigger = {
             OWNER = {
 				AND = {
-					has_technology = "tech_tiyanki_media"
+					# has_technology = "tech_tiyanki_media"
 					has_country_flag = me_policy_enabled
 				}
             }

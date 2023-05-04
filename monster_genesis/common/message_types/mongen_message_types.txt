@@ -1,0 +1,49 @@
+message_type = {
+	key = "BRAINSTORM_STARTED"
+	icon = "GFX_mongen_message_brainstorm"
+	icon_frame = 1
+
+	name = "MESSAGE_BRAINSTORM_STARTED_TITLE"
+	sound = "notification"
+	ping = "ping_notification_yellow"
+}
+
+message_type = {
+	key = "BRAINSTORM_FINISHED"
+	icon = "GFX_mongen_message_brainstorm"
+	icon_frame = 1
+
+	name = "MESSAGE_BRAINSTORM_FINISHED_TITLE"
+	sound = "notification"
+	ping = "ping_notification_yellow"
+}
+
+message_type = {
+	key = "BRAINSTORM_READY"
+	icon = "GFX_mongen_message_brainstorm"
+	icon_frame = 1
+
+	name = "MESSAGE_BRAINSTORM_READY_TITLE"
+	sound = "notification"
+	ping = "ping_notification_yellow"
+}
+
+message_type = {
+	key = "FACTION_WAIT_RESULTS"
+	icon = "GFX_mongen_message_timespend"
+	icon_frame = 1
+
+	name = "MESSAGE_FACTION_WAIT_RESULTS_TITLE"
+	sound = "notification"
+	ping = "ping_notification_yellow"
+}
+
+message_type = {
+	key = "ARK_READY"
+	icon = "GFX_mongen_message_ark_ready"
+	icon_frame = 1
+
+	name = "MESSAGE_ARK_READY_TITLE"
+	sound = "notification"
+	ping = "ping_notification_yellow"
+}

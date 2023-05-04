@@ -14,6 +14,20 @@ mongen_specialist_job_check_trigger = {
 	}
 }
 
+# Check did we can change behavior of the herd
+is_herd_behavior_can_changed = {
+	any_planet_within_border = { 
+		is_colony = yes
+		count_owned_pop = {
+			limit = {
+				has_job = mongen_student
+			}
+			count >= 1
+		}
+	}
+	has_technology = tech_tiyanki_comm
+}
+
 # Check if any matriarch is active
 is_any_monster_boss_active = {
 	any_country = {

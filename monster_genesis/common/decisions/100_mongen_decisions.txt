@@ -208,6 +208,14 @@ mongen_tiyanky_genesis = {
 			limit = { has_job = mongen_student }
 			count >= 1
 		}
+		if = {
+			limit = {
+				exists = owner
+			}
+			owner = {
+				NOT = { has_country_flag = creating_ark_lock }
+			}
+		}
 	}
 	
 	effect = {
@@ -217,8 +225,7 @@ mongen_tiyanky_genesis = {
 				exists = owner
 			}
 			owner = {
-				country_event = { id = monster_genesis.3 }
-				#start_random_arc_of_genesis_event = yes
+				country_event = { id = monster_genesis.0 }
 			}
 		}
 	}

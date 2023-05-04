@@ -173,16 +173,7 @@ tiyanki_bull_guardians_number:"§R$NAME_MG_Tiyanki_Bull_Guardian_plural$§!"
 ####################################
 
 MONGEN_TIYANKI_ARC_PROJECT:0 "§H$NAME_MG_Giyanki$ Genesis§!"
-MONGEN_TIYANKI_ARC_PROJECT_DESC:0 "Leading biologists and genetics of §H[Root.GetAdjective]§! race learned how to reproduce space whales, also known as §H$NAME_MG_Giyanki$§!. These creatures were one of the first, who we met among the stars. Who knows how they will help our empire achieve mightiness."
-
-MONGEN_TIYANKI_CALL_PROJECT:0 "§EHerd Call§!"
-MONGEN_TIYANKI_CALL_PROJECT_DESC:0 "Leading biologists and genetics of §H[Root.GetAdjective]§! race, using advanced x-ray communication technology with remote §H$NAME_MG_Giyanki$§! whales, broadcast an alarm signal, what gives the order §Hcall the herd to the orbit of our capital system§! for protection of grazing areas."
-
-MONGEN_TIYANKI_FREE_PROJECT:0 "§EHerding Whales§!"
-MONGEN_TIYANKI_FREE_PROJECT_DESC:0 "Leading biologists and genetics of §H[Root.GetAdjective]§! race, using advanced x-ray communication technology with remote §H$NAME_MG_Giyanki$§! whales, stop broadcasting of alarm signal, what gives the order §Hlet the herd go§!, at since the danger has passed."
-
-MONGEN_TIYANKI_FOLLOW_PROJECT:0 "§EMigration Of The Herd§!"
-MONGEN_TIYANKI_FOLLOW_PROJECT_DESC:0 "Leading biologists and genetics of §H[Root.GetAdjective]§! race, using advanced x-ray communication technology with remote §H$NAME_MG_Giyanki$§! whales, send a series of short pulses towards military ships of your empire, what gives the order to the herd of §Hfollowing warships§!, as if they are part of a herd."
+MONGEN_TIYANKI_ARC_PROJECT_DESC:0 "The leading biologists and geneticists of the §H[Root.GetAdjective]§! race from colony named §H[event_target:new_spawn_location.GetName]§! have made a real scientific breakthrough. The body-forming cycle of §H$NAME_MG_Giyanki$§! has finished. The ark of life has been successfully formed and ready for the launch into the orbit of the planet. Charter request of scientific vessel for the successful launch of the ark with §H$NAME_MG_Giyanki$§! into the orbit of the planet has been submitted."
 
 ####################################
 # Country Localisation
@@ -213,6 +204,12 @@ tiyanki_negative_effect_desc:0 "A space whale has recently flown into the orbit 
 matriarch_death:0 "Remember and Mourn"
 matriarch_death_desc:0 "The Great $NAME_MG_Progenitor$ Of $NAME_MG_Giyanki$ is §Rdied§!, The people mourn the loss of the keeper."
 
+mongen_inspiration_crews_working:"$requested_faction_help_adjective$ working"
+mongen_inspiration_crews_working_desc:"§H$requested_faction_help$§! announced the §Grecruitment§! of new creatives. Teams of specialists tirelessly come up with new ideas and offer alternatives for research by government research institutes."
+
+mongen_inspiration_crews_vacation:"$requested_faction_help_adjective$ vacation"
+mongen_inspiration_crews_vacation_desc:"§H$requested_faction_help$§! announced that they are facing a §Rcreative crisis§! and are letting their crews go on extended vacations to replenish their level of inspiration. Unfortunately $requested_faction_help$ §Rwill not be available§! to our state for some time."
+
 grazing_candidate:0 "Grazing Field"
 grazing_candidate_desc:0 "This gas giant is marked with a special radiation label as §YGrazing Field§!, which informs all the whales from the §H$tech_ark_of_genesis$§! project about the quality of nutrients present in the upper layers of its atmosphere, thereby increasing the likelihood of visiting it."
 
@@ -224,6 +221,8 @@ tiyanki_armor_boost:0 "$NAME_MG_Giyanki$ Armor Wart"
 tiyanki_speed_boost:0 "$NAME_MG_Giyanki$ Evolutionary Slowness"
 tiyanki_weapon_range_boost:0 "$NAME_MG_Progenitor$ Vision"
 matriarch_enemy_disengage_boost:0 "$NAME_MG_Progenitor$ Psionics"
+
+faction_help_delay:"$requested_faction_help$ on vacation"
 
 ####################################
 # Decisions Localisation
@@ -265,13 +264,6 @@ tech_tiyanki_comm_desc:0 "The revolutionary technology of communication with $NA
 tech_tiyanki_order:0 "$NAME_MG_Giyanki$ Guidance"
 tech_tiyanki_order_desc:0 "The next technology in stack of §H$tech_ark_of_genesis$§! project. Since the $NAME_MG_Giyanki$'s communication abilities have been significantly expanded - the admiralty association made a proposal to foster a sense of ownership in space whales and to increase the desire to control and defend not only outer space and gas giants - but also planets. This should give our Empire some strategic advantage over a potential enemy.\n$tech_mongen_title$"
 
-#feature_tiyanki_comm_call:0 "Special Project: $MONGEN_TIYANKI_CALL_PROJECT$"
-#feature_tiyanki_comm_call_desc:0 "Open new special project, named: $MONGEN_TIYANKI_CALL_PROJECT$, which operates due to £society£ social researching point.\n$tech_mongen_title$"
-#feature_tiyanki_comm_free:0 "Special Project: $MONGEN_TIYANKI_FREE_PROJECT$"
-#feature_tiyanki_comm_free:0 "Open new special project, named: $MONGEN_TIYANKI_FREE_PROJECT$, which operates due to £society£ social researching point.\n$tech_mongen_title$"
-#feature_tiyanki_comm_follow:0 "Special Project: $MONGEN_TIYANKI_FOLLOW_PROJECT$"
-#feature_tiyanki_comm_follow_desc:0 "Open new special project, named: $MONGEN_TIYANKI_FOLLOW_PROJECT$, which operates due to £society£ social researching point.\n$tech_mongen_title$"
-
 ####################################
 # Edicts Localisation
 ####################################
@@ -283,6 +275,26 @@ edict_broadcast_tiyanki_dancing:0 "Broadcast $NAME_MG_Giyanki$ Dancing"
 edict_broadcast_tiyanki_dancing_desc:0 "Using short X-ray waves are definitely long, our biologists start broadcasting some  radiation background of peace and happiness on all $NAME_MG_Giyanki$ of the Herd, consequently - they perform some ritual dance, which is broadcast on a specialized entertainment channel, that increases the happiness of the entire population of the empire. In addition to entertainment purposes, this will give all sociologists the opportunity to study and document the behavior of space organics. \n\n£opinion£ \n§LWhen using this edict, we increases the attractiveness of the §T$pft_mgfaction_adjective$§! faction."
 
 ####################################
+# 			  Messages             #
+####################################
+
+MESSAGE_BRAINSTORM_STARTED_TITLE:"$requested_faction_help$ are announcing the recruitment of employees"
+# BRAINSTORM_STARTED_DESC:"Secretary of the §H$pft_mgfaction_adjective$§! faction informs us that, the requests we have made §Y$requested_faction_help$§! §Eannounce recruitment§! to begin a mission in government research institutes. From this point on, the teams officially begin their work.\n\ndigital signature: $FACTION_LEADER|H$\n"
+BRAINSTORM_STARTED_DESC:"Secretary of the §H$pft_mgfaction_adjective$§! faction informs us that, the requests we have made §Y$requested_faction_help$§! §Eannounce recruitment§! to begin a mission in government research institutes. From this point on, the teams officially begin their work.\n\n"
+
+MESSAGE_BRAINSTORM_FINISHED_TITLE:"$requested_faction_help$ have been disbanded"
+BRAINSTORM_FINISHED_DESC:"Secretary of the §H$pft_mgfaction_adjective$§! faction informs us that, the requests we have made §Y$requested_faction_help$§! §Pclose their activities§! and go on vacation. Employees will not be available for a while.\n\n"
+
+MESSAGE_BRAINSTORM_READY_TITLE:"Employees of $requested_faction_help_adjective$ coming back"
+BRAINSTORM_READY_DESC:"Secretary of the §H$pft_mgfaction_adjective$§! faction informs us that, §Y$requested_faction_help$§! officially §Grecall employees from their vacation§! and build up the coherence of their work. Now we could influence the board of the faction to convene new auxiliary $requested_faction_help_adjective$.\n\n"
+
+MESSAGE_FACTION_WAIT_RESULTS_TITLE:"§H$pft_mgfaction$§! wish for a new activities"
+FACTION_WAIT_RESULTS_DESC:"Secretary of the §H$pft_mgfaction_adjective$§! faction informs us that, the euphoria of a successfully uncovered ark §Pbegins to wane§!, and conveys the wish of the caucus representatives for a new draft genesis.\n\n"
+
+MESSAGE_ARK_READY_TITLE: "$tech_ark_of_genesis$ is ready to be launched into orbit"
+ARK_READY_DESC: "Secretary of the §H$pft_mgfaction_adjective$§! faction informs us that, the $tech_ark_of_genesis$ has been prepared and now waiting for a chartered research vessel for subsequent launch into planetary orbit and transition to the opening phase."
+
+####################################
 # Events Localisation
 ####################################
 
@@ -292,6 +304,10 @@ monster_genesis_diplomacy.1.default:"Nice to meet you."
 monster_genesis_diplomacy.1.default.answer:"It's a pleasure for me too, It's not every day [Root.Leader.GetHerHis] majesty §Y[Root.GetRulerTitle]§! wants to talk with you. You know, we are small people, we rummage about in our daily business and do not know what our vast and so powerful empire is really about. You know, you are my idol, yes, yes, don't be surprised, it's you, I believe that no one else but you deserves such a worthy position in the [Root.GetSpeciesAdj] society."
 monster_genesis_diplomacy.1.help:"How your faction can help the community of [Root.GetSpeciesAdj]?"
 monster_genesis_diplomacy.1.help.answer:"Hmm, I'll tell you this case, In addition to overseeing a national project called §H$tech_ark_of_genesis$§!, we are, having some scientific capacity and a little bit of intellectual resources might be able to take care of some §T$requested_faction_help$§!. With this contingent, we could provide the science departments with many new ideas. Also, with their considerable knowledge in the humanities, the teams could significantly accelerate our development in this direction, of course, in their spare time. Since the work is planned to be creative, I would not recommend maintaining crews on a permanent basis and would limit their working hours, hmm, one calendar year. Would that kind of help be okay for our community? I hope for this. I will instruct my assistant to prepare a similar initiative immediately. As soon as you need help from our §L$requested_faction_help_adjective$§!, simply refer to factional solutions, my assistant will organize everything."
+monster_genesis_diplomacy.1.inform_enable:"Could I ask you to §Ginform§! me about important events?"
+monster_genesis_diplomacy.1.inform_enable.answer:"Absolutely, §Y[Root.GetRulerTitle]§!. All power is in your hands. As soon as something out of the ordinary happens, our secretary will discreetly §Ynotify you by galakom§! without interrupting your leisure time."
+monster_genesis_diplomacy.1.inform_disable:"I'd like to §Runsubscribe§! the faction secretary notifying."
+monster_genesis_diplomacy.1.inform_disable.answer:"As you please, that you are §Y[Root.GetRulerTitle]§!! The secretary will be immediately dismissed from his position, the notification of factional events will be removed from the narrative of the day. Let me take care of the details myself."
 monster_genesis_diplomacy.1.edict_enable:"We must §Glaunch§! the project's media campaign."
 monster_genesis_diplomacy.1.edict_enable.answer:"It's nice to see the support and attention to the §H$tech_ark_of_genesis$§! project. Many other [Root.GetSpeciesAdj] would not waste their time for talking to such a distant representative of the state apparatus. Has taken note. I can propose a cultural and entertainment program of permanent broadcasting the life of our space creatures. Honestly, many of  [Root.GetSpeciesAdj] take what happens to their beloved pets to heart, and I think, no I'm ab-so-lu-te-ly sure, that such an initiative would be approved by the majority of the population. In addition, you, so as not to waste time on personal calls, it will be convenient to manage the broadcasts through our party's representative in parliament, just sign the necessary edict - and it's done."
 monster_genesis_diplomacy.1.edict_disable:"We must §Pstop§! the project's media campaign."

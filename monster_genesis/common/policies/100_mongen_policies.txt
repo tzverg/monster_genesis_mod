@@ -12,18 +12,6 @@ mongen_herd_behavior = {
 			has_country_flag = me_policy_enabled
 		}
 	}
-	
-	allow = {
-		any_planet_within_border = { 
-			is_colony = yes
-			count_owned_pop = {
-				limit = {
-					has_job = mongen_student
-				}
-				count >= 1
-			}
-		}
-	}
 
 	option = {
 		name = "mongen_policy_free"
@@ -48,6 +36,13 @@ mongen_herd_behavior = {
 		policy_flags = {
 			mongen_policy_call
 		}
+		
+		valid = {
+			AND = {
+				is_herd_behavior_can_changed = yes
+				has_technology = tech_tiyanki_order
+			}
+		}
 
 		AI_weight = {
 			weight = 0
@@ -64,6 +59,10 @@ mongen_herd_behavior = {
 		
 		policy_flags = {
 			mongen_policy_follow
+		}
+		
+		valid = {
+			is_herd_behavior_can_changed = yes
 		}
 
 		AI_weight = {

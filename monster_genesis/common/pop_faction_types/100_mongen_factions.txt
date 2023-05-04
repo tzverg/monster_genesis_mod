@@ -11,7 +11,11 @@
 @faction_talk_delay_r_days = 14
 
 @faction_help_cost = 100
-@faction_help_delay_years = 1
+@faction_help_duration_years = 1
+@faction_help_duration_days = 360
+
+@faction_support_for_talk = 0.1
+@faction_support_for_help = 0.3
 
 mgfaction = {
 	election_header = "GFX_faction_header_yellow"
@@ -26,8 +30,8 @@ mgfaction = {
 	resources = {
 		category = pop_factions
 		produces = {
-			unity = 0.1
-			influence = 0.1
+			unity = 0.3
+			influence = 0.01
 		}
 	}
 	
@@ -63,7 +67,6 @@ mgfaction = {
 	
 	can_join_faction = {
 		is_shackled_robot = no
-		can_think = yes
 		NOT = { has_trait = trait_nerve_stapled }
 		OR = {
 			has_ethic = ethic_pacifist
@@ -469,23 +472,29 @@ mgfaction = {
 	}
 	
 	on_destroy = {
-		# if = {
-			# limit = {
-				# has_modifier = promoted_mgfaction
-			# }
-			# remove_modifier = promoted_mgfaction
-		# }
-		# if = {
-			# limit = {
-				# has_modifier = suppressed_mgfaction
-			# }
-			# remove_modifier = suppressed_mgfaction
-		# }
 		if = {
 			limit = {
-				has_modifier = requested_faction_help
+				has_modifier = promoted_mgfaction
 			}
-			remove_modifier = requested_faction_help
+			remove_modifier = promoted_mgfaction
+		}
+		if = {
+			limit = {
+				has_modifier = suppressed_mgfaction
+			}
+			remove_modifier = suppressed_mgfaction
+		}
+		if = {
+			limit = {
+				has_modifier = mongen_inspiration_crews_working
+			}
+			remove_modifier = mongen_inspiration_crews_working
+		}
+		if = {
+			limit = {
+				has_modifier = mongen_inspiration_crews_vacation
+			}
+			remove_modifier = mongen_inspiration_crews_vacation
 		}
 	}
 	
@@ -508,20 +517,15 @@ mgfaction = {
 			}
 			
 			valid = {
-				support > 0.1
+				support > @faction_support_for_talk
 			}
 			
 			effect = {
-				if = {
-					limit = {
-						exists = owner
-					}
-					owner = {
-						country_event = {
-							id = monster_genesis_diplomacy.1 
-							days = @faction_talk_delay_days
-							random = @faction_talk_delay_r_days
-						}
+				owner = {
+					country_event = {
+						id = monster_genesis_diplomacy.1 
+						days = @faction_talk_delay_days
+						random = @faction_talk_delay_r_days
 					}
 				}
 			}
@@ -549,17 +553,27 @@ mgfaction = {
 			}
 			
 			valid = {
-				support > 0.30
+				support > @faction_support_for_help
 				parameter:empire = {
-					NOT = { has_modifier = requested_faction_help }
+					NOT = { has_modifier = mongen_inspiration_crews_working }
+					NOT = { has_modifier = mongen_inspiration_crews_vacation }
 				}
 			}
 
 			effect = {
 				parameter:empire = {
-					add_modifier = { 
-						modifier = requested_faction_help 
-						years = @faction_help_delay_years
+					add_modifier = {
+						modifier = mongen_inspiration_crews_working						
+						years = @faction_help_duration_years
+					}
+					hidden_effect = {
+						country_event = { 
+							id = monster_genesis.39
+						}
+						country_event = { 
+							id = monster_genesis.37 
+							days = @faction_help_duration_days
+						}
 					}
 				}
 			}

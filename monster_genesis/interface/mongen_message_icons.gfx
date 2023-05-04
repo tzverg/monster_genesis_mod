@@ -1,0 +1,14 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_mongen_message_brainstorm"
+		textureFile = "gfx/interface/icons/messages/message_brainstorm.dds"
+	}
+	spriteType = {
+		name = "GFX_mongen_message_timespend"
+		textureFile = "gfx/interface/icons/messages/message_timespend.dds"
+	}
+	spriteType = {
+		name = "GFX_mongen_message_ark_ready"
+		textureFile = "gfx/interface/icons/messages/message_ark_ready.dds"
+	}
+}
