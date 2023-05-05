@@ -224,11 +224,11 @@ mongen_tiyanky_genesis = {
 					type = ARK_READY
 					localization = ARK_READY_DESC
 					days = 20
-					target = this
+					target = PREV
 					variable = {
 						type = name
 						localization = SPAWN_LOCATION
-						scope = prev
+						scope = PREV
 					}
 				}
 				country_event = { id = monster_genesis.0 }
