@@ -291,8 +291,8 @@ BRAINSTORM_READY_DESC:"Secretary of the §H$pft_mgfaction_adjective$§! faction 
 MESSAGE_FACTION_WAIT_RESULTS_TITLE:"§H$pft_mgfaction$§! wish for a new activities"
 FACTION_WAIT_RESULTS_DESC:"Secretary of the §H$pft_mgfaction_adjective$§! faction informs us that, the euphoria of a successfully uncovered ark §Pbegins to wane§!, and conveys the wish of the caucus representatives for a new draft genesis.\n\n"
 
-MESSAGE_ARK_READY_TITLE: "$tech_ark_of_genesis$ is ready to be launched into orbit"
-ARK_READY_DESC: "Secretary of the §H$pft_mgfaction_adjective$§! faction informs us that, the $tech_ark_of_genesis$ has been prepared and now waiting for a chartered research vessel for subsequent launch into planetary orbit and transition to the opening phase."
+MESSAGE_ARK_READY_TITLE: "$tech_ark_of_genesis$ has been formed"
+ARK_READY_DESC: "Secretary of the §L$pft_mgfaction_adjective$§! faction informs us that, in $SPAWN_LOCATION|H$ colony has been formed §G$tech_ark_of_genesis$§! and now waiting for a chartered §Yresearch vessel§! for subsequent launch into planetary orbit and transition to the opening phase."
 
 ####################################
 # Events Localisation

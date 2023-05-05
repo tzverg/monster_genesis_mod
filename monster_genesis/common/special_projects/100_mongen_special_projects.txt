@@ -32,12 +32,6 @@ special_project = {
 				id = monster_genesis.3
 			}
 		}
-		create_message = {
-			type = ARK_READY
-			localization = ARK_READY_DESC
-			days = 20
-			target = this
-		}
 	}
 }
 

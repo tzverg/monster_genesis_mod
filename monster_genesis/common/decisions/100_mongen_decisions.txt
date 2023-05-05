@@ -225,6 +225,17 @@ mongen_tiyanky_genesis = {
 				exists = owner
 			}
 			owner = {
+				create_message = {
+					type = ARK_READY
+					localization = ARK_READY_DESC
+					days = 20
+					target = this
+					variable = {
+						type = name
+						localization = SPAWN_LOCATION
+						scope = prev
+					}
+				}
 				country_event = { id = monster_genesis.0 }
 			}
 		}

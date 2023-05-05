@@ -291,8 +291,8 @@ BRAINSTORM_READY_DESC: "Секретарь фракции §H$pft_mgfaction_adje
 MESSAGE_FACTION_WAIT_RESULTS_TITLE: "§H$pft_mgfaction$§! желают новый ковчег"
 FACTION_WAIT_RESULTS_DESC: "Секретарь фракции §H$pft_mgfaction_adjective$§! оповещает нас о том, что эйфория от успешно вскрытого ковчега начинает §Pидти на спад§!, и передаёт пожелание представителей фракции о новом проекте генезиса.\n\n"
 
-MESSAGE_ARK_READY_TITLE: "$tech_ark_of_genesis$ готов к выводу на орбиту"
-ARK_READY_DESC: "Секретарь фракции §H$pft_mgfaction_adjective$§! оповещает нас о том, что $tech_ark_of_genesis$ подготовлен и ожидает зафрахтованное научное судно для последующего вывода на орбиту планеты и перехода к этапу вскрытия."
+MESSAGE_ARK_READY_TITLE: "Сформирован $tech_ark_of_genesis$"
+ARK_READY_DESC: "Секретарь фракции §L$pft_mgfaction_adjective$§! оповещает нас о том, что в колонии $SPAWN_LOCATION|H$ подготовлен §G$tech_ark_of_genesis$§! и теперь ожидает зафрахтованное §Yнаучное судно§! для последующего вывода на орбиту планеты и перехода к этапу вскрытия.\n\n"
 
 ####################################
 # Events Localisation
