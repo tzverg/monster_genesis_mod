@@ -250,7 +250,7 @@ mongen_tiyanky_genesis_desc:0 "With this decree, the planetary government sponso
 tech_mongen_title: "-----\nContent from mod: §H«Monster Genesis»§!"
 
 tech_ark_of_genesis:0 "Ark Of Genesis"
-tech_ark_of_genesis_desc:0 "Revolutionary technology for creating a new life, that perfectly adapted to space conditions. Opens a new special project in the capital of your empire. The results promise to surprise you.\n$tech_mongen_title$"
+tech_ark_of_genesis_desc:0 "Revolutionary technology for creating a new life, that perfectly adapted to space conditions. Open list of new scientific projects. The results promise to surprise you.\n$tech_mongen_title$"
 
 #feature_ark_of_genesis_flag:0 "Special Project: §YArk Of Genesis§!"
 #feature_ark_of_genesis_flag_desc:0 "Open new special project, named: §YArk Of Genesis§!, which operates due to £society£ social researching point.\n$tech_mongen_title$"
