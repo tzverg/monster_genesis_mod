@@ -93,11 +93,9 @@ country_event = {
 		
 		trigger = {
             OWNER = {
-				AND = {
-					has_technology = "tech_tiyanki_media"
-					NOT = {
-						has_country_flag = me_edict_enabled
-					}
+				has_technology = "tech_tiyanki_media"
+				NOT = {
+					has_country_flag = me_edict_enabled
 				}
             }
         }
@@ -113,10 +111,8 @@ country_event = {
 		
 		trigger = {
             OWNER = {
-				AND = {
-					has_technology = "tech_tiyanki_media"
-					has_country_flag = me_edict_enabled
-				}
+				has_technology = "tech_tiyanki_media"
+				has_country_flag = me_edict_enabled
             }
         }
 	}
@@ -132,11 +128,9 @@ country_event = {
 		
 		trigger = {
             OWNER = {
-				AND = {
-					# has_technology = "tech_tiyanki_media"
-					NOT = {
-						has_country_flag = me_policy_enabled
-					}
+				has_technology = "tech_ark_of_genesis"
+				NOT = {
+					has_country_flag = me_policy_enabled
 				}
             }
         }
@@ -153,10 +147,8 @@ country_event = {
 		
 		trigger = {
             OWNER = {
-				AND = {
-					# has_technology = "tech_tiyanki_media"
-					has_country_flag = me_policy_enabled
-				}
+				has_technology = "tech_ark_of_genesis"
+				has_country_flag = me_policy_enabled
             }
         }
 	}
