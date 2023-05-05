@@ -82,7 +82,7 @@ mongen_crystall_relations = {
 	potential = {
 		AND = {
 			has_modifier = pacified_crystals
-			has_technology = tech_tiyanki_order
+			has_technology = tech_tiyanki_comm
 			has_country_flag = me_policy_enabled
 		}
 	}
@@ -160,7 +160,7 @@ mongen_amoeba_relations = {
 	potential = {
 		AND = {
 			has_modifier = pacified_amoebas
-			has_technology = tech_tiyanki_order
+			has_technology = tech_tiyanki_comm
 			has_country_flag = me_policy_enabled
 		}
 	}
