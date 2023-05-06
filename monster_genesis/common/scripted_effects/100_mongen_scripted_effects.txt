@@ -590,6 +590,21 @@ create_monster_genesis_tiyanki_calf = {
 						}
 					}
 				}
+
+				event_target:monster_genesis_creator = {
+					if = {
+						limit = {
+							has_edict = broadcast_tiyanki_grazing
+						}
+						create_point_of_interest = {
+							id = giyanki_poi
+							name = giyanki_poi
+							desc = giyanki_poi_desc
+							event_chain = "monster_genesis_event_chain"
+							location = PREV
+						}
+					}
+				}
 			}
 		}
 	}

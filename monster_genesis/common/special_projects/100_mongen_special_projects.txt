@@ -4,13 +4,16 @@
 # Written by TzverG
 ##########################################################################
 
-# @tiyanki_arc_days = 10
+# (days_to_research) How many days it will take to complete this project. Either cost or days_to_research must be defined. Integer
+@tiyanki_arc_days = 30
+
+# (cost) Science point cost of the project (must be '0' if using days_to_research). Integer
 @tiyanki_arc_res_point = 500
 
 special_project = {
 	key = "MONGEN_TIYANKI_ARC_PROJECT"
-	cost = @tiyanki_arc_res_point
-	# days_to_research = @tiyanki_arc_days
+	cost = 0
+	days_to_research = @tiyanki_arc_days
 	tech_department = society_technology
 	picture = GFX_evt_monster_genesis_sp
 	icon = "gfx/interface/icons/situation_log/situation_log_squid.dds"
@@ -25,7 +28,6 @@ special_project = {
 		skill > 2
 	}
 	
-	# Delay before start need to fix problem with infinity recall special project
 	on_success = {
 		owner = {
 			country_event = {

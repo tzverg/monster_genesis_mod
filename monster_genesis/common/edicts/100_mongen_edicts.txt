@@ -56,6 +56,12 @@ broadcast_tiyanki_grazing = {
 			count >= 1
 		}
 	}
+
+	effect = {
+		hidden_effect  = {
+			country_event = { id = monster_genesis.25 }
+		}
+	}
 	
 	ai_weight = {
 		weight = 0

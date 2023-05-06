@@ -250,7 +250,6 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		# log = "ME3 new_spawn_location: [event_target:new_spawn_location.GetName]"
 		if = {
 			limit = {
 				has_country_flag = creating_ark_lock
@@ -322,8 +321,6 @@ country_event = {
 		# Create Fleet Country
 		create_monster_genesis_country = yes
 		
-		# log = "ME4 new_spawn_location: [event_target:new_spawn_location.GetName]"
-		
 		country_event = { 
 			id = monster_genesis.5
 		}
@@ -338,7 +335,6 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		# log = "ME5 new_spawn_location: [event_target:new_spawn_location.GetName]"
 		trying_create_tiyanki_calf = yes
 	}
 }
@@ -756,20 +752,49 @@ country_event = {
 	}
 }
 
-# Template [monster_genesis.25]
+# Update POI for every mongen fleet [monster_genesis.25] (HIDDEN)
 country_event = {
 	id = monster_genesis.25
-	title = monster_genesis.25.name
-	desc = monster_genesis.25.desc
-	picture = GFX_evt_monster_genesis
-	
+
+	hide_window = yes	
 	is_triggered_only = yes
-	
+
 	trigger = {
+		exists = event_target:monster_genesis_tiyanki_country
 	}
 	
-	option = {
-		name = monster_genesis.25.answer.1
+	immediate = {
+		event_target:monster_genesis_tiyanki_country = {
+			every_owned_fleet = {
+				PREVPREV = {
+					if = {
+						limit = {
+							has_point_of_interest = { poi = giyanki_poi }
+						}
+						remove_point_of_interest = giyanki_poi
+					}
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				NOT = { has_edict = broadcast_tiyanki_grazing }
+			}
+			event_target:monster_genesis_tiyanki_country = {
+				every_owned_fleet = {
+					PREVPREV = {
+						create_point_of_interest = {
+							id = giyanki_poi
+							name = giyanki_poi
+							desc = giyanki_poi_desc
+							event_chain = "monster_genesis_event_chain"
+							location = PREV
+						}
+					}
+				}
+			}
+		}
 	}
 }
 

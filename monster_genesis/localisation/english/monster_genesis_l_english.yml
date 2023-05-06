@@ -169,6 +169,13 @@ tiyanki_bull_number:"§S$NAME_MG_Tiyanki_Bull_plural$§!"
 tiyanki_bull_guardians_number:"§R$NAME_MG_Tiyanki_Bull_Guardian_plural$§!"
 
 ####################################
+# Point Of Interest
+####################################
+
+giyanki_poi:"Beacon: [PREV.GetName] $NAME_MG_Giyanki$"
+giyanki_poi_desc:"This is a §Ysurveillance camera§! linked to $NAME_MG_Giyanki$ named §H[PREV.GetName]§!. The innovation is designed to track and broadcast $NAME_MG_Giyanki$ life in a real time. The initiative was introduced after studying a technology called §G$tech_tiyanki_media$§!. Allows you to easily track your pet's location."
+
+####################################
 # Special Projects Localisation
 ####################################
 
