@@ -6,6 +6,7 @@
 
 # (days_to_research) How many days it will take to complete this project. Either cost or days_to_research must be defined. Integer
 @tiyanki_arc_days = 30
+@tiyanki_tag_days = 5
 
 # (cost) Science point cost of the project (must be '0' if using days_to_research). Integer
 @tiyanki_arc_res_point = 500
@@ -25,13 +26,115 @@ special_project = {
 	requirements = {
 		shipclass_science_ship = 1
 		leader = scientist
+		has_trait = leader_trait_expertise_biology 
 		skill > 2
 	}
 	
 	on_success = {
-		owner = {
+		OWNER = {
 			country_event = {
 				id = monster_genesis.3
+			}
+			# must stay below monster_genesis.3 country event. prevent 'event_target:new_spawn_location' validation when giyanky calf created
+			abort_special_project = {
+				type = "MONGEN_TIYANKI_ARC_PROJECT"
+			}
+		}
+	}
+}
+
+special_project = {
+	key = "MONGEN_GRAZING_TAG_PROJECT"
+	cost = 0
+	days_to_research = @tiyanki_tag_days
+	tech_department = society_technology
+	picture = GFX_evt_monster_genesis_sp
+	icon = "gfx/interface/icons/situation_log/situation_log_squid.dds"
+	timelimit = -1
+	
+	event_scope = ship_event
+	event_chain = "monster_genesis_event_chain"
+	
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+		skill > 1
+	}
+	
+	on_success = {
+		FROM = {
+			if = {
+				limit = {
+					is_planet_class = pc_gas_giant
+					has_planet_flag = grazing_tag_locked
+				}
+				remove_planet_flag = grazing_tag_locked
+				add_modifier = {
+					modifier = grazing_candidate
+					days = -1 
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = OWNER
+			}
+			OWNER = {
+				if = {
+					limit = {
+						has_special_project = "MONGEN_GRAZING_TAG_PROJECT"
+					}
+					abort_special_project = {
+						type = "MONGEN_GRAZING_TAG_PROJECT"
+					}
+				}
+			}
+		}
+	}
+}
+
+special_project = {
+	key = "MONGEN_GRAZING_UNTAG_PROJECT"
+	cost = 0
+	days_to_research = @tiyanki_tag_days
+	tech_department = society_technology
+	picture = GFX_evt_monster_genesis_sp
+	icon = "gfx/interface/icons/situation_log/situation_log_squid.dds"
+	timelimit = -1
+	
+	event_scope = ship_event
+	event_chain = "monster_genesis_event_chain"
+	
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+		skill > 1
+	}
+	
+	on_success = {
+		FROM = {
+			if = {
+				limit = {
+					is_planet_class = pc_gas_giant
+					has_planet_flag = grazing_untag_locked
+				}
+				remove_planet_flag = grazing_untag_locked
+				remove_modifier = grazing_candidate
+			}
+		}
+		if = {
+			limit = {
+				exists = OWNER
+			}
+			OWNER = {
+				if = {
+					limit = {
+						has_special_project = "MONGEN_GRAZING_UNTAG_PROJECT"
+					}
+					abort_special_project = {
+						type = "MONGEN_GRAZING_UNTAG_PROJECT"
+					}
+				}
 			}
 		}
 	}

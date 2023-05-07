@@ -57,23 +57,25 @@ sky_visiter = {
 }
 
 tiyanki_positive_effect = {
-	station_gatherers_energy_produces_mult = 0.5
+	station_gatherers_energy_produces_mult = 5
 	icon = "gfx/interface/icons/planet_modifiers/sky_visitor_mongen.dds"
 	icon_frame = 1
 }
 
 tiyanki_negative_effect = {
-	station_gatherers_energy_produces_mult = -0.5
+	station_gatherers_energy_produces_mult = -3
 	icon = "gfx/interface/icons/planet_modifiers/sky_visitor_mongen.dds"
 	icon_frame = 3
 }
 
 grazing_candidate = {
+	station_gatherers_energy_upkeep_mult = 0.1
 	icon = "gfx/interface/icons/planet_modifiers/grazing_field_mongen.dds"
 	icon_frame = 1
 }
 
 the_last_frontier = {
+	planet_amenities_mult = 2
 	icon = "gfx/interface/icons/planet_modifiers/last_frontier_mongen.dds"
 	icon_frame = 1
 }

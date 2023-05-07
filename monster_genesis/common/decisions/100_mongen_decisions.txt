@@ -4,7 +4,7 @@
 # Written by TzverG
 ##########################################################################
 
-@MEGrazingInfluenceCost = 50
+@MEGrazingInfluenceCost = 20
 @MELastFrontierInfluenceCost = 200
 @MEGrazingEnergyCost = 500
 @MELastFrontierEnergyCost = 2000
@@ -42,14 +42,25 @@ uncolonized_decision_mongen_set_flag = {
 	potential = {
 		# you would better make this strict enough or this can literally appear on every planet
 		is_planet_class = pc_gas_giant
-		NOT = { has_modifier = grazing_candidate }
+		NOR = {
+			has_modifier = grazing_candidate 
+			has_planet_flag = grazing_tag_locked
+			has_planet_flag = grazing_untag_locked
+		}
 	}
 
 	effect = {
-		add_modifier = {
-			modifier = grazing_candidate
-			days = -1 
-		} 
+		if = {
+			limit = {
+				exists = event_target:monster_genesis_creator
+			}
+			enable_special_project = {
+				name = "MONGEN_GRAZING_TAG_PROJECT"
+				location = THIS
+				owner = event_target:monster_genesis_creator
+			}
+			set_planet_flag = grazing_tag_locked
+		}
 	}
 }
 
@@ -80,10 +91,24 @@ uncolonized_decision_mongen_remove_flag = {
 		# you would better make this strict enough or this can literally appear on every planet
 		is_planet_class = pc_gas_giant
 		has_modifier = grazing_candidate
+		NOR = { 
+			has_planet_flag = grazing_tag_locked
+			has_planet_flag = grazing_untag_locked
+		}
 	}
 	
 	effect = {
-		remove_modifier = grazing_candidate
+		if = {
+			limit = {
+				exists = event_target:monster_genesis_creator
+			}
+			enable_special_project = {
+				name = "MONGEN_GRAZING_UNTAG_PROJECT"
+				location = THIS
+				owner = event_target:monster_genesis_creator
+			}
+			set_planet_flag = grazing_untag_locked
+		}
 	}
 }
 

@@ -97,7 +97,7 @@ mgfaction = {
 		}
 		
 		modifier = {
-			factor = 25
+			factor = 50
 			exists = owner
 			owner = {
 				has_edict = broadcast_tiyanki_grazing
@@ -105,7 +105,7 @@ mgfaction = {
 		}
 		
 		modifier = {
-			factor = 50
+			factor = 75
 			exists = owner
 			owner = {
 				has_edict = broadcast_tiyanki_dancing

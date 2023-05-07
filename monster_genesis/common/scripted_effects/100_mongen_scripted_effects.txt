@@ -357,16 +357,6 @@ create_monster_genesis_tiyanki_calf = {
 					event_target:monster_genesis_creator = {
 						# Removing arc special project
 						
-						if = {
-							limit = {
-								has_special_project = MONGEN_TIYANKI_ARC_PROJECT
-							}
-						
-							abort_special_project = {
-								type = "MONGEN_TIYANKI_ARC_PROJECT"
-							}
-						}
-						
 						# Enable herd policy
 						if = {
 							limit = {

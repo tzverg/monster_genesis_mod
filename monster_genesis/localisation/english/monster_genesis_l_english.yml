@@ -161,7 +161,7 @@ mongen_policy_amoeba_quarrel_tooltip:"$mg_separator$Consequences : §RAggression
 ####################################
 
 monster_genesis_event_chain_title:"Ark Of Genesis"
-monster_genesis_event_chain_desc:"§HArk Of Genesis§! - a unique project of macro life creation. It is invaluable to science, as our advisers claim. The entire scientific community is very interested in the upcoming scientific breakthrough, and also, to be honest, some sponsor companies have already signed a cooperation contract in the hope of writing their name in the annals of history."
+monster_genesis_event_chain_desc:"It's unique project of macro life creation. It is invaluable to science, as our advisers claim. The entire scientific community is very interested in the upcoming scientific breakthrough, and also, to be honest, some sponsor companies have already signed a cooperation contract in the hope of writing their name in the annals of history."
 
 tiyanki_calf_number:"§B$NAME_MG_Tiyanki_Calf_plural$§!"
 tiyanki_cow_number:"§Y$NAME_MG_Tiyanki_Cow_plural$§!"
@@ -181,6 +181,12 @@ giyanki_poi_desc:"This is a §Ysurveillance camera§! linked to $NAME_MG_Giyanki
 
 MONGEN_TIYANKI_ARC_PROJECT:0 "§H$NAME_MG_Giyanki$ Genesis§!"
 MONGEN_TIYANKI_ARC_PROJECT_DESC:0 "The leading biologists and geneticists of the §H[Root.GetAdjective]§! race from colony named §H[event_target:new_spawn_location.GetName]§! have made a real scientific breakthrough. The body-forming cycle of §H$NAME_MG_Giyanki$§! has finished. The ark of life has been successfully formed and ready for the launch into the orbit of the planet. Charter request of scientific vessel for the successful launch of the ark with §H$NAME_MG_Giyanki$§! into the orbit of the planet has been submitted."
+
+MONGEN_GRAZING_TAG_PROJECT:"Install Emitter on §Y[PREV.GetName]§!"
+MONGEN_GRAZING_TAG_PROJECT_DESC:"§L$pft_mgfaction_adjective$ faction§! requested §Ginstallation§! of X-ray emitter for marking the gas giant named §Y[PREV.GetName]§!, located in system §H[PREV.solar_system.GetName]§! as grazing for our §L$NAME_MG_Giyanki$§! space herd. This will §Gincrease§! the attractiveness of a visit this space object by the herd."
+
+MONGEN_GRAZING_UNTAG_PROJECT:"Dismantle Emitter on §Y[PREV.GetName]§!"
+MONGEN_GRAZING_UNTAG_PROJECT_DESC:"§L$pft_mgfaction_adjective$ faction§! requested §Rdismantle§! of X-ray emitter for remove marking of gas giant named §Y[PREV.GetName]§!, located in system §H[PREV.solar_system.GetName]§!. This will §Rreduce§! the attractiveness of a visit this space object by the herd of §L$NAME_MG_Giyanki$§!."
 
 ####################################
 # Country Localisation
@@ -217,8 +223,8 @@ mongen_inspiration_crews_working_desc:"§H$requested_faction_help$§! announced 
 mongen_inspiration_crews_vacation:"$requested_faction_help_adjective$ vacation"
 mongen_inspiration_crews_vacation_desc:"§H$requested_faction_help$§! announced that they are facing a §Rcreative crisis§! and are letting their crews go on extended vacations to replenish their level of inspiration. Unfortunately $requested_faction_help$ §Rwill not be available§! to our state for some time."
 
-grazing_candidate:0 "Grazing Field"
-grazing_candidate_desc:0 "This gas giant is marked with a special radiation label as §YGrazing Field§!, which informs all the whales from the §H$tech_ark_of_genesis$§! project about the quality of nutrients present in the upper layers of its atmosphere, thereby increasing the likelihood of visiting it."
+grazing_candidate:0 "$NAME_MG_Giyanki$ Graseland"
+grazing_candidate_desc:0 "In the orbit of this gas giant located a specialized X-ray emitter that marks the gas giant atmosphere as a §Үgraseland§!, which informs all whales from the §H$tech_ark_of_genesis$§! project about the quality of nutrients present in the upper layers of its atmosphere, thus increasing the likelihood of its visit."
 
 the_last_frontier:0 "The Last Frontier"
 the_last_frontier_desc:0 "This planet is marked with a special radiation label as §YThe Last Frontier§!, which informs all the whales from the §H$tech_ark_of_genesis$§! project about the need for its defense even at the cost of its own life."
@@ -235,11 +241,11 @@ faction_help_delay:"$requested_faction_help$ on vacation"
 # Decisions Localisation
 ####################################
 
-uncolonized_decision_mongen_set_flag:0 "Set Pasture Flag"
-uncolonized_decision_mongen_set_flag_desc:0 "By this decision we create a special emitter is placed on the orbiting satellite, which continuously irradiates the planet. §T$NAME_MG_Giyanki$§! mark their most beloved planets with such radiation. These planets have the most attractive breeding ground for them."
+uncolonized_decision_mongen_set_flag:0 "Emitter instalation: §EGraseland§!"
+uncolonized_decision_mongen_set_flag_desc:0 "Request a special project for placing on the orbit of this gas giant a specialized emitter, which will begin to continuously irradiate the planet. By such radiation §T$NAME_MG_Giyanki$ Bulls§!, in theory, mark the celestial bodies with the most attractive for them nutritive environment."
 
-uncolonized_decision_mongen_remove_flag:0 "Remove Pasture Flag"
-uncolonized_decision_mongen_remove_flag_desc:0 "On this gas giant residual x-ray detected, which is interpreted by §T$NAME_MG_Giyanki$§! herds as a pasture marker. According to this decree, the planet must be cleared of this marker."
+uncolonized_decision_mongen_remove_flag:0 "Emitter dismantle: §EGraseland§!"
+uncolonized_decision_mongen_remove_flag_desc:0 "On this gas giant was found a specialized emitter, the radiation of which is interpreted by §T$NAME_MG_Giyanki$§! as a presence marker of the nutritive environment. Request a special project for dismantle this emitter to remove the marker and reduce the probability of visiting this celestial body by the herd."
 
 mongen_last_frontier_set_flag:0 "Set Frontier Flag"
 mongen_last_frontier_set_flag_desc:0 "This colony is marked with a special X-ray emitter. That informs §T$NAME_MG_Giyanki$§! from the project §H$tech_ark_of_genesis$§! about the need for its defense even at the cost of its own life."
