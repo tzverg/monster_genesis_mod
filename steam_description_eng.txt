@@ -1,4 +1,4 @@
-﻿[h1]Supported Stellaris version: v3.7.x[/h1]
+﻿[h1]Supported Stellaris version: v3.8.x[/h1]
 [h1]Tiyanki Genesis[/h1]
 Do you like to play as a pacifist/xenophile? Can't resist enemy aggression with your own means? In any case, I would like to present you a modification with the ability to breed your own herd of Tiyanki whales. Did you ever heard of them?
 
@@ -7,11 +7,12 @@ The entry point of modification is researching the necessary technologies to ope
 [h1]Added functionality:[/h1]
 [list]
 [*] 1 new empire
-[*] 1 new pop faction type + bonus
+[*] 1 new pop faction type + bonus fractional solution
 [*] 1 new building
 [*] 1 new pop job
 [*] 1 new policy
 [*] 2 new edicts
+[*] 3 new specisal projects
 [*] 2 new static empire modifiers
 [*] 4 new technologies
 [*] 5 new planetary modifiers
@@ -19,13 +20,14 @@ The entry point of modification is researching the necessary technologies to ope
 [*] 5 new planetary solutions
 [*] new game event list
 [*] new event chain for information
+[*] notification set
 [*] random name generator for new faction
 [/list]
 
 [h1]Notes from tzverg[/h1]
 [list]
-[*] English version is not supported from now on for the reason that I work alone and not burning desire to mess with the localization file. [strike] Since the new version added a game faction name constructor - for the English version would have to write their own file random_names [/strike] (fixed in version 3.4). If anyone suddenly wants to correct the localization - can be later change.
-[*] Tested for bugs and compatibility on the entire collection of my mods, and they are not a few, should not conflict with anyone.
+[*] English version is restored, but without testing, in case anyone needs it, but the localization is still crooked. [strike] Since the new version added a game faction name constructor - for the English version would have to write their own file random_names [/strike]. If anyone suddenly wants to correct the localization - can be later change.
+[*] Tested for bugs and compatibility on the entire collection of my mods (on version 3.7.4), and they are not a few, should not conflict with anyone, have no errors in the log file.
 [*] There is a google translation to the enemy (English), the accuracy of the translation almost did not check, so that you correct for yourself, I'm not going to improve, say thank you that there is at least such x].
 [*] It is a modification for yourself and released as is, use if interested, if you show patience - you will be a surprise, in about 150 years after the birth of the first calf chance of falling out 50%.
 [*] It is self-developed modification, in his spare time from boredom, do not judge severely.
