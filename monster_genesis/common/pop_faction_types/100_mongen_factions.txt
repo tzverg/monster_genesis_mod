@@ -80,16 +80,7 @@ mgfaction = {
 		base = 150
 
 		modifier = {
-			factor = 1.25
-			exists = from
-			from = {
-				exists = leader
-				leader = { leader_class = ruler }
-			}
-		}
-
-		modifier = {
-			factor = 0.75
+			factor = 0.8
 			exists = from
 			from = {
 				NOT = { exists = leader }
@@ -97,7 +88,7 @@ mgfaction = {
 		}
 		
 		modifier = {
-			factor = 50
+			add = 25
 			exists = owner
 			owner = {
 				has_edict = broadcast_tiyanki_grazing
@@ -105,7 +96,7 @@ mgfaction = {
 		}
 		
 		modifier = {
-			factor = 75
+			add = 50
 			exists = owner
 			owner = {
 				has_edict = broadcast_tiyanki_dancing
@@ -113,33 +104,40 @@ mgfaction = {
 		}
 
 		modifier = {
-			factor = 2.0
-			NOT = { is_same_species = owner_species }
+			factor = 1.5
+			has_job = mongen_student
 		}
 		
 		modifier = {
-			factor = 150
+			factor = 1.55
 			exists = owner
 			owner = {
 				has_country_flag = mongen_calf_created
 			}
 		}
 		modifier = {
-			factor = 160
+			factor = 1.6
 			exists = owner
 			owner = {
 				has_country_flag = mongen_bull_created
 			}
 		}
 		modifier = {
-			factor = 170
+			factor = 1.6
 			exists = owner
 			owner = {
 				has_country_flag = mongen_cow_created
 			}
 		}
 		modifier = {
-			factor = 200
+			factor = 1.9
+			exists = home_planet
+			home_planet = {
+				has_building = building_mongen_university
+			}
+		}
+		modifier = {
+			factor = 2.0
 			exists = owner
 			owner = {
 				has_country_flag = mongen_matriarch_created
@@ -161,7 +159,7 @@ mgfaction = {
 		}
 
 		modifier = {
-			factor = 1.5
+			factor = 0.0
 			is_event_leader = yes
 		}
 	}
@@ -447,25 +445,77 @@ mgfaction = {
 		}
 	}
 	
-	#OWN New Demand
-	# demand = {
-		# title = "FACTION_DEMAND_"
-		# unfulfilled_title = "FACTION_DEMAND_NO"
-		# desc = "FACTION_DEMAND_DESC"
+	demand = {
+		title = "FACTION_DEMAND_INSPIRATION_BRIGADES"
+		unfulfilled_title = "FACTION_DEMAND_INSPIRATION_BRIGADES_UNFD"
+		desc = "FACTION_DEMAND_INSPIRATION_BRIGADES_DESC"
 
-		# fulfilled_effect = 5
-		# unfulfilled_effect = -5
+		fulfilled_effect = 15
+		unfulfilled_effect = -0.001
 
-		# potential = {
-			# exists = owner
-		# }
+		potential = {
+			exists = owner
+			has_pop_faction_flag = me_inspiration_brigades
+		}
 
-		# trigger = {
-			# owner = {
-				# is_at_war = no
-			# }
-		# }
-	# }
+		trigger = {
+			owner = {
+				has_modifier = mongen_inspiration_crews_working
+			}
+		}
+	}
+
+	demand = {
+		title = "FACTION_DEMAND_TIYANKI_GRAVEYARD_SYSTEM"
+		unfulfilled_title = "FACTION_DEMAND_TIYANKI_GRAVEYARD_SYSTEM_UNFD"
+		desc = "FACTION_DEMAND_TIYANKI_GRAVEYARD_SYSTEM_DESC"
+
+		fulfilled_effect = 10
+		unfulfilled_effect = -0.001
+
+		potential = {
+			exists = owner
+			owner = {
+				has_country_flag = tiyanki_graveyard_survey
+			}
+		}
+
+		trigger = {
+			owner = {
+				any_owned_starbase = {
+					solar_system = {
+						has_star_flag = tiyanki_graveyard_system
+					}
+				}
+			}
+		}
+	}
+
+	demand = {
+		title = "FACTION_DEMAND_TIYANKI_SPAWN_SYSTEM"
+		unfulfilled_title = "FACTION_DEMAND_TIYANKI_SPAWN_SYSTEM_UNFD"
+		desc = "FACTION_DEMAND_TIYANKI_SPAWN_SYSTEM_DESC"
+
+		fulfilled_effect = 10
+		unfulfilled_effect = -0.001
+
+		potential = {
+			exists = owner
+			owner = {
+				has_country_flag = tiyanki_survey
+			}
+		}
+
+		trigger = {
+			owner = {
+				any_owned_starbase = {
+					solar_system = {
+						has_star_flag = tiyanki_spawn_system
+					}
+				}
+			}
+		}
+	}
 	
 	on_create = {
 		pop_faction_event = { id = monster_genesis.34 }

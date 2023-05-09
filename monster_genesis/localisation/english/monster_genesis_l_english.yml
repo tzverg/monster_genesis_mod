@@ -66,6 +66,18 @@ FACTION_DEMAND_CALL_OF_WAR:"§ECall Of War§!"
 FACTION_DEMAND_CALL_OF_WAR_DESC:"The dance of war, performed by $NAME_MG_Giyanki$ space whales, inspires our soldiers to do great things, and confidence in our armed forces reassures the members of the faction called:\n§L[Root.GetName]§!."
 FACTION_DEMAND_CALL_OF_WAR_UNFD:"§PCall Of War§!"
 
+FACTION_DEMAND_INSPIRATION_BRIGADES:"§E$requested_faction_help_adjective$ services§!"
+FACTION_DEMAND_INSPIRATION_BRIGADES_DESC:"Members of a faction called:\n§L[Root.GetName]§! will be very flattered by the accreditation of their new organization by the government. §Y$building_mongen_university$§! broadcasts the work of the organization on a free of charge basis, and citizens are eager to learn more about the §L$requested_faction_help_adjective$§! handlers. In general, the excitement around the faction generates public interest in its ideals, which has a positive effect on the influx of new faction members."
+FACTION_DEMAND_INSPIRATION_BRIGADES_UNFD:"§P$requested_faction_help_adjective$ services§!"
+
+FACTION_DEMAND_TIYANKI_GRAVEYARD_SYSTEM:"§E$NAME_Tiyun_Ort$ system well protected§!"
+FACTION_DEMAND_TIYANKI_GRAVEYARD_SYSTEM_DESC:"Members of a faction called:\n§L[Root.GetName]§! will be thrilled to know, that the system in which the thousand-year journey through the void of space of beings of the §Etiyanki§! species, the system of their §Yrepose§!, is protected by our government. $pft_mgfaction$ asks for a protective perimeter and a kind of system-scale nature reserve."
+FACTION_DEMAND_TIYANKI_GRAVEYARD_SYSTEM_UNFD:"§P$NAME_Tiyun_Ort$ system is unprotected§!"
+
+FACTION_DEMAND_TIYANKI_SPAWN_SYSTEM:"§E$NAME_Tiyana_Vek$ system well protected§!"
+FACTION_DEMAND_TIYANKI_SPAWN_SYSTEM_DESC:"Members of a faction called:\n§L[Root.GetName]§! will be thrilled to know, that the system spontaneous emergence of cosmic macrofauna, §Yorigins§! system of the §Etiyanki§! species, is protected by our government. $pft_mgfaction$ asks for a protective perimeter and a kind of system-scale nature reserve."
+FACTION_DEMAND_TIYANKI_SPAWN_SYSTEM_UNFD:"§P$NAME_Tiyana_Vek$ system is unprotected§!"
+
 FACTION_DEMAND_OUTRAGED_GC:"Suppression $pft_mgfaction_adjective$ faction"
 FACTION_DEMAND_OUTRAGED_GC_DESC:"Members of a faction called:\n§L[Root.GetName]§! outraged at the oppression of the important ethics of the new ideology, namely §Epacifism§! or §Exenophilia§!"
 

@@ -845,21 +845,34 @@ create_monster_genesis_tiyanki_cow = {
 					if = {
 						limit = {
 							exists = event_target:monster_genesis_creator
-							event_target:monster_genesis_creator = {
-								has_policy_flag = mongen_policy_follow
-							}
 						}
 						event_target:monster_genesis_creator = {
-							random_owned_fleet = {
+							if = {
 								limit = {
-									any_owned_ship = {
-										is_ship_class = shipclass_science_ship
-									}
+									has_edict = broadcast_tiyanki_grazing
 								}
-								save_event_target_as = fleet_for_follow
+								create_point_of_interest = {
+									id = giyanki_poi
+									name = giyanki_poi
+									desc = giyanki_poi_desc
+									event_chain = "monster_genesis_event_chain"
+									location = PREV
+								}
+							}
+							if = {
+								limit = {
+									has_policy_flag = mongen_policy_follow
+								}
+								random_owned_fleet = {
+									limit = {
+										any_owned_ship = {
+											is_ship_class = shipclass_science_ship
+										}
+									}
+									save_event_target_as = fleet_for_follow
+								}
 							}
 						}
-						
 						if = {
 							limit = {
 								exists = event_target:fleet_for_follow
@@ -1124,21 +1137,34 @@ create_monster_genesis_tiyanki_bull = {
 					if = {
 						limit = {
 							exists = event_target:monster_genesis_creator
-							event_target:monster_genesis_creator = {
-								has_policy_flag = mongen_policy_follow
-							}
 						}
 						event_target:monster_genesis_creator = {
-							random_owned_fleet = {
+							if = {
 								limit = {
-									any_owned_ship = {
-										is_ship_class = shipclass_science_ship
-									}
+									has_edict = broadcast_tiyanki_grazing
 								}
-								save_event_target_as = fleet_for_follow
+								create_point_of_interest = {
+									id = giyanki_poi
+									name = giyanki_poi
+									desc = giyanki_poi_desc
+									event_chain = "monster_genesis_event_chain"
+									location = PREV
+								}
+							}
+							if = {
+								limit = {
+									has_policy_flag = mongen_policy_follow
+								}
+								random_owned_fleet = {
+									limit = {
+										any_owned_ship = {
+											is_ship_class = shipclass_science_ship
+										}
+									}
+									save_event_target_as = fleet_for_follow
+								}
 							}
 						}
-						
 						if = {
 							limit = {
 								exists = event_target:fleet_for_follow
@@ -1515,21 +1541,34 @@ create_monster_genesis_tiyanki_matriarch = {
 					if = {
 						limit = {
 							exists = event_target:monster_genesis_creator
-							event_target:monster_genesis_creator = {
-								has_policy_flag = mongen_policy_follow
-							}
 						}
 						event_target:monster_genesis_creator = {
-							random_owned_fleet = {
+							if = {
 								limit = {
-									any_owned_ship = {
-										is_ship_class = shipclass_science_ship
-									}
+									has_edict = broadcast_tiyanki_grazing
 								}
-								save_event_target_as = fleet_for_follow
+								create_point_of_interest = {
+									id = giyanki_poi
+									name = giyanki_poi
+									desc = giyanki_poi_desc
+									event_chain = "monster_genesis_event_chain"
+									location = PREV
+								}
+							}
+							if = {
+								limit = {
+									has_policy_flag = mongen_policy_follow
+								}
+								random_owned_fleet = {
+									limit = {
+										any_owned_ship = {
+											is_ship_class = shipclass_science_ship
+										}
+									}
+									save_event_target_as = fleet_for_follow
+								}
 							}
 						}
-						
 						if = {
 							limit = {
 								exists = event_target:fleet_for_follow

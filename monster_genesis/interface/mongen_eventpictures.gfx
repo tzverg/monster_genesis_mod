@@ -47,6 +47,36 @@ spriteTypes = {
 		masking_texture = "gfx/interface/situation_log/event_mask.dds"
 		alwaystransparent = yes		
 	}
+	spriteType = {
+		name = "GFX_evt_monster_genesis_ark_0"
+		texturefile = "gfx/event_pictures/ark_image_0.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes		
+	}
+	spriteType = {
+		name = "GFX_evt_monster_genesis_ark_1"
+		texturefile = "gfx/event_pictures/ark_image_1.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes		
+	}
+	spriteType = {
+		name = "GFX_evt_monster_genesis_ark_2"
+		texturefile = "gfx/event_pictures/ark_image_2.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes		
+	}
+	spriteType = {
+		name = "GFX_evt_monster_genesis_ark_3"
+		texturefile = "gfx/event_pictures/ark_image_3.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes		
+	}
+	spriteType = {
+		name = "GFX_evt_monster_genesis_ark_4"
+		texturefile = "gfx/event_pictures/ark_image_4.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes		
+	}
 	# spriteType = {
 		# name = "GFX_evt_monster_genesis_discuss_room"
 		# texturefile = "gfx/portraits/mg_discuss_room.dds"

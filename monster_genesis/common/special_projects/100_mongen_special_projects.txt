@@ -16,7 +16,11 @@ special_project = {
 	cost = 0
 	days_to_research = @tiyanki_arc_days
 	tech_department = society_technology
-	picture = GFX_evt_monster_genesis_sp
+	#picture = GFX_evt_monster_genesis_ark_0
+	#picture = GFX_evt_monster_genesis_ark_1
+	picture = GFX_evt_monster_genesis_ark_2
+	#picture = GFX_evt_monster_genesis_ark_3
+	#picture = GFX_evt_monster_genesis_ark_4
 	icon = "gfx/interface/icons/situation_log/situation_log_squid.dds"
 	timelimit = -1
 	
@@ -31,14 +35,22 @@ special_project = {
 	}
 	
 	on_success = {
-		OWNER = {
-			country_event = {
-				id = monster_genesis.3
+		if = {
+			limit = {
+				exists = owner
 			}
-			# must stay below monster_genesis.3 country event. prevent 'event_target:new_spawn_location' validation when giyanky calf created
-			abort_special_project = {
-				type = "MONGEN_TIYANKI_ARC_PROJECT"
+			owner = {
+				country_event = {
+					id = monster_genesis.3
+				}
+				# must stay below monster_genesis.3 country event. prevent 'event_target:new_spawn_location' validation when giyanky calf created
+				abort_special_project = {
+					type = "MONGEN_TIYANKI_ARC_PROJECT"
+				}
 			}
+		}
+		else = {
+			log = "mongen error: owner is not exists, this: [this]"
 		}
 	}
 }
@@ -48,7 +60,7 @@ special_project = {
 	cost = 0
 	days_to_research = @tiyanki_tag_days
 	tech_department = society_technology
-	picture = GFX_evt_monster_genesis_sp
+	picture = GFX_evt_satellite_in_orbit
 	icon = "gfx/interface/icons/situation_log/situation_log_squid.dds"
 	timelimit = -1
 	
@@ -77,9 +89,9 @@ special_project = {
 		}
 		if = {
 			limit = {
-				exists = OWNER
+				exists = owner
 			}
-			OWNER = {
+			owner = {
 				if = {
 					limit = {
 						has_special_project = "MONGEN_GRAZING_TAG_PROJECT"
@@ -90,6 +102,9 @@ special_project = {
 				}
 			}
 		}
+		else = {
+			log = "mongen error: owner is not exists, this: [this]"
+		}
 	}
 }
 
@@ -98,7 +113,7 @@ special_project = {
 	cost = 0
 	days_to_research = @tiyanki_tag_days
 	tech_department = society_technology
-	picture = GFX_evt_monster_genesis_sp
+	picture = GFX_evt_satellite_in_orbit
 	icon = "gfx/interface/icons/situation_log/situation_log_squid.dds"
 	timelimit = -1
 	
@@ -124,9 +139,9 @@ special_project = {
 		}
 		if = {
 			limit = {
-				exists = OWNER
+				exists = owner
 			}
-			OWNER = {
+			owner = {
 				if = {
 					limit = {
 						has_special_project = "MONGEN_GRAZING_UNTAG_PROJECT"
@@ -136,6 +151,9 @@ special_project = {
 					}
 				}
 			}
+		}
+		else = {
+			log = "mongen error: owner is not exists, this: [this]"
 		}
 	}
 }

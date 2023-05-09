@@ -51,7 +51,19 @@ mongen_student = {
 	}
 
 	weight = {
-		weight = @specialist_job_weight
+		weight = @high_prio_specialist_job_weight
+		factor = 1.2
+		mult = value:job_weights_research_modifier|JOB|researcher|
+		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
+		add = 10
+		modifier = {
+			factor = 1.4
+			mongen_specialist_job_check_trigger = yes
+		}
+		modifier = {
+			factor = 1.5
+			has_job = mongen_student
+		}
 		modifier = {
 			factor = 150
 			exists = planet
@@ -77,7 +89,7 @@ mongen_student = {
 			}
 		}
 		modifier = {
-			factor = 200 # brings @special_job_weight up to 2
+			factor = 200 # brings weight up to 2.0
 			exists = planet
 			exists = planet.controller
 			planet.controller = {

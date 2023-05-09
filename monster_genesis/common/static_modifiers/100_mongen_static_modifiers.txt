@@ -69,7 +69,7 @@ tiyanki_negative_effect = {
 }
 
 grazing_candidate = {
-	station_gatherers_energy_upkeep_mult = 0.1
+	#station_gatherers_energy_upkeep_mult = 0.1
 	icon = "gfx/interface/icons/planet_modifiers/grazing_field_mongen.dds"
 	icon_frame = 1
 }

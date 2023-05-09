@@ -18,17 +18,9 @@ tech_ark_of_genesis = {
 	weight_modifier = {
 		factor = 0.5   # Sets the base chance of the tech appearing
 		
-		modifier = {
-			factor = 3
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_biology"
-			}
-		}
-		
 		# Sets chance to 0 if the empire does not have any of the following ethics.
 		modifier = {
-			factor = 0
+			factor = 0.05
 			NOR = {
 				has_ethic = ethic_xenophile
 				has_ethic = ethic_fanatic_xenophile
@@ -45,6 +37,36 @@ tech_ark_of_genesis = {
 			NOT = { has_communications = event_target:tiyanki_country }
 			# v.2.8.x
 			#NOT = { has_country_flag = established_comms_with_tiyanki } 	
+		}
+
+		modifier = {
+			factor = 1.5
+			is_specialist_subject_type = { TYPE = scholarium }
+		}
+
+		modifier = {
+			factor = 2
+			years_passed > 5
+			has_communications = event_target:tiyanki_country
+		}
+		modifier = {
+			factor = 2
+			years_passed > 10
+			has_communications = event_target:tiyanki_country
+		}
+		modifier = {
+			factor = 2
+			years_passed > 15
+			has_communications = event_target:tiyanki_country
+		}
+
+		modifier = {
+			factor = 3
+			has_country_flag = tiyanki_survey
+		}
+		modifier = {
+			factor = 3
+			has_country_flag = tiyanki_graveyard_survey
 		}
 	}
 	
@@ -65,16 +87,6 @@ tech_tiyanki_media = {
 		factor = 0.5   # Sets the base chance of the tech appearing
 		
 		modifier = {
-			factor = 0   # Sets chance to 0 if the empire does not have any of the following ethics.
-			NOR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-				has_ethic = ethic_pacifist
-				has_ethic = ethic_fanatic_pacifist
-			}
-		}
-		
-		modifier = {
 			factor = 1.25
 			has_ethic = ethic_pacifist
 		}
@@ -84,10 +96,25 @@ tech_tiyanki_media = {
 		}
 		modifier = {
 			factor = 1.25
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_biology"
-			}
+			has_ethic = ethic_xenophile
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_xenophile
+		}
+
+		modifier = {
+			factor = 1.5
+			is_specialist_subject_type = { TYPE = scholarium }
+		}
+
+		modifier = {
+			factor = 3
+			has_country_flag = tiyanki_survey
+		}
+		modifier = {
+			factor = 3
+			has_country_flag = tiyanki_graveyard_survey
 		}
 	}
 	
@@ -112,16 +139,6 @@ tech_tiyanki_comm = {
 		factor = 0.5   # Sets the base chance of the tech appearing
 		
 		modifier = {
-			factor = 0   # Sets chance to 0 if the empire does not have any of the following ethics.
-			NOR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-				has_ethic = ethic_pacifist
-				has_ethic = ethic_fanatic_pacifist
-			}
-		}
-		
-		modifier = {
 			factor = 1.25
 			has_ethic = ethic_pacifist
 		}
@@ -131,10 +148,25 @@ tech_tiyanki_comm = {
 		}
 		modifier = {
 			factor = 1.25
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_biology"
-			}
+			has_ethic = ethic_xenophile
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_xenophile
+		}
+
+		modifier = {
+			factor = 1.5
+			is_specialist_subject_type = { TYPE = scholarium }
+		}
+
+		modifier = {
+			factor = 3
+			has_country_flag = tiyanki_survey
+		}
+		modifier = {
+			factor = 3
+			has_country_flag = tiyanki_graveyard_survey
 		}
 	}
 	
@@ -155,16 +187,6 @@ tech_tiyanki_order = {
 		factor = 0.5   # Sets the base chance of the tech appearing
 		
 		modifier = {
-			factor = 0   # Sets chance to 0 if the empire does not have any of the following ethics.
-			NOR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-				has_ethic = ethic_pacifist
-				has_ethic = ethic_fanatic_pacifist
-			}
-		}
-		
-		modifier = {
 			factor = 1.25
 			has_ethic = ethic_pacifist
 		}
@@ -174,10 +196,25 @@ tech_tiyanki_order = {
 		}
 		modifier = {
 			factor = 1.25
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_biology"
-			}
+			has_ethic = ethic_xenophile
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_xenophile
+		}
+
+		modifier = {
+			factor = 1.5
+			is_specialist_subject_type = { TYPE = scholarium }
+		}
+
+		modifier = {
+			factor = 3
+			has_country_flag = tiyanki_survey
+		}
+		modifier = {
+			factor = 3
+			has_country_flag = tiyanki_graveyard_survey
 		}
 	}
 	
