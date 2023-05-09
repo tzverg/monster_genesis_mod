@@ -1,4 +1,4 @@
-version="3.4.0"
+version="3.8.1"
 tags={
 	"Gameplay"
 	"Events"
@@ -7,5 +7,5 @@ tags={
 }
 name="Monster Genesis"
 picture="thumbnail.png"
-supported_version="3.4.*"
+supported_version="3.8.*"
 path="C:/Users/tzverg/Documents/Paradox Interactive/Stellaris/mod/monster_genesis"
